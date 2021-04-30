@@ -1,0 +1,514 @@
+@import "../../index.scss";
+
+/*start hr-section-1*/
+.hr-section-1 {
+  h1 {
+    font-size: 35px;
+    color: $purple-500;
+    font-weight: bold;
+    font-family: $ft-poppins;
+    line-height: 1.5;
+    padding-top: 10px;
+    margin-bottom: 30px;
+    .hero-bord {
+      border-bottom: 14px solid transparent;
+      border-image: url("../../images/hero-bord.svg") 25;
+    }
+    .to-be {
+      font-style: italic;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+  }
+  p {
+    font-size: 16px;
+    color: $purple-500;
+    font-family: $ft-poppins;
+    line-height: 1.8;
+  }
+  .ex-now {
+    padding: 8px 55px;
+    background-color: $purple-500;
+    border-radius: 24px;
+    text-align: center;
+    margin-bottom: 25px;
+    transition: all 0.5s ease-in-out;
+    a {
+      color: #fff;
+      font-size: 17px;
+      font-weight: 400;
+    }
+    &:hover {
+      opacity: 0.8;
+      &:before {
+        content: url(../../images/btn-before.svg);
+        position: absolute;
+        left: 0;
+        margin: -20px -15px;
+      }
+      &:after {
+        content: url(../../images/btn-after.svg);
+        position: absolute;
+        margin: -20px 60px;
+      }
+    }
+  }
+  .gr-mentor {
+    padding: 3px 0;
+    width: 120px;
+    font-size: 14px;
+    background-color: $purple-300;
+    border-radius: 24px;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+}
+/*end hr-section-1*/
+
+/*start hr-section-2*/
+.hr-section-2 {
+  background-image: url("../../images/hero2.svg");
+  background-size: cover;
+  padding: 0 80px 60px;
+  .hero-icon-angle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -18px;
+    i {
+      font-size: 20px;
+      color: $purple-300;
+      border: 1px solid $purple-300;
+      background-color: #fff;
+      border-radius: 50%;
+      padding: 10px 13px;
+      cursor: pointer;
+      transition: all 0.4s ease-in-out;
+      &:hover {
+        background-color: $purple-300;
+        color: #fff;
+      }
+    }
+  }
+  h1 {
+    font-size: 20px;
+    font-family: $ft-poppins;
+    color: $purple-300;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    span {
+      color: $purple-500;
+    }
+  }
+
+  .card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid $purple-300;
+    z-index: 9999;
+    max-width: 280px;
+    border-radius: 7px;
+    transform: translate(25px, 10px);
+  }
+  .card-help {
+    height: 100%;
+    background-color: #fff;
+    text-align: center;
+    max-width: 280px;
+    border-radius: 7px;
+    padding: 55px 45px;
+    .img-card {
+      img {
+        width: auto;
+      }
+    }
+    h6 {
+      font-family: $ft-poppins;
+      font-size: 20px;
+      color: $purple-400;
+      font-weight: 300;
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+    p {
+      font-family: $ft-poppins;
+      font-size: 13px;
+      color: $purple-300;
+      line-height: 1.8;
+    }
+  }
+}
+/*end hr-section-2*/
+/*start hr-section-3*/
+.hr-section-3 {
+  h6 {
+    color: $purple-200;
+    font-size: 16px;
+    font-family: $ft-poppins;
+    font-weight: 300;
+    margin-bottom: 15px;
+  }
+  h1 {
+    color: $purple-500;
+    font-size: 28px;
+    font-family: $ft-poppins;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+  p {
+    color: $purple-gray;
+    font-family: $ft-poppins;
+    line-height: 1.8;
+    margin-bottom: 10px;
+  }
+  .btn-arrow {
+    .btn-g-m-start {
+      background-color: $purple-400;
+      padding: 10px 25px;
+      border-radius: 24px;
+      font-size: 16px;
+      font-family: $ft-poppins;
+      margin-top: 10px;
+      transition: all 0.4 ease-in-out;
+      a {
+        color: #fff;
+      }
+      &:hover {
+        box-shadow: 4px 4px $cyan;
+      }
+    }
+    img {
+      width: auto;
+    }
+  }
+}
+/*end hr-section-3*/
+/*start hr-section-4*/
+.hr-section-4 {
+  background: url(../../images/hero5.svg) no-repeat;
+  background-size: cover;
+  p {
+    color: $purple-500;
+    font-size: 18px;
+    font-family: $ft-poppins;
+    padding: 14px 0;
+    line-height: 1.8;
+    img {
+      width: auto;
+      position: absolute;
+      top: -15px;
+      left: 0;
+    }
+  }
+  .hero-img-p {
+    text-align: center;
+    img {
+      width: auto;
+      background-color: #e1e8f8;
+      padding: 10px;
+      border-radius: 45%;
+    }
+    h6 {
+      font-size: 16px;
+      font-family: $ft-poppins;
+      color: $purple-500;
+      font-weight: 400;
+    }
+    p {
+      font-size: 14px;
+      font-family: $ft-poppins;
+      color: $purple-gray;
+      font-weight: 400;
+      padding: 0;
+      line-height: 1;
+    }
+  }
+}
+/*end hr-section-4*/
+
+/*start hr-section-5*/
+.hr-section-5 {
+  .wings {
+    padding: 4rem;
+    padding-bottom: 1rem;
+    background-image: url(../../images/border-wings.svg);
+    background-repeat: no-repeat;
+    background-size: 35rem auto;
+    font-size: 24px;
+    text-align: center;
+    background-position: center;
+    h1 {
+      color: $purple-500;
+      font-weight: bold;
+      font-family: $ft-poppins;
+    }
+  }
+  .met-or-gur {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    padding-bottom: 100px;
+    button {
+      padding: 6px 0;
+      width: 180px;
+      font-size: 16px;
+      font-family: $ft-poppins;
+      border-radius: 24px;
+      background-color: $purple-400;
+      transition: all 0.4s ease-in-out;
+      &:hover {
+        box-shadow: 4px 4px $cyan;
+      }
+    }
+    h1 {
+      margin: 0 15px;
+      color: $purple-400;
+      font-weight: 300;
+      font-family: $ft-poppins;
+    }
+  }
+  hr {
+    border: 1px solid $purple-500;
+    border-radius: 24px;
+  }
+}
+/*end hr-section-5*/
+
+/*start hr-section-6*/
+.hr-section-6 {
+  text-align: center;
+  h2,
+  p {
+    color: $purple-500;
+    font-family: $ft-poppins;
+    font-weight: 400;
+    padding-bottom: 20px;
+    letter-spacing: 1px;
+  }
+}
+/*end hr-section-6*/
+/* start page sign in*/
+/* start hr-section-7*/
+.hr-section-7 {
+  background-color: #f3f4f7;
+  h1 {
+    color: $purple-500;
+    padding-bottom: 1.5rem;
+  }
+  .form-container {
+    max-width: 30rem;
+    min-width: 16rem;
+    border-radius: 8px;
+    padding: 3rem 4.5rem 1rem;
+    background-color: #fff;
+  }
+  .nav-form {
+    max-width: 30rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 10px;
+    transform: translate(0px, 15px);
+    z-index: 9999;
+    li {
+      background-color: #fff;
+      width: 27%;
+      height: 2.6rem;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      .overlay-form {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        bottom: 0;
+        border: 3px solid $purple-300;
+        z-index: 9999;
+        max-width: 25.5%;
+        border-radius: 10px;
+        opacity: 0.5;
+        transform: translate(-3px, 5px);
+        a {
+          color: #000;
+          font-size: 13px;
+          position: relative;
+          top: 10%;
+        }
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+      .active {
+        border: 3px solid $purple-300;
+        opacity: 1;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .btn-sign {
+    padding: 3px 0;
+    width: 140px;
+    font-size: 16px;
+    background-color: #8c61ff;
+    border-radius: 24px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+/* end hr-section-7*/
+/* end page sign in*/
+/* start page sign up*/
+/* start hr-section-8*/
+.hr-section-8 {
+  background-color: #f3f4f7;
+  h1 {
+    color: $purple-500;
+    padding-bottom: 1.5rem;
+  }
+  .form-register-container {
+    max-width: 90%;
+    min-width: 16rem;
+    border-radius: 8px;
+    padding: 3rem 3.5rem 1rem;
+    background-color: #fff;
+  }
+  .nav-form {
+    max-width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    transform: translate(0px, 15px);
+    z-index: 9999;
+    li {
+      background-color: #fff;
+      width: 32%;
+      height: 2.6rem;
+      border-radius: 5px;
+      padding: 10px;
+      text-align: center;
+      margin-right: 2rem;
+      .overlay-form {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        bottom: 0;
+        border: 3px solid $purple-300;
+        z-index: 9999;
+        max-width: 30%;
+        border-radius: 7px;
+        opacity: 0.5;
+        transform: translate(-3px, 5px);
+        a {
+          color: #000;
+          font-size: 13px;
+          position: relative;
+          top: 10%;
+        }
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+      .active {
+        border: 3px solid $purple-300;
+        opacity: 1;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .btn-sign {
+    padding: 3px 0;
+    width: 140px;
+    font-size: 16px;
+    background-color: #8c61ff;
+    border-radius: 24px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+/* end hr-section-8*/
+/* end page sign up*/
+/* start page sign in-hero*/
+.header-signIn-hero {
+  padding: 0.5rem 0 0.5rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .arrow {
+    img {
+      width: auto;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        transform: scaleX(1.25);
+      }
+    }
+  }
+  .nav-signIn-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+/* start hr-section-9*/
+.hr-section-9 {
+  background-color: #f3f4f7;
+  height: 100vh;
+
+  h1 {
+    color: $purple-500;
+    font-family: $ft-Maru-Pop;
+    font-size: 28px;
+    text-align: center;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  img {
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      content: url(../../images/hero-signIn-hover.png);
+    }
+  }
+  .form-container {
+    max-width: 85%;
+    min-width: 16rem;
+    border-radius: 8px;
+    padding: 3rem 2.5rem 1rem;
+  }
+  input {
+    background-color: #fff;
+    &:hover {
+      box-shadow: 0px 2px 8px #8c61ff52;
+    }
+  }
+  label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .btn-sign {
+    padding: 3px 0;
+    width: 140px;
+    font-size: 16px;
+    background-color: #8c61ff;
+    border-radius: 24px;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+}
+/* end hr-section-9*/
+/* end page sign in-hero*/
