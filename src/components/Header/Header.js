@@ -4,20 +4,20 @@ import "./Header.scss";
 const Header = () => {
   return (
     <header>
-      <div class="container">
+      <div className="container">
         <nav>
-          <div class="logo">
+          <div className="logo">
             <Link to="">
               {" "}
               <h1>TO BE</h1>
               <span>HERO</span>
             </Link>
           </div>
-          <div class="navbar-ham">
-            <button class="hamburger" id="hamburger">
-              <i class="fas fa-bars"></i>
+          <div className="navbar-ham">
+            <button className="hamburger" id="hamburger">
+              <i className="fas fa-bars"></i>
             </button>
-            <ul class="navbar" id="navbar">
+            <ul className="navbar" id="navbar">
               <li>
                 <Link to="">explore</Link>
               </li>
@@ -25,7 +25,7 @@ const Header = () => {
                 <Link to="">login</Link>
               </li>
               <li>
-                <Link to="" class="hero">
+                <Link to="" className="hero">
                   HERO
                 </Link>
               </li>
