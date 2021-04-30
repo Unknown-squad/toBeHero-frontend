@@ -1,31 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Header.scss";
-const Header = () => {
+const HeaderLogin = () => {
   return (
     <header>
-      <div className="container">
+      <div class="container">
         <nav>
-          <div className="logo">
-            <Link to="/">
+          <div class="logo">
+            <Link to="">
               {" "}
               <h1>TO BE</h1>
               <span>HERO</span>
             </Link>
           </div>
-          <div className="navbar-ham">
-            <button className="hamburger" id="hamburger">
-              <i className="fas fa-bars"></i>
+          <div class="navbar-ham">
+            <button class="hamburger" id="hamburger">
+              <i class="fas fa-bars"></i>
             </button>
-            <ul className="navbar" id="navbar">
+            <ul class="navbar" id="navbar">
               <li>
                 <Link to="">explore</Link>
               </li>
               <li>
-                <Link to="">login</Link>
+                <Link to="" class="bg-purple-400">
+                  login
+                </Link>
               </li>
               <li>
-                <Link to="" className="hero">
+                <Link to="" class="hero bg-purple-400">
                   HERO
                 </Link>
               </li>
@@ -37,4 +38,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderLogin;

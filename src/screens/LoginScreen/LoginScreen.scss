@@ -1,0 +1,75 @@
+@import "../../index.scss";
+
+/* start page sign in*/
+/* start hr-section-7*/
+.hr-section-7 {
+  background-color: #f3f4f7;
+  h1 {
+    color: $purple-500;
+    padding-bottom: 1.5rem;
+  }
+  .form-container {
+    max-width: 30rem;
+    min-width: 16rem;
+    border-radius: 8px;
+    padding: 3rem 4.5rem 1rem;
+    background-color: #fff;
+  }
+  .nav-form {
+    max-width: 30rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 10px;
+    transform: translate(0px, 15px);
+    z-index: 9999;
+    li {
+      background-color: #fff;
+      width: 27%;
+      height: 2.6rem;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      .overlay-form {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        bottom: 0;
+        border: 3px solid $purple-300;
+        z-index: 9999;
+        max-width: 25.5%;
+        border-radius: 10px;
+        opacity: 0.5;
+        transform: translate(-3px, 5px);
+        a {
+          color: #000;
+          font-size: 13px;
+          position: relative;
+          top: 10%;
+        }
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+      .active {
+        border: 3px solid $purple-300;
+        opacity: 1;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .btn-sign {
+    padding: 3px 0;
+    width: 140px;
+    font-size: 16px;
+    background-color: #8c61ff;
+    border-radius: 24px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+/* end hr-section-7*/
+/* end page sign in*/

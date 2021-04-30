@@ -9,11 +9,13 @@ import hero3 from "../../images/hero3.png";
 import hero4 from "../../images/hero4.png";
 import hero5Icon from "../../images/hero5-icon.svg";
 import heroImg from "../../images/hero-img-1.png";
-
 import "./HomeScreen.scss";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 const HomeScreen = () => {
   return (
     <>
+      <Header></Header>
       {/* <!-- start sextion-1 --> */}
       <section className="hr-section-1">
         <div className="container">
@@ -197,6 +199,7 @@ const HomeScreen = () => {
         </div>
       </section>
       {/* //   <!-- end sextion-6 -->; */}
+      <Footer></Footer>
     </>
   );
 };
