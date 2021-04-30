@@ -1,0 +1,248 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap");
+/* global*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:focus {
+  outline: none;
+}
+a {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+img {
+  width: 100%;
+}
+section {
+  padding: 60px 80px;
+}
+.font-bold {
+  font-weight: bold;
+}
+.font-500 {
+  font-weight: 500;
+}
+.font-600 {
+  font-weight: 600;
+}
+
+.btn {
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  border: none;
+  color: white;
+  transition-duration: 0.3s;
+  a {
+    color: #fff;
+  }
+}
+svg {
+  display: block;
+}
+
+.flex-row {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.just-cont-cntr {
+  justify-content: center;
+}
+.text-center {
+  text-align: center;
+}
+.alin-itms-cntr {
+  align-items: center;
+}
+form,
+form div {
+  padding-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  background-color: #f3f4f7;
+  border: none;
+  border-radius: 7px;
+  padding: 0.5rem 1rem;
+  :focus {
+    outline-offset: none;
+  }
+}
+label {
+  font-size: 14px;
+}
+select {
+  background-color: #f3f4f7;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 0;
+}
+
+input[type="text"],
+input[type="password"],
+input[name="sign-in-email"],
+input[name="register-email"],
+input[type="tel"] {
+  background-repeat: no-repeat;
+  background-position: 97% 50%;
+}
+input[type="text"] {
+  background-image: url(./images/user-icon.svg);
+}
+
+input[type="password"] {
+  background-image: url(./images/lock-icon.svg);
+}
+input[name="sign-in-email"] {
+  background-image: url(./images/user-icon.svg);
+}
+
+input[name="register-email"] {
+  background-image: url(./images/at-icon.svg);
+}
+
+input[type="tel"] {
+  background-image: url(./images/phone-icon.svg);
+}
+.w-100 {
+  width: 100%;
+}
+.w-75 {
+  width: 75%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-25 {
+  width: 25%;
+}
+/*global*/
+/* margin and padding*/
+
+$spaceamounts: (
+  1,
+  2,
+  3,
+  4,
+  5
+); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space/2}rem !important;
+    }
+
+    .p#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space/2}rem !important;
+    }
+  }
+}
+
+/* margin and padding*/
+
+$grid__bp-sm: 576;
+$grid__bp-md: 768;
+$grid__bp-lg: 992;
+$grid__bp-xl: 1200;
+$grid__cols: 12;
+
+$map-grid-props: (
+  "": 0,
+  "-sm": $grid__bp-sm,
+  "-md": $grid__bp-md,
+  "-lg": $grid__bp-lg,
+  "-xl": $grid__bp-xl,
+);
+
+@mixin create-mq($breakpoint, $min-or-max) {
+  @if ($breakpoint == 0) {
+    @content;
+  } @else {
+    @media screen and (#{$min-or-max}-width: $breakpoint *1px) {
+      @content;
+    }
+  }
+}
+
+@mixin create-col-classes($modifier, $grid-cols, $breakpoint) {
+  @include create-mq($breakpoint, "min") {
+    .col#{$modifier}-offset-0 {
+      margin-left: 0;
+    }
+
+    @for $i from 1 through $grid-cols {
+      .col#{$modifier}-#{$i} {
+        flex: 0 0 (100 / ($grid-cols / $i)) * 1%;
+        max-width: (100 / ($grid-cols / $i)) * 1%;
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+      }
+      .col#{$modifier}-offset-#{$i} {
+        margin-left: (100 / ($grid-cols / $i)) * 1%;
+      }
+    }
+  }
+}
+
+@each $modifier, $breakpoint in $map-grid-props {
+  @if ($modifier == "") {
+    $modifier: "-xs";
+  }
+  @include create-mq($breakpoint - 1, "max") {
+    .hidden#{$modifier}-down {
+      display: none !important;
+    }
+  }
+  @include create-mq($breakpoint, "min") {
+    .hidden#{$modifier}-up {
+      display: none !important;
+    }
+  }
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+  &-fluid {
+    margin: 0;
+    max-width: 100%;
+  }
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+@each $modifier, $breakpoint in $map-grid-props {
+  @include create-col-classes($modifier, $grid__cols, $breakpoint);
+}
+
+/*end grid system**/
+$ft-poppins: "Poppins", sans-serif;
+$ft-Maru-Pop: "Hachi Maru Pop", cursive;
+$purple-200: #6592fd;
+$purple-300: #8c61ff;
+$purple-400: #5f59f7;
+$purple-500: #343090;
+$purple-gray: #77758e;
+$cyan: #44c2fd;
+/* fontsize: 24-20-18-16-14(px)*/
