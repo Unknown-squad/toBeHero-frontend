@@ -110,7 +110,7 @@ const GuardianRegisterScreen = () => {
                         name="register"
                         value="Register"
                       ></input>
-                      <Link to="/login">already registered?</Link>
+                      <Link to="/login/guardian">already registered?</Link>
                     </div>
                   </form>
                 </div>

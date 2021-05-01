@@ -4,6 +4,7 @@ import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
 import HeroLoginScreen from "./screens/HeroLoginScreen";
 import GuardianRegisterScreen from "./screens/GuardianRegisterScreen";
+import MentorRegisterScreen from "./screens/MentorRegisterScreen";
 function App() {
   return (
     <Router>
@@ -14,7 +15,11 @@ function App() {
         component={GuardianRegisterScreen}
         exact
       ></Route>
-      {/* <Route path="/register/guardian" component={GuardianRegisterScreen} exact></Route> */}
+      <Route
+        path="/register/mentor"
+        component={MentorRegisterScreen}
+        exact
+      ></Route>
       <Route path="/login/hero" component={HeroLoginScreen} exact></Route>
       <Route path="/login/guardian" component={LoginScreen} exact></Route>
       <Route path="/login/mentor" component={LoginScreen} exact></Route>
