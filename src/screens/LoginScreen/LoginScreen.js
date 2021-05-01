@@ -5,6 +5,9 @@ import Footer from "../../components/Footer";
 import HeaderLogin from "../../components/HeaderLogin";
 import "./LoginScreen.scss";
 const LoginScreen = () => {
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
   return (
     <>
       <HeaderLogin></HeaderLogin>
@@ -20,24 +23,24 @@ const LoginScreen = () => {
               <ul className="nav-form">
                 <li>
                   <div className="overlay-form active">
-                    <Link to="">Guardian</Link>
+                    <Link to="/login/guardian">Guardian</Link>
                   </div>
                 </li>
                 <li>
                   <div className="overlay-form">
-                    <Link to="">Mentor</Link>
+                    <Link to="/login/mentor">Mentor</Link>
                   </div>
                 </li>
                 <li>
                   <div className="overlay-form">
-                    <Link to="">Hero</Link>
+                    <Link to="/login/hero">Hero</Link>
                   </div>
                 </li>
               </ul>
               <div className="form-container flex-column just-cont">
                 <div className="sign-in-form">
                   <div className="form-inputs">
-                    <form action="">
+                    <form onSubmit={submitHandler}>
                       <div className="input-field">
                         <label htmlFor="email">Email</label>
                         <br />
@@ -62,7 +65,7 @@ const LoginScreen = () => {
                         <br />
                       </div>
                       <div className="form-note just-cont-cntr text-center">
-                        <Link to="">forgot your password?</Link>
+                        <Link to="/confirm">forgot your password?</Link>
                       </div>
                       <div className="form-btns flex-column just-cont-cntr alin-itms-cntr">
                         <input
@@ -72,7 +75,7 @@ const LoginScreen = () => {
                           value="SIGN IN"
                         ></input>
                         <p>
-                          or <Link to="">join us now</Link>
+                          or <Link to="/register">join us now</Link>
                         </p>
                       </div>
                     </form>
