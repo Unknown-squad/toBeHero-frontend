@@ -1,0 +1,85 @@
+@import "../../index.scss";
+
+/* start page sign in-hero*/
+.header-signIn-hero {
+  padding: 0.5rem 0 0.5rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .arrow {
+    img {
+      width: auto;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        transform: scaleX(1.25);
+      }
+    }
+  }
+  .nav-signIn-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+/* start hr-section-9*/
+.hr-section-9 {
+  background-color: #f3f4f7;
+
+  h1 {
+    color: $purple-500;
+    font-family: $ft-Maru-Pop;
+    font-size: 28px;
+    text-align: center;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .hero-signIn {
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      content: url(../images/hero-signIn-hover.png);
+    }
+  }
+  .form-container {
+    max-width: 85%;
+    min-width: 16rem;
+    border-radius: 8px;
+    padding: 3rem 2.5rem 1rem;
+  }
+  input {
+    background-color: #fff;
+    &:hover,
+    &:focus {
+      box-shadow: 0px 2px 8px #8c61ff52;
+    }
+  }
+
+  label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .btn-sign {
+    padding: 3px 0;
+    width: 140px;
+    font-size: 16px;
+    background-color: #8c61ff;
+    border-radius: 24px;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    img {
+      width: auto;
+      padding-left: 0.25rem;
+      transition: all 0.3s ease-in-out;
+    }
+    &:hover img {
+      transform: translate(5px, 0px);
+    }
+  }
+}
+/* end hr-section-9*/
+/* end page sign in-hero*/
