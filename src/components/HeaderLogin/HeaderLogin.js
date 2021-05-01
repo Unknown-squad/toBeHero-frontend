@@ -6,7 +6,7 @@ const HeaderLogin = () => {
       <div class="container">
         <nav>
           <div class="logo">
-            <Link to="">
+            <Link to="/">
               {" "}
               <h1>TO BE</h1>
               <span>HERO</span>
@@ -18,15 +18,15 @@ const HeaderLogin = () => {
             </button>
             <ul class="navbar" id="navbar">
               <li>
-                <Link to="">explore</Link>
+                <Link to="/explore">explore</Link>
               </li>
               <li>
-                <Link to="" class="bg-purple-400">
+                <Link to="/login" class="bg-purple-400">
                   login
                 </Link>
               </li>
               <li>
-                <Link to="" class="hero bg-purple-400">
+                <Link to="/login/hero" class="hero bg-purple-400">
                   HERO
                 </Link>
               </li>
