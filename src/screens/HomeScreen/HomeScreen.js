@@ -38,10 +38,10 @@ const HomeScreen = () => {
                 <button className="btn ex-now">Explore now</button>
               </Link>
               <p className="font-500">Or join as a</p>
-              <Link to="/login/guardian">
+              <Link to="/register/guardian">
                 <button className="btn gr-mentor">Guardian</button>
               </Link>
-              <Link to="/login/mentor">
+              <Link to="/register/mentor">
                 <button className="btn gr-mentor">Mentor</button>
               </Link>
             </div>
@@ -117,7 +117,7 @@ const HomeScreen = () => {
                 innovative with your mentoring methods
               </p>
               <div className="btn-arrow">
-                <Link to="/login/mentor">
+                <Link to="/register/mentor">
                   <button className="btn btn-g-m-start">
                     Mentors, start here
                   </button>
@@ -139,7 +139,7 @@ const HomeScreen = () => {
                 monitor their progress
               </p>
               <div className="btn-arrow">
-                <Link to="/login/guardian">
+                <Link to="/register/guardian">
                   <button className="btn btn-g-m-start">
                     Guardian, start here
                   </button>
@@ -183,11 +183,11 @@ const HomeScreen = () => {
             <h1>Join TO BE HERO today</h1>
           </div>
           <div className="met-or-gur">
-            <Link to="/login/mentor">
+            <Link to="/register/mentor">
               <button className="btn">Mentor</button>
             </Link>
             <h1>OR</h1>
-            <Link to="/login/guardian">
+            <Link to="/register/guardian">
               <button className="btn">Guardian</button>
             </Link>
           </div>

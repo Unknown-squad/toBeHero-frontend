@@ -260,6 +260,9 @@ $cyan: #44c2fd;
   section {
     padding: 70px 0;
   }
+  .hr-section-10 {
+    padding: 25px 0;
+  }
   .hr-section-3 .btn-g-m-start::after {
     bottom: 50px;
   }
@@ -342,7 +345,8 @@ $cyan: #44c2fd;
     padding: 0;
   }
   .hr-section-7 .form-container,
-  .hr-section-8 .form-register-container {
+  .hr-section-8 .form-register-container,
+  .hr-section-10 .form-register-container {
     padding: 3rem 1.75rem;
   }
   footer .footer-info {
