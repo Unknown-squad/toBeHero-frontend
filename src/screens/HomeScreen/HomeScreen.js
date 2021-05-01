@@ -30,16 +30,20 @@ const HomeScreen = () => {
               </h1>
               <p className="mb-3">
                 We are a platform that assists guardians in finding
-                <span className="font-500">mentors</span> for their children for
-                a better education through a
-                <span className="font-500">one-on-one live video calls</span>
+                <span className="font-500"> mentors</span> for their children
+                for a better education through a
+                <span className="font-500"> one-on-one live video calls</span>
               </p>
-              <button className="btn ex-now">
-                <Link to="">Explore now</Link>
-              </button>
+              <Link to="/explore">
+                <button className="btn ex-now">Explore now</button>
+              </Link>
               <p className="font-500">Or join as a</p>
-              <button className="btn gr-mentor">Guardian</button>
-              <button className="btn gr-mentor">Mentor</button>
+              <Link to="/login/guardian">
+                <button className="btn gr-mentor">Guardian</button>
+              </Link>
+              <Link to="/login/mentor">
+                <button className="btn gr-mentor">Mentor</button>
+              </Link>
             </div>
           </div>
         </div>
@@ -48,9 +52,11 @@ const HomeScreen = () => {
       {/* //   <!-- start section-2 --> */}
       <section className="hr-section-2">
         <div className="hero-icon-angle">
-          <i className="fas fa-angle-double-down"></i>
+          <a href="#down">
+            <i className="fas fa-angle-double-down"></i>
+          </a>
         </div>
-        <div className="container">
+        <div className="container" id="down">
           <h1>
             How <span>ToBeHero</span> can Help
           </h1>
@@ -111,9 +117,11 @@ const HomeScreen = () => {
                 innovative with your mentoring methods
               </p>
               <div className="btn-arrow">
-                <button className="btn btn-g-m-start">
-                  <Link to="">Mentors, start here</Link>
-                </button>
+                <Link to="/login/mentor">
+                  <button className="btn btn-g-m-start">
+                    Mentors, start here
+                  </button>
+                </Link>
                 <img src={curvedArrow} alt="" />
               </div>
             </div>
@@ -131,9 +139,11 @@ const HomeScreen = () => {
                 monitor their progress
               </p>
               <div className="btn-arrow">
-                <button className="btn btn-g-m-start">
-                  <Link to="">Mentors, start here</Link>
-                </button>
+                <Link to="/login/guardian">
+                  <button className="btn btn-g-m-start">
+                    Guardian, start here
+                  </button>
+                </Link>
                 <img src={curvedArrow} alt="" />
               </div>
             </div>
@@ -173,13 +183,13 @@ const HomeScreen = () => {
             <h1>Join TO BE HERO today</h1>
           </div>
           <div className="met-or-gur">
-            <button className="btn">
-              <Link to="">Mentor</Link>
-            </button>
+            <Link to="/login/mentor">
+              <button className="btn">Mentor</button>
+            </Link>
             <h1>OR</h1>
-            <button className="btn">
-              <Link href="">Guardian</Link>
-            </button>
+            <Link href="/login/guardian">
+              <button className="btn">Guardian</button>
+            </Link>
           </div>
           <hr />
         </div>
@@ -188,7 +198,7 @@ const HomeScreen = () => {
       {/* //   <!-- start section-6 --> */}
       <section className="hr-section-6">
         <div className="container">
-          <h2>built and developed by</h2>
+          <h2>Built and Developed By</h2>
           <p>
             Mohammed Sobhi - Mohammed Ramadan - Islam Goher - Mahmoud serag
             Osama Ammar - Mohammed Ali - Mohammed Ibrahim

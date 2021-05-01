@@ -4,7 +4,7 @@ import "./Header.scss";
 const Header = () => {
   return (
     <header>
-      <div className="container">
+      <div className="container" id="up">
         <nav>
           <div className="logo">
             <Link to="/">
@@ -19,13 +19,13 @@ const Header = () => {
             </button>
             <ul className="navbar" id="navbar">
               <li>
-                <Link to="">explore</Link>
+                <Link to="/explore">explore</Link>
               </li>
               <li>
-                <Link to="">login</Link>
+                <Link to="/login">login</Link>
               </li>
               <li>
-                <Link to="" className="hero">
+                <Link to="/hero" className="hero">
                   HERO
                 </Link>
               </li>
