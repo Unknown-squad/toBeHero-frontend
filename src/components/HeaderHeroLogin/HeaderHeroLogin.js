@@ -1,15 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import arrowBack from "../../images/arrow-back.svg";
+import "./HeaderHeroLogin.scss";
 const HeaderHeroLogin = () => {
   return (
     <header className="header-signIn-hero">
       <Link to="/login" className="arrow">
-        <img rc="images/arrow-back.svg" alt=""></img>
+        <img src={arrowBack} alt=""></img>
       </Link>
       <div className="container">
         <nav className="nav-signIn-hero">
-          <div class="logo">
+          <div className="logo">
             <Link to="/">
               <h1>TO BE</h1>
               <span>HERO</span>

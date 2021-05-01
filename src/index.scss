@@ -249,3 +249,107 @@ $purple-500: #343090;
 $purple-gray: #77758e;
 $cyan: #44c2fd;
 /* fontsize: 24-20-18-16-14(px)*/
+
+/*media*/
+@media screen and (max-width: 992px) {
+  .container {
+    max-width: 94%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+  section {
+    padding: 70px 0;
+  }
+  .hr-section-3 .btn-g-m-start::after {
+    bottom: 50px;
+  }
+  .hr-section-2 .card-overlay {
+    max-width: 230px;
+  }
+}
+@media screen and (max-width: 768px) {
+  header {
+    padding: 10px;
+  }
+  header nav .navbar {
+    display: none;
+  }
+
+  header nav .hamburger {
+    display: block;
+  }
+  header nav .navbar {
+    background: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translatey(-100%);
+    text-align: center;
+    z-index: 9999;
+  }
+  header nav .navbar.show {
+    transform: translatey(110%);
+    opacity: 1;
+  }
+  .hr-section-2 .hero-icon-angle {
+    top: 0;
+  }
+  .hr-section-3 .btn-g-m-start::after {
+    bottom: 10px;
+  }
+  .hr-section-2 .card-overlay {
+    max-width: 260px;
+  }
+  .hr-section-8 .nav-form {
+    max-width: 100%;
+  }
+  .hr-section-8 .form-register-container {
+    max-width: 95%;
+  }
+  .header-signIn-hero::before {
+    top: 2%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .hr-section-1 {
+    text-align: center;
+  }
+  .hr-section-1 .ex-now:hover:before {
+    margin: -1.2rem 2.5rem;
+  }
+  .hr-section-2 {
+    padding: 35px 38px 125px;
+  }
+  .hr-section-3 {
+    text-align: center;
+  }
+  .hr-section-5 .wings {
+    padding: 3rem;
+    padding-bottom: 1rem;
+    background-size: 20rem auto;
+    font-size: 14px;
+  }
+  .hr-section-2 .card-help,
+  .hr-section-2 .card-overlay {
+    max-width: 240px;
+  }
+  .hr-section-7 .nav-form {
+    padding: 0;
+  }
+  .hr-section-7 .form-container,
+  .hr-section-8 .form-register-container {
+    padding: 3rem 1.75rem;
+  }
+  footer .footer-info {
+    display: block;
+    text-align: center;
+  }
+  footer .footer-info h5 {
+    margin-bottom: 10px;
+  }
+}

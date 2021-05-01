@@ -187,7 +187,7 @@ const HomeScreen = () => {
               <button className="btn">Mentor</button>
             </Link>
             <h1>OR</h1>
-            <Link href="/login/guardian">
+            <Link to="/login/guardian">
               <button className="btn">Guardian</button>
             </Link>
           </div>
