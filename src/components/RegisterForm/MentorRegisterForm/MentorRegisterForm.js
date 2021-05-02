@@ -77,12 +77,14 @@ const MentorRegisterForm = () => {
         <p className="text-center">*required</p>
       </div>
       <div className="form-btns sign-up-btns flex-column just-cont-cntr alin-itms-cntr">
-        <input
-          type="submit"
-          className="btn btn-sign"
-          name="Continue"
-          value="Continue"
-        ></input>
+        <Link to="/register/mentor/continue">
+          <input
+            type="submit"
+            className="btn btn-sign"
+            name="Continue"
+            value="Continue"
+          ></input>
+        </Link>
         <Link to="/login/mentor">already registered?</Link>
       </div>
     </form>
