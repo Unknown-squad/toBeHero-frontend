@@ -1,17 +1,17 @@
 import React from "react";
-import heroSignIn from "../../images/hero-signIn.png";
-import arrowGo from "../../images/arrow-go.svg";
-import HeaderHeroLogin from "../../components/HeaderHeroLogin";
+import heroSignIn from "../../../images/hero-signIn.png";
+import arrowGo from "../../../images/arrow-go.svg";
 import "./HeroLoginScreen.scss";
 import { Link } from "react-router-dom";
+import HeroHeader from "../../../components/HeroHeader";
 
-const LoginScreen = () => {
+const HeroLoginScreen = () => {
   const submitHandler = (e) => {
     e.preventDefault();
   };
   return (
     <>
-      <HeaderHeroLogin></HeaderHeroLogin>
+      <HeroHeader></HeroHeader>
       <section className="hr-section-9">
         <div className="container">
           <h1>Welcome back Hero</h1>
@@ -66,4 +66,4 @@ const LoginScreen = () => {
   );
 };
 
-export default LoginScreen;
+export default HeroLoginScreen;

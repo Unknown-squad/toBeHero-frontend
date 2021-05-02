@@ -1,4 +1,4 @@
-@import "../../index.scss";
+@import "../../../index.scss";
 
 /* start hr-section-9*/
 .hr-section-9 {
@@ -16,7 +16,7 @@
   .hero-signIn {
     transition: all 0.5s ease-in-out;
     &:hover {
-      content: url(../../images/hero-signIn-hover.png);
+      content: url(../../../images/hero-signIn-hover.png);
     }
   }
   .form-container {

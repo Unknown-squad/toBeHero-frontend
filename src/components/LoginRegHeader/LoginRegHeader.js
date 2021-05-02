@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./HeaderLogin.scss";
-const HeaderLogin = () => {
+import "./LoginRegHeader.scss";
+const LoginRegHeader = () => {
   return (
     <header>
       <div className="container">
@@ -39,4 +39,4 @@ const HeaderLogin = () => {
   );
 };
 
-export default HeaderLogin;
+export default LoginRegHeader;

@@ -1,15 +1,25 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import HomeScreen from "./screens/HomeScreen";
-import LoginScreen from "./screens/LoginScreen";
-import HeroLoginScreen from "./screens/HeroLoginScreen";
-import GuardianRegisterScreen from "./screens/GuardianRegisterScreen";
-import MentorRegisterScreen from "./screens/MentorRegisterScreen";
+import { BrowserRouter as Router, Redirect, Route } from "react-router-dom";
+import {
+  GuardianLoginScreen,
+  GuardianRegisterScreen,
+  HeroLoginScreen,
+  LandingScreen,
+  MentorLoginScreen,
+  MentorRegisterScreen,
+} from "./screens";
+
 function App() {
   return (
     <Router>
       <Route></Route>
-      <Route path="/login" component={LoginScreen} exact></Route>
+      <Route path="/login" component={GuardianLoginScreen} exact>
+        <Redirect from="/login" to="/login/guardian"></Redirect>
+      </Route>
+
+      <Route path="/register" component={GuardianRegisterScreen} exact>
+        <Redirect from="/register" to="/register/guardian"></Redirect>
+      </Route>
       <Route
         path="/register/guardian"
         component={GuardianRegisterScreen}
@@ -21,9 +31,13 @@ function App() {
         exact
       ></Route>
       <Route path="/login/hero" component={HeroLoginScreen} exact></Route>
-      <Route path="/login/guardian" component={LoginScreen} exact></Route>
-      <Route path="/login/mentor" component={LoginScreen} exact></Route>
-      <Route path="/" component={HomeScreen} exact></Route>
+      <Route
+        path="/login/guardian"
+        component={GuardianLoginScreen}
+        exact
+      ></Route>
+      <Route path="/login/mentor" component={MentorLoginScreen} exact></Route>
+      <Route path="/" component={LandingScreen} exact></Route>
     </Router>
   );
 }

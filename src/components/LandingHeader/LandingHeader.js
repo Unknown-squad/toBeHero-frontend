@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Header.scss";
-const Header = () => {
+import "./LandingHeader.scss";
+const LandingHeader = () => {
   return (
     <header>
       <div className="container" id="up">
@@ -37,4 +37,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default LandingHeader;

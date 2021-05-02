@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import arrowBack from "../../images/arrow-back.svg";
-import "./HeaderHeroLogin.scss";
-const HeaderHeroLogin = () => {
+import "./HeroHeader.scss";
+const HeroHeader = () => {
   return (
     <header className="header-signIn-hero">
       <Link to="/login" className="arrow">
@@ -21,4 +21,4 @@ const HeaderHeroLogin = () => {
     </header>
   );
 };
-export default HeaderHeroLogin;
+export default HeroHeader;
