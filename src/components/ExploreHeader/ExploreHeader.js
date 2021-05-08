@@ -4,30 +4,30 @@ import { Link } from "react-router-dom";
 const ExploreHeader = () => {
   return (
     <header>
-      <div class="container">
+      <div className="container">
         <nav>
-          <div class="logo">
+          <div className="logo">
             <Link to="/">
               {" "}
               <h1>TO BE</h1>
               <span>HERO</span>
             </Link>
           </div>
-          <div class="navbar-ham">
-            <button class="hamburger" id="hamburger">
-              <i class="fas fa-bars"></i>
+          <div className="navbar-ham">
+            <button className="hamburger" id="hamburger">
+              <i className="fas fa-bars"></i>
             </button>
-            <ul class="navbar" id="navbar">
+            <ul className="navbar" id="navbar">
               <li>
                 <Link to="/">home</Link>
               </li>
               <li>
-                <Link to="/register" class="bg-purple-400">
+                <Link to="/register" className="bg-purple-400">
                   Sign up
                 </Link>
               </li>
               <li>
-                <Link to="/login/hero" class="hero bg-purple-400">
+                <Link to="/login/hero" className="hero bg-purple-400">
                   HERO
                 </Link>
               </li>

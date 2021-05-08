@@ -9,61 +9,61 @@ import sliderArrowRight from "../../images/slider-arrow-right.svg";
 
 const ExploreSlider = () => {
   return (
-    <section class="hr-section-12">
-      <div class="slider-container">
-        <div class="slider-left-arrow">
+    <section className="hr-section-12">
+      <div className="slider-container">
+        <div className="slider-left-arrow">
           <button>
             <img src={sliderArrowLeft} alt="" />
           </button>
         </div>
-        <div class="slider-content">
-          <div class="slider-item">
-            <div class="card-img">
+        <div className="slider-content">
+          <div className="slider-item">
+            <div className="card-img">
               <img src={sliderItemProgramming} alt="" />
-              <div class="slider-purple-border"></div>
+              <div className="slider-purple-border"></div>
             </div>
-            <div class="card-name">
+            <div className="card-name">
               <p>Programming</p>
             </div>
           </div>
-          <div class="slider-item hidden-md-down">
-            <div class="card-img">
+          <div className="slider-item hidden-md-down">
+            <div className="card-img">
               <img src={sliderItemMusic} alt="" />
-              <div class="slider-purple-border"></div>
+              <div className="slider-purple-border"></div>
             </div>
-            <div class="card-name">
+            <div className="card-name">
               <p>Music</p>
             </div>
           </div>
-          <div class="slider-item hidden-lg-down">
-            <div class="card-img">
+          <div className="slider-item hidden-lg-down">
+            <div className="card-img">
               <img src={sliderItemDrawing} alt="" />
-              <div class="slider-purple-border"></div>
+              <div className="slider-purple-border"></div>
             </div>
-            <div class="card-name">
+            <div className="card-name">
               <p>Drawing</p>
             </div>
           </div>
-          <div class="slider-item hidden-lg-down">
-            <div class="card-img">
+          <div className="slider-item hidden-lg-down">
+            <div className="card-img">
               <img src={sliderItemQuran} alt="" />
-              <div class="slider-purple-border"></div>
+              <div className="slider-purple-border"></div>
             </div>
-            <div class="card-name">
+            <div className="card-name">
               <p>Quran</p>
             </div>
           </div>
-          <div class="slider-item hidden-lg-down">
-            <div class="card-img">
+          <div className="slider-item hidden-lg-down">
+            <div className="card-img">
               <img src={sliderItemMath} alt="" />
-              <div class="slider-purple-border"></div>
+              <div className="slider-purple-border"></div>
             </div>
-            <div class="card-name">
+            <div className="card-name">
               <p>Mathimatics</p>
             </div>
           </div>
         </div>
-        <div class="slider-right-arrow">
+        <div className="slider-right-arrow">
           <button>
             <img src={sliderArrowRight} alt="" />
           </button>
