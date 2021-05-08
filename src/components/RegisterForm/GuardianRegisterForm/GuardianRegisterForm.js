@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const GuardianRegisterForm = () => {
   const submitHandler = (e) => {
@@ -8,7 +8,7 @@ const GuardianRegisterForm = () => {
   return (
     <form onSubmit={submitHandler}>
       <div className="input-field">
-        <label for="name">Full name*</label>
+        <label htmlFor="name">Full name*</label>
         <br />
         <input
           type="text"
@@ -19,7 +19,7 @@ const GuardianRegisterForm = () => {
         />
       </div>
       <div className="input-field">
-        <label for="email">Email*</label>
+        <label htmlFor="email">Email*</label>
         <br />
         <input
           type="email"
@@ -30,7 +30,7 @@ const GuardianRegisterForm = () => {
         ></input>
       </div>
       <div className="input-field">
-        <label for="password">Password*</label>
+        <label htmlFor="password">Password*</label>
         <br />
         <input
           type="password"
@@ -41,18 +41,18 @@ const GuardianRegisterForm = () => {
         ></input>
       </div>
       <div className="input-field">
-        <label for="password">re-Password*</label>
+        <label htmlFor="password">re-Password*</label>
         <br />
         <input
           type="password"
-          id="password"
+          id="passwordConfirm"
           name="password"
           placeholder="Re-enter your password"
           required
         ></input>
       </div>
       <div className="input-field">
-        <label for="phone">Phone</label>
+        <label htmlFor="phone">Phone</label>
         <br />
         <div className="flex-row w-100">
           <select name="phone-code" id="phone-code">

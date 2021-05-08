@@ -10,7 +10,7 @@ const Filter = () => {
             <div className="sort-by">
               <label htmlFor="Sort">Sort by</label>
               <select name="Sort" id="Sort">
-                <option selected disabled></option>
+                <option defaultValue></option>
                 <option value="1">Programming</option>
                 <option value="2">Programming</option>
                 <option value="3">Programming</option>
@@ -19,7 +19,7 @@ const Filter = () => {
             <div className="filter">
               <label htmlFor="Filter">Filter</label>
               <select name="Filter" id="Filter">
-                <option selected disabled></option>
+                <option defaultValue></option>
                 <option value="1">Programming</option>
                 <option value="2">Programming</option>
                 <option value="3">Programming</option>

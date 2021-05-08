@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const Paginate = () => {
+const Paginate = ({ pages, page, keyword = "" }) => {
   return (
-    <ul class="list-card">
-      <li class="active">
+    <ul className="list-card">
+      <li className="active">
         <Link to="">1</Link>
       </li>
       <li>

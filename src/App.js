@@ -15,13 +15,11 @@ function App() {
   return (
     <Router>
       <Route path="/explore" component={ExploreScreen} exact></Route>
-      <Route path="/login" component={GuardianLoginScreen} exact>
-        <Redirect from="/login" to="/login/guardian"></Redirect>
-      </Route>
+      <Route path="/login" component={GuardianLoginScreen} exact></Route>
+      <Redirect from="/login" to="/login/guardian"></Redirect>
 
-      <Route path="/register" component={GuardianRegisterScreen} exact>
-        <Redirect from="/register" to="/register/guardian"></Redirect>
-      </Route>
+      <Route path="/register" component={GuardianRegisterScreen} exact></Route>
+      <Redirect from="/register" to="/register/guardian"></Redirect>
       <Route
         path="/register/guardian"
         component={GuardianRegisterScreen}
