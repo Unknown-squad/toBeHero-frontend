@@ -5,6 +5,7 @@ import ExploreHeader from "../../components/ExploreHeader";
 import ExploreSlider from "../../components/ExploreSlider";
 import Filter from "../../components/Filter";
 import Footer from "../../components/Footer";
+import Paginate from "../../components/Paginate";
 import SearchBox from "../../components/SearchBox";
 import "./ExploreScreen.scss";
 
@@ -20,23 +21,7 @@ const ExploreScreen = () => {
           <div class="row">
             <CourseCard></CourseCard>
           </div>
-          <ul class="list-card">
-            <li class="active">
-              <Link to="">1</Link>
-            </li>
-            <li>
-              <Link to="">2</Link>
-            </li>
-            <li>
-              <Link to="">3</Link>
-            </li>
-            <li>
-              <Link to="">4</Link>
-            </li>
-            <li>
-              <Link to="">5</Link>
-            </li>
-          </ul>
+          <Paginate></Paginate>
         </div>
       </section>
       <Footer></Footer>
