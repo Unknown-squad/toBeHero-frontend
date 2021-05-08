@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Redirect, Route } from "react-router-dom";
 import {
   ContinueMentorRegister,
+  ExploreScreen,
   GuardianLoginScreen,
   GuardianRegisterScreen,
   HeroLoginScreen,
@@ -13,7 +14,7 @@ import {
 function App() {
   return (
     <Router>
-      <Route></Route>
+      <Route path="/explore" component={ExploreScreen} exact></Route>
       <Route path="/login" component={GuardianLoginScreen} exact>
         <Redirect from="/login" to="/login/guardian"></Redirect>
       </Route>
