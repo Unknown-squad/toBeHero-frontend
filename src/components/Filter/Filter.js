@@ -8,7 +8,7 @@ const Filter = () => {
           <h4>Top services</h4>
           <div className="select-services">
             <div className="sort-by">
-              <label for="Sort">Sort by</label>
+              <label htmlFor="Sort">Sort by</label>
               <select name="Sort" id="Sort">
                 <option selected disabled></option>
                 <option value="1">Programming</option>
@@ -17,7 +17,7 @@ const Filter = () => {
               </select>
             </div>
             <div className="filter">
-              <label for="Filter">Filter</label>
+              <label htmlFor="Filter">Filter</label>
               <select name="Filter" id="Filter">
                 <option selected disabled></option>
                 <option value="1">Programming</option>
