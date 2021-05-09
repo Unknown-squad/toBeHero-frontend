@@ -14,7 +14,7 @@ const ContinueMentorRegister = () => {
   return (
     <>
       <ContinueMentorHeader></ContinueMentorHeader>
-      <div class="container-sign">
+      <div className="container-sign">
         <section className="hr-section-10">
           <div className="container">
             <h3>Welcome Mr. Mohamed Enter the following data to Continue</h3>

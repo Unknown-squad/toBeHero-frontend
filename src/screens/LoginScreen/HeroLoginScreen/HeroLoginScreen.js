@@ -11,13 +11,13 @@ const HeroLoginScreen = () => {
   return (
     <>
       <HeroHeader></HeroHeader>
-      <div class="container-sign">
+      <div className="container-sign">
         <section className="hr-section-9">
           <div className="container">
             <h1>Welcome back Hero</h1>
             <div className="row">
               <div className="col-md-6 col-12 pr-3 mb-3">
-                <div class="hero-signIn"></div>
+                <div className="hero-signIn"></div>
               </div>
               <div className="col-md-6 col-12 ">
                 <div className="form-container flex-column just-cont">

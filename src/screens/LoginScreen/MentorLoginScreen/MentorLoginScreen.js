@@ -10,7 +10,7 @@ const MentorLoginScreen = () => {
     <>
       <LoginRegHeader></LoginRegHeader>
       {/* <!-- start sextion-7 --> */}
-      <div class="container-sign">
+      <div className="container-sign">
         <section className="hr-section-7">
           <div className="container">
             <div className="row">

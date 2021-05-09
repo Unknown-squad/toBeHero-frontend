@@ -126,12 +126,12 @@ const LandingScreen = () => {
               </div>
             </div>
             <div className="col-lg-5 col-md-6 col-lg-offset-1 col-12 mb-5">
-              <div class="shadow-img">
+              <div className="shadow-img">
                 <img src={hero3} alt="" />
               </div>
             </div>
             <div className="col-lg-5 col-md-6 col-12 mt-5">
-              <div class="shadow-img-cy">
+              <div className="shadow-img-cy">
                 <img src={hero4} alt="" />
               </div>
             </div>
@@ -204,8 +204,8 @@ const LandingScreen = () => {
         <div className="container">
           <h2>Built and Developed By</h2>
           <p>
-            Mohammed Sobhi - Mohammed Ramadan - Islam Goher - Mahmoud serag
-            Osama Ammar - Mohammed Ali - Mohammed Ibrahim
+            Mohammed Sobhi - Mohammed Ramadan - Islam Goher - Mahmoud serag -
+            Osama Mohammed Ammar - Mohammed Ali - Mohammed Ibrahim
           </p>
           <p>
             under supervision of: Prof. Mohammed Badawy and T.A. Andrew Nader
