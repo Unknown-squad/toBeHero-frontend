@@ -10,8 +10,8 @@ const GuardianRegisterScreen = () => {
   return (
     <>
       <LoginRegHeader></LoginRegHeader>
-      <section class="hr-section-8">
-        <div classNameName="container">
+      <section className="hr-section-8">
+        <div className="container">
           <div className="row">
             <div className="col-lg-5 col-md-5 col-12 pr-3 mb-3">
               <h1>Join now and Help your child to achieve dreams</h1>

@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Redirect, Route } from "react-router-dom";
 import {
   ContinueMentorRegister,
+  ExploreScreen,
   GuardianLoginScreen,
   GuardianRegisterScreen,
   HeroLoginScreen,
@@ -13,14 +14,12 @@ import {
 function App() {
   return (
     <Router>
-      <Route></Route>
-      <Route path="/login" component={GuardianLoginScreen} exact>
-        <Redirect from="/login" to="/login/guardian"></Redirect>
-      </Route>
+      <Route path="/explore" component={ExploreScreen} exact></Route>
+      <Route path="/login" component={GuardianLoginScreen} exact></Route>
+      <Redirect from="/login" to="/login/guardian"></Redirect>
 
-      <Route path="/register" component={GuardianRegisterScreen} exact>
-        <Redirect from="/register" to="/register/guardian"></Redirect>
-      </Route>
+      <Route path="/register" component={GuardianRegisterScreen} exact></Route>
+      <Redirect from="/register" to="/register/guardian"></Redirect>
       <Route
         path="/register/guardian"
         component={GuardianRegisterScreen}

@@ -4,7 +4,7 @@ import ContinueMentorHeader from "../../../../components/ContinueMentorHeader";
 import Footer from "../../../../components/Footer";
 import plusIcon from "../../../../images/plus-icon.svg";
 import cameraIcon from "../../../../images/camera-icon.svg";
-import uplaod from "../../../../images/upload.svg";
+import upload from "../../../../images/upload.svg";
 
 import "./ContinueMentorRegister.scss";
 const ContinueMentorRegister = () => {
@@ -102,7 +102,7 @@ const ContinueMentorRegister = () => {
                         </div>
                         <div className="col-lg-2 col-12">
                           <div className="img-back">
-                            <img className="img-up" src={uplaod} alt="" />
+                            <img className="img-up" src={upload} alt="" />
                             <img className="icon-up" src={cameraIcon} alt="" />
                           </div>
                           <p>upload your picture </p>
