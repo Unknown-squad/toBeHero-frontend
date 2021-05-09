@@ -60,8 +60,8 @@ const LandingScreen = () => {
           <h1>
             How <span>ToBeHero</span> can Help
           </h1>
-          <div className="row">
-            <div className="col-lg-4 col-md-6 col-12 mb-4">
+          <div className="row just-cont-cntr">
+            <div className="col-lg-30 ml-card-4 col-md-6 col-12 mb-4">
               <div className="card-help">
                 <div className="img-card">
                   <img src={heroIconSearch} alt="" />
@@ -74,7 +74,7 @@ const LandingScreen = () => {
               </div>
               <div className="card-overlay"></div>
             </div>
-            <div className="col-lg-4 col-md-6 col-12 mb-4">
+            <div className="col-lg-30 ml-card-4 col-md-6 col-12 mb-4">
               <div className="card-help">
                 <div className="img-card">
                   <img src={heroIconProgress} alt="" />
@@ -87,7 +87,7 @@ const LandingScreen = () => {
               </div>
               <div className="card-overlay"></div>
             </div>
-            <div className="col-lg-4 col-md-6 col-12 mb-4">
+            <div className="col-lg-30 ml-card-4 col-md-6 col-12 mb-4">
               <div className="card-help">
                 <div className="img-card">
                   <img src={heroIconTeach} alt="" />
@@ -109,7 +109,7 @@ const LandingScreen = () => {
       <section className="hr-section-3">
         <div className="container">
           <div className="row">
-            <div className="col-md-6 col-12 pr-3 mb-5">
+            <div className="col-lg-5 col-md-6 col-12 pr-3 mb-5">
               <h6>Mentors</h6>
               <h1>Become the creative mentor you always wanted to be</h1>
               <p>
@@ -125,13 +125,17 @@ const LandingScreen = () => {
                 <img src={curvedArrow} alt="" />
               </div>
             </div>
-            <div className="col-md-6 col-12 mb-5">
-              <img src={hero3} alt="" />
+            <div className="col-lg-5 col-md-6 col-lg-offset-1 col-12 mb-5">
+              <div class="shadow-img">
+                <img src={hero3} alt="" />
+              </div>
             </div>
-            <div className="col-md-6 col-12 mt-5">
-              <img src={hero4} alt="" />
+            <div className="col-lg-5 col-md-6 col-12 mt-5">
+              <div class="shadow-img-cy">
+                <img src={hero4} alt="" />
+              </div>
             </div>
-            <div className="col-md-6 col-12 mt-5 pl-3">
+            <div className="col-lg-5 col-md-6 col-lg-offset-1 col-12 mt-5 pl-3">
               <h6>Guardian</h6>
               <h1>Finding a mentor for your child never been easier!</h1>
               <p>

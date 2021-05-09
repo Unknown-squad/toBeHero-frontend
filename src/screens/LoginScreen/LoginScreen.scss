@@ -4,20 +4,19 @@
 /* start hr-section-7*/
 .hr-section-7 {
   background-color: #f3f4f7;
-  padding: 7rem 0 7rem 0;
   h1 {
     color: $purple-500;
     padding-bottom: 1.5rem;
   }
   .form-container {
-    max-width: 30rem;
+    max-width: 33rem;
     min-width: 16rem;
     border-radius: 8px;
-    padding: 3rem 4.5rem 1rem;
+    padding: 3rem 6.5rem 1rem;
     background-color: #fff;
   }
   .nav-form {
-    max-width: 30rem;
+    max-width: 33rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -31,6 +30,7 @@
       border-radius: 10px;
       padding: 10px;
       text-align: center;
+
       .overlay-form {
         position: absolute;
         top: 0;
@@ -42,12 +42,9 @@
         border-radius: 10px;
         opacity: 0.5;
         transform: translate(-3px, 5px);
-        a {
-          color: #000;
-          font-size: 13px;
-          position: relative;
-          top: 10%;
-        }
+        font-size: 13px;
+        color: #000;
+        padding: 0.4rem;
         &:hover {
           opacity: 0.8;
         }

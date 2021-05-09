@@ -6,17 +6,17 @@ import {
 } from "../constants/courseConstants";
 
 export const listCourses = (
-  pageNumber = "",
+  pageNumber = Number(""),
   genre = "",
   sortby = "",
-  ratings = ""
+  ratings = Number("")
 ) => async (dispatch) => {
   try {
     dispatch({ type: COURSE_LIST_REQUEST });
     const { data, currentPage, totalPages } = await axios.get(
       `http://localhost:5000/api/v1/courses?page=${pageNumber}&genre=${genre}&sortby=${sortby}&ratings=${ratings}`
     );
-    console.log(data);
+    // console.log(data);
     dispatch({
       type: COURSE_LIST_SUCCESS,
       payload: data,

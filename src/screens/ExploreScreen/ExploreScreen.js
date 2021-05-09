@@ -14,9 +14,10 @@ import Loader from "../../components/Loader";
 const ExploreScreen = ({ match }) => {
   const genre = match.params.genre || "";
   const sortby = match.params.sortby || "";
-  const ratings = match.params.ratings || "";
+  const ratings = match.params.ratings;
   const pageNumber = match.params.pageNumber || 1;
-  console.log(match.params);
+
+  //   console.log(match);
   const courseList = useSelector((state) => state.courseList);
   const { loading, error, data, currentPage, totalPages } = courseList;
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const ExploreScreen = ({ match }) => {
       <ExploreHeader></ExploreHeader>
       <SearchBox></SearchBox>
       <ExploreSlider></ExploreSlider>
-      <Filter></Filter>
+      {/* <Filter></Filter> */}
       <section className="hr-section-14">
         <div className="container">
           {loading ? (
