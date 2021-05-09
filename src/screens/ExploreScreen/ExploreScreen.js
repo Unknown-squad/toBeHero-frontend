@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import CourseCard from "../../components/CourseCard";
 import ExploreHeader from "../../components/ExploreHeader";
 import ExploreSlider from "../../components/ExploreSlider";
@@ -13,16 +12,17 @@ import { listCourses } from "../../actions/courseActions";
 import Loader from "../../components/Loader";
 
 const ExploreScreen = ({ match }) => {
-  const keyword = match.params.keyword;
-
+  const genre = match.params.genre || "";
+  const sortby = match.params.sortby || "";
+  const ratings = match.params.ratings || "";
   const pageNumber = match.params.pageNumber || 1;
-
+  console.log(match.params);
   const courseList = useSelector((state) => state.courseList);
-  const { loading, error, data, pages, page } = courseList;
+  const { loading, error, data, currentPage, totalPages } = courseList;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(listCourses(keyword, pageNumber));
-  }, [dispatch, pageNumber, keyword]);
+    dispatch(listCourses(pageNumber, genre, sortby, ratings));
+  }, [dispatch, pageNumber, genre, sortby, ratings]);
   return (
     <>
       <ExploreHeader></ExploreHeader>
@@ -45,9 +45,8 @@ const ExploreScreen = ({ match }) => {
                 ))}
               </div>
               <Paginate
-                pages={pages}
-                page={page}
-                keyword={keyword ? keyword : ""}
+                totalPages={totalPages}
+                currentPage={currentPage}
               ></Paginate>
             </>
           )}

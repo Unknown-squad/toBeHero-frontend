@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Filter = () => {
+  const [sort, setSort] = useState("");
+  const [filter, setFilter] = useState("");
+  useEffect(() => {}, []);
+
   return (
     <section className="hr-section-13">
       <div className="container">
@@ -8,21 +12,40 @@ const Filter = () => {
           <h4>Top services</h4>
           <div className="select-services">
             <div className="sort-by">
-              <label htmlFor="Sort">Sort by</label>
-              <select name="Sort" id="Sort">
+              <label htmlFor="sort">Sort by</label>
+              <select
+                name="sort"
+                id="sort"
+                value={sort}
+                onChange={(e) => setSort(([e.target.value] = e.target.value))}
+              >
                 <option defaultValue></option>
-                <option value="1">Programming</option>
-                <option value="2">Programming</option>
-                <option value="3">Programming</option>
+                <option value="rating">Rating</option>
+                <option value="popularity">Popularity</option>
+                <option value="newest">Newest</option>
+                <option value="low-price">Price (lowest)</option>
+                <option value="high-price">Price (highest)</option>
               </select>
             </div>
             <div className="filter">
-              <label htmlFor="Filter">Filter</label>
-              <select name="Filter" id="Filter">
+              <label htmlFor="filter">Filter</label>
+              <select
+                name="filter"
+                id="filter"
+                value={filter}
+                onChange={(e) => setFilter(([e.target.value] = e.target.value))}
+              >
+                {console.log(filter)}
                 <option defaultValue></option>
-                <option value="1">Programming</option>
-                <option value="2">Programming</option>
-                <option value="3">Programming</option>
+                <option value="Art">Art</option>
+                <option value="Music">Music</option>
+                <option value="Programming">Programming</option>
+                <option value="Drawing">Drawing</option>
+                <option value="Quran">Quran</option>
+                <option value="Physics">Physics</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Philosophy">Philosophy</option>
               </select>
             </div>
           </div>

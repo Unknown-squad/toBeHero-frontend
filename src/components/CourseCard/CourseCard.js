@@ -23,7 +23,10 @@ const CourseCard = ({ course }) => {
           <div className="mentor-name-price flex-row">
             <div className="mentor-name flex-row">
               <div className="mentor-img">
-                <img src={course.mentorId.picture} alt="" />
+                <img
+                  src={`http://localhost:5000${course.mentorId.picture}`}
+                  alt=""
+                />
               </div>
               <div className="mentor-info">
                 <h2>{course.mentorId.fullName}</h2>
@@ -31,7 +34,11 @@ const CourseCard = ({ course }) => {
                   {course.mentorId.isAvailable ? "available" : "not available"}
                 </p>
               </div>
-              <div className="mentor-status status-off">
+              <div
+                className={`mentor-status ${
+                  course.mentorId.isAvailable ? "status-on" : "status-off"
+                } `}
+              >
                 {/* <!-- change className from status-on to status-off for offline status indicator color --> */}
               </div>
             </div>

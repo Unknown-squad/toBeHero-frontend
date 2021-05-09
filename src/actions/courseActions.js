@@ -6,7 +6,6 @@ import {
 } from "../constants/courseConstants";
 
 export const listCourses = (
-  keyword = "",
   pageNumber = "",
   genre = "",
   sortby = "",
@@ -14,10 +13,16 @@ export const listCourses = (
 ) => async (dispatch) => {
   try {
     dispatch({ type: COURSE_LIST_REQUEST });
-    const { data } = await axios.get(
-      `http://localhost:5000/api/v1/courses?pageNumber=${pageNumber}&keyword=${keyword}&genre=${genre}&sortby=${sortby}&ratings=${ratings}`
+    const { data, currentPage, totalPages } = await axios.get(
+      `http://localhost:5000/api/v1/courses?page=${pageNumber}&genre=${genre}&sortby=${sortby}&ratings=${ratings}`
     );
-    dispatch({ type: COURSE_LIST_SUCCESS, payload: data });
+    console.log(data);
+    dispatch({
+      type: COURSE_LIST_SUCCESS,
+      payload: data,
+      currentPage: currentPage,
+      totalPages: totalPages,
+    });
   } catch (error) {
     dispatch({
       type: COURSE_LIST_FAIL,
