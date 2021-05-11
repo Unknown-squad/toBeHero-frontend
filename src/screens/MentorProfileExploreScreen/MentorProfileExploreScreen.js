@@ -1,4 +1,6 @@
 import React from "react";
+import CourseCard from "../../components/CourseCard";
+import MentorCertificates from "../../components/MentorCertificates";
 import MentorProfileExploreHeader from "../../components/MentorProfileExploreHeader";
 import MentorProfileInfoCard from "../../components/MentorProfileInfoCard";
 
@@ -8,6 +10,8 @@ const MentorProfileExploreScreen = () => {
     <>
       <MentorProfileExploreHeader></MentorProfileExploreHeader>
       <MentorProfileInfoCard></MentorProfileInfoCard>
+      {/* <CourseCard></CourseCard> */}
+      <MentorCertificates></MentorCertificates>
     </>
   );
 };

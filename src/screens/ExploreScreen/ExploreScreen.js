@@ -21,7 +21,6 @@ const ExploreScreen = ({ match }) => {
   //   console.log(match);
   const courseList = useSelector((state) => state.courseList);
   const { loading, error, data, totalPages, currentPage } = courseList;
-  // const { currentPage, totalPages } = data;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(listCourses(pageNumber, genre, sortby, ratings));
