@@ -225,9 +225,11 @@
   }
   /* price */
   /* course info */
-  .course-info > h2 {
-    font-size: 18px;
-    font-weight: 400;
+  .course-info {
+    h2 {
+      font-size: 18px;
+      font-weight: 400;
+    }
   }
   .course-info > p {
     font-size: 14px;

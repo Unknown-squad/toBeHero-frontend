@@ -6,3 +6,4 @@ export { default as GuardianRegisterScreen } from "./RegisterScreen/GuardianRegi
 export { default as MentorRegisterScreen } from "./RegisterScreen/MentorRegisterScreen";
 export { default as ContinueMentorRegister } from "./RegisterScreen/MentorRegisterScreen/ContinueMentorRegister";
 export { default as ExploreScreen } from "./ExploreScreen";
+export { default as MentorProfileExploreScreen } from "./MentorProfileExploreScreen";
