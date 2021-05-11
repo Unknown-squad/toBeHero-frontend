@@ -8,7 +8,7 @@ const Filter = () => {
   const [filter, setFilter] = useState("");
 
   useEffect(() => {
-    dispatch(listCourses(undefined, filter, sort));
+    dispatch(listCourses(null, filter, sort));
   }, [dispatch, filter, sort]);
   return (
     <>

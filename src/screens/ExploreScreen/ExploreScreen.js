@@ -10,6 +10,7 @@ import "./ExploreScreen.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { listCourses } from "../../actions/courseActions";
 import Loader from "../../components/Loader";
+import ErrorMessage from "../../components/ErrorMessage";
 
 const ExploreScreen = ({ match }) => {
   const genre = match.params.genre || "";
@@ -35,7 +36,7 @@ const ExploreScreen = ({ match }) => {
           {loading ? (
             <Loader></Loader>
           ) : error ? (
-            console.log({ error })
+            <ErrorMessage>{error}</ErrorMessage>
           ) : (
             <>
               <div className="row">
