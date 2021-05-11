@@ -2,7 +2,7 @@ import {
   COURSE_LIST_FAIL,
   COURSE_LIST_REQUEST,
   COURSE_LIST_SUCCESS,
-} from "../constants/courseConstants";
+} from "../constants/courseListConstants";
 const initialState = {
   data: {
     kind: "",

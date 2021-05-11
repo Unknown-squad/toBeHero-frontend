@@ -8,7 +8,7 @@ import Paginate from "../../components/Paginate";
 import SearchBox from "../../components/SearchBox";
 import "./ExploreScreen.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { listCourses } from "../../actions/courseActions";
+import { listCourses } from "../../actions/courseListActions";
 import Loader from "../../components/Loader";
 import ErrorMessage from "../../components/ErrorMessage";
 
@@ -20,7 +20,8 @@ const ExploreScreen = ({ match }) => {
 
   //   console.log(match);
   const courseList = useSelector((state) => state.courseList);
-  const { loading, error, data, currentPage, totalPages } = courseList;
+  const { loading, error, data, totalPages, currentPage } = courseList;
+  // const { currentPage, totalPages } = data;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(listCourses(pageNumber, genre, sortby, ratings));
@@ -31,6 +32,7 @@ const ExploreScreen = ({ match }) => {
       <SearchBox></SearchBox>
       <ExploreSlider></ExploreSlider>
       {/* <Filter></Filter> */}
+
       <section className="hr-section-14">
         <div className="container">
           {loading ? (

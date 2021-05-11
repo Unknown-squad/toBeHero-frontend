@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { listCourses } from "../../actions/courseActions";
+import { listCourses } from "../../actions/courseListActions";
 const Filter = () => {
   const dispatch = useDispatch();
   const [sort, setSort] = useState("");
