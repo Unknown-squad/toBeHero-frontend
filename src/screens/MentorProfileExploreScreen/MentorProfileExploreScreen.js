@@ -3,6 +3,7 @@ import CourseCard from "../../components/CourseCard";
 import MentorCertificates from "../../components/MentorCertificates";
 import MentorProfileExploreHeader from "../../components/MentorProfileExploreHeader";
 import MentorProfileInfoCard from "../../components/MentorProfileInfoCard";
+import MentorReviews from "../../components/MentorReviews";
 
 import "./MentorProfileExploreScreen.scss";
 const MentorProfileExploreScreen = () => {
@@ -12,6 +13,7 @@ const MentorProfileExploreScreen = () => {
       <MentorProfileInfoCard></MentorProfileInfoCard>
       {/* <CourseCard></CourseCard> */}
       <MentorCertificates></MentorCertificates>
+      <MentorReviews></MentorReviews>
     </>
   );
 };
