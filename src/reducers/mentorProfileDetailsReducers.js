@@ -7,31 +7,30 @@ import {
 const initialState = {
   data: {
     Kind: "",
-    items: [
-      {
-        _id: "",
-        fullName: "",
-        Email: "",
-        country: "",
-        languages: [],
-        description: "",
-        occupations: [],
-        certificates: [],
-        topReviews: [
-          {
-            rate: Number,
-            creatingDate: Date,
-            description: "",
-            guardianName: "",
-            guardianPicture: "",
-          },
-        ],
-      },
-    ],
+    items: {
+      occupation: [],
+      certificates: [],
+      languages: [],
+      balance: 0,
+      topReviewsId: [],
+      isAvailable: Boolean,
+      _id: "",
+      fullName: "",
+      email: "",
+      password: "",
+      phone: "",
+      countryCode: "",
+      address: "",
+      gender: "",
+      birthDate: "",
+      picture: "",
+      description: "",
+      creatingDate: "",
+    },
   },
 };
 
-export const productDetailsReducer = (state = initialState, action) => {
+export const mentorProfileDetailsReducer = (state = initialState, action) => {
   switch (action.type) {
     case MENTOR_PROFILE_DETAILS_REQUEST:
       return { loading: true, ...state };

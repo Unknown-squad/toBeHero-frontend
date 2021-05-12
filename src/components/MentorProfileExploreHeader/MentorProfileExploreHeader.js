@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useToggleNavbar from "../../hooks";
 
 const MentorProfileExploreHeader = () => {
+  const [showMobileMenu, onClick] = useToggleNavbar();
   return (
     <header>
       <div className="container">
@@ -14,27 +16,48 @@ const MentorProfileExploreHeader = () => {
             </Link>
           </div>
           <div className="navbar-ham">
-            <button className="hamburger" id="hamburger">
+            <button className="hamburger" id="hamburger" onClick={onClick}>
               <i className="fas fa-bars"></i>
             </button>
-            <ul className="navbar" id="navbar">
-              <li>
-                <Link to="/explore">Explore</Link>
-              </li>
-              <li>
-                <Link to="/">home</Link>
-              </li>
-              <li>
-                <Link to="/register" className="bg-purple-400">
-                  Sign up
-                </Link>
-              </li>
-              <li>
-                <Link to="/login/hero" className="hero bg-purple-400">
-                  HERO
-                </Link>
-              </li>
-            </ul>
+            {showMobileMenu ? (
+              <ul className="navbar show" id="navbar">
+                <li>
+                  <Link to="/explore">Explore</Link>
+                </li>
+                <li>
+                  <Link to="/">home</Link>
+                </li>
+                <li>
+                  <Link to="/register" className="bg-purple-400">
+                    Sign up
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/login/hero" className="hero bg-purple-400">
+                    HERO
+                  </Link>
+                </li>
+              </ul>
+            ) : (
+              <ul className="navbar" id="navbar">
+                <li>
+                  <Link to="/explore">Explore</Link>
+                </li>
+                <li>
+                  <Link to="/">home</Link>
+                </li>
+                <li>
+                  <Link to="/register" className="bg-purple-400">
+                    Sign up
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/login/hero" className="hero bg-purple-400">
+                    HERO
+                  </Link>
+                </li>
+              </ul>
+            )}
           </div>
         </nav>
       </div>

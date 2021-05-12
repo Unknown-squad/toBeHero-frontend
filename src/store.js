@@ -4,10 +4,13 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { courseListReducer } from "./reducers/courseListReducers";
 import { guardianRegisterReducer } from "./reducers/guardianRegisterReducers";
 import { mentorRegisterReducer } from "./reducers/mentorRegisterReducers";
+import { mentorProfileDetailsReducer } from "./reducers/mentorProfileDetailsReducers";
+
 const rootReducer = combineReducers({
   courseList: courseListReducer,
   guardianRegister: guardianRegisterReducer,
   mentorRegister: mentorRegisterReducer,
+  mentorDetails: mentorProfileDetailsReducer,
 });
 
 const guardianInfoFromStorage = localStorage.getItem("guardianInfo")
