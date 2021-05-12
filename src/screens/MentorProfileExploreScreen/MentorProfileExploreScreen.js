@@ -133,7 +133,7 @@ const MentorProfileExploreScreen = ({ match }) => {
         <ErrorMessage style={{ width: "100vw" }}>{error}</ErrorMessage>
       ) : (
         <>
-          {/* {data.items.map((course) => (
+          {/* {dataMentorProfileCourses.items.map((course) => (
             <CourseCard course={course}></CourseCard>
           ))} */}
         </>

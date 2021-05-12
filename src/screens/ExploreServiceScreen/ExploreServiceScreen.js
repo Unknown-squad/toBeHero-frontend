@@ -24,9 +24,6 @@ const ExploreServiceScreen = () => {
       </section>
 
       {/* <Reviews></Reviews> */}
-      <div className="view-more">
-        <Link to="">View more reviews</Link>
-      </div>
       <Footer></Footer>
     </>
   );
