@@ -8,6 +8,7 @@ import {
   HeroLoginScreen,
   LandingScreen,
   MentorLoginScreen,
+  MentorProfileExploreScreen,
   MentorRegisterScreen,
 } from "./screens";
 
@@ -15,11 +16,37 @@ function App() {
   return (
     <Router>
       <Route path="/explore" component={ExploreScreen} exact></Route>
-      <Route path="/login" component={GuardianLoginScreen} exact></Route>
-      <Redirect from="/login" to="/login/guardian"></Redirect>
+      <Route
+        path="/explore/page/:pageNumber"
+        component={ExploreScreen}
+        exact
+      ></Route>
+      <Route
+        path="/explore/genre/:genre"
+        component={ExploreScreen}
+        exact
+      ></Route>
+      <Route
+        path="/explore/sortby/:sortby"
+        component={ExploreScreen}
+        exact
+      ></Route>
+      <Route
+        path="/explore/ratings/:ratings"
+        component={ExploreScreen}
+        exact
+      ></Route>
+      <Route
+        path="/explore/profile/:id"
+        component={MentorProfileExploreScreen}
+      ></Route>
+      <Route path="/login" component={GuardianLoginScreen} exact>
+        <Redirect from="/login" to="/login/guardian"></Redirect>
+      </Route>
 
-      <Route path="/register" component={GuardianRegisterScreen} exact></Route>
-      <Redirect from="/register" to="/register/guardian"></Redirect>
+      <Route path="/register" component={GuardianRegisterScreen} exact>
+        <Redirect from="/register" to="/register/guardian"></Redirect>
+      </Route>
       <Route
         path="/register/guardian"
         component={GuardianRegisterScreen}

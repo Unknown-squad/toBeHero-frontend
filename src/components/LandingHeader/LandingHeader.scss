@@ -53,6 +53,9 @@ header {
       li {
         margin: 15px 25px;
         text-transform: capitalize;
+        &:last-child {
+          margin: 15px 0;
+        }
         a {
           color: $purple-400;
           font-family: $ft-poppins;

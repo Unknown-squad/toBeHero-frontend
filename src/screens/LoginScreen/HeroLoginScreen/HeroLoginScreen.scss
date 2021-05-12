@@ -3,7 +3,7 @@
 /* start hr-section-9*/
 .hr-section-9 {
   background-color: #f3f4f7;
-  height: 92vh;
+  padding: 30px 60px;
 
   h1 {
     color: $purple-500;
@@ -14,13 +14,16 @@
     margin-bottom: 2rem;
   }
   .hero-signIn {
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background: url(../../../images/hero-signIn.png) no-repeat;
+    background-size: contain;
+    height: 320px;
     &:hover {
-      content: url(../../../images/hero-signIn-hover.png);
+      background: url(../../../images/hero-signIn-hover.png) no-repeat;
+      background-size: contain;
     }
   }
   .form-container {
-    margin-left: 3rem;
     max-width: 85%;
     min-width: 16rem;
     border-radius: 8px;
@@ -63,3 +66,4 @@
   }
 }
 /* end hr-section-9*/
+/* end page sign in-hero*/

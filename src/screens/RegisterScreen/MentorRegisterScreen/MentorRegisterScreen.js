@@ -10,38 +10,40 @@ const MentorRegisterScreen = () => {
   return (
     <>
       <LoginRegHeader></LoginRegHeader>
-      <section className="hr-section-8">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-5 col-md-5 col-12 pr-3 mb-3">
-              <h1>Join now and Help your child to achieve dreams</h1>
-              <img src={hero1} alt="hero-1" />
-            </div>
-            <div className="col-lg-offset-1 col-lg-6 col-md-7 col-12 ">
-              <ul className="nav-form">
-                <li>
-                  <div className="overlay-form ">
-                    <Link to="/register/guardian">Guardian</Link>
-                  </div>
-                </li>
-                <li>
-                  <div className="overlay-form active">
-                    <Link to="/register/mentor">Mentor</Link>
-                  </div>
-                </li>
-              </ul>
-              <div className="form-register-container flex-column just-cont">
-                <div className="register-form">
-                  <div className="form-inputs">
-                    <MentorRegisterForm></MentorRegisterForm>
+      <div className="container-sign">
+        <section className="hr-section-8">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-5 col-md-5 col-12 pr-3 mb-3">
+                <h1>Join now and Help your child to achieve dreams</h1>
+                <img src={hero1} alt="hero-1" />
+              </div>
+              <div className="col-lg-offset-1 col-lg-6 col-md-7 col-12 ">
+                <ul className="nav-form">
+                  <li>
+                    <Link to="/register/guardian">
+                      <div className="overlay-form ">Guardian</div>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/register/mentor">
+                      <div className="overlay-form active">Mentor</div>
+                    </Link>
+                  </li>
+                </ul>
+                <div className="form-register-container flex-column just-cont">
+                  <div className="register-form">
+                    <div className="form-inputs">
+                      <MentorRegisterForm></MentorRegisterForm>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-      <Footer></Footer>
+        </section>
+        <Footer></Footer>
+      </div>
     </>
   );
 };

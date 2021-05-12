@@ -24,6 +24,7 @@ img {
 }
 section {
   padding: 60px 80px;
+  height: 100%;
 }
 .font-bold {
   font-weight: bold;
@@ -77,7 +78,7 @@ input {
   background-color: #f3f4f7;
   border: none;
   border-radius: 7px;
-  padding: 0.5rem 1rem;
+  padding: 0.35rem 1rem;
   :focus {
     outline-offset: none;
   }
@@ -130,16 +131,34 @@ input[type="tel"] {
 .w-25 {
   width: 25%;
 }
+.container-sign {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.btn-purple-500 {
+  background: #343090;
+  border-radius: 25px;
+  width: 200px;
+  padding: 0.3rem 0;
+}
+.btn-purple-200 {
+  background: #6592fd;
+  border-radius: 25px;
+  width: 200px;
+  padding: 0.3rem 0;
+}
 /*global*/
 /* margin and padding*/
 
 $spaceamounts: (
+  0,
   1,
   2,
   3,
   4,
   5
-); // Adjust this to include the pixel amounts you need.
+); // Adjust this to include the rem amounts you need.
 $sides: (top, bottom, left, right); // Leave this variable alone
 
 @each $space in $spaceamounts {
@@ -248,9 +267,49 @@ $purple-400: #5f59f7;
 $purple-500: #343090;
 $purple-gray: #77758e;
 $cyan: #44c2fd;
+$text-color: #414141;
 /* fontsize: 24-20-18-16-14(px)*/
 
 /*media*/
+@media screen and (min-width: 992px) {
+  .col-lg-30 {
+    flex: 0 0 29%;
+    max-width: 29%;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .hr-section-19 .lead-profile {
+    font-size: 16px;
+  }
+  .hr-section-19 .mentor-rate h3 {
+    font-size: 22px;
+  }
+  .hr-section-19 .p-service .service-category {
+    font-size: 16px;
+  }
+  .hr-section-19 .slider-service .slider-service-content .circle-arrow-left {
+    left: 6.5%;
+  }
+  .hr-section-19 .purchase-container {
+    max-width: 32.5rem;
+  }
+  .hr-section-20 {
+    min-height: calc(100vh - 122px);
+  }
+}
+
 @media screen and (max-width: 992px) {
   .container {
     max-width: 94%;
@@ -258,16 +317,25 @@ $cyan: #44c2fd;
     padding-left: 0;
   }
   section {
-    padding: 70px 0;
-  }
-  .hr-section-10 {
-    padding: 25px 0;
+    padding: 30px 0;
   }
   .hr-section-3 .btn-g-m-start::after {
     bottom: 50px;
   }
   .hr-section-2 .card-overlay {
     max-width: 230px;
+  }
+  .hr-section-9,
+  .hr-section-16 {
+    padding: 30px 0;
+  }
+  .hr-section-2 .ml-card-4 {
+    margin-left: 0;
+  }
+  .hr-section-11,
+  .hr-section-13,
+  .hr-section-14 {
+    padding: 15px 0;
   }
 }
 @media screen and (max-width: 768px) {
@@ -298,6 +366,7 @@ $cyan: #44c2fd;
   header nav .navbar.show {
     transform: translatey(110%);
     opacity: 1;
+    padding-bottom: 10px;
   }
   .hr-section-2 .hero-icon-angle {
     top: 0;
@@ -316,6 +385,28 @@ $cyan: #44c2fd;
   }
   .header-signIn-hero::before {
     top: 2%;
+  }
+  .hr-section-15 .p-profile {
+    margin-bottom: 1rem;
+    padding-right: 15px;
+  }
+  .hr-section-19 {
+    padding: 0 1rem;
+  }
+  .hr-section-19 .p-service {
+    padding-right: 15px;
+  }
+  .hr-section-19 .slider-service {
+    padding: 1rem 0;
+  }
+  .hr-section-19 .slider-service .slider-service-content .circle-arrow-left {
+    left: 0;
+  }
+  .hr-section-19 .slider-service .slider-service-content .circle-arrow-right {
+    right: 0;
+  }
+  .hr-section-19 .purchase-container {
+    max-width: 100%;
   }
 }
 @media screen and (max-width: 576px) {
@@ -345,9 +436,65 @@ $cyan: #44c2fd;
     padding: 0;
   }
   .hr-section-7 .form-container,
-  .hr-section-8 .form-register-container,
-  .hr-section-10 .form-register-container {
+  .hr-section-8 .form-register-container {
     padding: 3rem 1.75rem;
+  }
+  .hr-section-7 {
+    padding-bottom: 55rem;
+  }
+  .hr-section-9 .form-container {
+    max-width: 100%;
+  }
+  .hr-section-9 .hero-signIn {
+    height: 230px;
+  }
+  .hr-section-11 .topic {
+    display: block;
+  }
+  .hr-section-11 .topic h4 {
+    margin-bottom: 0.5rem;
+  }
+  .hr-section-11 input[type="search"] {
+    width: 60%;
+  }
+  .hr-section-11 .topic .search {
+    width: 22rem;
+  }
+  .hr-section-13 .services {
+    display: grid;
+  }
+  .hr-section-13 .services h4 {
+    margin-bottom: 0.75rem;
+  }
+  .hr-section-13 .services .select-services {
+    display: grid;
+  }
+  .hr-section-13 .services .select-services .sort-by {
+    margin-bottom: 0.75rem;
+  }
+  .hr-section-15 .p-profile {
+    padding: 0;
+  }
+  .hr-section-15 {
+    margin: 0 0 1rem 0;
+  }
+  .hr-section-19 .mentor-rate {
+    display: block;
+  }
+  .hr-section-19 .visit-profile {
+    display: block;
+    .mentor-service-info {
+      margin-bottom: 1rem;
+    }
+  }
+  .hr-section-19 .purchase-container {
+    display: block;
+  }
+  .hr-section-19 .purchase-container > div {
+    margin-bottom: 1rem;
+  }
+  .hr-section-20 .available .available-course {
+    display: grid;
   }
   footer .footer-info {
     display: block;

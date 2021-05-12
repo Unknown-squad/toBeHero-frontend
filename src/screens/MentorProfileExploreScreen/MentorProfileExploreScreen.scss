@@ -1,0 +1,276 @@
+@import "../../index.scss";
+
+/* start page  Explore-mentor-profile*/
+.hr-section-15 {
+  background-color: #f3f4f7;
+  margin: 2.5rem 0;
+  padding: 1rem 0;
+  .container-profile {
+    max-width: 88rem;
+  }
+  .upload-img-profile {
+    background-color: #fff;
+    text-align: center;
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+    height: 100%;
+    img {
+      width: auto;
+      border-radius: 50%;
+    }
+    p {
+      font-size: 18px;
+    }
+  }
+  .mentor-contact {
+    background-color: #fff;
+    padding: 1.25rem 1rem;
+    border-radius: 10px;
+    height: 100%;
+    ul li {
+      display: flex;
+      column-gap: 10px;
+      line-height: 2;
+      overflow-wrap: anywhere;
+      a {
+        font-size: 14px;
+        text-decoration: underline;
+      }
+      h6 {
+        font-weight: 300;
+        color: $text-color;
+        font-size: 14px;
+      }
+      img {
+        width: 15px;
+        height: 15px;
+        fill: black;
+        margin: auto 0;
+      }
+    }
+  }
+  .description-profile {
+    background-color: #fff;
+    padding: 1rem 0.75rem;
+    border-radius: 10px;
+    height: 100%;
+    h4 {
+      font-size: 18px;
+      font-weight: 300;
+      margin-bottom: 5px;
+      color: $text-color;
+    }
+    p {
+      font-size: 14px;
+      color: $purple-gray;
+    }
+  }
+  .occupations-profile {
+    background-color: #fff;
+    padding: 1rem 1rem;
+    border-radius: 10px;
+    height: 100%;
+    line-height: 2;
+    h4 {
+      font-size: 18px;
+      font-weight: 500;
+      color: $text-color;
+    }
+    p {
+      font-size: 14px;
+      color: $purple-gray;
+    }
+  }
+  .p-profile {
+    padding-right: 15px;
+    padding-left: 0;
+  }
+}
+/*start hr-section-16*/
+.hr-section-16 {
+  padding: 15px 80px 0;
+  h4 {
+    font-size: 16px;
+    color: $text-color;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+  }
+  .course-card {
+    border: solid 1px #343090;
+    border-radius: 13px;
+    padding: 1rem 1rem;
+    margin-bottom: 2rem;
+  }
+  /* card */
+  /* card image */
+  .course-img > img {
+    width: 100%;
+  }
+  /* card image */
+  /* card mentor info and price */
+  .mentor-name-price {
+    padding-top: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .mentor-name-price h2,
+  .price {
+    color: #343090;
+  }
+  /* card mentor info and price */
+  /* mentor name, image and status */
+  .mentor-name {
+    align-items: center;
+  }
+  .mentor-img > img {
+    width: 35px;
+  }
+  .mentor-info {
+    line-height: 16px;
+    padding-left: 10px;
+  }
+  .mentor-info :nth-child(1) {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .mentor-info :nth-child(2) {
+    font-size: 10px;
+    font-weight: 200;
+  }
+  .mentor-status {
+    border-radius: 100%;
+    width: 10px;
+    height: 10px;
+    margin: 0 0 12px 5px;
+  }
+  .status-on {
+    background-color: #44c2fd;
+  }
+  .status-off {
+    background-color: #fd8244;
+  }
+  /* mentor name, image and status */
+  /* price */
+  .price > p {
+    font-size: 13px;
+    font-weight: 300;
+  }
+  /* price */
+  /* course info */
+  .course-info > h2 {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .course-info > p {
+    font-size: 14px;
+    font-weight: 300;
+  }
+  /* course info */
+  /* course-rate */
+  .course-rate {
+    align-items: center;
+    column-gap: 10px;
+    padding-top: 5px;
+    img {
+      width: auto;
+    }
+  }
+  .course-rate > p {
+    font-size: 16px;
+    font-weight: 300;
+  }
+  .list-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    li {
+      margin: 0.5rem 0.75rem;
+      padding: 0.5rem 0.9rem;
+      border: 1px solid $purple-300;
+      border-radius: 5px;
+      opacity: 0.5;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        opacity: 1;
+        box-shadow: 0px 0px 7px $purple-300;
+      }
+    }
+    li.active {
+      opacity: 1;
+      box-shadow: 0px 0px 7px $purple-300;
+    }
+  }
+}
+/*end hr-section-16*/
+/*start hr-section-17*/
+.hr-section-17 {
+  padding: 0;
+
+  .Certificates {
+    padding: 1rem;
+    border-top: 2px solid $purple-300;
+    border-bottom: 2px solid $purple-300;
+    line-height: 2;
+    h4 {
+      color: $text-color;
+    }
+    p {
+      color: $text-color;
+      span {
+        color: $purple-gray;
+      }
+    }
+  }
+}
+/*end hr-section-17*/
+/*end hr-section-18*/
+.hr-section-18 {
+  padding: 1rem 0;
+  .reviews {
+    padding: 1rem;
+    border-top: 2px solid $purple-300;
+  }
+  h4 {
+    color: $text-color;
+    padding: 0 1rem 1rem;
+    font-size: 25px;
+    font-weight: 600;
+  }
+  .review {
+    border: 2px solid $purple-300;
+    padding: 0.25rem 1rem 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    .review-name {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+      padding-top: 5px;
+      margin-bottom: 0.5rem;
+      span {
+        font-size: 18px;
+        color: $text-color;
+      }
+      img {
+        width: auto;
+      }
+    }
+    p {
+      font-size: 14px;
+      color: $purple-gray;
+    }
+  }
+  .view-more {
+    margin-top: -0.75rem;
+    padding: 0 1rem;
+    margin-bottom: 0.25rem;
+    a {
+      color: $purple-300;
+      text-decoration: underline;
+    }
+  }
+}
+/*end hr-section-18*/
+/* end page  Explore-mentor-profile*/

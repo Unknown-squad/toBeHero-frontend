@@ -2,10 +2,8 @@ import {
   COURSE_LIST_FAIL,
   COURSE_LIST_REQUEST,
   COURSE_LIST_SUCCESS,
-} from "../constants/courseConstants";
+} from "../constants/courseListConstants";
 const initialState = {
-  success: Boolean,
-  message: "",
   data: {
     kind: "",
     count: Number,
@@ -38,8 +36,8 @@ export const courseListReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         data: action.payload.data,
-        pages: action.payload.pages,
-        page: action.payload.page,
+        totalPages: action.payload.totalPages,
+        currentPage: action.payload.currentPage,
       };
     case COURSE_LIST_FAIL:
       return { loading: false, error: action.payload };

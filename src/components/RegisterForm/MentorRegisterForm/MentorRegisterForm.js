@@ -52,7 +52,7 @@ const MentorRegisterForm = () => {
         <br />
         <input
           type="password"
-          id="password"
+          id="confirmPassword"
           name="password"
           placeholder="Re-enter your password"
           required

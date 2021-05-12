@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import CourseCard from "../../components/CourseCard";
 import ExploreHeader from "../../components/ExploreHeader";
 import ExploreSlider from "../../components/ExploreSlider";
@@ -9,32 +8,37 @@ import Paginate from "../../components/Paginate";
 import SearchBox from "../../components/SearchBox";
 import "./ExploreScreen.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { listCourses } from "../../actions/courseActions";
+import { listCourses } from "../../actions/courseListActions";
 import Loader from "../../components/Loader";
+import ErrorMessage from "../../components/ErrorMessage";
 
 const ExploreScreen = ({ match }) => {
-  const keyword = match.params.keyword;
-
+  const genre = match.params.genre || "";
+  const sortby = match.params.sortby || "";
+  const ratings = match.params.ratings;
   const pageNumber = match.params.pageNumber || 1;
 
+  //   console.log(match);
   const courseList = useSelector((state) => state.courseList);
-  const { loading, error, data, pages, page } = courseList;
+  const { loading, error, data, totalPages, currentPage } = courseList;
+  // const { currentPage, totalPages } = data;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(listCourses(keyword, pageNumber));
-  }, [dispatch, pageNumber, keyword]);
+    dispatch(listCourses(pageNumber, genre, sortby, ratings));
+  }, [dispatch, pageNumber, genre, sortby, ratings]);
   return (
     <>
       <ExploreHeader></ExploreHeader>
       <SearchBox></SearchBox>
       <ExploreSlider></ExploreSlider>
-      <Filter></Filter>
+      {/* <Filter></Filter> */}
+
       <section className="hr-section-14">
         <div className="container">
           {loading ? (
             <Loader></Loader>
           ) : error ? (
-            console.log({ error })
+            <ErrorMessage>{error}</ErrorMessage>
           ) : (
             <>
               <div className="row">
@@ -45,9 +49,8 @@ const ExploreScreen = ({ match }) => {
                 ))}
               </div>
               <Paginate
-                pages={pages}
-                page={page}
-                keyword={keyword ? keyword : ""}
+                totalPages={totalPages}
+                currentPage={currentPage}
               ></Paginate>
             </>
           )}
