@@ -7,3 +7,4 @@ export { default as MentorRegisterScreen } from "./RegisterScreen/MentorRegister
 export { default as ContinueMentorRegister } from "./RegisterScreen/MentorRegisterScreen/ContinueMentorRegister";
 export { default as ExploreScreen } from "./ExploreScreen";
 export { default as MentorProfileExploreScreen } from "./MentorProfileExploreScreen";
+export { default as ExploreServiceScreen } from "./ExploreServiceScreen";

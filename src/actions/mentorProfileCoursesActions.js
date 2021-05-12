@@ -5,7 +5,7 @@ import {
   MENTOR_PROFILE_COURSES_LIST_SUCCESS,
 } from "../constants/mentorProfileCoursesConstants";
 
-export const listCourses = (mentorId) => async (dispatch) => {
+export const mentorProfileCoursesAction = (mentorId) => async (dispatch) => {
   try {
     dispatch({ type: MENTOR_PROFILE_COURSES_LIST_REQUEST });
     const { data } = await axios.get(

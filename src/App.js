@@ -11,6 +11,7 @@ import {
   MentorProfileExploreScreen,
   MentorRegisterScreen,
 } from "./screens";
+import ExploreServiceScreen from "./screens/ExploreServiceScreen";
 
 function App() {
   return (
@@ -39,6 +40,10 @@ function App() {
       <Route
         path="/explore/profile/:id"
         component={MentorProfileExploreScreen}
+      ></Route>
+      <Route
+        path="/explore/course/:id"
+        component={ExploreServiceScreen}
       ></Route>
       <Route path="/login" component={GuardianLoginScreen} exact>
         <Redirect from="/login" to="/login/guardian"></Redirect>

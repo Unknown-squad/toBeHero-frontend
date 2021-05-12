@@ -5,8 +5,17 @@ import { Link } from "react-router-dom";
 import courseStar from "../../images/course-star.svg";
 
 const CourseCard = ({ course }) => {
-  const { mentorId, picture, price, title, description, rate, reviewCounter } =
-    course;
+  const {
+    mentorId,
+    picture,
+    price,
+    title,
+    description,
+    rate,
+    reviewCounter,
+    _id,
+  } = course;
+
   return (
     <>
       <div className="course-card">
@@ -38,7 +47,7 @@ const CourseCard = ({ course }) => {
             </div>
           </div>
           <div className="course-info">
-            <Link to={``}>
+            <Link to={`/explore/course/${_id}`}>
               <h2>{title}</h2>
             </Link>
             <p>{description}</p>

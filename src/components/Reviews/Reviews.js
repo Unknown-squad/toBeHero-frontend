@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import courseStar from "../../images/course-star.svg";
-const MentorReviews = ({ data }) => {
+const Reviews = ({ data }) => {
   return (
     <section className="hr-section-18">
       <div className="container">
@@ -28,4 +28,4 @@ const MentorReviews = ({ data }) => {
   );
 };
 
-export default MentorReviews;
+export default Reviews;

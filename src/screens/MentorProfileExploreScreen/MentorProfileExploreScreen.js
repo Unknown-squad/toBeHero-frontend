@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import CourseCard from "../../components/CourseCard";
 import MentorProfileExploreHeader from "../../components/MentorProfileExploreHeader";
 
-import MentorReviews from "../../components/MentorReviews";
+import MentorReviews from "../../components/Reviews";
 import { useSelector, useDispatch } from "react-redux";
 import { mentorProfileDetails } from "../../actions/mentorProfileDetailsActions";
 import coloredAt from "../../images/colored-at-icon.svg";
@@ -32,6 +32,14 @@ const MentorProfileExploreScreen = ({ match }) => {
 
   const mentorDetails = useSelector((state) => state.mentorDetails);
   const { loading, error, data } = mentorDetails;
+  const mentorProfileCourses = useSelector(
+    (state) => state.mentorProfileCourses
+  );
+  const {
+    loading: loadingMentorProfileCourses,
+    error: errorMentorProfileCourses,
+    data: dataMentorProfileCourses,
+  } = mentorProfileCourses;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -119,8 +127,18 @@ const MentorProfileExploreScreen = ({ match }) => {
           </div>
         </div>
       </section>
-      <CourseCard></CourseCard>
-      <MentorReviews data={data}></MentorReviews>
+      {loadingMentorProfileCourses ? (
+        <Loader></Loader>
+      ) : errorMentorProfileCourses ? (
+        <ErrorMessage style={{ width: "100vw" }}>{error}</ErrorMessage>
+      ) : (
+        <>
+          {/* {data.items.map((course) => (
+            <CourseCard course={course}></CourseCard>
+          ))} */}
+        </>
+      )}
+      )<MentorReviews data={data}></MentorReviews>
       <Footer></Footer>
     </>
   );

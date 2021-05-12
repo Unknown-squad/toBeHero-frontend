@@ -5,12 +5,14 @@ import { courseListReducer } from "./reducers/courseListReducers";
 import { guardianRegisterReducer } from "./reducers/guardianRegisterReducers";
 import { mentorRegisterReducer } from "./reducers/mentorRegisterReducers";
 import { mentorProfileDetailsReducer } from "./reducers/mentorProfileDetailsReducers";
+import { mentorProfileCoursesReducer } from "./reducers/mentorProfileCoursesReducers";
 
 const rootReducer = combineReducers({
   courseList: courseListReducer,
   guardianRegister: guardianRegisterReducer,
   mentorRegister: mentorRegisterReducer,
   mentorDetails: mentorProfileDetailsReducer,
+  mentorProfileCourses: mentorProfileCoursesReducer,
 });
 
 const guardianInfoFromStorage = localStorage.getItem("guardianInfo")

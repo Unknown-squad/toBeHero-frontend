@@ -1,0 +1,155 @@
+@import "../../index.scss";
+
+/* start page  Explore-service*/
+.hr-section-19 {
+  padding: 0 80px 1rem;
+  margin-top: 1.5rem;
+  .mentor-rate {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    color: $text-color;
+    h3 {
+      font-weight: 500;
+      font-size: 24px;
+    }
+    div {
+      display: flex;
+      gap: 8px;
+    }
+  }
+  .visit-profile {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    .mentor-img img {
+      width: 35px;
+    }
+    .mentor-service-info {
+      display: flex;
+      align-items: center;
+    }
+    .mentor-info {
+      line-height: 16px;
+      padding-left: 10px;
+      h2 {
+        font-size: 16px;
+        color: $purple-500;
+        font-weight: 400;
+      }
+      p {
+        font-size: 10px;
+        font-weight: 200;
+      }
+    }
+    .mentor-status {
+      border-radius: 100%;
+      width: 10px;
+      height: 10px;
+      margin: 0 0 12px 5px;
+    }
+    .status-on {
+      background-color: #44c2fd;
+    }
+    .status-off {
+      background-color: #fd8244;
+    }
+    .btn-visit-profile {
+      padding: 0.25rem 1rem;
+      border: 1px solid $purple-500;
+      color: $purple-500;
+      background: none;
+      margin-left: 1.5rem;
+      border-radius: 25px;
+    }
+  }
+  .lead-profile {
+    font-size: 20px;
+    color: $purple-gray;
+  }
+  .purchase-container {
+    border: 1px solid #6592fd;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    max-width: 39rem;
+  }
+
+  .purchase-container > div {
+    justify-content: space-between;
+  }
+
+  .service-details > div > ul {
+    padding-left: 1.5rem;
+  }
+  .service-details > div > ul > li {
+    list-style: url(../../images/checkmark-colored.svg);
+    font-size: 14px;
+    font-weight: 300;
+  }
+  .service-details > div > div > p {
+    font-size: 18px;
+    span {
+      color: $purple-400;
+      font-weight: 600;
+    }
+  }
+  .service-purchase-btns div button {
+    font-weight: 500;
+    font-size: 16px;
+  }
+  img {
+    width: auto;
+  }
+  .slider-service {
+    padding: 1rem 0 1rem 2rem;
+    .slider-show {
+      img {
+        width: 100%;
+      }
+    }
+    .slider-service-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .slider-show {
+        border-radius: 5px;
+      }
+      .circle-arrow-left {
+        position: absolute;
+        left: 5%;
+      }
+      .circle-arrow-right {
+        position: absolute;
+        right: 0%;
+      }
+      .slider-service-img {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        border-radius: 5px;
+        .active {
+          border: 1px solid $purple-200;
+          padding: 0 3px;
+          border-radius: 5px;
+        }
+      }
+      .slider-service-img div {
+        width: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+  .p-service {
+    padding-right: 0;
+    .service-category {
+      font-size: 18px;
+    }
+  }
+}
+/* end page  Explore-service*/
