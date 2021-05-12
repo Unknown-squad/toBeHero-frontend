@@ -6,26 +6,27 @@ import {
 
 const initialState = {
   data: {
-    Kind: "course",
+    kind: "course",
     items: [
       {
+        rate: Number,
+        reviewCounter: Number,
+        topicsList: [],
+        mediaURLS: [],
+        subscriptionNumber: Number,
         _id: "",
         title: "",
-        price: "",
-        Description: "",
-        Picture: "",
-        Rate: Number,
-        creatingDate: "",
-        reviewCounter: Number,
-        topicList: [],
-        mediaUrls: [],
+        price: Number,
+        description: "",
+        picture: "",
         genre: "",
-        Mentor: {
+        mentorId: {
+          isAvailable: Boolean,
           _id: "",
           fullName: "",
-          Picture: "",
-          isAvailable: Boolean,
+          picture: "",
         },
+        creatingDate: "",
       },
     ],
   },

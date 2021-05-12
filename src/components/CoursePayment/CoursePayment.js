@@ -1,6 +1,6 @@
 import React from "react";
 
-const CoursePayment = () => {
+const CoursePayment = ({ details }) => {
   return (
     <div className="col-12">
       <div className="purchase-container">
@@ -8,22 +8,15 @@ const CoursePayment = () => {
           <div>
             <div>
               <p>
-                For <span>10EGP</span> your child will learn:-
+                For <span>{details.price} EGP</span> your child will learn:-
               </p>
             </div>
             <ul>
-              <li>
-                <p>sadipscing elitr, sed diam nonumy</p>
-              </li>
-              <li>
-                <p>sadipscing elitr, sed nonumy</p>
-              </li>
-              <li>
-                <p>elitr, sed diam nonumy</p>
-              </li>
-              <li>
-                <p>sadipscing elitr, sed diam nonumy</p>
-              </li>
+              {details.topicsList.map((topic, index) => (
+                <li key={index}>
+                  <p>{topic}</p>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

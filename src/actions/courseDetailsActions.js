@@ -1,16 +1,25 @@
-export const listProductDetails = (id) => async (dispatch) => {
-  try {
-    dispatch({ type: PRODUCT_DETAILS_REQUEST });
+import axios from "axios";
+import {
+  COURSE_DETAILS_FAIL,
+  COURSE_DETAILS_REQUEST,
+  COURSE_DETAILS_SUCCESS,
+} from "../constants/courseDetailsConstants";
 
-    const { data } = await axios.get(`/api/products/${id}`);
+export const courseDetailsAction = (courseId) => async (dispatch) => {
+  try {
+    dispatch({ type: COURSE_DETAILS_REQUEST });
+
+    const { data } = await axios.get(
+      `http://localhost:5000/api/v1/courses/${courseId}`
+    );
 
     dispatch({
-      type: PRODUCT_DETAILS_SUCCESS,
+      type: COURSE_DETAILS_SUCCESS,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: PRODUCT_DETAILS_FAIL,
+      type: COURSE_DETAILS_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

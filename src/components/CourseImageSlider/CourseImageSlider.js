@@ -7,10 +7,11 @@ import sliderService3 from "../../images/slider-service-3.svg";
 import sliderService4 from "../../images/slider-service-4.svg";
 import circleArrowRight from "../../images/circle-arrow-right.svg";
 
-const CourseImageSlider = () => {
+const CourseImageSlider = ({ details }) => {
   return (
     <div className="col-lg-6 col-12">
       <div className="slider-service">
+        {/* {details.mediaURLS.map} */}
         <div className="slider-show">
           <img src={sliderServiceShow} alt="" />
         </div>

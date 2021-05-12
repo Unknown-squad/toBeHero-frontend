@@ -4,6 +4,8 @@ import MentorProfileExploreHeader from "../../components/MentorProfileExploreHea
 
 import MentorReviews from "../../components/Reviews";
 import { useSelector, useDispatch } from "react-redux";
+import Loader from "../../components/Loader";
+import ErrorMessage from "../../components/ErrorMessage";
 import { mentorProfileDetails } from "../../actions/mentorProfileDetailsActions";
 import coloredAt from "../../images/colored-at-icon.svg";
 import locationIcon from "../../images/location-icon.svg";
@@ -11,10 +13,9 @@ import infoIcon from "../../images/info-icon.svg";
 import coloredPhoneIcon from "../../images/colored-phone-icon.svg";
 import langIcon from "../../images/lang-icon.svg";
 import "./MentorProfileExploreScreen.scss";
-import Loader from "../../components/Loader";
-import ErrorMessage from "../../components/ErrorMessage";
 import Footer from "../../components/Footer";
 import { Link } from "react-router-dom";
+import Reviews from "../../components/Reviews";
 const MentorProfileExploreScreen = ({ match }) => {
   // const MentorProfileInfoCard = ({ details }) => {
   //   function calculate_age(age) {
@@ -138,7 +139,7 @@ const MentorProfileExploreScreen = ({ match }) => {
           ))} */}
         </>
       )}
-      )<MentorReviews data={data}></MentorReviews>
+      )<Reviews data={data}></Reviews>
       <Footer></Footer>
     </>
   );
