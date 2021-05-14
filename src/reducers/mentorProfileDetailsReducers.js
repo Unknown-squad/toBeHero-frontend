@@ -11,7 +11,7 @@ const initialState = {
       occupation: [],
       certificates: [],
       languages: [],
-      balance: 0,
+      balance: Number,
       topReviewsId: [],
       isAvailable: Boolean,
       _id: "",

@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   data: {
-    kind: "course",
+    kind: "",
     items: [
       {
         rate: Number,

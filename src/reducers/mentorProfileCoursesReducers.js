@@ -17,7 +17,7 @@ const initialState = {
         reviewsId: [],
         _id: "",
         title: "",
-        price: 69,
+        price: Number,
         description: "",
         picture: "",
         genre: "",

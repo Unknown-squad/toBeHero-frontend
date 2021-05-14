@@ -5,7 +5,7 @@ import {
   GUARDIAN_REGISTER_SUCCESS,
 } from "../constants/guardianRegisterConstants";
 
-export const register =
+export const guardianRegisterActions =
   (fullName, email, password, phone, countryCode) => async (dispatch) => {
     try {
       dispatch({ type: GUARDIAN_REGISTER_REQUEST });

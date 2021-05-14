@@ -5,7 +5,7 @@ import {
   MENTOR_REGISTER_SUCCESS,
 } from "../constants/mentorRegisterConstants";
 
-export const register =
+export const mentorRegisterActions =
   (
     gender,
     fullName,

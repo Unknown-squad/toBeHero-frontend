@@ -5,8 +5,9 @@ import "../RegisterScreen.scss";
 import Footer from "../../../components/Footer";
 import { GuardianRegisterForm } from "../../../components/RegisterForm";
 import LoginRegHeader from "../../../components/LoginRegHeader";
+import Loader from "../../../components/Loader";
 
-const GuardianRegisterScreen = () => {
+const GuardianRegisterScreen = ({ location, history }) => {
   return (
     <>
       <LoginRegHeader></LoginRegHeader>
@@ -34,8 +35,10 @@ const GuardianRegisterScreen = () => {
                 </ul>
                 <div className="form-register-container flex-column just-cont">
                   <div className="register-form">
-                    <div className="form-inputs"></div>
-                    <GuardianRegisterForm></GuardianRegisterForm>
+                    <GuardianRegisterForm
+                      location={location}
+                      history={history}
+                    ></GuardianRegisterForm>
                   </div>
                 </div>
               </div>

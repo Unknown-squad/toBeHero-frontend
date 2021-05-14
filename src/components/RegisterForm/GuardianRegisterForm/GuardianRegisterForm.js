@@ -1,87 +1,152 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { guardianRegisterActions } from "../../../actions/guardianRegisterActions";
+import ErrorMessage from "../../ErrorMessage";
+import Loader from "../../Loader";
 
-const GuardianRegisterForm = () => {
+const GuardianRegisterForm = ({ location, history }) => {
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [countryCode, setCountryCode] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState(null);
+
+  const dispatch = useDispatch();
+
+  const guardianRegister = useSelector((state) => state.guardianRegister);
+  const { loading, error, guardianInfo } = guardianRegister;
+
+  const redirect = location.search ? location.search.split("=")[1] : "/explore";
+
+  useEffect(() => {
+    if (guardianInfo) {
+      history.push(redirect);
+    }
+  }, [history, guardianInfo, redirect]);
+
   const submitHandler = (e) => {
     e.preventDefault();
+    if (password !== confirmPassword) {
+      setMessage("Passwords do not match");
+    } else {
+      dispatch(
+        guardianRegisterActions(fullName, email, password, countryCode, phone)
+      );
+    }
   };
   return (
-    <form onSubmit={submitHandler}>
-      <div className="input-field">
-        <label htmlFor="name">Full name*</label>
-        <br />
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Enter your name"
-          required
-        />
-      </div>
-      <div className="input-field">
-        <label htmlFor="email">Email*</label>
-        <br />
-        <input
-          type="email"
-          id="email"
-          name="register-email"
-          placeholder="Enter your email"
-          required
-        ></input>
-      </div>
-      <div className="input-field">
-        <label htmlFor="password">Password*</label>
-        <br />
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Enter your password"
-          required
-        ></input>
-      </div>
-      <div className="input-field">
-        <label htmlFor="password">re-Password*</label>
-        <br />
-        <input
-          type="password"
-          id="passwordConfirm"
-          name="password"
-          placeholder="Re-enter your password"
-          required
-        ></input>
-      </div>
-      <div className="input-field">
-        <label htmlFor="phone">Phone</label>
-        <br />
-        <div className="flex-row w-100">
-          <select name="phone-code" id="phone-code">
-            <option value="+20">+20</option>
-          </select>
+    <div className="form-inputs">
+      {loading && <Loader></Loader>}
+      {message ? (
+        <ErrorMessage>{message}</ErrorMessage>
+      ) : error ? (
+        <ErrorMessage>{error}</ErrorMessage>
+      ) : (
+        ""
+      )}
+
+      <form onSubmit={submitHandler}>
+        <div className="input-field">
+          <label htmlFor="name">Full name*</label>
+          <br />
           <input
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="Enter
-          your phone"
+            type="text"
+            id="name"
+            value={fullName}
+            name="name"
+            placeholder="Enter your name"
+            required
+            onChange={(e) => setFullName(e.target.value)}
+          />
+        </div>
+        <div className="input-field">
+          <label htmlFor="email">Email*</label>
+          <br />
+          <input
+            type="email"
+            id="email"
+            value={email}
+            name="register-email"
+            placeholder="Enter your email"
+            required
+            onChange={(e) => setEmail(e.target.value)}
           ></input>
         </div>
-      </div>
+        <div className="input-field">
+          <label htmlFor="password">Password*</label>
+          <br />
+          <input
+            type="password"
+            id="password"
+            value={password}
+            name="password"
+            placeholder="Enter your password"
+            required
+            onChange={(e) => setPassword(e.target.value)}
+          ></input>
+        </div>
+        <div className="input-field">
+          <label htmlFor="confirmPassword">re-Password*</label>
+          <br />
+          <input
+            type="password"
+            id="confirmPassword"
+            name="password"
+            value={confirmPassword}
+            placeholder="Re-enter your password"
+            required
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          ></input>
+        </div>
+        <div className="input-field">
+          <label htmlFor="phone">Phone</label>
+          <br />
+          <div className="flex-row w-100">
+            <select
+              name="phone-code"
+              id="phone-code"
+              onChange={(e) => setCountryCode(e.target.value)}
+            >
+              <option value={countryCode}>+20</option>
+            </select>
+            <input
+              type="tel"
+              id="phone"
+              value={phone}
+              name="phone"
+              placeholder="Enter
+          your phone"
+              onChange={(e) => setPhone(e.target.value)}
+            ></input>
+          </div>
+        </div>
 
-      <div className="form-note just-cont-cntr">
-        <p className="text-center">*required</p>
-      </div>
+        <div className="form-note just-cont-cntr">
+          <p className="text-center">*required</p>
+        </div>
 
-      <div className="form-btns sign-up-btns flex-column just-cont-cntr alin-itms-cntr">
-        <input
-          type="submit"
-          className="btn btn-sign"
-          name="register"
-          value="Register"
-        ></input>
-        <Link to="/login/guardian">already registered?</Link>
-      </div>
-    </form>
+        <div className="form-btns sign-up-btns flex-column just-cont-cntr alin-itms-cntr">
+          <input
+            type="submit"
+            className="btn btn-sign"
+            name="register"
+            value="Register"
+          ></input>
+          <Link
+            to={
+              redirect
+                ? `/login/guardian?redirect=${redirect}`
+                : "/login/guardian"
+            }
+          >
+            already registered?
+          </Link>
+        </div>
+      </form>
+    </div>
   );
 };
 
