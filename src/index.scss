@@ -132,7 +132,7 @@ input[type="tel"] {
   width: 25%;
 }
 .container-sign {
-  height: 100vh;
+  height: calc(100vh - 65px);
   display: flex;
   flex-direction: column;
 }
