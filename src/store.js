@@ -7,6 +7,9 @@ import { mentorRegisterReducer } from "./reducers/mentorRegisterReducers";
 import { mentorProfileDetailsReducer } from "./reducers/mentorProfileDetailsReducers";
 import { mentorProfileCoursesReducer } from "./reducers/mentorProfileCoursesReducers";
 import { courseDetailsReducer } from "./reducers/courseDetailsReducer";
+import { guardianLoginReducer } from "./reducers/guardianLoginReducers";
+import { mentorLoginReducer } from "./reducers/mentorLoginReducers";
+import { heroLoginReducer } from "./reducers/heroLoginReducers";
 
 const rootReducer = combineReducers({
   courseList: courseListReducer,
@@ -15,6 +18,9 @@ const rootReducer = combineReducers({
   mentorDetails: mentorProfileDetailsReducer,
   mentorProfileCourses: mentorProfileCoursesReducer,
   courseDetails: courseDetailsReducer,
+  guardianLogin: guardianLoginReducer,
+  mentorLogin: mentorLoginReducer,
+  heroLogin: heroLoginReducer,
 });
 
 const guardianInfoFromStorage = localStorage.getItem("guardianInfo")
@@ -25,9 +31,13 @@ const mentorInfoFromStorage = localStorage.getItem("mentorInfo")
   ? JSON.parse(localStorage.getItem("mentorInfo"))
   : null;
 
+const heroInfoFromStorage = localStorage.getItem("heroInfo")
+  ? JSON.parse(localStorage.getItem("heroInfo"))
+  : null;
 const initialState = {
   // guardianLogin: { guardianInfo: guardianInfoFromStorage },
   // mentorLogin: { mentorInfo: mentorInfoFromStorage },
+  // heroLogin: { heroInfo: heroInfoFromStorage },
 };
 
 const middleware = [thunk];

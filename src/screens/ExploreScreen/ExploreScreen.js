@@ -15,7 +15,7 @@ import ErrorMessage from "../../components/ErrorMessage";
 const ExploreScreen = ({ match }) => {
   const genre = match.params.genre || "";
   const sortby = match.params.sortby || "";
-  const ratings = match.params.ratings;
+  const ratings = match.params.ratings || "";
   const pageNumber = match.params.pageNumber || 1;
 
   //   console.log(match);
