@@ -1,13 +1,13 @@
 import axios from "axios";
 import {
-  GUARDIAN_LOGIN_FAIL,
-  GUARDIAN_LOGIN_REQUEST,
-  GUARDIAN_LOGIN_SUCCESS,
-} from "../constants/guardianLoginConstants";
+  MENTOR_LOGIN_FAIL,
+  MENTOR_LOGIN_REQUEST,
+  MENTOR_LOGIN_SUCCESS,
+} from "../constants/mentorLoginconstants";
 
-export const guardianLoginActions = (email, password) => async (dispatch) => {
+export const mentorLoginActions = (email, password) => async (dispatch) => {
   try {
-    dispatch({ type: GUARDIAN_LOGIN_REQUEST });
+    dispatch({ type: MENTOR_LOGIN_REQUEST });
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -16,20 +16,20 @@ export const guardianLoginActions = (email, password) => async (dispatch) => {
     const { data } = await axios.post(
       "/api/v1/user/login",
       {
-        method: "login.guardian.post",
+        method: "login.mentor.post",
         params: {
           email,
           password,
-          person: "guardian",
+          person: "mentor",
         },
       },
       config
     );
-    dispatch({ type: GUARDIAN_LOGIN_SUCCESS, payload: data });
-    localStorage.setItem("guardianInfo", JSON.stringify(data));
+    dispatch({ type: MENTOR_LOGIN_SUCCESS, payload: data });
+    localStorage.setItem("mentorInfo", JSON.stringify(data));
   } catch (error) {
     dispatch({
-      type: GUARDIAN_LOGIN_FAIL,
+      type: MENTOR_LOGIN_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
