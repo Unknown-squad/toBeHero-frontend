@@ -3,7 +3,7 @@ import {
   MENTOR_LOGIN_FAIL,
   MENTOR_LOGIN_REQUEST,
   MENTOR_LOGIN_SUCCESS,
-} from "../constants/mentorLoginconstants";
+} from "../constants/mentorLoginConstants";
 
 export const mentorLoginActions = (email, password) => async (dispatch) => {
   try {
