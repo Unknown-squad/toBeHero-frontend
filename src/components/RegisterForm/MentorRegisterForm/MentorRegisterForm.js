@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import ErrorMessage from "../../ErrorMessage";
 import Loader from "../../Loader";
 import { Link } from "react-router-dom";
+import { mentorRegisterActions } from "../../../actions/mentorRegisterActions";
 
 const MentorRegisterForm = ({ location, history }) => {
   const [gender, setGender] = useState("");
@@ -20,16 +21,21 @@ const MentorRegisterForm = ({ location, history }) => {
 
   const redirect = location.search ? location.search.split("=")[1] : "/explore";
 
-  useEffect(() => {
-    if (mentorInfo) {
-      history.push(redirect);
-    }
-  }, [history, mentorInfo, redirect]);
-
   const submitHandler = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       setMessage("Passwords do not match");
+    } else {
+      dispatch(
+        mentorRegisterActions(
+          gender,
+          fullName,
+          email,
+          password,
+          countryCode,
+          phone
+        )
+      );
     }
   };
 
@@ -52,9 +58,10 @@ const MentorRegisterForm = ({ location, history }) => {
               name="mr"
               id="mr"
               onChange={(e) => setGender(e.target.value)}
+              value={gender}
             >
-              <option value={gender}>Mr.</option>
-              <option value={gender}>Ms.</option>
+              <option value="Mr.">Mr.</option>
+              <option value="Ms.">Ms.</option>
             </select>
             <input
               type="text"
@@ -115,8 +122,9 @@ const MentorRegisterForm = ({ location, history }) => {
               name="phone-code"
               id="phone-code"
               onChange={(e) => setCountryCode(e.target.value)}
+              value={countryCode}
             >
-              <option value={countryCode}>+20</option>
+              <option value="+20">+20</option>
             </select>
             <input
               type="tel"
@@ -132,7 +140,13 @@ const MentorRegisterForm = ({ location, history }) => {
           <p className="text-center">*required</p>
         </div>
         <div className="form-btns sign-up-btns flex-column just-cont-cntr alin-itms-cntr">
-          <Link to="/register/mentor/continue">
+          <Link
+            to={
+              redirect
+                ? `/register/mentor/continue?redirect=${redirect}`
+                : "/register/mentor/continue"
+            }
+          >
             <input
               type="submit"
               className="btn btn-sign"

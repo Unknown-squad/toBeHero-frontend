@@ -109,8 +109,9 @@ const GuardianRegisterForm = ({ location, history }) => {
               name="phone-code"
               id="phone-code"
               onChange={(e) => setCountryCode(e.target.value)}
+              value={countryCode}
             >
-              <option value={countryCode}>+20</option>
+              <option value="+20">+20</option>
             </select>
             <input
               type="tel"
