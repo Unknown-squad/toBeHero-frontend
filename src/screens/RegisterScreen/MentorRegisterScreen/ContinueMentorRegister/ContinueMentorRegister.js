@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ContinueMentorHeader from "../../../../components/ContinueMentorHeader";
 import Footer from "../../../../components/Footer";
 import plusIcon from "../../../../images/plus-icon.svg";
 import cameraIcon from "../../../../images/camera-icon.svg";
 import upload from "../../../../images/upload.svg";
-
+import { useSelector, useDispatch } from "react-redux";
+import ErrorMessage from "../../../../components/ErrorMessage";
+import Loader from "../../../../components/Loader";
 import "./ContinueMentorRegister.scss";
 const ContinueMentorRegister = () => {
+  const [birthDate, setBirthDate] = useState("");
+  const [languages, setLanguages] = useState([]);
   const submitHandler = (e) => {
     e.preventDefault();
   };

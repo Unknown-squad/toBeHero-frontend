@@ -6,7 +6,7 @@ import { MentorRegisterForm } from "../../../components/RegisterForm";
 import LoginRegHeader from "../../../components/LoginRegHeader";
 import "../RegisterScreen.scss";
 
-const MentorRegisterScreen = () => {
+const MentorRegisterScreen = ({ location, history }) => {
   return (
     <>
       <LoginRegHeader></LoginRegHeader>
@@ -33,9 +33,10 @@ const MentorRegisterScreen = () => {
                 </ul>
                 <div className="form-register-container flex-column just-cont">
                   <div className="register-form">
-                    <div className="form-inputs">
-                      <MentorRegisterForm></MentorRegisterForm>
-                    </div>
+                    <MentorRegisterForm
+                      location={location}
+                      history={history}
+                    ></MentorRegisterForm>
                   </div>
                 </div>
               </div>
