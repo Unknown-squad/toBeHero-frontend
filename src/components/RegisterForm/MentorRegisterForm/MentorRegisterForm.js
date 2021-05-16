@@ -26,16 +26,16 @@ const MentorRegisterForm = ({ location, history }) => {
     if (password !== confirmPassword) {
       setMessage("Passwords do not match");
     } else {
-      dispatch(
-        mentorRegisterActions(
-          gender,
-          fullName,
-          email,
-          password,
-          countryCode,
-          phone
-        )
-      );
+      // dispatch(
+      //   mentorRegisterActions(
+      //     gender,
+      //     fullName,
+      //     email,
+      //     password,
+      //     countryCode,
+      //     phone
+      //   )
+      // );
     }
   };
 

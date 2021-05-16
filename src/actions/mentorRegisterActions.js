@@ -29,7 +29,7 @@ export const mentorRegisterActions =
         },
       };
       const { data } = await axios.post(
-        `/api/v1/signup/mentor`,
+        `http://localhost:5000/api/v1/signup/mentor`,
         {
           method: "signup.mentor.step1.post",
           params: {

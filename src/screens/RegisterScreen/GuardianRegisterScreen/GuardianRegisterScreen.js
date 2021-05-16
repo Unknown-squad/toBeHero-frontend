@@ -5,7 +5,6 @@ import "../RegisterScreen.scss";
 import Footer from "../../../components/Footer";
 import { GuardianRegisterForm } from "../../../components/RegisterForm";
 import LoginRegHeader from "../../../components/LoginRegHeader";
-import Loader from "../../../components/Loader";
 
 const GuardianRegisterScreen = ({ location, history }) => {
   return (

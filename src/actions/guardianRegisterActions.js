@@ -15,7 +15,7 @@ export const guardianRegisterActions =
         },
       };
       const { data } = await axios.post(
-        "/api/v1/signup/guardian",
+        "http://localhost:5000/api/v1/signup/guardian",
         {
           method: "signup.guardian.post",
           params: {
