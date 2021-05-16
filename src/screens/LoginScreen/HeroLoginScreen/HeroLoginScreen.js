@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import arrowGo from "../../../images/arrow-go.svg";
 import "./HeroLoginScreen.scss";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import HeroHeader from "../../../components/HeroHeader";
+import { heroLoginActions } from "../../../actions/heroLoginActions";
+import Loader from "../../../components/Loader";
+import ErrorMessage from "../../../components/ErrorMessage";
 
-const HeroLoginScreen = () => {
+const HeroLoginScreen = ({ location, history }) => {
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const heroLogin = useSelector((state) => state.heroLogin);
+  const { loading, error, heroInfo } = heroLogin;
+  const dispatch = useDispatch();
+  const redirect = location.search ? location.search.split("=")[1] : "/";
+  useEffect(() => {
+    if (heroInfo) {
+      history.push(redirect);
+    }
+  }, [history, heroInfo, redirect]);
   const submitHandler = (e) => {
     e.preventDefault();
+    dispatch(heroLoginActions(userName, password));
   };
   return (
     <>
@@ -23,6 +39,8 @@ const HeroLoginScreen = () => {
                 <div className="form-container flex-column just-cont">
                   <div className="sign-in-form">
                     <div className="form-inputs">
+                      {loading && <Loader></Loader>}
+                      {error ? <ErrorMessage>{error}</ErrorMessage> : ""}
                       <form onSubmit={submitHandler}>
                         <div className="input-field">
                           <label htmlFor="username">Username</label>
@@ -30,8 +48,10 @@ const HeroLoginScreen = () => {
                             type="text"
                             id="username"
                             name="username"
+                            value={userName}
                             placeholder="Enter your username"
                             required
+                            onChange={(e) => setUserName(e.target.value)}
                           />
                         </div>
                         <div className="input-field">
@@ -40,8 +60,10 @@ const HeroLoginScreen = () => {
                             type="password"
                             id="password"
                             name="password"
+                            value={password}
                             placeholder="Enter your password"
                             required
+                            onChange={(e) => setPassword(e.target.value)}
                           />
                           <br />
                         </div>

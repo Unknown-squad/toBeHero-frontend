@@ -1,4 +1,5 @@
 import axios from "axios";
+import { GUARDIAN_LOGIN_SUCCESS } from "../constants/guardianLoginConstants";
 import {
   GUARDIAN_REGISTER_FAIL,
   GUARDIAN_REGISTER_REQUEST,
@@ -30,7 +31,10 @@ export const guardianRegisterActions =
       );
       dispatch({ type: GUARDIAN_REGISTER_SUCCESS, payload: data });
 
-      //dispatch guardian login
+      dispatch({
+        type: GUARDIAN_LOGIN_SUCCESS,
+        payload: data,
+      });
       localStorage.setItem("guardianInfo", JSON.stringify(data));
     } catch (error) {
       dispatch({

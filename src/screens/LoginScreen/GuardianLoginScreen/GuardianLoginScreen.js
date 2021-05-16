@@ -6,7 +6,7 @@ import LoginRegHeader from "../../../components/LoginRegHeader";
 import "../LoginScreen.scss";
 import LoginForm from "../../../components/LoginForm";
 
-const GuardianLoginScreen = () => {
+const GuardianLoginScreen = ({ location, history }) => {
   return (
     <>
       <LoginRegHeader></LoginRegHeader>
@@ -40,7 +40,10 @@ const GuardianLoginScreen = () => {
                 <div className="form-container flex-column just-cont">
                   <div className="sign-in-form">
                     <div className="form-inputs">
-                      <LoginForm></LoginForm>
+                      <LoginForm
+                        location={location}
+                        history={history}
+                      ></LoginForm>
                     </div>
                   </div>
                 </div>
