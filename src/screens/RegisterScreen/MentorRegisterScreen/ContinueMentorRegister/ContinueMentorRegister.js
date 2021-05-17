@@ -11,12 +11,11 @@ import Loader from "../../../../components/Loader";
 import "./ContinueMentorRegister.scss";
 import { mentorRegisterActions } from "../../../../actions/mentorRegisterActions";
 const ContinueMentorRegister = ({ history, location }) => {
-  const [birthDate, setBirthDate] = useState("");
-  const [languages, setLanguages] = useState([]);
-  const [description, setDescription] = useState("");
-  const [occupation, setOccupation] = useState([]);
-  const [certificates, setCertificates] = useState([]);
-  const [message, setMessage] = useState(null);
+  const [birthDate, setBirthDate] = useState("12/05/1990");
+  const [languages, setLanguages] = useState(["english"]);
+  const [description, setDescription] = useState("gggg");
+  const [occupation, setOccupation] = useState(["hhhhhhh"]);
+  const [certificates, setCertificates] = useState(["nnnnnnnn"]);
   // const [picture, setPicture] = useState("");
   const [uploading, setUploading] = useState(false);
 
@@ -51,9 +50,11 @@ const ContinueMentorRegister = ({ history, location }) => {
       history.push(redirect);
     }
   }, [history, mentorInfo, redirect]);
+
   const submitHandler = (e) => {
     e.preventDefault();
     const mentorDraft = JSON.parse(localStorage.getItem("mentorDraft"));
+
     if (mentorDraft) {
       dispatch(
         mentorRegisterActions({
@@ -66,7 +67,6 @@ const ContinueMentorRegister = ({ history, location }) => {
           picture,
         })
       );
-      localStorage.removeItem("mentorDraft");
     } else {
       history.push("/register/mentor");
     }
@@ -83,8 +83,9 @@ const ContinueMentorRegister = ({ history, location }) => {
         <section className="hr-section-10">
           <div className="container">
             <h3>
-              {/* Welcome {mentorInfo.gender} {mentorInfo.fullName} Enter the
-              following data to Continue */}
+              Welcome {JSON.parse(localStorage.getItem("mentorDraft")).gender}{" "}
+              {JSON.parse(localStorage.getItem("mentorDraft")).fullName} Enter
+              the following data to Continue
             </h3>
             <div className="row">
               <div className="col-12 ">
@@ -99,13 +100,7 @@ const ContinueMentorRegister = ({ history, location }) => {
                   <div className="register-form">
                     <div className="form-inputs">
                       {loading && <Loader></Loader>}
-                      {message ? (
-                        <ErrorMessage>{message}</ErrorMessage>
-                      ) : error ? (
-                        <ErrorMessage>{error}</ErrorMessage>
-                      ) : (
-                        ""
-                      )}
+                      {error ? <ErrorMessage>{error}</ErrorMessage> : ""}
                       <form onSubmit={submitHandler}>
                         <div className="row">
                           <div className="col-lg-5 col-md-6 col-12">

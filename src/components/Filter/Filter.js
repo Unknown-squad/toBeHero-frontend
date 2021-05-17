@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { listCourses } from "../../actions/courseListActions";
+
 const Filter = ({ history }) => {
   const dispatch = useDispatch();
   const [sort, setSort] = useState("");
@@ -31,7 +31,7 @@ const Filter = ({ history }) => {
                   value={sort}
                   onChange={(e) => setSort(e.target.value)}
                 >
-                  {console.log(sort)}
+                  {/* {console.log(sort)} */}
                   <option defaultValue></option>
 
                   <option value="rating">Rating</option>
@@ -49,7 +49,7 @@ const Filter = ({ history }) => {
                   value={filter}
                   onChange={(e) => setFilter(e.target.value)}
                 >
-                  {console.log(filter)}
+                  {/* {console.log(filter)} */}
                   <option defaultValue></option>
                   <option value="Art">Art</option>
                   <option value="Music">Music</option>

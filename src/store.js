@@ -23,21 +23,21 @@ const rootReducer = combineReducers({
   heroLogin: heroLoginReducer,
 });
 
-// const guardianInfoFromStorage = localStorage.getItem("guardianInfo")
-//   ? JSON.parse(localStorage.getItem("guardianInfo"))
-//   : null;
+const guardianInfoFromStorage = localStorage.getItem("guardianInfo")
+  ? JSON.parse(localStorage.getItem("guardianInfo"))
+  : null;
 
-// const mentorInfoFromStorage = localStorage.getItem("mentorInfo")
-//   ? JSON.parse(localStorage.getItem("mentorInfo"))
-//   : null;
+const mentorInfoFromStorage = localStorage.getItem("mentorInfo")
+  ? JSON.parse(localStorage.getItem("mentorInfo"))
+  : null;
 
-// const heroInfoFromStorage = localStorage.getItem("heroInfo")
-//   ? JSON.parse(localStorage.getItem("heroInfo"))
-//   : null;
+const heroInfoFromStorage = localStorage.getItem("heroInfo")
+  ? JSON.parse(localStorage.getItem("heroInfo"))
+  : null;
 const initialState = {
-  // guardianLogin: { guardianInfo: guardianInfoFromStorage },
-  // mentorLogin: { mentorInfo: mentorInfoFromStorage },
-  // heroLogin: { heroInfo: heroInfoFromStorage },
+  guardianLogin: { guardianInfo: guardianInfoFromStorage },
+  mentorLogin: { mentorInfo: mentorInfoFromStorage },
+  heroLogin: { heroInfo: heroInfoFromStorage },
 };
 
 const middleware = [thunk];

@@ -9,25 +9,27 @@ import { MENTOR_REGISTER_RESET_ERROR } from "../../../constants/mentorRegisterCo
 import { GUARDIAN_REGISTER_RESET_ERROR } from "../../../constants/guardianRegisterConstants";
 
 const MentorRegisterForm = ({ location, history }) => {
-  const [gender, setGender] = useState("Mr.");
+  const [gender, setGender] = useState("mr");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [countryCode, setCountryCode] = useState("+20");
   const [phone, setPhone] = useState("");
-  const [message, setMessage] = useState(null);
+  const [message, setMessage] = useState("");
+  const [stateLoading, setStateLoading] = useState(false);
 
   const mentorRegister = useSelector((state) => state.mentorRegister);
   const { loading, error } = mentorRegister;
 
   const redirect = location.search ? location.search.split("=")[1] : "/explore";
-
   const checkUserEmail = async (email) => {
+    setStateLoading(true);
     try {
       const { data } = await axios.get(
         `http://localhost:5000/api/v1/mentor/email/status/${email}`
       );
+      setStateLoading(false);
       localStorage.setItem(
         "mentorDraft",
         JSON.stringify({
@@ -39,15 +41,19 @@ const MentorRegisterForm = ({ location, history }) => {
           phone,
         })
       );
+      // console.log(gender, fullName, email, password, countryCode, phone);
+      // debugger;
       history.push(
         redirect
           ? `/register/mentor/continue?redirect=${redirect}`
           : "/register/mentor/continue"
       );
     } catch (error) {
+      setStateLoading(false);
       if (error.response) {
         // Request made and server responded
-        setMessage(error.response.data.error.message);
+        console.log(error.response.data);
+        setMessage(error.response.data.message);
       } else if (error.request) {
         // The request was made but no response was received
         setMessage(error.request);
@@ -58,9 +64,12 @@ const MentorRegisterForm = ({ location, history }) => {
     }
   };
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch({ type: GUARDIAN_REGISTER_RESET_ERROR });
+    dispatch({ type: MENTOR_REGISTER_RESET_ERROR });
   }, [dispatch]);
+
   const submitHandler = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -72,7 +81,7 @@ const MentorRegisterForm = ({ location, history }) => {
 
   return (
     <div className="form-inputs">
-      {loading && <Loader></Loader>}
+      {(loading || stateLoading) && <Loader></Loader>}
       {message ? (
         <ErrorMessage>{message}</ErrorMessage>
       ) : error ? (
@@ -91,8 +100,8 @@ const MentorRegisterForm = ({ location, history }) => {
               onChange={(e) => setGender(e.target.value)}
               value={gender}
             >
-              <option value="Mr.">Mr.</option>
-              <option value="Ms.">Ms.</option>
+              <option value="mr">Mr.</option>
+              <option value="mrs">Ms.</option>
             </select>
             <input
               type="text"

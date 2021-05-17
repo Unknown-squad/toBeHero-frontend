@@ -12,7 +12,7 @@ export const mentorRegisterActions =
     email,
     password,
     countryCode,
-    Phone,
+    phone,
     birthDate,
     languages,
     occupation,
@@ -29,7 +29,7 @@ export const mentorRegisterActions =
         },
       };
       const { data } = await axios.post(
-        `http://localhost:5000/api/v1/signup/mentor`,
+        `http://localhost:5000/api/v1/mentor/signup`,
         {
           method: "signup.mentor.step1.post",
           params: {
@@ -37,7 +37,7 @@ export const mentorRegisterActions =
             gender,
             email,
             password,
-            Phone,
+            phone,
             countryCode,
             birthDate,
             languages,
@@ -53,6 +53,8 @@ export const mentorRegisterActions =
 
       //dispatch mentor login
       localStorage.setItem("mentorInfo", JSON.stringify(data));
+
+      localStorage.removeItem("mentorDraft");
     } catch (error) {
       let err = "";
       if (error.response) {
