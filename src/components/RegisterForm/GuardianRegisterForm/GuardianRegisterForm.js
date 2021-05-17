@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { guardianRegisterActions } from "../../../actions/guardianRegisterActions";
+import { GUARDIAN_REGISTER_RESET_ERROR } from "../../../constants/guardianRegisterConstants";
+import { MENTOR_REGISTER_RESET_ERROR } from "../../../constants/mentorRegisterConstants";
 import ErrorMessage from "../../ErrorMessage";
 import Loader from "../../Loader";
 
@@ -10,7 +12,7 @@ const GuardianRegisterForm = ({ location, history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [countryCode, setCountryCode] = useState("");
+  const [countryCode, setCountryCode] = useState("+20");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState(null);
 
@@ -25,7 +27,8 @@ const GuardianRegisterForm = ({ location, history }) => {
     if (guardianInfo) {
       history.push(redirect);
     }
-  }, [history, guardianInfo, redirect]);
+    dispatch({ type: MENTOR_REGISTER_RESET_ERROR });
+  }, [history, guardianInfo, redirect, dispatch]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -37,6 +40,7 @@ const GuardianRegisterForm = ({ location, history }) => {
       );
     }
   };
+
   return (
     <div className="form-inputs">
       {loading && <Loader></Loader>}

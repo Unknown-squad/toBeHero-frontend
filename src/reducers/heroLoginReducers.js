@@ -1,6 +1,7 @@
 import {
   HERO_LOGIN_FAIL,
   HERO_LOGIN_REQUEST,
+  HERO_LOGIN_RESET_ERROR,
   HERO_LOGIN_SUCCESS,
   HERO_LOGOUT,
 } from "../constants/heroLoginConstants";
@@ -13,6 +14,8 @@ export const heroLoginReducer = (state = {}, action) => {
       return { loading: false, heroInfo: action.payload };
     case HERO_LOGIN_FAIL:
       return { loading: false, error: action.payload };
+    case HERO_LOGIN_RESET_ERROR:
+      return { ...state, error: "" };
     case HERO_LOGOUT:
       return {};
     default:

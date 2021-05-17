@@ -17,26 +17,7 @@ function App() {
   return (
     <Router>
       <Route path="/explore" component={ExploreScreen} exact></Route>
-      <Route
-        path="/explore/page/:pageNumber"
-        component={ExploreScreen}
-        exact
-      ></Route>
-      <Route
-        path="/explore/genre/:genre"
-        component={ExploreScreen}
-        exact
-      ></Route>
-      <Route
-        path="/explore/sortby/:sortby"
-        component={ExploreScreen}
-        exact
-      ></Route>
-      <Route
-        path="/explore/ratings/:ratings"
-        component={ExploreScreen}
-        exact
-      ></Route>
+
       <Route
         path="/explore/profile/:id"
         component={MentorProfileExploreScreen}
@@ -74,6 +55,7 @@ function App() {
         exact
       ></Route>
       <Route path="/login/mentor" component={MentorLoginScreen} exact></Route>
+
       <Route path="/" component={LandingScreen} exact></Route>
     </Router>
   );

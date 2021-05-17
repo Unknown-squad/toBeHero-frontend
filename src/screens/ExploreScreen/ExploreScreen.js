@@ -12,16 +12,17 @@ import { listCourses } from "../../actions/courseListActions";
 import Loader from "../../components/Loader";
 import ErrorMessage from "../../components/ErrorMessage";
 
-const ExploreScreen = ({ match }) => {
-  const genre = match.params.genre || "";
-  const sortby = match.params.sortby || "";
-  const ratings = match.params.ratings || "";
-  const pageNumber = match.params.pageNumber || 1;
-
-  //   console.log(match);
+const ExploreScreen = ({ location, history }) => {
+  const genre = new URLSearchParams(location.search).get("genre") || "";
+  const sortby = new URLSearchParams(location.search).get("sortby") || "";
+  const ratings = new URLSearchParams(location.search).get("ratings") || "";
+  const pageNumber = new URLSearchParams(location.search).get("page") || 1;
+  // const page = new URLSearchParams(location.search).get("page");
+  // console.log(page);
   const courseList = useSelector((state) => state.courseList);
   const { loading, error, data, totalPages, currentPage } = courseList;
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(listCourses(pageNumber, genre, sortby, ratings));
   }, [dispatch, pageNumber, genre, sortby, ratings]);
@@ -30,7 +31,7 @@ const ExploreScreen = ({ match }) => {
       <ExploreHeader></ExploreHeader>
       <SearchBox></SearchBox>
       <ExploreSlider></ExploreSlider>
-      {/* <Filter></Filter> */}
+      <Filter history={history}></Filter>
 
       <section className="hr-section-14">
         <div className="container">
@@ -43,11 +44,12 @@ const ExploreScreen = ({ match }) => {
               <div className="row">
                 {data.items.map((course) => (
                   <div key={course._id} className="col-lg-3 col-md-6 col-12">
-                    <CourseCard course={course}></CourseCard>
+                    <CourseCard course={course} />
                   </div>
                 ))}
               </div>
               <Paginate
+                location={location}
                 totalPages={totalPages}
                 currentPage={currentPage}
               ></Paginate>

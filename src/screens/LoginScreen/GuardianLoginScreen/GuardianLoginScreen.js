@@ -41,6 +41,7 @@ const GuardianLoginScreen = ({ location, history }) => {
                   <div className="sign-in-form">
                     <div className="form-inputs">
                       <LoginForm
+                        user="guardian"
                         location={location}
                         history={history}
                       ></LoginForm>

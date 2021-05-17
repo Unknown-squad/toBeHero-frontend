@@ -6,14 +6,18 @@ import {
 } from "../constants/courseListConstants";
 
 export const listCourses =
-  (pageNumber = Number(""), genre = "", sortby = "", ratings = Number("")) =>
+  (pageNumber, genre, sortby, ratings = "") =>
   async (dispatch) => {
     try {
       dispatch({ type: COURSE_LIST_REQUEST });
       const { data } = await axios.get(
-        `http://localhost:5000/api/v1/courses?page=${pageNumber}&genre=${genre}&sortby=${sortby}&ratings=${ratings}`
+        `http://localhost:5000/api/v1/courses?${
+          pageNumber ? `page=${pageNumber}` : "page=1"
+        }${genre ? `&genre=${genre}` : ""}${sortby ? `&sortby=${sortby}` : ""}${
+          ratings ? `&ratings=${ratings}` : ""
+        }`
       );
-      // console.log(data);
+
       dispatch({
         type: COURSE_LIST_SUCCESS,
         payload: data,
@@ -21,12 +25,20 @@ export const listCourses =
         // totalPages: totalPages,
       });
     } catch (error) {
+      let err = "";
+      if (error.response) {
+        // Request made and server responded
+        err = error.response.data.error.message;
+      } else if (error.request) {
+        // The request was made but no response was received
+        err = error.request;
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        err = error.message;
+      }
       dispatch({
         type: COURSE_LIST_FAIL,
-        payload:
-          error.response && error.response.data.message
-            ? error.response.data.message
-            : error.message,
+        payload: err,
       });
     }
   };

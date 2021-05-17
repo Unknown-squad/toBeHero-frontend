@@ -6,7 +6,7 @@ import {
 } from "../constants/mentorRegisterConstants";
 
 export const mentorRegisterActions =
-  (
+  ({
     gender,
     fullName,
     email,
@@ -18,8 +18,8 @@ export const mentorRegisterActions =
     occupation,
     certificates,
     description,
-    picture
-  ) =>
+    picture,
+  }) =>
   async (dispatch) => {
     try {
       dispatch({ type: MENTOR_REGISTER_REQUEST });
@@ -54,12 +54,20 @@ export const mentorRegisterActions =
       //dispatch mentor login
       localStorage.setItem("mentorInfo", JSON.stringify(data));
     } catch (error) {
+      let err = "";
+      if (error.response) {
+        // Request made and server responded
+        err = error.response.data.error.message;
+      } else if (error.request) {
+        // The request was made but no response was received
+        err = error.request;
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        err = error.message;
+      }
       dispatch({
         type: MENTOR_REGISTER_FAIL,
-        payload:
-          error.response && error.response.data.message
-            ? error.response.data.message
-            : error.message,
+        payload: err,
       });
     }
   };

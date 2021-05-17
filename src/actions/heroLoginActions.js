@@ -28,12 +28,20 @@ export const heroLoginActions = (userName, password) => async (dispatch) => {
     dispatch({ type: HERO_LOGIN_SUCCESS, payload: data });
     localStorage.setItem("heroInfo", JSON.stringify(data));
   } catch (error) {
+    let err = "";
+    if (error.response) {
+      // Request made and server responded
+      err = error.response.data.error.message;
+    } else if (error.request) {
+      // The request was made but no response was received
+      err = error.request;
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      err = error.message;
+    }
     dispatch({
       type: HERO_LOGIN_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: err,
     });
   }
 };

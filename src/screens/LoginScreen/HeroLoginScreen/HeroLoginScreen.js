@@ -69,12 +69,10 @@ const HeroLoginScreen = ({ location, history }) => {
                         </div>
 
                         <div className="form-btns flex-column just-cont-cntr alin-itms-cntr">
-                          <Link to="">
-                            <button className="btn btn-sign" type="submit">
-                              GO!
-                              <img src={arrowGo} alt=""></img>
-                            </button>
-                          </Link>
+                          <button className="btn btn-sign" type="submit">
+                            GO!
+                            <img src={arrowGo} alt=""></img>
+                          </button>
                         </div>
                       </form>
                     </div>

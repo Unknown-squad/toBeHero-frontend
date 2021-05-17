@@ -5,7 +5,7 @@ import Footer from "../../../components/Footer";
 import LoginRegHeader from "../../../components/LoginRegHeader";
 import "../LoginScreen.scss";
 import LoginForm from "../../../components/LoginForm";
-const MentorLoginScreen = () => {
+const MentorLoginScreen = ({ location, history }) => {
   return (
     <>
       <LoginRegHeader></LoginRegHeader>
@@ -39,7 +39,11 @@ const MentorLoginScreen = () => {
                 <div className="form-container flex-column just-cont">
                   <div className="sign-in-form">
                     <div className="form-inputs">
-                      <LoginForm></LoginForm>
+                      <LoginForm
+                        user="mentor"
+                        location={location}
+                        history={history}
+                      ></LoginForm>
                     </div>
                   </div>
                 </div>

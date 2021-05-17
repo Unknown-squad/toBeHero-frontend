@@ -19,12 +19,20 @@ export const mentorProfileCoursesAction = (mentorId) => async (dispatch) => {
       // totalPages: totalPages,
     });
   } catch (error) {
+    let err = "";
+    if (error.response) {
+      // Request made and server responded
+      err = error.response.data.error.message;
+    } else if (error.request) {
+      // The request was made but no response was received
+      err = error.request;
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      err = error.message;
+    }
     dispatch({
       type: MENTOR_PROFILE_COURSES_LIST_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: err,
     });
   }
 };

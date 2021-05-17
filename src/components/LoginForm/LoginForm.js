@@ -2,30 +2,63 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { guardianLoginActions } from "../../actions/guardianLoginActions";
+import { mentorLoginActions } from "../../actions/mentorLoginActions";
 import Loader from "../Loader";
 import ErrorMessage from "../ErrorMessage";
-const LoginForm = ({ location, history }) => {
+import { GUARDIAN_LOGIN_RESET_ERROR } from "../../constants/guardianLoginConstants";
+import { MENTOR_LOGIN_RESET_ERROR } from "../../constants/mentorLoginConstants";
+import { HERO_LOGIN_RESET_ERROR } from "../../constants/heroLoginConstants";
+const LoginForm = ({ location, history, user }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const guardianLogin = useSelector((state) => state.guardianLogin);
   const { loading, error, guardianInfo } = guardianLogin;
+
+  const mentorLogin = useSelector((state) => state.mentorLogin);
+  const {
+    loading: mentorLoading,
+    error: mentorError,
+    mentorInfo,
+  } = mentorLogin;
+
   const dispatch = useDispatch();
-  const redirect = location.search ? location.search.split("=")[1] : "/";
+  const redirect = location.search
+    ? location.search.split("=")[1]
+    : `/login/${user}`;
 
   useEffect(() => {
-    if (guardianInfo) {
+    if (
+      (user === "guardian" && guardianInfo) ||
+      (user === "mentor" && mentorInfo)
+    ) {
       history.push(redirect);
     }
-  }, [history, guardianInfo, redirect]);
+    dispatch({ type: MENTOR_LOGIN_RESET_ERROR });
+    dispatch({ type: GUARDIAN_LOGIN_RESET_ERROR });
+    dispatch({ type: HERO_LOGIN_RESET_ERROR });
+  }, [history, guardianInfo, redirect, mentorInfo, user, dispatch]);
+
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(guardianLoginActions(email, password));
+    if (user === "guardian") {
+      dispatch(guardianLoginActions(email, password));
+    } else if (user === "mentor") {
+      dispatch(mentorLoginActions(email, password));
+    }
   };
   return (
     <form onSubmit={submitHandler}>
       <div className="input-field">
-        {loading && <Loader></Loader>}
-        {error ? <ErrorMessage>{error}</ErrorMessage> : ""}
+        {loading || mentorLoading ? <Loader></Loader> : ""}
+        {error ? (
+          <ErrorMessage>{error}</ErrorMessage>
+        ) : mentorError ? (
+          <ErrorMessage>{mentorError}</ErrorMessage>
+        ) : (
+          ""
+        )}
+
         <label htmlFor="email">Email</label>
         <br />
         <input

@@ -2,14 +2,20 @@ import React, { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { listCourses } from "../../actions/courseListActions";
-const Filter = () => {
+const Filter = ({ history }) => {
   const dispatch = useDispatch();
   const [sort, setSort] = useState("");
   const [filter, setFilter] = useState("");
 
   useEffect(() => {
-    dispatch(listCourses(null, filter, sort));
-  }, [dispatch, filter, sort]);
+    // dispatch(listCourses(1, filter, sort));
+    history.push({
+      pathname: "/explore",
+      search: `?page=1${sort ? `&sortby=${sort}` : ""}${
+        filter ? `&genre=${filter}` : ""
+      }`,
+    });
+  }, [dispatch, filter, sort, history]);
   return (
     <>
       <section className="hr-section-13">

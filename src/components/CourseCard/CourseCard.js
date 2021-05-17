@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import courseImg from "../../images/course-img-placeholder.svg";
-// import mentorImg from "../../images/mentor-img-placeholder.svg";
 import courseStar from "../../images/course-star.svg";
 
 const CourseCard = ({ course }) => {
@@ -15,7 +13,6 @@ const CourseCard = ({ course }) => {
     reviewCounter,
     _id,
   } = course;
-
   return (
     <>
       <div className="course-card">
@@ -38,12 +35,10 @@ const CourseCard = ({ course }) => {
                 className={`mentor-status ${
                   mentorId.isAvailable ? "status-on" : "status-off"
                 } `}
-              >
-                {/* <!-- change className from status-on to status-off for offline status indicator color --> */}
-              </div>
+              ></div>
             </div>
             <div className="price">
-              <p>{price} EGP</p>
+              <p>{Number(price)} EGP</p>
             </div>
           </div>
           <div className="course-info">
@@ -55,7 +50,7 @@ const CourseCard = ({ course }) => {
           <div className="course-rate flex-row">
             <img src={courseStar} alt="" />
             <p>
-              {rate} ({reviewCounter})
+              {Number(rate)} ({Number(reviewCounter)})
             </p>
           </div>
         </div>

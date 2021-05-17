@@ -6,19 +6,19 @@ import {
 const initialState = {
   data: {
     kind: "",
-    count: Number,
+    count: 0,
     items: [
       {
-        rate: Number,
-        reviewCounter: Number,
+        rate: 0,
+        reviewCounter: 0,
         _id: "",
         title: "",
-        price: Number,
+        price: 0,
         description: "",
         picture: "",
         genre: "",
         mentorId: {
-          isAvailable: Boolean,
+          isAvailable: 0,
           _id: "",
           fullName: "",
           picture: "",

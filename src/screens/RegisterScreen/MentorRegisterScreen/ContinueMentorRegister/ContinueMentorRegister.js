@@ -16,8 +16,8 @@ const ContinueMentorRegister = ({ history, location }) => {
   const [description, setDescription] = useState("");
   const [occupation, setOccupation] = useState([]);
   const [certificates, setCertificates] = useState([]);
-  // const [picture, setPicture] = useState("");
   const [message, setMessage] = useState(null);
+  // const [picture, setPicture] = useState("");
   const [uploading, setUploading] = useState(false);
 
   const dispatch = useDispatch();
@@ -53,16 +53,23 @@ const ContinueMentorRegister = ({ history, location }) => {
   }, [history, mentorInfo, redirect]);
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(
-      mentorRegisterActions(
-        birthDate,
-        languages,
-        description,
-        occupation,
-        certificates,
-        picture
-      )
-    );
+    const mentorDraft = JSON.parse(localStorage.getItem("mentorDraft"));
+    if (mentorDraft) {
+      dispatch(
+        mentorRegisterActions({
+          ...mentorDraft,
+          birthDate,
+          languages,
+          description,
+          occupation,
+          certificates,
+          picture,
+        })
+      );
+      localStorage.removeItem("mentorDraft");
+    } else {
+      history.push("/register/mentor");
+    }
   };
   const [picture, setPicture] = useState(null);
 
@@ -103,7 +110,7 @@ const ContinueMentorRegister = ({ history, location }) => {
                         <div className="row">
                           <div className="col-lg-5 col-md-6 col-12">
                             <div className="input-field">
-                              <label for="Birthdate">Birthdate*</label>
+                              <label htmlFor="Birthdate">Birthdate*</label>
                               <br />
                               <input
                                 type="text"
@@ -186,8 +193,8 @@ const ContinueMentorRegister = ({ history, location }) => {
                           </div>
                           <div className="col-lg-2 col-12">
                             <label
-                              for="files"
-                              class="btn"
+                              htmlFor="files"
+                              className="btn"
                               style={{ color: "black" }}
                             >
                               upload your picture

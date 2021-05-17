@@ -7,7 +7,7 @@ import {
 } from "../constants/guardianRegisterConstants";
 
 export const guardianRegisterActions =
-  (fullName, email, password, phone, countryCode) => async (dispatch) => {
+  (fullName, email, password, countryCode, phone) => async (dispatch) => {
     try {
       dispatch({ type: GUARDIAN_REGISTER_REQUEST });
       const config = {
@@ -16,7 +16,7 @@ export const guardianRegisterActions =
         },
       };
       const { data } = await axios.post(
-        "http://localhost:5000/api/v1/signup/guardian",
+        "http://localhost:5000/api/v1/guardian/signup",
         {
           method: "signup.guardian.post",
           params: {
@@ -27,7 +27,7 @@ export const guardianRegisterActions =
             countryCode,
           },
         },
-        config
+        { ...config }
       );
       dispatch({ type: GUARDIAN_REGISTER_SUCCESS, payload: data });
 
@@ -37,12 +37,20 @@ export const guardianRegisterActions =
       });
       localStorage.setItem("guardianInfo", JSON.stringify(data));
     } catch (error) {
+      let err = "";
+      if (error.response) {
+        // Request made and server responded
+        err = error.response.data.error.message;
+      } else if (error.request) {
+        // The request was made but no response was received
+        err = error.request;
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        err = error.message;
+      }
       dispatch({
         type: GUARDIAN_REGISTER_FAIL,
-        payload:
-          error.response && error.response.data.message
-            ? error.response.data.message
-            : error.message,
+        payload: err,
       });
     }
   };

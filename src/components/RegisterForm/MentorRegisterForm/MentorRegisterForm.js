@@ -1,41 +1,72 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import ErrorMessage from "../../ErrorMessage";
 import Loader from "../../Loader";
 import { Link } from "react-router-dom";
-import { mentorRegisterActions } from "../../../actions/mentorRegisterActions";
+import axios from "axios";
+import { MENTOR_REGISTER_RESET_ERROR } from "../../../constants/mentorRegisterConstants";
+import { GUARDIAN_REGISTER_RESET_ERROR } from "../../../constants/guardianRegisterConstants";
 
 const MentorRegisterForm = ({ location, history }) => {
-  const [gender, setGender] = useState("");
+  const [gender, setGender] = useState("Mr.");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [countryCode, setCountryCode] = useState("");
+  const [countryCode, setCountryCode] = useState("+20");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState(null);
 
-  const dispatch = useDispatch();
   const mentorRegister = useSelector((state) => state.mentorRegister);
-  const { loading, error, mentorInfo } = mentorRegister;
+  const { loading, error } = mentorRegister;
 
   const redirect = location.search ? location.search.split("=")[1] : "/explore";
 
+  const checkUserEmail = async (email) => {
+    try {
+      const { data } = await axios.get(
+        `http://localhost:5000/api/v1/mentor/email/status/${email}`
+      );
+      localStorage.setItem(
+        "mentorDraft",
+        JSON.stringify({
+          gender,
+          fullName,
+          email,
+          password,
+          countryCode,
+          phone,
+        })
+      );
+      history.push(
+        redirect
+          ? `/register/mentor/continue?redirect=${redirect}`
+          : "/register/mentor/continue"
+      );
+    } catch (error) {
+      if (error.response) {
+        // Request made and server responded
+        setMessage(error.response.data.error.message);
+      } else if (error.request) {
+        // The request was made but no response was received
+        setMessage(error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        setMessage(error.message);
+      }
+    }
+  };
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({ type: GUARDIAN_REGISTER_RESET_ERROR });
+  }, [dispatch]);
   const submitHandler = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       setMessage("Passwords do not match");
     } else {
-      // dispatch(
-      //   mentorRegisterActions(
-      //     gender,
-      //     fullName,
-      //     email,
-      //     password,
-      //     countryCode,
-      //     phone
-      //   )
-      // );
+      checkUserEmail(email);
     }
   };
 
@@ -140,20 +171,12 @@ const MentorRegisterForm = ({ location, history }) => {
           <p className="text-center">*required</p>
         </div>
         <div className="form-btns sign-up-btns flex-column just-cont-cntr alin-itms-cntr">
-          <Link
-            to={
-              redirect
-                ? `/register/mentor/continue?redirect=${redirect}`
-                : "/register/mentor/continue"
-            }
-          >
-            <input
-              type="submit"
-              className="btn btn-sign"
-              name="Continue"
-              value="Continue"
-            ></input>
-          </Link>
+          <input
+            type="submit"
+            className="btn btn-sign"
+            name="Continue"
+            value="Continue"
+          ></input>
           <Link
             to={
               redirect ? `/login/mentor?redirect=${redirect}` : "/login/mentor"
