@@ -1,23 +1,66 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const MentorHomeServiceCards = () => {
+const MentorHomeServiceCards = ({ service }) => {
   return (
     <div className="available-course">
       <div className="part-student">
         <h4>
-          Lorem ipsum dolor sit amet <span>programming</span>
+          {service.appointments.map((title) => title.title)}{" "}
+          <span>{service.courseId.genre}</span>
         </h4>
-        <p>student: Youssef gohar</p>
-        <p>guardian: islam gohar</p>
+        <p>student: {service.childId.fullName}</p>
+        <p>guardian: {service.guardianId.fullName}</p>
       </div>
       <div className="part-appointments">
         <h4>Appointments</h4>
         <p>
-          Monday: 20-1-2020 <span>3pm</span>
+          {service.appointments.map((date) =>
+            new Date(date.date).toLocaleDateString()
+          )}{" "}
+          {/* {service.appointments.map((date) =>
+            new Date(date.date).toUTCString()
+          )}
+          {service.appointments.map((date) =>
+            new Date(date.date).getUTCHours()
+          )}
+          :
+          {service.appointments.map((date) =>
+            new Date(date.date).getUTCMinutes()
+          )}{" "}
+          {service.appointments.map((date) =>
+            new Date(date.date).toDateString()
+          )}{" "}
+          {service.appointments.map((date) =>
+            new Date(date.date).toLocaleTimeString()
+          )}{" "}
+          {service.appointments.map((date) =>
+            new Date(date.date).toLocaleString()
+          )} */}
         </p>
         <p>
-          Friday: 24-1-2020 <span>9pm</span>
+          {service.appointments.map((date) =>
+            new Date(date.date).toLocaleDateString()
+          )}{" "}
+          {/* {service.appointments.map((date) =>
+            new Date(date.date).toUTCString()
+          )}
+          {service.appointments.map((date) =>
+            new Date(date.date).getUTCHours()
+          )}
+          :
+          {service.appointments.map((date) =>
+            new Date(date.date).getUTCMinutes()
+          )}{" "}
+          {service.appointments.map((date) =>
+            new Date(date.date).toDateString()
+          )}{" "}
+          {service.appointments.map((date) =>
+            new Date(date.date).toLocaleTimeString()
+          )}{" "}
+          {service.appointments.map((date) =>
+            new Date(date.date).toLocaleString()
+          )} */}
         </p>
       </div>
       <div className="part-contact">
@@ -30,7 +73,9 @@ const MentorHomeServiceCards = () => {
           <p>or</p>
         </div>
         <div className="service-contact">
-          <Link to="">contact the Guardian</Link>
+          <Link to={false}>
+            {service.guardianId.countryCode} {service.guardianId.phone}
+          </Link>
         </div>
       </div>
     </div>

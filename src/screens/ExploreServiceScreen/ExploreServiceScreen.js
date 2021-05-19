@@ -29,9 +29,9 @@ const ExploreServiceScreen = ({ match }) => {
             {loading ? (
               <Loader></Loader>
             ) : error ? (
-              <ErrorMessage></ErrorMessage>
+              <ErrorMessage>{error}</ErrorMessage>
             ) : (
-              data.items.map((details) => (
+              data.items.map(({ details }) => (
                 <>
                   <CourseDetails details={details}></CourseDetails>
                   <CourseImageSlider details={details}></CourseImageSlider>
