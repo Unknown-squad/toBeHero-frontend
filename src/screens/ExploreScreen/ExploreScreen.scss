@@ -50,7 +50,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1.75rem 1.75rem;
+    padding: 1rem 1.75rem 1.75rem 1.75rem;
     .slider-content {
       display: flex;
       align-items: center;
@@ -163,11 +163,21 @@
 /*start hr-section-14*/
 .hr-section-14 {
   padding: 15px 80px;
+  .container {
+    min-height: calc(100vh - 400px);
+  }
   .course-card {
     border: solid 1px #343090;
+    height: 340px;
     border-radius: 13px;
     padding: 1rem 1rem;
     margin-bottom: 2rem;
+  }
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
   }
   /* card */
   /* card image */
@@ -190,8 +200,11 @@
   .mentor-name {
     align-items: center;
   }
+
   .mentor-img > img {
     width: 35px;
+    height: 35px;
+    border-radius: 50%;
   }
   .mentor-info {
     line-height: 16px;
@@ -202,7 +215,7 @@
     font-weight: 400;
   }
   .mentor-info :nth-child(2) {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 200;
   }
   .mentor-status {
@@ -220,7 +233,7 @@
   /* mentor name, image and status */
   /* price */
   .price > p {
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 300;
   }
   /* price */
@@ -241,6 +254,7 @@
     align-items: center;
     column-gap: 10px;
     padding-top: 5px;
+    margin-top: auto;
     img {
       width: auto;
     }
