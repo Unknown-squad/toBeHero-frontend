@@ -20,12 +20,12 @@ header nav .nav-mentor {
       color: $purple-500;
     }
     &.active {
-      a {
-        font-weight: bold;
-      }
+      //   a {
+      //     font-weight: bold;
+      //   }
       &:hover {
         a {
-          font-weight: normal;
+          font-weight: normal !important;
         }
       }
     }

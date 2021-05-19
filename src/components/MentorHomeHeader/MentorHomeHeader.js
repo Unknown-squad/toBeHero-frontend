@@ -1,18 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import useToggleNavbar from "../../hooks";
+// import "./MentorHomeHeader.scss";
 const MentorHomeHeader = () => {
   const [showMobileMenu, onClick] = useToggleNavbar();
-  const [clicked, setClicked] = useState(false);
-  const onClickHandle = () => {
-    setClicked(true);
-  };
+
   return (
     <header>
       <div className="container">
         <nav>
           <div className="logo">
-            <Link to="/">
+            <Link to="/mentor/home">
               {" "}
               <h1>TO BE</h1>
               <span>HERO</span>
@@ -24,41 +22,62 @@ const MentorHomeHeader = () => {
             </button>
             {showMobileMenu ? (
               <ul className="navbar nav-mentor show" id="navbar">
-                <li
-                  className={`${clicked ? "active" : ""}`}
-                  onClick={onClickHandle}
-                >
-                  {/* <NavLink exact={true} activeclassName='is-active' to='/'>Home</NavLink>
-        <NavLink activeclassName='is-active' to='/about'>About</NavLink> */}
-                  <Link to="/mentor/home">home</Link>
+                <li className="active">
+                  <NavLink
+                    activeStyle={{ fontWeight: "bold" }}
+                    to="/mentor/home"
+                    exact
+                  >
+                    home
+                  </NavLink>
                 </li>
-                <li>
-                  <Link to="/dashboard">Dashboard</Link>
+                <li className="active">
+                  <NavLink
+                    activeStyle={{ fontWeight: "bold" }}
+                    to="/dashboard"
+                    exact
+                  >
+                    Dashboard
+                  </NavLink>
                 </li>
-                <li>
-                  <Link to="/explore">Explore</Link>
+                <li className="active">
+                  <NavLink
+                    activeStyle={{ fontWeight: "bold" }}
+                    to="/explore"
+                    exact
+                  >
+                    Explore
+                  </NavLink>
                 </li>
               </ul>
             ) : (
               <ul className="navbar nav-mentor" id="navbar">
-                <li
-                  //   className={`${clicked ? "active" : ""}`}
-                  //   onClick={onClickHandle}
-                  className="active"
-                >
-                  <NavLink activeClassName="active" to="/mentor/home">
+                <li className="active">
+                  <NavLink
+                    activeStyle={{ fontWeight: "bold" }}
+                    to="/mentor/home"
+                    exact
+                  >
                     home
                   </NavLink>
                 </li>
-                <li
-                  //   className={`${clicked ? "" : "active"}`}
-                  //   onClick={onClickHandle}
-                  className="active"
-                >
-                  <Link to="/dashboard">Dashboard</Link>
+                <li className="active">
+                  <NavLink
+                    activeStyle={{ fontWeight: "bold" }}
+                    to="/dashboard"
+                    exact
+                  >
+                    Dashboard
+                  </NavLink>
                 </li>
-                <li>
-                  <Link to="/explore">Explore</Link>
+                <li className="active">
+                  <NavLink
+                    activeStyle={{ fontWeight: "bold" }}
+                    to="/explore"
+                    exact
+                  >
+                    Explore
+                  </NavLink>
                 </li>
               </ul>
             )}
