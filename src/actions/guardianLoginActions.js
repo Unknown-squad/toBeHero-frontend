@@ -12,6 +12,7 @@ export const guardianLoginActions = (email, password) => async (dispatch) => {
       headers: {
         "Content-Type": "application/json",
       },
+      withCredentials: true,
     };
     const { data } = await axios.post(
       "http://localhost:5000/api/v1/user/login",

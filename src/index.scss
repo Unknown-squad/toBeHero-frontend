@@ -287,6 +287,13 @@ $text-color: #414141;
   .container {
     max-width: 1320px;
   }
+  .hr-section-22 .mentor-appointment-control-container .appointment-title {
+    width: 24.75rem;
+  }
+  .hr-section-22 .notes-container {
+    width: 90%;
+    margin: 0 auto;
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -309,7 +316,25 @@ $text-color: #414141;
     min-height: calc(100vh - 122px);
   }
 }
-
+@media screen and (max-width: 1024px) {
+  .hr-section-21 {
+    padding: 15px 0;
+  }
+  .hr-section-21
+    .mentor-dashboard
+    .dashboard-course-service
+    .service-info-details
+    .select-topic-price {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .hr-section-22 .mentor-appointment-control-container .appointment-title {
+    width: 10rem;
+  }
+  .hr-section-22 {
+    padding: 15px 0;
+  }
+}
 @media screen and (max-width: 992px) {
   .container {
     max-width: 94%;
@@ -336,6 +361,23 @@ $text-color: #414141;
   .hr-section-13,
   .hr-section-14 {
     padding: 15px 0;
+  }
+  .hr-section-21 {
+    padding: 15px 80px;
+  }
+  .hr-section-21
+    .mentor-dashboard
+    .dashboard-course-service
+    .service-info-details
+    .select-topic-price {
+    flex-direction: row;
+    gap: 11px;
+  }
+  .hr-section-22 {
+    padding: 15px 0;
+  }
+  .hr-section-22 .mentor-appointment-control-container .appointment-title {
+    width: 16.25rem;
   }
 }
 @media screen and (max-width: 768px) {
@@ -407,6 +449,9 @@ $text-color: #414141;
   }
   .hr-section-19 .purchase-container {
     max-width: 100%;
+  }
+  .hr-section-21 .mentor-dashboard .basic-info-form .upload-picture {
+    margin-top: 0.25rem;
   }
 }
 @media screen and (max-width: 576px) {
@@ -495,6 +540,25 @@ $text-color: #414141;
   }
   .hr-section-20 .available .available-course {
     display: grid;
+  }
+  .hr-section-21 {
+    padding: 15px 0px;
+  }
+  .hr-section-21 .mentor-dashboard {
+    flex-direction: column;
+  }
+  .hr-section-22 .name-plate {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .hr-section-22
+    .mentor-appointment-control-container
+    .appointment-control-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hr-section-22 .mentor-appointment-control-container .appointment-title {
+    width: auto;
   }
   footer .footer-info {
     display: block;

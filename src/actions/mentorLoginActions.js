@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import {
   MENTOR_LOGIN_FAIL,
   MENTOR_LOGIN_REQUEST,
@@ -12,7 +13,9 @@ export const mentorLoginActions = (email, password) => async (dispatch) => {
       headers: {
         "Content-Type": "application/json",
       },
+      withCredentials: true,
     };
+
     const { data } = await axios.post(
       "http://localhost:5000/api/v1/user/login",
       {
@@ -25,6 +28,7 @@ export const mentorLoginActions = (email, password) => async (dispatch) => {
       },
       config
     );
+
     dispatch({ type: MENTOR_LOGIN_SUCCESS, payload: data });
     localStorage.setItem("mentorInfo", JSON.stringify(data));
   } catch (error) {
