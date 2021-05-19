@@ -139,7 +139,7 @@ const MentorProfileExploreScreen = ({ match }) => {
           ))} */}
         </>
       )}
-      )<Reviews data={data}></Reviews>
+      ){/* <Reviews data={data}></Reviews> */}
       <Footer></Footer>
     </>
   );

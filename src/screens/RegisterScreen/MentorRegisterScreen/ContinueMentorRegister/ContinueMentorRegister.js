@@ -22,7 +22,9 @@ const ContinueMentorRegister = ({ history, location }) => {
   const dispatch = useDispatch();
   const mentorRegister = useSelector((state) => state.mentorRegister);
   const { loading, error, mentorInfo } = mentorRegister;
-  const redirect = location.search ? location.search.split("=")[1] : "/explore";
+  const redirect = location.search
+    ? location.search.split("=")[1]
+    : "/mentor/home";
   // const uploadFileHandler = async (e) => {
   //   const file = e.target.files[0]
   //   const formData = new FormData()

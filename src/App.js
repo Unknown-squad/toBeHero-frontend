@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Redirect, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  NavLink,
+  Redirect,
+  Route,
+} from "react-router-dom";
 import {
   ContinueMentorRegister,
   ExploreScreen,
@@ -12,10 +17,14 @@ import {
   MentorRegisterScreen,
 } from "./screens";
 import ExploreServiceScreen from "./screens/ExploreServiceScreen";
+import MentorDashboardScreen from "./screens/MentorDashboardScreen/MentorDashboardScreen";
+import MentorHomeScreen from "./screens/MentorHomeScreen";
 
 function App() {
   return (
     <Router>
+      <Route path="/mentor/home" component={MentorHomeScreen} exact></Route>
+      <Route path="/dashboard" component={MentorDashboardScreen} exact></Route>
       <Route path="/explore" component={ExploreScreen} exact></Route>
 
       <Route

@@ -45,6 +45,7 @@ export const mentorRegisterActions =
             certificates,
             description,
             picture,
+            isVerify: true,
           },
         },
         config
