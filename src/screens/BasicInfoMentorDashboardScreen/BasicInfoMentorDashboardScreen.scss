@@ -1,0 +1,135 @@
+@import "../../index.scss";
+
+/* start page  mentor-dashboard*/
+.hr-section-21 {
+  padding: 15px 80px;
+  min-height: calc(100vh - 119px);
+  .mentor-dashboard {
+    display: flex;
+    gap: 2rem;
+    .nav-mentor-dashboard {
+      background-color: #f3f4f7;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      text-align: center;
+      min-width: 11.5rem;
+      border-radius: 10px;
+      height: 100%;
+      li {
+        position: relative;
+        background-color: #fff;
+        padding: 0.65rem 0.75rem;
+        border-radius: 10px;
+        box-shadow: 0px 1px 4px #41414152;
+        cursor: pointer;
+        .mentor-overlay {
+          position: absolute;
+          left: -4px;
+          right: -4px;
+          top: -4px;
+          bottom: -4px;
+          border: 2px solid #8c61ff;
+          border-radius: 10px;
+          display: none;
+          &.active {
+            display: block;
+          }
+        }
+      }
+    }
+    //Mentor Dashboard basic-info
+    .dashboard-basic-info {
+      background-color: #f3f4f7;
+      width: 100%;
+      padding: 2rem 1rem 1.5rem;
+      border-radius: 10px;
+      .basic-info-form {
+        color: $text-color;
+
+        img {
+          width: auto;
+        }
+        input,
+        select {
+          background-color: #fff;
+          border: 1px solid $purple-200;
+        }
+        select {
+          padding: 0.35rem 0.6rem 0.35rem 0.1rem;
+          margin-right: 0.25rem;
+        }
+        textarea {
+          width: 100%;
+          background-color: #fff;
+          border: none;
+          border-radius: 7px;
+          padding: 0.5rem 1rem;
+          color: $purple-gray;
+          resize: none;
+        }
+        sup {
+          color: $purple-gray;
+          margin: 0.25rem;
+        }
+        .Birthdate-mentor {
+          background-image: url(../../images/Birthdate-icon.svg);
+        }
+        .Languages-mentor,
+        .Occupation-mentor,
+        .Certificates-mentor {
+          background-image: none;
+        }
+        .Certificates-mentor {
+          margin-bottom: 0.25rem;
+        }
+        .file-input__label {
+          background-color: $purple-500;
+          padding: 0.25rem 1.25rem;
+          border-radius: 25px;
+        }
+        .upload-picture {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-top: 3rem;
+          .img-back {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .img-up {
+              border: 1px solid $purple-200;
+              border-radius: 50%;
+            }
+            .icon-up {
+              position: absolute;
+            }
+            img {
+              width: auto;
+              cursor: pointer;
+            }
+          }
+          .img-content {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            a {
+              color: $purple-300;
+            }
+          }
+        }
+      }
+    }
+  }
+  .create-new {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i {
+      font-size: 10px;
+      font-weight: 600;
+      margin-left: 2px;
+    }
+  }
+}

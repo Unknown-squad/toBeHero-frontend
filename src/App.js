@@ -16,15 +16,26 @@ import {
   MentorProfileExploreScreen,
   MentorRegisterScreen,
 } from "./screens";
+import BasicInfoMentorDashboardScreen from "./screens/BasicInfoMentorDashboardScreen";
 import ExploreServiceScreen from "./screens/ExploreServiceScreen";
-import MentorDashboardScreen from "./screens/MentorDashboardScreen/MentorDashboardScreen";
 import MentorHomeScreen from "./screens/MentorHomeScreen";
 
 function App() {
   return (
     <Router>
       <Route path="/mentor/home" component={MentorHomeScreen} exact></Route>
-      <Route path="/dashboard" component={MentorDashboardScreen} exact></Route>
+
+      <Route
+        path="/mentor/dashboard"
+        component={BasicInfoMentorDashboardScreen}
+        exact
+      >
+        <Redirect
+          from="/mentor/dashboard"
+          to="/mentor/dashboard/basic-info"
+        ></Redirect>
+      </Route>
+
       <Route path="/explore" component={ExploreScreen} exact></Route>
 
       <Route
