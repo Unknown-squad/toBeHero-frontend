@@ -61,7 +61,8 @@ const MentorHomeScreen = () => {
               <ErrorMessage>{error}</ErrorMessage>
             ) : (
               data.items.map((service, i) =>
-                Object.keys(service.appointments[0]).length > 0 ? (
+                // Object.keys(service.appointments[0]).length > 0 ?
+                service.appointments.length > 0 ? (
                   <MentorHomeServiceCards
                     service={service}
                     key={i}
@@ -84,7 +85,8 @@ const MentorHomeScreen = () => {
                 <ErrorMessage>{error}</ErrorMessage>
               ) : (
                 data.items.map((service, i) =>
-                  Object.keys(service.appointments[0]).length === 0 ? (
+                  // Object.keys(service.appointments[0]).length === 0
+                  service.appointments.length === 0 ? (
                     <MentorHomeAppointmentsCards
                       service={service}
                       key={i}

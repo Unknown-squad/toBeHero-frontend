@@ -13,54 +13,29 @@ const MentorHomeServiceCards = ({ service }) => {
       </div>
       <div className="part-appointments">
         <h4>Appointments</h4>
-        <p>
-          {service.appointments.map((date) =>
-            new Date(date.date).toLocaleDateString()
-          )}{" "}
-          {/* {service.appointments.map((date) =>
-            new Date(date.date).toUTCString()
-          )}
-          {service.appointments.map((date) =>
-            new Date(date.date).getUTCHours()
-          )}
-          :
-          {service.appointments.map((date) =>
+        {service.appointments.map((date, i) => (
+          <p key={i}>
+            {/* {new Date(date.date).toLocaleDateString()} */}
+            {/* {service.appointments.map((date) =>
+              new Date(date.date).toUTCString()
+            )} */}
+            {/* {service.appointments.map((date) =>
+              new Date(date.date).getUTCHours()
+            )} */}
+            {/* {service.appointments.map((date) =>
             new Date(date.date).getUTCMinutes()
-          )}{" "}
-          {service.appointments.map((date) =>
-            new Date(date.date).toDateString()
-          )}{" "}
-          {service.appointments.map((date) =>
-            new Date(date.date).toLocaleTimeString()
-          )}{" "}
-          {service.appointments.map((date) =>
-            new Date(date.date).toLocaleString()
-          )} */}
-        </p>
-        <p>
-          {service.appointments.map((date) =>
-            new Date(date.date).toLocaleDateString()
-          )}{" "}
-          {/* {service.appointments.map((date) =>
-            new Date(date.date).toUTCString()
-          )}
-          {service.appointments.map((date) =>
-            new Date(date.date).getUTCHours()
-          )}
-          :
-          {service.appointments.map((date) =>
-            new Date(date.date).getUTCMinutes()
-          )}{" "}
-          {service.appointments.map((date) =>
-            new Date(date.date).toDateString()
-          )}{" "}
-          {service.appointments.map((date) =>
-            new Date(date.date).toLocaleTimeString()
-          )}{" "}
-          {service.appointments.map((date) =>
-            new Date(date.date).toLocaleString()
-          )} */}
-        </p>
+          )}{" "} */}
+            {/* {service.appointments.map((date) =>
+              new Date(date.date).toDateString()
+            )}{" "} */}
+            {/* {service.appointments.map((date) =>
+              new Date(date.date).toLocaleTimeString()
+            )}{" "} */}
+            {service.appointments.map((date) =>
+              new Date(date.date).toLocaleString()
+            )}
+          </p>
+        ))}{" "}
       </div>
       <div className="part-contact">
         <div className="service-course">
