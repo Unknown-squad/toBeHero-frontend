@@ -6,8 +6,7 @@ const MentorHomeServiceCards = ({ service }) => {
     <div className="available-course">
       <div className="part-student">
         <h4>
-          {service.appointments.map((title) => title.title)}{" "}
-          <span>{service.courseId.genre}</span>
+          {service.courseId.title} <span>{service.courseId.genre}</span>
         </h4>
         <p>student: {service.childId.fullName}</p>
         <p>guardian: {service.guardianId.fullName}</p>
@@ -73,7 +72,7 @@ const MentorHomeServiceCards = ({ service }) => {
           <p>or</p>
         </div>
         <div className="service-contact">
-          <Link to={false}>
+          <Link to="">
             {service.guardianId.countryCode} {service.guardianId.phone}
           </Link>
         </div>

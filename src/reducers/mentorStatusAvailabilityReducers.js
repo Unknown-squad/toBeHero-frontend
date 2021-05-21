@@ -9,7 +9,7 @@ export const mentorStatusAvailabilityReducer = (state = {}, action) => {
     case MENTOR_STATUS_REQUEST:
       return { loading: true };
     case MENTOR_STATUS_SUCCESS:
-      return { loading: false, data: action.payload };
+      return { loading: false, data: action.payload.data.items[0].isAvailable };
     case MENTOR_STATUS_FAIL:
       return { loading: false, error: action.payload };
     default:

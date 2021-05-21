@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const MentorHomeAppointmentsCards = () => {
+const MentorHomeAppointmentsCards = ({ service }) => {
   return (
     <div className="col-lg-6 col-12">
       <div className="available-course">
         <div className="part-student">
           <h4>
-            Lorem ipsum dolor sit amet <span>programming</span>
+            {service.courseId.title} <span>{service.courseId.genre}</span>
           </h4>
-          <p>student: Youssef gohar</p>
-          <p>guardian: islam gohar</p>
+          <p>student: {service.childId.fullName}</p>
+          <p>guardian: {service.guardianId.fullName}</p>
         </div>
 
         <div className="part-contact">
@@ -21,7 +21,9 @@ const MentorHomeAppointmentsCards = () => {
             <p>or</p>
           </div>
           <div className="service-contact">
-            <Link to="">contact the Guardian</Link>
+            <Link to="">
+              {service.guardianId.countryCode} {service.guardianId.phone}
+            </Link>
           </div>
         </div>
       </div>
