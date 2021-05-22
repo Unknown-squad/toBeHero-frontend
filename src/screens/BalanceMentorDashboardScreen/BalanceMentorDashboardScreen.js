@@ -9,11 +9,11 @@ const BalanceMentorDashboardScreen = () => {
   return (
     <>
       <MentorHomeHeader></MentorHomeHeader>
-      <section class="hr-section-21">
-        <div class="container">
-          <div class="mentor-dashboard">
+      <section className="hr-section-21">
+        <div className="container">
+          <div className="mentor-dashboard">
             <MentorDashboardNavLinks></MentorDashboardNavLinks>
-            <div class="dashboard-balance">
+            <div className="dashboard-balance">
               <Route
                 path="/mentor/dashboard/balance"
                 component={BalanceMentor}

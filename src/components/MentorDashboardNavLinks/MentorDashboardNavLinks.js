@@ -18,7 +18,6 @@ const MentorDashboardNavLinks = () => {
     <ul className="nav-mentor-dashboard">
       <NavLink
         to="/mentor/dashboard/basicinfo"
-        exact
         activeStyle={{
           border: "2px solid #8c61ff",
           borderRadius: "10px",
@@ -27,6 +26,7 @@ const MentorDashboardNavLinks = () => {
       >
         <li>Basic info</li>
       </NavLink>
+
       <NavLink
         to="/mentor/dashboard/courses"
         activeStyle={{
@@ -34,13 +34,12 @@ const MentorDashboardNavLinks = () => {
           borderRadius: "10px",
           padding: "2px",
         }}
-        exact
       >
         <li>Courses</li>
       </NavLink>
+
       <NavLink
         to="/mentor/dashboard/balance"
-        exact
         activeStyle={{
           border: "2px solid #8c61ff",
           borderRadius: "10px",
@@ -51,7 +50,6 @@ const MentorDashboardNavLinks = () => {
       </NavLink>
       <NavLink
         to="/mentor/dashboard/analytics"
-        exact
         activeStyle={{
           border: "2px solid #8c61ff",
           borderRadius: "10px",

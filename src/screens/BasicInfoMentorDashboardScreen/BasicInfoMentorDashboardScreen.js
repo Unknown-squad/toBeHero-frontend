@@ -11,11 +11,11 @@ const BasicInfoMentorDashboardScreen = () => {
     <>
       <MentorHomeHeader></MentorHomeHeader>
 
-      <section class="hr-section-21">
-        <div class="container">
-          <div class="mentor-dashboard">
+      <section className="hr-section-21">
+        <div className="container">
+          <div className="mentor-dashboard">
             <MentorDashboardNavLinks></MentorDashboardNavLinks>
-            <div class="dashboard-basic-info">
+            <div className="dashboard-basic-info">
               <Route
                 path="/mentor/dashboard/basicinfo"
                 component={BasicInfoMentorForm}

@@ -17,6 +17,7 @@ import ExploreServiceScreen from "./screens/ExploreServiceScreen";
 import MentorHomeScreen from "./screens/MentorHomeScreen";
 import CoursesMentorDashboardScreen from "./screens/CoursesMentorDashboardScreen";
 import BalanceMentorDashboardScreen from "./screens/BalanceMentorDashboardScreen";
+import CreateCourseMentorDashboardScreen from "./screens/CoursesMentorDashboardScreen/CreateCourseMentorDashboardScreen";
 
 function App() {
   return (
@@ -39,12 +40,22 @@ function App() {
         exact
       ></Route>
       <Route
+        path="/mentor/dashboard/balance"
+        component={BalanceMentorDashboardScreen}
+      ></Route>
+      <Route
         path="/mentor/dashboard/courses"
         component={CoursesMentorDashboardScreen}
       ></Route>
       <Route
-        path="/mentor/dashboard/balance"
-        component={BalanceMentorDashboardScreen}
+        path="/mentor/dashboard/course/create"
+        component={CreateCourseMentorDashboardScreen}
+        exact
+      ></Route>
+      <Route
+        path="/mentor/dashboard/course/edit"
+        component={CreateCourseMentorDashboardScreen}
+        exact
       ></Route>
       <Route path="/mentor/explore" component={ExploreScreen} exact></Route>
       <Route path="/explore" component={ExploreScreen} exact></Route>
