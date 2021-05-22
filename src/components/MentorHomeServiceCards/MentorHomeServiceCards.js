@@ -14,27 +14,27 @@ const MentorHomeServiceCards = ({ service }) => {
       <div className="part-appointments">
         <h4>Appointments</h4>
         {service.appointments.map((date, i) => (
-          <p key={i}>
-            {/* {new Date(date.date).toLocaleDateString()} */}
-            {/* {service.appointments.map((date) =>
-              new Date(date.date).toUTCString()
-            )} */}
-            {/* {service.appointments.map((date) =>
-              new Date(date.date).getUTCHours()
-            )} */}
-            {/* {service.appointments.map((date) =>
-            new Date(date.date).getUTCMinutes()
-          )}{" "} */}
-            {/* {service.appointments.map((date) =>
-              new Date(date.date).toDateString()
-            )}{" "} */}
-            {/* {service.appointments.map((date) =>
-              new Date(date.date).toLocaleTimeString()
-            )}{" "} */}
-            {service.appointments.map((date) =>
-              new Date(date.date).toLocaleString()
-            )}
-          </p>
+          <p key={i}>{new Date(date.date).toLocaleString()} </p>
+
+          //   {service.appointments.map((date) =>
+          //     new Date(date.date).toLocaleString()
+          //   )}
+          //   {/* {new Date(date.date).toLocaleDateString()} */}
+          //   {/* {service.appointments.map((date) =>
+          //     new Date(date.date).toUTCString()
+          //   )} */}
+          //   {/* {service.appointments.map((date) =>
+          //     new Date(date.date).getUTCHours()
+          //   )} */}
+          //   {/* {service.appointments.map((date) =>
+          //   new Date(date.date).getUTCMinutes()
+          // )}{" "} */}
+          //   {/* {service.appointments.map((date) =>
+          //     new Date(date.date).toDateString()
+          //   )}{" "} */}
+          //   {/* {service.appointments.map((date) =>
+          //     new Date(date.date).toLocaleTimeString()
+          //   )}{" "} */}
         ))}{" "}
       </div>
       <div className="part-contact">
