@@ -47,34 +47,33 @@
   background-color: #f3f4f7;
   padding: 0;
   .slider-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem 1.75rem 1.75rem 1.75rem;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    padding: 0.2rem 1.75rem 1.75rem 1rem;
     .slider-content {
-      display: flex;
-      align-items: center;
+      // display: flex;
+      // align-items: center;
       .slider-item {
         width: 15rem;
-        height: 9rem;
-        padding: 1rem;
+        height: 10rem;
+        // padding: 1rem;
         cursor: pointer;
         .card-img {
-          position: relative;
+          // position: relative;
           background-color: #fff;
           padding: 0.75rem;
           height: 100%;
           border-radius: 7px;
-          margin-bottom: 5px;
           .slider-purple-border {
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            border: 2px solid $purple-300;
+            // position: absolute;
+            // left: 0;
+            // right: 0;
+            // top: 0;
+            // bottom: 0;
+            border: 1px solid $purple-300;
             border-radius: 7px;
-            transform: translate(4px, 4px);
+            // transform: translate(4px, 4px);
           }
           img {
             height: 100%;
@@ -87,12 +86,6 @@
           }
         }
       }
-    }
-    button {
-      cursor: pointer;
-      border: none;
-      transition-duration: 0.3s;
-      background: none;
     }
   }
 }
@@ -289,3 +282,9 @@
 }
 /*end hr-section-14*/
 /* end page  Explore*/
+
+.BrainhubCarousel__trackContainer {
+  ul {
+    height: 210px;
+  }
+}
