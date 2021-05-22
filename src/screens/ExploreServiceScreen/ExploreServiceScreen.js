@@ -31,15 +31,12 @@ const ExploreServiceScreen = ({ match }) => {
             ) : error ? (
               <ErrorMessage>{error}</ErrorMessage>
             ) : (
-              data.items.map(({ details }) => (
-                <>
-                  <CourseDetails details={details}></CourseDetails>
-                  <CourseImageSlider details={details}></CourseImageSlider>
-                  <CoursePayment details={details}></CoursePayment>
-                </>
-              ))
+              <>
+                <CourseDetails details={data.items[0]}></CourseDetails>
+                <CourseImageSlider details={data.items[0]}></CourseImageSlider>
+                <CoursePayment details={data.items[0]}></CoursePayment>
+              </>
             )}
-            ;
           </div>
         </div>
       </section>
