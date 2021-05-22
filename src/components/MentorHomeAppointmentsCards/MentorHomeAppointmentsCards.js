@@ -15,7 +15,9 @@ const MentorHomeAppointmentsCards = ({ service }) => {
 
         <div className="part-contact">
           <div className="service-course">
-            <button className="btn btn-purple-500">Open course</button>
+            <Link to="/mentor/home/course/:id">
+              <button className="btn btn-purple-500">Open course</button>
+            </Link>
           </div>
           <div>
             <p>or</p>

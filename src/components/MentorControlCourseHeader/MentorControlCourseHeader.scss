@@ -1,0 +1,14 @@
+@import "../../index.scss";
+
+header {
+  .arrow {
+    img {
+      width: auto;
+      transition: all 0.3s ease-in-out;
+      padding: 0.5rem;
+      &:hover {
+        transform: scaleX(1.25);
+      }
+    }
+  }
+}

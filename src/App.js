@@ -18,12 +18,25 @@ import MentorHomeScreen from "./screens/MentorHomeScreen";
 import CoursesMentorDashboardScreen from "./screens/CoursesMentorDashboardScreen";
 import BalanceMentorDashboardScreen from "./screens/BalanceMentorDashboardScreen";
 import CreateCourseMentorDashboardScreen from "./screens/CoursesMentorDashboardScreen/CreateCourseMentorDashboardScreen";
+import MentorCourseControlScreen from "./screens/MentorCourseControlScreen";
 
 function App() {
   return (
     <Router>
       <Route path="/mentor/home" component={MentorHomeScreen} exact></Route>
 
+      <Route
+        path="/mentor/home/course"
+        component={MentorCourseControlScreen}
+        exact
+      >
+        <Redirect from="/mentor/home/course" to="/mentor/home"></Redirect>
+      </Route>
+
+      <Route
+        path="/mentor/home/course/:id"
+        component={MentorCourseControlScreen}
+      ></Route>
       <Route
         path="/mentor/dashboard"
         component={BasicInfoMentorDashboardScreen}
