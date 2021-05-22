@@ -45,6 +45,7 @@ const MentorProfileExploreScreen = ({ match }) => {
 
   useEffect(() => {
     dispatch(mentorProfileDetails(match.params.id));
+    // console.log(data, dataMentorProfileCourses.items[0]);
   }, [dispatch, match]);
 
   return (
@@ -134,12 +135,10 @@ const MentorProfileExploreScreen = ({ match }) => {
         <ErrorMessage style={{ width: "100vw" }}>{error}</ErrorMessage>
       ) : (
         <>
-          {/* {dataMentorProfileCourses.items.map((course) => (
-            <CourseCard course={course}></CourseCard>
-          ))} */}
+          {/* {<CourseCard course={dataMentorProfileCourses.items[0]}></CourseCard>} */}
         </>
       )}
-      ){/* <Reviews data={data}></Reviews> */}
+      ){/* <Reviews details={data}></Reviews> */}
       <Footer></Footer>
     </>
   );

@@ -4,7 +4,7 @@ import uploadPicture from "../../images/upload-picture.svg";
 import addPicture from "../../images/add-picture.svg";
 const BasicInfoMentorForm = () => {
   return (
-    <form action="" class="basic-info-form">
+    <form action="" className="basic-info-form">
       <div className="row">
         <div className="col-lg-6 col-12">
           <div className="input-field">

@@ -1,10 +1,6 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  NavLink,
-  Redirect,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Redirect, Route } from "react-router-dom";
+
 import {
   ContinueMentorRegister,
   ExploreScreen,
@@ -19,6 +15,7 @@ import {
 import BasicInfoMentorDashboardScreen from "./screens/BasicInfoMentorDashboardScreen";
 import ExploreServiceScreen from "./screens/ExploreServiceScreen";
 import MentorHomeScreen from "./screens/MentorHomeScreen";
+import CoursesMentorDashboardScreen from "./screens/CoursesMentorDashboardScreen";
 
 function App() {
   return (
@@ -39,6 +36,10 @@ function App() {
         path="/mentor/dashboard/basicinfo"
         component={BasicInfoMentorDashboardScreen}
         exact
+      ></Route>
+      <Route
+        path="/mentor/dashboard/courses"
+        component={CoursesMentorDashboardScreen}
       ></Route>
       <Route path="/mentor/explore" component={ExploreScreen} exact></Route>
       <Route path="/explore" component={ExploreScreen} exact></Route>

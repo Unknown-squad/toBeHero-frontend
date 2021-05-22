@@ -40,8 +40,8 @@ const ExploreServiceScreen = ({ match }) => {
           </div>
         </div>
       </section>
-
-      {/* <Reviews></Reviews> */}
+      {/* {console.log(data.items[0])} */}
+      {/* <Reviews details={data.items[0]}></Reviews> */}
       <Footer></Footer>
     </>
   );

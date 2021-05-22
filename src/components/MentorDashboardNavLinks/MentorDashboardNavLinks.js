@@ -29,12 +29,12 @@ const MentorDashboardNavLinks = () => {
       </NavLink>
       <NavLink
         to="/mentor/dashboard/courses"
-        exact
         activeStyle={{
           border: "2px solid #8c61ff",
           borderRadius: "10px",
           padding: "2px",
         }}
+        exact
       >
         <li>Courses</li>
       </NavLink>

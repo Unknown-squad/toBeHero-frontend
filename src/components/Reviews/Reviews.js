@@ -1,15 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import courseStar from "../../images/course-star.svg";
-const Reviews = ({ data }) => {
+const Reviews = ({ details }) => {
+  console.log(details);
   return (
     <section className="hr-section-18">
       <div className="container">
         <h4>Reviews</h4>
         <div className="row">
           <div className="col-md-6 col-12">
-            {data.items.topReviewsId.map((review, index) => (
-              <div className="review">
+            {details.items.topReviewsId.map((review, index) => (
+              <div className="review" key={index}>
                 <div className="review-name">
                   <span>Islam goher</span>
                   <img src={courseStar} alt="" />
