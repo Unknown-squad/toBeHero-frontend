@@ -52,7 +52,9 @@ const MentorCourseControlScreen = () => {
                       <button>Control</button>
                     </div>
                     <div className="mentor-live-btn">
-                      <button>go live</button>
+                      <Link to="/mentor/live">
+                        <button>go live</button>
+                      </Link>
                     </div>
                   </div>
                 </div>
