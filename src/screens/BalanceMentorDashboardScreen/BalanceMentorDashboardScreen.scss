@@ -1,0 +1,336 @@
+@import "../../index.scss";
+
+/* start page  mentor-dashboard*/
+.hr-section-21 {
+  padding: 15px 80px;
+  min-height: calc(100vh - 119px);
+  .mentor-dashboard {
+    display: flex;
+    gap: 2rem;
+    .nav-mentor-dashboard {
+      background-color: #f3f4f7;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      text-align: center;
+      min-width: 11.5rem;
+      border-radius: 10px;
+      height: 100%;
+      li {
+        position: relative;
+        background-color: #fff;
+        padding: 0.65rem 0.75rem;
+        border-radius: 10px;
+        box-shadow: 0px 1px 4px #41414152;
+        cursor: pointer;
+        .mentor-overlay {
+          position: absolute;
+          left: -4px;
+          right: -4px;
+          top: -4px;
+          bottom: -4px;
+          border: 2px solid #8c61ff;
+          border-radius: 10px;
+          display: none;
+          &.active {
+            display: block;
+          }
+        }
+      }
+    }
+    //Mentor Dashboard basic-info
+    .dashboard-basic-info {
+      background-color: #f3f4f7;
+      width: 100%;
+      padding: 2rem 1rem 1.5rem;
+      border-radius: 10px;
+      .basic-info-form {
+        color: $text-color;
+
+        img {
+          width: auto;
+        }
+        input,
+        select {
+          background-color: #fff;
+          border: 1px solid $purple-200;
+        }
+        select {
+          padding: 0.35rem 0.6rem 0.35rem 0.1rem;
+          margin-right: 0.25rem;
+        }
+        textarea {
+          width: 100%;
+          background-color: #fff;
+          border: none;
+          border-radius: 7px;
+          padding: 0.5rem 1rem;
+          color: $purple-gray;
+          resize: none;
+        }
+        sup {
+          color: $purple-gray;
+          margin: 0.25rem;
+        }
+        .Birthdate-mentor {
+          background-image: url(../../images/Birthdate-icon.svg);
+        }
+        .Languages-mentor,
+        .Occupation-mentor,
+        .Certificates-mentor {
+          background-image: none;
+        }
+        .Certificates-mentor {
+          margin-bottom: 0.25rem;
+        }
+        .file-input__label {
+          background-color: $purple-500;
+          padding: 0.25rem 1.25rem;
+          border-radius: 25px;
+        }
+        .upload-picture {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-top: 3rem;
+          .img-back {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .img-up {
+              border: 1px solid $purple-200;
+              border-radius: 50%;
+            }
+            .icon-up {
+              position: absolute;
+            }
+            img {
+              width: auto;
+              cursor: pointer;
+            }
+          }
+          .img-content {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            a {
+              color: $purple-300;
+            }
+          }
+        }
+      }
+    }
+
+    // mentor-dashboard-courses
+    .dashboard-course {
+      background-color: #f3f4f7;
+      width: 100%;
+      padding: 2rem 1rem 1.5rem;
+      border-radius: 10px;
+      .mentor-course-card {
+        background-color: #fff;
+        border: solid 1px $purple-500;
+        border-radius: 13px;
+        padding: 1rem 1rem;
+        margin-bottom: 1.5rem;
+        /* card */
+        /* card image */
+        .mentor-course-img > img {
+          width: 100%;
+        }
+        /* card image */
+        /* mentor course info */
+        .mentor-course-info {
+          margin-bottom: 1rem;
+          h2 {
+            font-size: 18px;
+            font-weight: 400;
+            color: $text-color;
+          }
+          p {
+            font-size: 14px;
+            font-weight: 300;
+            color: $purple-gray;
+          }
+        }
+        /* mentor course info */
+      }
+    }
+    // mentor-dashboard-course-service-info
+    .dashboard-course-service {
+      background-color: #f3f4f7;
+      width: 100%;
+      padding: 2rem 1rem 1.5rem;
+      border-radius: 10px;
+      form,
+      form div {
+        padding-bottom: 0;
+      }
+      .service-info-details {
+        color: $text-color;
+        input[type="text"] {
+          background-image: none;
+        }
+        input {
+          background-color: #fff;
+          border: 1px solid $purple-200;
+        }
+        .select-topic-price {
+          display: flex;
+          gap: 11px;
+
+          .select-topic {
+            position: relative;
+            flex: 0 1 71%;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            select {
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              -ms-appearance: none;
+              appearance: none;
+              outline: 0;
+              box-shadow: none;
+              border: 1px solid $purple-200;
+              background: #fff;
+              padding: 0.35rem 0.5em;
+              color: #414141;
+              cursor: pointer;
+              height: auto;
+              background-image: none;
+              border-radius: 7px;
+              height: 100%;
+            }
+            &::after {
+              content: url(../../images/select-arrow-200.svg);
+              position: absolute;
+              top: 1.85rem;
+              right: 0.5rem;
+              cursor: pointer;
+              pointer-events: none;
+              -webkit-transition: 0.25s all ease;
+              -o-transition: 0.25s all ease;
+              transition: 0.25s all ease;
+            }
+          }
+          .price {
+            flex: 0 0 29%;
+            input {
+              width: 83%;
+              padding: 0.3rem 1rem;
+            }
+            span {
+              margin-left: 3px;
+            }
+          }
+        }
+        .main-picture {
+          .title-main-picture {
+            padding-bottom: 0;
+          }
+          .input-field {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            .upload-img-input {
+              display: none;
+            }
+            .btn-purple-400 {
+              padding: 0.35rem 1.2rem;
+            }
+          }
+        }
+      }
+      textarea {
+        width: 100%;
+        background-color: #fff;
+        border: 1px solid $purple-200;
+        border-radius: 7px;
+        padding: 0.2rem 1rem;
+        resize: none;
+      }
+      .service-includes {
+        .service-remove {
+          display: flex;
+          gap: 10px;
+          margin-bottom: 10px;
+          .btn-remove {
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #d8d8d8;
+            padding: 0.2rem 2rem;
+            border-radius: 25px;
+            color: #7d7d7d;
+          }
+        }
+        .service-add {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          .btn-add {
+            background-color: $purple-200;
+            padding: 0.2rem 2.25rem;
+            border-radius: 25px;
+            width: 115px;
+          }
+        }
+        .btn {
+          padding: 0.2rem 2rem;
+        }
+      }
+      .save-edits {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .btn {
+          width: 200px;
+          font-size: 14px;
+        }
+      }
+    }
+    .create-new {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      i {
+        font-size: 10px;
+        font-weight: 600;
+        margin-left: 2px;
+      }
+    }
+    //mentor-dashboard-balance
+    .dashboard-balance {
+      background-color: #f3f4f7;
+      width: 100%;
+      padding: 1rem;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+      height: 100%;
+      align-items: center;
+      .dashboard-balance-box {
+        background-color: #fff;
+        border: 1px solid $purple-200;
+        text-align: center;
+        padding: 1.25rem;
+        border-radius: 10px;
+        p {
+          color: $purple-500;
+          text-transform: capitalize;
+          font-size: 16px;
+          font-weight: 500;
+          margin-bottom: 0.25rem;
+        }
+        .price {
+          color: $purple-200;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}
+/* end page  mentor-dashboard*/
