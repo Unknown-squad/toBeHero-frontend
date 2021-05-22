@@ -28,13 +28,7 @@ function App() {
       <Route
         path="/mentor/dashboard"
         component={BasicInfoMentorDashboardScreen}
-        exact
-      >
-        <Redirect
-          from="/mentor/dashboard"
-          to="/mentor/dashboard/basic-info"
-        ></Redirect>
-      </Route>
+      ></Route>
 
       <Route path="/explore" component={ExploreScreen} exact></Route>
 

@@ -24,19 +24,6 @@
         border-radius: 10px;
         box-shadow: 0px 1px 4px #41414152;
         cursor: pointer;
-        .mentor-overlay {
-          position: absolute;
-          left: -4px;
-          right: -4px;
-          top: -4px;
-          bottom: -4px;
-          border: 2px solid #8c61ff;
-          border-radius: 10px;
-          display: none;
-          &.active {
-            display: block;
-          }
-        }
       }
     }
     //Mentor Dashboard basic-info

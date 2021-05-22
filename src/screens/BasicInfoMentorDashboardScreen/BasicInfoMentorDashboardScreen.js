@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "../../components/Footer";
 import MentorHomeHeader from "../../components/MentorHomeHeader";
-import { Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import MentorDashboardNavLinks from "../../components/MentorDashboardNavLinks";
 import "./BasicInfoMentorDashboardScreen.scss";
 import BasicInfoMentorForm from "../../components/BasicInfoMentorForm";
@@ -16,7 +16,10 @@ const BasicInfoMentorDashboardScreen = () => {
           <div class="mentor-dashboard">
             <MentorDashboardNavLinks></MentorDashboardNavLinks>
             <div class="dashboard-basic-info">
-              <BasicInfoMentorForm></BasicInfoMentorForm>
+              <Route
+                path="/mentor/dashboard/basicinfo"
+                component={BasicInfoMentorForm}
+              ></Route>
             </div>
           </div>
         </div>
