@@ -40,6 +40,7 @@ function App() {
         component={BasicInfoMentorDashboardScreen}
         exact
       ></Route>
+      <Route path="/mentor/explore" component={ExploreScreen} exact></Route>
       <Route path="/explore" component={ExploreScreen} exact></Route>
 
       <Route

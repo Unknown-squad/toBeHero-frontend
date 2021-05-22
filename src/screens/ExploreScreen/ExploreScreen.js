@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { listCourses } from "../../actions/courseListActions";
 import Loader from "../../components/Loader";
 import ErrorMessage from "../../components/ErrorMessage";
+import MentorHomeHeader from "../../components/MentorHomeHeader";
 
 const ExploreScreen = ({ location, history }) => {
   const genre = new URLSearchParams(location.search).get("genre") || "";
@@ -21,6 +22,11 @@ const ExploreScreen = ({ location, history }) => {
   // console.log(page);
   const courseList = useSelector((state) => state.courseList);
   const { loading, error, data, totalPages, currentPage } = courseList;
+  const mentorLogin = useSelector((state) => state.mentorLogin);
+  const { mentorInfo } = mentorLogin;
+  const guardianLogin = useSelector((state) => state.guardianLogin);
+  const { guardianInfo } = guardianLogin;
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,11 +34,14 @@ const ExploreScreen = ({ location, history }) => {
   }, [dispatch, pageNumber, genre, sortby, ratings]);
   return (
     <>
-      <ExploreHeader></ExploreHeader>
+      {mentorInfo || guardianInfo ? (
+        <MentorHomeHeader></MentorHomeHeader>
+      ) : (
+        <ExploreHeader></ExploreHeader>
+      )}
       <SearchBox></SearchBox>
       <ExploreSlider></ExploreSlider>
       <Filter history={history}></Filter>
-
       <section className="hr-section-14">
         <div className="container">
           {loading ? (

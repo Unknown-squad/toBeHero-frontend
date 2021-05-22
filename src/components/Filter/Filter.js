@@ -32,10 +32,10 @@ const Filter = ({ history }) => {
                   onChange={(e) => setSort(e.target.value)}
                 >
                   {/* {console.log(sort)} */}
-                  <option defaultValue></option>
-
+                  <option value="popularity" defaultValue>
+                    Popularity
+                  </option>
                   <option value="rating">Rating</option>
-                  <option value="popularity">Popularity</option>
                   <option value="newest">Newest</option>
                   <option value="low-price">Price (lowest)</option>
                   <option value="high-price">Price (highest)</option>
@@ -50,7 +50,7 @@ const Filter = ({ history }) => {
                   onChange={(e) => setFilter(e.target.value)}
                 >
                   {/* {console.log(filter)} */}
-                  <option defaultValue></option>
+                  <option defaultValue>All</option>
                   <option value="Art">Art</option>
                   <option value="Music">Music</option>
                   <option value="Programming">Programming</option>
