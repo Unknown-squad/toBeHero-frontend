@@ -28,8 +28,19 @@ function App() {
       <Route
         path="/mentor/dashboard"
         component={BasicInfoMentorDashboardScreen}
+        exact
+      >
+        <Redirect
+          from="/mentor/dashboard"
+          to="/mentor/dashboard/basicinfo"
+        ></Redirect>
+      </Route>
+      <Route
+        path="/mentor/dashboard/basicinfo"
+        component={BasicInfoMentorDashboardScreen}
+        exact
       ></Route>
-
+      <Route path="/mentor/explore" component={ExploreScreen} exact></Route>
       <Route path="/explore" component={ExploreScreen} exact></Route>
 
       <Route
