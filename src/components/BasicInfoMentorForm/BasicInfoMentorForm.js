@@ -4,6 +4,8 @@ import uploadPicture from "../../images/upload-picture.svg";
 import addPicture from "../../images/add-picture.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { getMentorBasicInfoActions } from "../../actions/mentorBasicInfoActions";
+import { MENTOR_UPDATE_BASICINFO_RESET } from "../../constants/mentorUpdateBasicInfoConstants";
+import { updateMentorBasicInfoActions } from "../../actions/updateMentorBasicInfoActions";
 const BasicInfoMentorForm = () => {
   let history = useHistory();
   const [gender, setGender] = useState("");
@@ -37,7 +39,7 @@ const BasicInfoMentorForm = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (successUpdate) {
-      dispatch({ type: MENTOR_BASICINFO_UPDATE_RESET });
+      dispatch({ type: MENTOR_UPDATE_BASICINFO_RESET });
       history.push("/mentor/dashboard/basicinfo");
     } else {
       if (!mentor.fullName) {
@@ -59,7 +61,7 @@ const BasicInfoMentorForm = () => {
   }, [dispatch, successUpdate, history, mentor]);
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateMentorBasicInfo({ _id: userId, name, email, isAdmin }));
+    dispatch(updateMentorBasicInfoActions());
   };
 
   return (
