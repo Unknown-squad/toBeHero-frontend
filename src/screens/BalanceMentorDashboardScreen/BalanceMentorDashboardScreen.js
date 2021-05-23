@@ -5,11 +5,7 @@ import Footer from "../../components/Footer";
 import MentorDashboardNavLinks from "../../components/MentorDashboardNavLinks";
 import MentorHomeHeader from "../../components/MentorHomeHeader";
 import "./BalanceMentorDashboardScreen.scss";
-import { useDispatch, useSelector } from "react-redux";
 const BalanceMentorDashboardScreen = () => {
-  const mentorBalance = useSelector((state) => state.mentorBalance);
-  const { loading, error, data } = mentorBalance;
-  const dispatch = useDispatch();
   return (
     <>
       <MentorHomeHeader></MentorHomeHeader>
