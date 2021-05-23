@@ -30,11 +30,11 @@ export const mentorBasicInfoReducer = (state = initialState, action) => {
     case MENTOR_BASICINFO_REQUEST:
       return { ...state, loading: true };
     case MENTOR_BASICINFO_SUCCESS:
-      return { loading: false, mentor: action.payload.data };
+      return { loading: false, mentor: action.payload.data.items[0] };
     case MENTOR_BASICINFO_FAIL:
       return { loading: false, error: action.payload };
     case MENTOR_BASICINFO_RESET:
-      return { user: {} };
+      return { mentor: {} };
     default:
       return state;
   }

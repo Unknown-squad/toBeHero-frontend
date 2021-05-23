@@ -1,28 +1,93 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import uploadPicture from "../../images/upload-picture.svg";
 import addPicture from "../../images/add-picture.svg";
+import { useSelector, useDispatch } from "react-redux";
+import { getMentorBasicInfoActions } from "../../actions/mentorBasicInfoActions";
 const BasicInfoMentorForm = () => {
+  let history = useHistory();
+  const [gender, setGender] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [countryCode, setCountryCode] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [stateLoading, setStateLoading] = useState(false);
+  const [birthDate, setBirthDate] = useState("12/05/1990");
+  const [languages, setLanguages] = useState(["english"]);
+  const [description, setDescription] = useState("gggg");
+  const [occupation, setOccupation] = useState(["hhhhhhh"]);
+  const [certificates, setCertificates] = useState(["nnnnnnnn"]);
+  const [picture, setPicture] = useState("");
+  const [uploading, setUploading] = useState(false);
+
+  const mentorBasicInfo = useSelector((state) => state.mentorBasicInfo);
+  const { loading, error, mentor } = mentorBasicInfo;
+
+  const mentorUpdateBasicInfo = useSelector(
+    (state) => state.mentorUpdateBasicInfo
+  );
+  const {
+    loading: loadingUpdate,
+    error: errorUpdate,
+    success: successUpdate,
+  } = mentorUpdateBasicInfo;
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (successUpdate) {
+      dispatch({ type: MENTOR_BASICINFO_UPDATE_RESET });
+      history.push("/mentor/dashboard/basicinfo");
+    } else {
+      if (!mentor.fullName) {
+        dispatch(getMentorBasicInfoActions());
+      } else {
+        setFullName(mentor.name);
+        setEmail(mentor.email);
+        setGender(mentor.gender);
+        setPassword(mentor.password);
+        setCountryCode(mentor.countryCode);
+        setPhone(mentor.phone);
+        setBirthDate(mentor.birthDate);
+        setDescription(mentor.description);
+        setOccupation(mentor.occupation);
+        setCertificates(mentor.certificates);
+        setPicture(mentor.picture);
+      }
+    }
+  }, [dispatch, successUpdate, history, mentor]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(updateMentorBasicInfo({ _id: userId, name, email, isAdmin }));
+  };
+
   return (
-    <form action="" className="basic-info-form">
+    <form action="" className="basic-info-form" onSubmit={handleSubmit}>
       <div className="row">
         <div className="col-lg-6 col-12">
           <div className="input-field">
             <label htmlFor="name">Full name*</label>
             <br />
             <div className="flex-row w-100">
-              <select name="mr" id="mr">
-                <option value="Mr.">Mr.</option>
-                <option value="Ms.">Ms.</option>
+              <select
+                name="mr"
+                id="mr"
+                onChange={(e) => setGender(e.target.value)}
+                value={gender}
+              >
+                <option value="mr">Mr.</option>
+                <option value="mrs">Ms.</option>
               </select>
               <input
                 type="text"
                 id="name"
                 name="name"
+                value={fullName}
                 placeholder="Enter your name"
                 required
-                value="mohammed sobhi"
-              />
+                onChange={(e) => setFullName(e.target.value)}
+              ></input>
             </div>
           </div>
           <div className="input-field">
@@ -33,9 +98,10 @@ const BasicInfoMentorForm = () => {
               type="email"
               id="email"
               name="register-email"
+              value={email}
               placeholder="Enter your email"
               required
-              value="m.mohammed.sobhi.98@gmail.com"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="input-field">
@@ -45,16 +111,22 @@ const BasicInfoMentorForm = () => {
               type="password"
               id="password"
               name="password"
+              value={password}
               placeholder="Enter your password"
               required
-              value="zzzzzzzzzzzzzzzzzzz"
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className="input-field">
             <label htmlFor="phone">Phone</label>
             <br />
             <div className="flex-row w-100">
-              <select name="phone-code" id="phone-code">
+              <select
+                name="phone-code"
+                id="phone-code"
+                onChange={(e) => setCountryCode(e.target.value)}
+                value={countryCode}
+              >
                 <option value="+20">+20</option>
               </select>
               <input
@@ -62,7 +134,8 @@ const BasicInfoMentorForm = () => {
                 id="phone"
                 name="phone"
                 placeholder="Enter your phone"
-                value="01115790092"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
               />
             </div>
           </div>
@@ -75,13 +148,9 @@ const BasicInfoMentorForm = () => {
               cols="30"
               rows="8"
               placeholder="Enter a short bio about yourself …."
-            >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
-              deserunt et provident ad alias minus recusandae ut odit accusamus
-              eaque eligendi, facere doloribus officiis dolorum illum animi
-              minima quam repellat! Fuga labore beatae saepe animi iusto
-              officiis eius optio impedit?
-            </textarea>
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            ></textarea>
           </div>
         </div>
         <div className="col-lg-6 col-12">
@@ -95,7 +164,8 @@ const BasicInfoMentorForm = () => {
               className="Birthdate-mentor"
               placeholder="Enter your Birthdate"
               required
-              value="28 - 9 - 1998"
+              value={birthDate}
+              onChange={(e) => setBirthDate(e.target.value)}
             />
           </div>
           <div className="input-field">
@@ -108,6 +178,8 @@ const BasicInfoMentorForm = () => {
               name="Languages-mentor"
               className="Languages-mentor"
               placeholder="Enter your Languages"
+              onChange={(e) => setLanguages(e.target.value)}
+              value={languages}
               required
             />
           </div>
@@ -123,6 +195,8 @@ const BasicInfoMentorForm = () => {
               className="Occupation-mentor"
               placeholder="Enter at least one"
               required
+              value={occupation}
+              onChange={(e) => setOccupation(e.target.value)}
             />
           </div>
           <div className="input-field">
@@ -134,20 +208,22 @@ const BasicInfoMentorForm = () => {
               name="Certificates"
               className="Certificates-mentor"
               placeholder=""
-              value="Lorem ipsum dolor sit amet"
+              value={certificates}
+              onChange={(e) => setCertificates(e.target.value)}
             />
-            <input
+            {/* <input
               type="text"
               id="Certificates"
               name="Certificates"
               className="Certificates-mentor"
               placeholder=""
               value="Lorem ipsum dolor sit amet"
-            />
+            /> */}
           </div>
           <div className="input-field">
             <button className="btn file-input__label">add new</button>
           </div>
+
           <div className="upload-picture">
             <div className="img-back">
               <img className="img-up" src={uploadPicture} alt="" />
@@ -163,7 +239,9 @@ const BasicInfoMentorForm = () => {
         </div>
       </div>
       <div className="create-new">
-        <button className="btn btn-purple-400">Save changes</button>
+        <button className="btn btn-purple-400" type="submit">
+          Save changes
+        </button>
       </div>
     </form>
   );
