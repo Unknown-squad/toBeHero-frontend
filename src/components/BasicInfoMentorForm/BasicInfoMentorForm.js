@@ -8,8 +8,9 @@ import { MENTOR_UPDATE_BASICINFO_RESET } from "../../constants/mentorUpdateBasic
 import { updateMentorBasicInfoActions } from "../../actions/updateMentorBasicInfoActions";
 import Loader from "../Loader";
 import ErrorMessage from "../ErrorMessage";
-const BasicInfoMentorForm = () => {
-  let history = useHistory();
+import SuccessMessage from "../SuccessMessage";
+const BasicInfoMentorForm = ({ history }) => {
+  // let history = useHistory();
   const [gender, setGender] = useState("");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -22,6 +23,7 @@ const BasicInfoMentorForm = () => {
   const [occupation, setOccupation] = useState([]);
   const [certificates, setCertificates] = useState([]);
   const [picture, setPicture] = useState("");
+  const [alert, setAlert] = useState(false);
   // const [uploading, setUploading] = useState(false);
 
   const mentorBasicInfo = useSelector((state) => state.mentorBasicInfo);
@@ -31,6 +33,7 @@ const BasicInfoMentorForm = () => {
     (state) => state.mentorUpdateBasicInfo
   );
   const {
+    mentorInfo,
     loading: loadingUpdate,
     error: errorUpdate,
     success: successUpdate,
@@ -39,12 +42,12 @@ const BasicInfoMentorForm = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (successUpdate) {
+      // history.push("/mentor/dashboard/basicinfo");
+
       Promise.all([
         dispatch({ type: MENTOR_UPDATE_BASICINFO_RESET }),
         dispatch(getMentorBasicInfoActions()),
       ]);
-
-      history.push("/mentor/dashboard");
     } else {
       if (!mentor) {
         dispatch(getMentorBasicInfoActions());
@@ -62,6 +65,7 @@ const BasicInfoMentorForm = () => {
         setPicture(mentor.picture);
       }
     }
+    setAlert(false);
   }, [dispatch, successUpdate, history, mentor]);
 
   const handleSubmit = (e) => {
@@ -82,6 +86,9 @@ const BasicInfoMentorForm = () => {
         picture,
       })
     );
+    setTimeout(() => {
+      setAlert(true);
+    }, 900);
   };
 
   return (
@@ -267,6 +274,13 @@ const BasicInfoMentorForm = () => {
                 </div>
               </div>
             </div>
+          </div>
+          <div>
+            {alert && !error && !errorUpdate ? (
+              <SuccessMessage>
+                mentor basic information is updated successfully.
+              </SuccessMessage>
+            ) : null}
           </div>
           <div className="create-new">
             <button className="btn btn-purple-400" type="submit">

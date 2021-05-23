@@ -6,7 +6,7 @@ import MentorDashboardNavLinks from "../../components/MentorDashboardNavLinks";
 import "./BasicInfoMentorDashboardScreen.scss";
 import BasicInfoMentorForm from "../../components/BasicInfoMentorForm";
 
-const BasicInfoMentorDashboardScreen = () => {
+const BasicInfoMentorDashboardScreen = ({ history }) => {
   return (
     <>
       <MentorHomeHeader></MentorHomeHeader>
@@ -18,7 +18,7 @@ const BasicInfoMentorDashboardScreen = () => {
             <div className="dashboard-basic-info">
               <Route
                 path="/mentor/dashboard/basicinfo"
-                component={BasicInfoMentorForm}
+                component={() => <BasicInfoMentorForm history={history} />}
               ></Route>
             </div>
           </div>
