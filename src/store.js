@@ -12,6 +12,7 @@ import { mentorLoginReducer } from "./reducers/mentorLoginReducers";
 import { heroLoginReducer } from "./reducers/heroLoginReducers";
 import { serviceListReducer } from "./reducers/serviceListReducers";
 import { mentorStatusAvailabilityReducer } from "./reducers/mentorStatusAvailabilityReducers";
+import { mentorBalanceReducer } from "./reducers/mentorBalanceReducers";
 
 const rootReducer = combineReducers({
   courseList: courseListReducer,
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   heroLogin: heroLoginReducer,
   serviceList: serviceListReducer,
   mentorStatus: mentorStatusAvailabilityReducer,
+  mentorBalance: mentorBalanceReducer,
 });
 
 const guardianInfoFromStorage = localStorage.getItem("guardianInfo")
