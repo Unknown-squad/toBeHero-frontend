@@ -49,7 +49,7 @@ export const mentorRegisterActions =
             isVerify: true,
           },
         },
-        config
+        { ...config }
       );
       dispatch({ type: MENTOR_REGISTER_SUCCESS, payload: data });
 
