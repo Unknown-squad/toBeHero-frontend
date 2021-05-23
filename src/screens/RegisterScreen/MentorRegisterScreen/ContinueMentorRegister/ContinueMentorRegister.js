@@ -193,14 +193,12 @@ const ContinueMentorRegister = ({ history, location }) => {
                               htmlFor="files"
                               className="btn"
                               style={{ color: "black" }}
-                            >
-                              upload your picture
-                            </label>
+                            ></label>
                             <input
                               id="files"
                               type="file"
                               onChange={onChangePicture}
-                              style={{ visibility: "hidden" }}
+                              // style={{ visibility: "hidden" }}
                             />
                             <div
                               className="img-back"
