@@ -6,7 +6,7 @@ import { guardianRegisterReducer } from "./reducers/guardianRegisterReducers";
 import { mentorRegisterReducer } from "./reducers/mentorRegisterReducers";
 import { mentorProfileDetailsReducer } from "./reducers/mentorProfileDetailsReducers";
 import { mentorProfileCoursesReducer } from "./reducers/mentorProfileCoursesReducers";
-import { courseDetailsReducer } from "./reducers/courseDetailsReducer";
+import { courseDetailsReducer } from "./reducers/courseDetailsReducers";
 import { guardianLoginReducer } from "./reducers/guardianLoginReducers";
 import { mentorLoginReducer } from "./reducers/mentorLoginReducers";
 import { heroLoginReducer } from "./reducers/heroLoginReducers";
