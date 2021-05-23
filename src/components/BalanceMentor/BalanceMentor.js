@@ -11,7 +11,7 @@ const BalanceMentor = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(mentorBalanceActions());
-    console.log(data);
+    // console.log(data);
   }, [dispatch]);
   return (
     <>

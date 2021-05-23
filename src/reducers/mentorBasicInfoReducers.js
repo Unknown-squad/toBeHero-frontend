@@ -7,20 +7,20 @@ import {
 
 const initialState = {
   data: {
-    Kind: "mentor",
+    kind: "",
     items: [
       {
+        occupation: [],
+        certificates: [],
+        languages: [],
         fullName: "",
         gender: "",
         email: "",
         phone: "",
         countryCode: "",
-        birthDate: "",
-        languages: [],
-        occupation: [],
-        certificates: [],
-        description: "",
         picture: "",
+        birthDate: "",
+        description: "",
       },
     ],
   },

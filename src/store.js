@@ -14,6 +14,7 @@ import { serviceListReducer } from "./reducers/serviceListReducers";
 import { mentorStatusAvailabilityReducer } from "./reducers/mentorStatusAvailabilityReducers";
 import { mentorBalanceReducer } from "./reducers/mentorBalanceReducers";
 import { mentorBasicInfoReducer } from "./reducers/mentorBasicInfoReducers";
+import { mentorUpdateBasicInfoReducer } from "./reducers/mentorUpdateBasicInfoReducers";
 
 const rootReducer = combineReducers({
   courseList: courseListReducer,
@@ -29,7 +30,7 @@ const rootReducer = combineReducers({
   mentorStatus: mentorStatusAvailabilityReducer,
   mentorBalance: mentorBalanceReducer,
   mentorBasicInfo: mentorBasicInfoReducer,
-  mentorUpdateBasicInfo:,
+  mentorUpdateBasicInfo: mentorUpdateBasicInfoReducer,
 });
 
 const guardianInfoFromStorage = localStorage.getItem("guardianInfo")
