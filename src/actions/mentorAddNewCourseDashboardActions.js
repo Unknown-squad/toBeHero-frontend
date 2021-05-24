@@ -3,9 +3,9 @@ import {
   MENTOR_ADD_NEW_COURSE_FAIL,
   MENTOR_ADD_NEW_COURSE_REQUEST,
   MENTOR_ADD_NEW_COURSE_SUCCESS,
-} from "../constants/mentorAddNewCourseConstants";
+} from "../constants/mentorAddNewCourseDashboardConstants";
 
-export const mentorAddNewCourseActions =
+export const mentorAddNewCourseDashboardActions =
   ({ title, price, description, topicsList, genre }) =>
   async (dispatch) => {
     try {
