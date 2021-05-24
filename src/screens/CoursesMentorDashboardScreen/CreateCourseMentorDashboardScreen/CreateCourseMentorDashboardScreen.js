@@ -10,11 +10,11 @@ const CreateCourseMentorDashboardScreen = ({ match }) => {
   return (
     <>
       <MentorHomeHeader></MentorHomeHeader>
-      <section class="hr-section-21">
-        <div class="container">
-          <div class="mentor-dashboard">
+      <section className="hr-section-21">
+        <div className="container">
+          <div className="mentor-dashboard">
             <MentorDashboardNavLinks></MentorDashboardNavLinks>
-            <div class="dashboard-course-service">
+            <div className="dashboard-course-service">
               <h4>Service Info. and details</h4>
               <Route
                 path="/mentor/dashboard/course/create"

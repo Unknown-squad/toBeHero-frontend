@@ -6,27 +6,23 @@ import {
 } from "../constants/mentorUpdateCourseDashboardConstants";
 
 export const updateMentorEditCourseDashboardActions =
-  (course) => async (dispatch) => {
+  (course, files) => async (dispatch) => {
     try {
       dispatch({ type: MENTOR_UPDATE_COURSE_REQUEST });
       const config = {
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "multipart/form-data",
         },
       };
       const { data } = await axios.put(
-        `http://localhost:5000/api/v1/courses/${course.courseId}`,
+        `http://localhost:5000/api/v1/courses/${course._id}`,
         {
           method: "course.put",
           params: {
-            title: "",
-            price: "",
-            description: "",
-            topicsList: [],
-            genre: "",
-            mediaUrls: [],
+            ...course,
           },
         },
+
         { withCredentials: true },
         config
       );

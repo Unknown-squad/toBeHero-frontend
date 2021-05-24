@@ -27,7 +27,6 @@ export const mentorRegisterActions =
         headers: {
           "Content-Type": "application/json",
         },
-        withCredentials: true,
       };
       const { data } = await axios.post(
         `http://localhost:5000/api/v1/mentor/signup`,
@@ -49,6 +48,7 @@ export const mentorRegisterActions =
             isVerify: true,
           },
         },
+        { withCredentials: true },
         { ...config }
       );
       dispatch({ type: MENTOR_REGISTER_SUCCESS, payload: data });

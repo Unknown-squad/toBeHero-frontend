@@ -12,7 +12,6 @@ export const guardianLoginActions = (email, password) => async (dispatch) => {
       headers: {
         "Content-Type": "application/json",
       },
-      withCredentials: true,
     };
     const { data } = await axios.post(
       "http://localhost:5000/api/v1/user/login",
@@ -24,6 +23,7 @@ export const guardianLoginActions = (email, password) => async (dispatch) => {
           person: "guardian",
         },
       },
+      { withCredentials: true },
       config
     );
     dispatch({ type: GUARDIAN_LOGIN_SUCCESS, payload: data });

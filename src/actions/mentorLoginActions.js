@@ -13,7 +13,6 @@ export const mentorLoginActions = (email, password) => async (dispatch) => {
       headers: {
         "Content-Type": "application/json",
       },
-      withCredentials: true,
     };
 
     const { data } = await axios.post(
@@ -26,6 +25,7 @@ export const mentorLoginActions = (email, password) => async (dispatch) => {
           person: "mentor",
         },
       },
+      { withCredentials: true },
       config
     );
 

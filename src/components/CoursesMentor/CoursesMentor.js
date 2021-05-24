@@ -23,32 +23,30 @@ const CoursesMentor = () => {
           <ErrorMessage>{error}</ErrorMessage>
         ) : (
           data.items.map((course) => (
-            <>
-              <div className="col-lg-4 col-12" key={course._id}>
-                <div className="mentor-course-card">
-                  <div className="mentor-course-card-content">
-                    <div className="mentor-course-img">
-                      <img src={course.picture} alt="" />
-                    </div>
-                    <div className="mentor-course-info">
-                      <h2>{course.title}</h2>
-                      <p>{`${course.description.substring(0, 90)}...`}</p>
-                    </div>
-                    <div className="mentor-course-edit-btn flex-row">
-                      <Link
-                        to={`course/edit/${course._id}`}
-                        style={{
-                          display: "inherit",
-                          width: "50vw",
-                        }}
-                      >
-                        <button className="btn btn-purple-400">Edit</button>
-                      </Link>
-                    </div>
+            <div className="col-lg-4 col-12" key={course._id}>
+              <div className="mentor-course-card">
+                <div className="mentor-course-card-content">
+                  <div className="mentor-course-img">
+                    <img src={course.picture} alt="" />
+                  </div>
+                  <div className="mentor-course-info">
+                    <h2>{course.title}</h2>
+                    <p>{`${course.description.substring(0, 90)}...`}</p>
+                  </div>
+                  <div className="mentor-course-edit-btn flex-row">
+                    <Link
+                      to={`course/edit/${course._id}`}
+                      style={{
+                        display: "inherit",
+                        width: "50vw",
+                      }}
+                    >
+                      <button className="btn btn-purple-400">Edit</button>
+                    </Link>
                   </div>
                 </div>
               </div>
-            </>
+            </div>
           ))
         )}
       </div>
