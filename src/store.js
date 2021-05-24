@@ -16,6 +16,8 @@ import { mentorBalanceReducer } from "./reducers/mentorBalanceReducers";
 import { mentorBasicInfoReducer } from "./reducers/mentorBasicInfoReducers";
 import { mentorUpdateBasicInfoReducer } from "./reducers/mentorUpdateBasicInfoReducers";
 import { mentorCoursesDashboardReducer } from "./reducers/mentorCoursesDashboardReducers";
+import { mentorUpdateEditCourseDashboardReducer } from "./reducers/mentorUpdateEditCourseDashboardReducers";
+import { mentorEditCourseDashboardReducer } from "./reducers/mentorEditCourseDashboardReducers";
 
 const rootReducer = combineReducers({
   courseList: courseListReducer,
@@ -33,6 +35,8 @@ const rootReducer = combineReducers({
   mentorBasicInfo: mentorBasicInfoReducer,
   mentorUpdateBasicInfo: mentorUpdateBasicInfoReducer,
   mentorCoursesDashboard: mentorCoursesDashboardReducer,
+  mentorEditCourseDashboard: mentorEditCourseDashboardReducer,
+  mentorUpdateEditCourseDashboard: mentorUpdateEditCourseDashboardReducer,
 });
 
 const guardianInfoFromStorage = localStorage.getItem("guardianInfo")

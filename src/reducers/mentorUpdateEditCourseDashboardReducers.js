@@ -5,7 +5,7 @@ import {
   MENTOR_UPDATE_COURSE_SUCCESS,
 } from "../constants/mentorUpdateCourseDashboardConstants";
 
-export const mentorUpdateCourseReducer = (state = {}, action) => {
+export const mentorUpdateEditCourseDashboardReducer = (state = {}, action) => {
   switch (action.type) {
     case MENTOR_UPDATE_COURSE_REQUEST:
       return { ...state, loading: true };
