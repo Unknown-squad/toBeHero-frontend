@@ -1,1 +1,1 @@
-export {default} from './CreateCourseMentor'
+export { default } from "./CreateCourseMentor";

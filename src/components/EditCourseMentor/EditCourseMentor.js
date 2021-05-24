@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { mentorAddNewCourseDashboardActions } from "../../actions/mentorAddNewCourseDashboardActions";
+import { getMentorEditCourseDetailsDashboardActions } from "../../actions/mentorEditCourseDashboardActions";
 import { updateMentorEditCourseDashboardActions } from "../../actions/updateMentorEditCourseDashboardActions";
+import { MENTOR_UPDATE_COURSE_RESET } from "../../constants/mentorUpdateCourseDashboardConstants";
 import ErrorMessage from "../ErrorMessage";
 import Loader from "../Loader";
 import SuccessMessage from "../SuccessMessage";
 
-const CreateCourseMentor = ({ match, history }) => {
+const EditCourseMentor = ({ match }) => {
+  const courseId = match.params.id;
   const [title, setTitle] = useState("");
-  const [genre, setGenre] = useState("Programming");
+  const [genre, setGenre] = useState("");
   const [price, setPrice] = useState("");
   const [picture, setPicture] = useState("");
   const [description, setDescription] = useState("");
@@ -19,29 +21,66 @@ const CreateCourseMentor = ({ match, history }) => {
   // const [previewSource, setPreviewSource] = useState("");
   // const [selectedFile, setSelectedFile] = useState("");
 
-  const mentorAddNewCourse = useSelector((state) => state.mentorAddNewCourse);
-  const { loading, error, success, mentorCourseAddedInfo } = mentorAddNewCourse;
+  const mentorEditCourseDashboard = useSelector(
+    (state) => state.mentorEditCourseDashboard
+  );
+  const { loading, error, data } = mentorEditCourseDashboard;
+  const mentorUpdateEditCourseDashboard = useSelector(
+    (state) => state.mentorUpdateEditCourseDashboard
+  );
+  const {
+    loading: loadingMentorCourseUpdate,
+    error: errorMentorCourseUpdate,
+    success,
+    mentorCourseInfo,
+    data: dataMentorCourseUpdate,
+  } = mentorUpdateEditCourseDashboard;
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(mentorCourseAddedInfo);
+    console.log(data);
     if (success) {
-      history.push("/mentor/dashboard/courses");
+      // history.push("/mentor/dashboard/basicinfo");
+
+      Promise.all([
+        dispatch({ type: MENTOR_UPDATE_COURSE_RESET }),
+        dispatch(getMentorEditCourseDetailsDashboardActions(courseId)),
+      ]);
+    } else {
+      if (!data || data._id !== courseId) {
+        dispatch(getMentorEditCourseDetailsDashboardActions(courseId));
+      } else {
+        setTitle(data.title);
+        setGenre(data.genre);
+        setPrice(data.price);
+        setPicture(data.picture);
+        setDescription(data.description);
+        setTopicsList(data.topicsList[0]);
+        setMediaUrls(data.mediaURLS);
+      }
     }
-  }, [dispatch, success, history]);
+    setAlert(false);
+  }, [dispatch, data, success, courseId]);
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(
-      mentorAddNewCourseDashboardActions({
-        title,
-        price,
-        description,
-        topicsList,
-        genre,
-      })
+      updateMentorEditCourseDashboardActions(
+        {
+          _id: courseId,
+          title,
+          genre,
+          price,
+          description,
+          topicsList,
+          mediaUrls,
+        }
+        // {
+        //   picture,
+        //   mediaUrls,
+        // }
+      )
     );
-
     setTimeout(() => {
       setAlert(true);
     }, 1100);
@@ -83,6 +122,10 @@ const CreateCourseMentor = ({ match, history }) => {
   // };
   return (
     <>
+      {loadingMentorCourseUpdate && <Loader></Loader>}
+      {errorMentorCourseUpdate && (
+        <ErrorMessage>{errorMentorCourseUpdate}</ErrorMessage>
+      )}
       {loading ? (
         <Loader></Loader>
       ) : error ? (
@@ -289,9 +332,9 @@ const CreateCourseMentor = ({ match, history }) => {
             </div>
           </div>
           <div>
-            {alert && !error ? (
+            {alert && !error && !errorMentorCourseUpdate ? (
               <SuccessMessage style={{ paddingBottom: "1rem" }}>
-                course is added successfully.
+                course is updated successfully.
               </SuccessMessage>
             ) : null}
           </div>
@@ -310,4 +353,4 @@ const CreateCourseMentor = ({ match, history }) => {
   );
 };
 
-export default CreateCourseMentor;
+export default EditCourseMentor;

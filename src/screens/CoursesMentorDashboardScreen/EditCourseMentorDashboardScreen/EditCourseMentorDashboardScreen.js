@@ -2,11 +2,12 @@ import React from "react";
 import { Route } from "react-router";
 import { NavLink } from "react-router-dom";
 import CreateCourseMentor from "../../../components/CreateCourseMentor";
+import EditCourseMentor from "../../../components/EditCourseMentor";
 import Footer from "../../../components/Footer";
 import MentorDashboardNavLinks from "../../../components/MentorDashboardNavLinks";
 import MentorHomeHeader from "../../../components/MentorHomeHeader";
-import "./CreateCourseMentorDashboardScreen.scss";
-const CreateCourseMentorDashboardScreen = ({ match }) => {
+import "./EditCourseMentorDashboardScreen.scss";
+const EditCourseMentorDashboardScreen = ({ match, history }) => {
   return (
     <>
       <MentorHomeHeader></MentorHomeHeader>
@@ -18,12 +19,17 @@ const CreateCourseMentorDashboardScreen = ({ match }) => {
               <h4>Service Info. and details</h4>
               <Route
                 path="/mentor/dashboard/course/create"
-                component={CreateCourseMentor}
+                component={() => (
+                  <CreateCourseMentor
+                    match={match}
+                    history={history}
+                  ></CreateCourseMentor>
+                )}
               ></Route>
               <Route
                 path="/mentor/dashboard/course/edit/:id"
                 component={() => (
-                  <CreateCourseMentor match={match}></CreateCourseMentor>
+                  <EditCourseMentor match={match}></EditCourseMentor>
                 )}
               ></Route>
             </div>
@@ -35,4 +41,4 @@ const CreateCourseMentorDashboardScreen = ({ match }) => {
   );
 };
 
-export default CreateCourseMentorDashboardScreen;
+export default EditCourseMentorDashboardScreen;

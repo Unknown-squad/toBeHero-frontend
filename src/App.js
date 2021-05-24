@@ -17,9 +17,10 @@ import ExploreServiceScreen from "./screens/ExploreServiceScreen";
 import MentorHomeScreen from "./screens/MentorHomeScreen";
 import CoursesMentorDashboardScreen from "./screens/CoursesMentorDashboardScreen";
 import BalanceMentorDashboardScreen from "./screens/BalanceMentorDashboardScreen";
-import CreateCourseMentorDashboardScreen from "./screens/CoursesMentorDashboardScreen/CreateCourseMentorDashboardScreen";
+import CreateCourseMentorDashboardScreen from "./screens/CoursesMentorDashboardScreen/EditCourseMentorDashboardScreen";
 import MentorCourseControlScreen from "./screens/MentorCourseControlScreen";
 import MentorCourseControlLiveScreen from "./screens/MentorCourseControlLiveScreen";
+import EditCourseMentorDashboardScreen from "./screens/CoursesMentorDashboardScreen/EditCourseMentorDashboardScreen";
 
 function App() {
   return (
@@ -73,7 +74,7 @@ function App() {
       ></Route>
       <Route
         path="/mentor/dashboard/course/edit/:id"
-        component={CreateCourseMentorDashboardScreen}
+        component={EditCourseMentorDashboardScreen}
         exact
       ></Route>
       <Route path="/mentor/explore" component={ExploreScreen} exact></Route>
