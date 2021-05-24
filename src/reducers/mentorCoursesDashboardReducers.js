@@ -23,7 +23,7 @@ export const mentorCoursesDashboardReducer = (state = initialState, action) => {
     case MENTOR_COURSES_DASHBOARD_REQUEST:
       return { loading: true };
     case MENTOR_COURSES_DASHBOARD_SUCCESS:
-      return { loading: false, mentor: action.payload.data };
+      return { loading: false, data: action.payload.data };
     case MENTOR_COURSES_DASHBOARD_FAIL:
       return { loading: false, error: action.payload };
     default:

@@ -1,6 +1,7 @@
 import React from "react";
 
-const CreateCourseMentor = ({}) => {
+const CreateCourseMentor = ({ match }) => {
+  const courseId = match.params.id;
   return (
     <form action="" className="service-info-details">
       <div className="row">

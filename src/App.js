@@ -72,7 +72,7 @@ function App() {
         exact
       ></Route>
       <Route
-        path="/mentor/dashboard/course/edit"
+        path="/mentor/dashboard/course/edit/:id"
         component={CreateCourseMentorDashboardScreen}
         exact
       ></Route>

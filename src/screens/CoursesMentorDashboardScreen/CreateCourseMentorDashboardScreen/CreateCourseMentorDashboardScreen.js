@@ -6,7 +6,7 @@ import Footer from "../../../components/Footer";
 import MentorDashboardNavLinks from "../../../components/MentorDashboardNavLinks";
 import MentorHomeHeader from "../../../components/MentorHomeHeader";
 import "./CreateCourseMentorDashboardScreen.scss";
-const CreateCourseMentorDashboardScreen = () => {
+const CreateCourseMentorDashboardScreen = ({ match }) => {
   return (
     <>
       <MentorHomeHeader></MentorHomeHeader>
@@ -21,8 +21,10 @@ const CreateCourseMentorDashboardScreen = () => {
                 component={CreateCourseMentor}
               ></Route>
               <Route
-                path="/mentor/dashboard/course/edit"
-                component={CreateCourseMentor}
+                path="/mentor/dashboard/course/edit/:id"
+                component={() => (
+                  <CreateCourseMentor match={match}></CreateCourseMentor>
+                )}
               ></Route>
             </div>
           </div>
