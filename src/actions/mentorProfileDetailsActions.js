@@ -8,8 +8,15 @@ import {
 export const mentorProfileDetails = (mentorId) => async (dispatch) => {
   try {
     dispatch({ type: MENTOR_PROFILE_DETAILS_REQUEST });
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
     const { data } = await axios.get(
-      `http://localhost:5000/api/v1/mentor/profile/${mentorId}`
+      `http://localhost:5000/api/v1/mentor/profile/${mentorId}`,
+      { withCredentials: true },
+      config
     );
     dispatch({ type: MENTOR_PROFILE_DETAILS_SUCCESS, payload: data });
   } catch (error) {

@@ -53,8 +53,8 @@ const ExploreServiceScreen = ({ match }) => {
       <section className="hr-section-18">
         <div className="container">
           <div className="reviews">
+            <h4>Reviews</h4>
             <div className="row">
-              <h4>Reviews</h4>
               {loadingReviews ? (
                 <Loader></Loader>
               ) : errorReviews ? (

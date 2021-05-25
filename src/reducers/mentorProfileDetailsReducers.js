@@ -11,21 +11,16 @@ const initialState = {
       occupation: [],
       certificates: [],
       languages: [],
-      balance: 0,
       topReviewsId: [],
-      isAvailable: false,
       _id: "",
       fullName: "",
+      gender: "",
       email: "",
-      password: "",
       phone: "",
       countryCode: "",
-      address: "",
-      gender: "",
-      birthDate: "",
       picture: "",
+      birthDate: "",
       description: "",
-      creatingDate: "",
     },
   },
 };
@@ -35,7 +30,7 @@ export const mentorProfileDetailsReducer = (state = initialState, action) => {
     case MENTOR_PROFILE_DETAILS_REQUEST:
       return { loading: true, ...state };
     case MENTOR_PROFILE_DETAILS_SUCCESS:
-      return { loading: false, data: action.payload.data };
+      return { loading: false, data: action.payload.data.items[0] };
     case MENTOR_PROFILE_DETAILS_FAIL:
       return { loading: false, error: action.payload };
     default:

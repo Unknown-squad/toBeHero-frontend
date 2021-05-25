@@ -1,17 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import courseStar from "../../images/course-star.svg";
-const Reviews = ({ review }) => {
+const Reviews = ({ review, path }) => {
   return (
     <>
       <div className="col-md-6 col-12">
         <div className="review">
           <div className="review-name">
-            <span>{review.guardianId.fullName}</span>
+            <span>
+              {path === "mentorProfile" && review.guardianId.fullName
+                ? review.guardianId.fullName
+                : review.guardianId.fullName}
+            </span>
             <img src={courseStar} alt="" />
-            <p>{review.rate}</p>
+            <p>
+              {path === "mentorProfile" && review.rate
+                ? review.rate
+                : review.rate}
+            </p>
           </div>
-          <p>{review.description}</p>
+          <p>
+            {path === "mentorProfile" && review.description
+              ? review.description
+              : review.description}
+          </p>
         </div>
       </div>
     </>
