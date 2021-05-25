@@ -12,7 +12,7 @@ export const guardianRegisterActions =
       dispatch({ type: GUARDIAN_REGISTER_REQUEST });
       const config = {
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "multipart/form-data",
         },
       };
       const { data } = await axios.post(
@@ -29,7 +29,7 @@ export const guardianRegisterActions =
           },
         },
         { withCredentials: true },
-        { ...config }
+        config
       );
       dispatch({ type: GUARDIAN_REGISTER_SUCCESS, payload: data });
 

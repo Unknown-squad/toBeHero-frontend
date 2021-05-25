@@ -38,6 +38,7 @@ const GuardianRegisterForm = ({ location, history }) => {
       dispatch(
         guardianRegisterActions(fullName, email, password, countryCode, phone)
       );
+      history.replace("/guardian/email-confirm");
     }
   };
 

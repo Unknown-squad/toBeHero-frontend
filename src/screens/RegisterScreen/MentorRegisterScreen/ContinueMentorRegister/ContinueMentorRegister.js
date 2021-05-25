@@ -72,6 +72,7 @@ const ContinueMentorRegister = ({ history, location }) => {
     } else {
       history.push("/register/mentor");
     }
+    history.replace("/mentor/email-confirm");
   };
   const [picture, setPicture] = useState(null);
 
@@ -85,9 +86,14 @@ const ContinueMentorRegister = ({ history, location }) => {
         <section className="hr-section-10">
           <div className="container">
             <h3>
-              Welcome {JSON.parse(localStorage.getItem("mentorDraft")).gender}{" "}
-              {JSON.parse(localStorage.getItem("mentorDraft")).fullName} Enter
-              the following data to Continue
+              Welcome{" "}
+              {localStorage.getItem("mentorDraft")
+                ? JSON.parse(localStorage.getItem("mentorDraft")).gender
+                : ""}{" "}
+              {localStorage.getItem("mentorDraft")
+                ? JSON.parse(localStorage.getItem("mentorDraft")).fullName
+                : ""}{" "}
+              Enter the following data to Continue
             </h3>
             <div className="row">
               <div className="col-12 ">

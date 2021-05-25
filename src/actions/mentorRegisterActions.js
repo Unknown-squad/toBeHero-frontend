@@ -56,7 +56,7 @@ export const mentorRegisterActions =
       //dispatch mentor login
       localStorage.setItem("mentorInfo", JSON.stringify(data));
 
-      localStorage.removeItem("mentorDraft");
+      // localStorage.removeItem("mentorDraft");
     } catch (error) {
       let err = "";
       if (error.response) {
