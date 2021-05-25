@@ -58,7 +58,7 @@ const BasicInfoMentorForm = ({ history }) => {
         setCountryCode(mentor.countryCode);
         setPhone(mentor.phone);
         setLanguages(mentor.languages[0]);
-        setBirthDate(mentor.birthDate);
+        setBirthDate(new Date(mentor.birthDate).toLocaleDateString());
         setDescription(mentor.description);
         setOccupation(mentor.occupation[0]);
         setCertificates(mentor.certificates[0]);

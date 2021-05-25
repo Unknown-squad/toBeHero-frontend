@@ -29,6 +29,7 @@ import EditCourseMentorDashboardScreen from "./screens/CoursesMentorDashboardScr
 import MentorEmailConfirmScreen from "./screens/MentorEmailConfirmScreen";
 import NotFoundScreen from "./screens/NotFoundScreen";
 import GuardianEmailConfirmScreen from "./screens/GuardianEmailConfirmScreen";
+import MentorAnalyticsDashboardScreen from "./screens/MentorAnalyticsDashboardScreen";
 
 function App() {
   return (
@@ -84,6 +85,11 @@ function App() {
         <Route
           path="/mentor/dashboard/course/edit/:id"
           component={EditCourseMentorDashboardScreen}
+          exact
+        ></Route>
+        <Route
+          path="/mentor/dashboard/analytics"
+          component={MentorAnalyticsDashboardScreen}
           exact
         ></Route>
         <Route path="/mentor/explore" component={ExploreScreen} exact></Route>
