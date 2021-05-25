@@ -153,3 +153,52 @@
   }
 }
 /* end page  Explore-service*/
+
+/*end hr-section-18*/
+.hr-section-18 {
+  padding: 1rem 0;
+  .reviews {
+    padding: 1rem;
+    border-top: 2px solid $purple-300;
+  }
+  h4 {
+    color: $text-color;
+    padding: 0 1rem 1rem;
+    font-size: 25px;
+    font-weight: 600;
+  }
+  .review {
+    border: 2px solid $purple-300;
+    padding: 0.25rem 1rem 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    .review-name {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+      padding-top: 5px;
+      margin-bottom: 0.5rem;
+      span {
+        font-size: 18px;
+        color: $text-color;
+      }
+      img {
+        width: auto;
+      }
+    }
+    p {
+      font-size: 14px;
+      color: $purple-gray;
+    }
+  }
+  .view-more {
+    margin-top: -0.75rem;
+    padding: 0 1rem;
+    margin-bottom: 0.25rem;
+    a {
+      color: $purple-300;
+      text-decoration: underline;
+    }
+  }
+}
+/*end hr-section-18*/
