@@ -1,12 +1,12 @@
 import React from "react";
 import Footer from "../../components/Footer";
-import HeroHeader from "../../components/HeroHeader";
 import ConfirmEmailForm from "../../components/ConfirmEmailForm";
+import ConfirmEmailHeader from "../../components/ConfirmEmailHeader";
 
 const MentorEmailConfirmScreen = ({ location, history }) => {
   return (
     <>
-      <HeroHeader></HeroHeader>
+      <ConfirmEmailHeader user="mentor"></ConfirmEmailHeader>
       <h1>
         Welcome{" "}
         {localStorage.getItem("mentorDraft")

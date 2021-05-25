@@ -1,13 +1,13 @@
 import React from "react";
 
 import Footer from "../../components/Footer";
-import HeroHeader from "../../components/HeroHeader";
 import ConfirmEmailForm from "../../components/ConfirmEmailForm";
+import ConfirmEmailHeader from "../../components/ConfirmEmailHeader";
 
 const GuardianEmailConfirmScreen = ({ location, history }) => {
   return (
     <>
-      <HeroHeader></HeroHeader>
+      <ConfirmEmailHeader user="guardian"></ConfirmEmailHeader>
       <h1>
         Welcome{" "}
         {localStorage.getItem("guardainDraft")
