@@ -14,7 +14,7 @@ const MentorEmailConfirmScreen = ({ location, history }) => {
           : ""}
       </h1>
       <p>
-        Your verfication Code is sent to your email:
+        Your verfication Code is sent to your email:{" "}
         {localStorage.getItem("mentorDraft")
           ? JSON.parse(localStorage.getItem("mentorDraft")).email
           : ""}

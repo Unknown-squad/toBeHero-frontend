@@ -37,7 +37,7 @@ const ConfirmEmailForm = ({ history, user }) => {
           setTimeout(() => {
             setAlert(data.message);
           }, 0);
-          history.replace("/mentor/home");
+          history.push("/mentor/home");
           localStorage.removeItem("mentorDraft");
         } else if (Response.status === 401) {
           return;
@@ -84,6 +84,11 @@ const ConfirmEmailForm = ({ history, user }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     confirmEmail(code);
+    if (user === "mentor") {
+      history.replace(`/home`);
+    } else if (user === "guardian") {
+      history.replace(`/home`);
+    }
   };
   return (
     <>

@@ -28,23 +28,19 @@ const LoginForm = ({ location, history, user }) => {
     : `/${user}/home`;
 
   useEffect(() => {
-    if (
-      (user === "guardian" && guardianInfo) ||
-      (user === "mentor" && mentorInfo)
-    ) {
-      history.push(redirect);
-    }
     dispatch({ type: MENTOR_LOGIN_RESET_ERROR });
     dispatch({ type: GUARDIAN_LOGIN_RESET_ERROR });
     dispatch({ type: HERO_LOGIN_RESET_ERROR });
-  }, [history, guardianInfo, redirect, mentorInfo, user, dispatch]);
+  }, [dispatch]);
 
   const submitHandler = (e) => {
     e.preventDefault();
     if (user === "guardian") {
       dispatch(guardianLoginActions(email, password));
+      history.push(redirect);
     } else if (user === "mentor") {
       dispatch(mentorLoginActions(email, password));
+      history.push(redirect);
     }
   };
   return (
