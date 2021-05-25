@@ -1,0 +1,14 @@
+@import "../../index.scss";
+
+/* start page sign in-hero*/
+.header-signIn-hero {
+  padding: 0.5rem 0 0.5rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .nav-signIn-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

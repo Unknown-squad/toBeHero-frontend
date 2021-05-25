@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import CourseCard from "../../components/CourseCard";
 import MentorProfileExploreHeader from "../../components/MentorProfileExploreHeader";
 
-import MentorReviews from "../../components/Reviews";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../../components/Loader";
 import ErrorMessage from "../../components/ErrorMessage";
@@ -16,21 +15,9 @@ import "./MentorProfileExploreScreen.scss";
 import Footer from "../../components/Footer";
 import { Link } from "react-router-dom";
 import Reviews from "../../components/Reviews";
+import { mentorProfileCoursesAction } from "../../actions/mentorProfileCoursesActions";
+
 const MentorProfileExploreScreen = ({ match }) => {
-  // const MentorProfileInfoCard = ({ details }) => {
-  //   function calculate_age(age) {
-  //     var diff_ms = Date.now() - age.getTime();
-  //     var age_dt = new Date(diff_ms);
-
-  //     return Math.abs(age_dt.getUTCFullYear() - 1970);
-  //   }
-  //   const getAge = (birthDate) =>
-  //     Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e10);
-  //   new Date(details.birthDate).toLocaleDateString().replace("/", "-");
-  //   // return ["1", "29", "2021"]
-
-  //   console.log(calculate_age(new Date()));
-
   const mentorDetails = useSelector((state) => state.mentorDetails);
   const { loading, error, data } = mentorDetails;
   const mentorProfileCourses = useSelector(
@@ -44,9 +31,19 @@ const MentorProfileExploreScreen = ({ match }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(mentorProfileDetails(match.params.id));
-    // console.log(data, dataMentorProfileCourses.items[0]);
+    Promise.all([
+      dispatch(mentorProfileDetails(match.params.id)),
+      dispatch(mentorProfileCoursesAction(match.params.id)),
+    ]);
   }, [dispatch, match]);
+  console.log(data);
+
+  const calculateAge = (birthday) => {
+    // birthday is a date
+    let ageDifMs = Date.now() - birthday;
+    let ageDate = new Date(ageDifMs); // miliseconds from epoch
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  };
 
   return (
     <>
@@ -62,8 +59,8 @@ const MentorProfileExploreScreen = ({ match }) => {
               <>
                 <div className="col-lg-2 col-md-6 col-12 p-profile">
                   <div className="upload-img-profile">
-                    <img src={data.items.picture} alt="" />
-                    <p>{data.items.fullName}</p>
+                    <img src={data.picture} alt="" />
+                    <p>{data.fullName}</p>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-6 col-12 p-profile">
@@ -71,7 +68,7 @@ const MentorProfileExploreScreen = ({ match }) => {
                     <ul>
                       <li>
                         <img src={coloredAt} alt="" />
-                        <h6>{data.items.email}</h6>
+                        <h6>{data.email}</h6>
                       </li>
                       <li>
                         <img src={locationIcon} alt="" />
@@ -80,22 +77,24 @@ const MentorProfileExploreScreen = ({ match }) => {
                       <li>
                         <img src={infoIcon} alt="" />
                         <h6>
-                          {data.items.birthDate} years old,{" "}
-                          {data.items.gender === "mr" ? "Male" : "Female"}
+                          {calculateAge(new Date(`${data.birthDate}`))} years
+                          old, {data.gender === "mr" ? "Male" : "Female"}
                         </h6>
                       </li>
                       <li>
                         <img src={coloredPhoneIcon} alt="" />
                         <Link to="">
-                          {data.items.countryCode}
-                          {data.items.phone}
+                          {data.countryCode}
+                          {data.phone}
                         </Link>
                       </li>
                       <li>
                         <img src={langIcon} alt="" />
-                        {data.items.languages.map((lang, index) => (
-                          <h6 key={index}>{lang},</h6>
-                        ))}
+                        {data.languages && data.languages.length > 0
+                          ? data.languages.map((lang, index) => (
+                              <h6 key={index}>{lang},</h6>
+                            ))
+                          : null}
                       </li>
                     </ul>
                   </div>
@@ -103,17 +102,38 @@ const MentorProfileExploreScreen = ({ match }) => {
                 <div className="col-lg-5 col-md-6 col-12 p-profile">
                   <div className="description-profile">
                     <h4>Description</h4>
-                    <p>{data.items.description}</p>
+                    <p>{data.description}</p>
                   </div>
                 </div>
                 <div className="col-lg-2 col-md-6 col-12 p-profile">
                   <div className="occupations-profile">
                     <h4>Occupations</h4>
-                    {data.items.occupation.map((occupation, index) => (
-                      <p key={index}>{occupation}</p>
-                    ))}
+                    {data.occupation && data.occupation.length > 0
+                      ? data.occupation.map((occupation, index) => (
+                          <p key={index}>{occupation}</p>
+                        ))
+                      : null}
                   </div>
                 </div>
+              </>
+            )}
+          </div>
+        </div>
+      </section>
+      <section className="hr-section-16">
+        <div className="container">
+          <h4>My services</h4>
+          <div className="row">
+            {loadingMentorProfileCourses ? (
+              <Loader></Loader>
+            ) : errorMentorProfileCourses ? (
+              <ErrorMessage style={{ width: "100vw" }}>{error}</ErrorMessage>
+            ) : (
+              <>
+                {dataMentorProfileCourses.items &&
+                  dataMentorProfileCourses.items.map((course) => (
+                    <CourseCard course={course} key={course._id}></CourseCard>
+                  ))}
               </>
             )}
           </div>
@@ -123,22 +143,34 @@ const MentorProfileExploreScreen = ({ match }) => {
         <div className="container">
           <div className="Certificates">
             <h4>Certificates</h4>
-            {data.items.certificates.map((certificate, index) => (
-              <p key={index}>- {certificate}</p>
-            ))}
+            {data.certificates && data.certificates.length > 0
+              ? data.certificates.map((certificate, index) => (
+                  <p key={index}>- {certificate}</p>
+                ))
+              : "No certificates"}
           </div>
         </div>
       </section>
-      {loadingMentorProfileCourses ? (
-        <Loader></Loader>
-      ) : errorMentorProfileCourses ? (
-        <ErrorMessage style={{ width: "100vw" }}>{error}</ErrorMessage>
-      ) : (
-        <>
-          {/* {<CourseCard course={dataMentorProfileCourses.items[0]}></CourseCard>} */}
-        </>
-      )}
-      ){/* <Reviews details={data}></Reviews> */}
+      <section className="hr-section-18">
+        <div className="container">
+          <h4>Reviews</h4>
+          <div className="row">
+            {data.topReviewsId && data.topReviewsId.length > 0
+              ? data.topReviewsId.map((review) => (
+                  <Reviews
+                    review={review}
+                    path="mentorProfile"
+                    key={review._id}
+                  ></Reviews>
+                ))
+              : "No Reviews"}
+          </div>
+          <div className="view-more">
+            <Link to="">View more reviews</Link>
+          </div>
+        </div>
+      </section>
+
       <Footer></Footer>
     </>
   );

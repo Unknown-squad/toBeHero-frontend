@@ -50,7 +50,9 @@ const Filter = ({ history }) => {
                   onChange={(e) => setFilter(e.target.value)}
                 >
                   {/* {console.log(filter)} */}
-                  <option defaultValue>All</option>
+                  <option defaultValue disabled>
+                    All
+                  </option>
                   <option value="Art">Art</option>
                   <option value="Music">Music</option>
                   <option value="Programming">Programming</option>

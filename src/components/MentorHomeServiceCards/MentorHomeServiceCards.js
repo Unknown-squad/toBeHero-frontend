@@ -19,7 +19,7 @@ const MentorHomeServiceCards = ({ service }) => {
           //   {service.appointments.map((date) =>
           //     new Date(date.date).toLocaleString()
           //   )}
-          //   {/* {new Date(date.date).toLocaleDateString()} */}
+          // {/* {new Date(date.date).toLocaleDateString()} */}
           //   {/* {service.appointments.map((date) =>
           //     new Date(date.date).toUTCString()
           //   )} */}

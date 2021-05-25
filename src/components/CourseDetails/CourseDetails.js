@@ -38,7 +38,7 @@ const CourseDetails = ({ details }) => {
           </div>
         </div>
         <div>
-          <Link to={`/explore/profile`}>
+          <Link to={`/explore/profile/${details.mentorId._id}`}>
             <button className="btn btn-visit-profile">
               visit mentor profile
             </button>

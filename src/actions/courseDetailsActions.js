@@ -8,9 +8,15 @@ import {
 export const courseDetailsAction = (courseId) => async (dispatch) => {
   try {
     dispatch({ type: COURSE_DETAILS_REQUEST });
-
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
     const { data } = await axios.get(
-      `http://localhost:5000/api/v1/courses/${courseId}`
+      `http://localhost:5000/api/v1/courses/${courseId}`,
+      { withCredentials: true },
+      config
     );
 
     dispatch({
