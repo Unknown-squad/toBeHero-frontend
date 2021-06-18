@@ -1,0 +1,18 @@
+import {
+  MENTOR_STATUS_FAIL,
+  MENTOR_STATUS_REQUEST,
+  MENTOR_STATUS_SUCCESS,
+} from "../constants/mentorStatusAvailabilityConstants";
+
+export const mentorStatusAvailabilityReducer = (state = {}, action) => {
+  switch (action.type) {
+    case MENTOR_UPDATE_STATUS_REQUEST:
+      return { loading: true };
+    case MENTOR_UPDATE_STATUS_SUCCESS:
+      return { loading: false, data: action.payload.data.items[0].isAvailable };
+    case MENTOR_UPDATE_STATUS_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
