@@ -1,8 +1,8 @@
 import {
-  MENTOR_STATUS_FAIL,
-  MENTOR_STATUS_REQUEST,
-  MENTOR_STATUS_SUCCESS,
-} from "../constants/mentorStatusAvailabilityConstants";
+  MENTOR_UPDATE_STATUS_FAIL,
+  MENTOR_UPDATE_STATUS_REQUEST,
+  MENTOR_UPDATE_STATUS_SUCCESS,
+} from "../constants/mentorStatusUpdateAvailabilityConstants";
 
 export const mentorStatusAvailabilityReducer = (state = {}, action) => {
   switch (action.type) {
