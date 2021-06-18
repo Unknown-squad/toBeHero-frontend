@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
 import MentorHomeAppointmentsCards from "../../components/MentorHomeAppointmentsCards";
@@ -10,8 +10,11 @@ import { listServices } from "../../actions/serviceListActions";
 import Loader from "../../components/Loader";
 import ErrorMessage from "../../components/ErrorMessage";
 import { mentorStatusAvailabilityActions } from "../../actions/mentorStatusAvailabilityActions";
+import { mentorStatusUpdateAvailabilityActions } from "../../actions/mentorStatusUpdateAvailabilityActions";
 
 const MentorHomeScreen = () => {
+  // const [status, setStatus] = useState(false);
+
   const serviceList = useSelector((state) => state.serviceList);
   const { loading, error, data } = serviceList;
   const mentorStatus = useSelector((state) => state.mentorStatus);
@@ -20,6 +23,9 @@ const MentorHomeScreen = () => {
     error: errorStatusAvailable,
     data: mentorStatusAvailable,
   } = mentorStatus;
+
+  const mentorStatusUpdate = useSelector((state) => state.mentorStatusUpdate);
+  const { success } = mentorStatusUpdate;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,8 +33,11 @@ const MentorHomeScreen = () => {
       dispatch(mentorStatusAvailabilityActions()),
       dispatch(listServices()),
     ]);
-  }, [dispatch]);
-
+  }, [dispatch, success]);
+  const toggleCheckbox = () => {
+    dispatch(mentorStatusUpdateAvailabilityActions());
+    // setStatus(!status);
+  };
   return (
     <>
       <MentorHomeHeader></MentorHomeHeader>
@@ -48,7 +57,8 @@ const MentorHomeScreen = () => {
               <input
                 className="switch"
                 type="checkbox"
-                defaultChecked={mentorStatusAvailable}
+                checked={mentorStatusAvailable || ""}
+                onChange={toggleCheckbox}
               />
             </div>
           </div>
