@@ -1,6 +1,6 @@
 import { GUARDIAN_LOGOUT } from "../constants/guardianLoginConstants";
 
-export const mentorLogout = () => (dispatch) => {
+export const guardianLogout = () => (dispatch) => {
   localStorage.removeItem("guardianInfo");
   //   localStorage.removeItem("cartItems");
   //   localStorage.removeItem("shippingAddress");
