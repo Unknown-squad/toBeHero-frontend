@@ -31,16 +31,20 @@ const LoginForm = ({ location, history, user }) => {
     dispatch({ type: MENTOR_LOGIN_RESET_ERROR });
     dispatch({ type: GUARDIAN_LOGIN_RESET_ERROR });
     dispatch({ type: HERO_LOGIN_RESET_ERROR });
-  }, [dispatch]);
+    if (guardianInfo) {
+      history.push(redirect);
+    }
+    if (mentorInfo) {
+      history.push(redirect);
+    }
+  }, [dispatch, guardianInfo, mentorInfo, history, redirect]);
 
   const submitHandler = (e) => {
     e.preventDefault();
     if (user === "guardian") {
       dispatch(guardianLoginActions(email, password));
-      history.push(redirect);
     } else if (user === "mentor") {
       dispatch(mentorLoginActions(email, password));
-      history.push(redirect);
     }
   };
   return (

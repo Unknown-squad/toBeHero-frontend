@@ -86,9 +86,7 @@ const MentorHomeHeader = () => {
                   </NavLink>
                 </li>
                 <li className="active">
-                  <NavLink to="/" exact>
-                    <LogoutButton />
-                  </NavLink>
+                  <LogoutButton />
                 </li>
               </ul>
             )}
