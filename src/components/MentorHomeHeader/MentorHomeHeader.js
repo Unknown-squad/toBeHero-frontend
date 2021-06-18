@@ -53,7 +53,7 @@ const MentorHomeHeader = () => {
                   </NavLink>
                 </li>
                 <li className="active">
-                  <LogoutButton />
+                  <LogoutButton user="mentor" />
                 </li>
               </ul>
             ) : (
@@ -86,7 +86,7 @@ const MentorHomeHeader = () => {
                   </NavLink>
                 </li>
                 <li className="active">
-                  <LogoutButton />
+                  <LogoutButton user="mentor" />
                 </li>
               </ul>
             )}

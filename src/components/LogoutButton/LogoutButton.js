@@ -1,33 +1,35 @@
 import React from "react";
 import LogoutIcon from "../../images/logout.svg";
-import { Redirect } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { MENTOR_LOGOUT } from "../../constants/mentorLoginConstants";
+import { mentorLogout } from "../../actions/mentorLogout";
+import { guardianLogout } from "../../actions/guardianLogout";
+import { heroLogout } from "../../actions/heroLogout";
 
-const LogoutButton = ({ cookies }) => {
+const LogoutButton = ({ user }) => {
   const [loggedOut, setLoggedOut] = useState(false);
   const dispatch = useDispatch();
   const logout = () => {
-    localStorage.removeItem("mentorInfo");
-
     setLoggedOut(true);
     axios.delete("http://localhost:5000/api/v1/user/logout", {
       withCredentials: true,
     });
   };
   useEffect(() => {
-    if (loggedOut) {
-      dispatch({ type: MENTOR_LOGOUT });
-      document.location.href = "/";
+    if (loggedOut && user === "mentor") {
+      dispatch(mentorLogout());
 
+      // document.location.href = "/";
       // window.location.href = "/";
-
       // history.push("/");
       // return <Redirect to="/" push={true} />;
+    } else if (loggedOut && user === "guardian") {
+      dispatch(guardianLogout());
+    } else if (loggedOut && user === "hero") {
+      dispatch(heroLogout());
     }
-  }, [loggedOut, dispatch]);
+  }, [loggedOut, dispatch, user]);
 
   return (
     <div
