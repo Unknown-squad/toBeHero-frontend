@@ -1,6 +1,7 @@
 import {
   MENTOR_CANCEL_APPOINTMENT_FAIL,
   MENTOR_CANCEL_APPOINTMENT_REQUEST,
+  MENTOR_CANCEL_APPOINTMENT_RESET,
   MENTOR_CANCEL_APPOINTMENT_SUCCESS,
 } from "../constants/mentorCancelAppointmentConstants";
 
@@ -12,7 +13,8 @@ export const mentorCancelAppointmentReducer = (state = {}, action) => {
       return { loading: false, success: true, data: action.payload };
     case MENTOR_CANCEL_APPOINTMENT_FAIL:
       return { loading: false, error: action.payload };
-
+    case MENTOR_CANCEL_APPOINTMENT_RESET:
+      return {};
     default:
       return state;
   }
