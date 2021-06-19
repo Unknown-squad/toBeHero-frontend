@@ -161,10 +161,12 @@
   }
   .course-card {
     border: solid 1px #343090;
-    height: 340px;
+    height: 350px;
+    max-width: 300px;
     border-radius: 13px;
     padding: 1rem 1rem;
     margin-bottom: 2rem;
+    margin: 0 auto;
   }
   .card-content {
     display: flex;
@@ -175,7 +177,10 @@
   /* card */
   /* card image */
   .course-img > img {
-    width: 100%;
+    max-height: 110px;
+    max-width: 260px;
+    border: 1px solid #343090;
+    border-radius: 12px;
   }
   /* card image */
   /* card mentor info and price */
@@ -198,6 +203,7 @@
     width: 35px;
     height: 35px;
     border-radius: 50%;
+    border: 1px solid #343090;
   }
   .mentor-info {
     line-height: 16px;

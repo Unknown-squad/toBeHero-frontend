@@ -6,7 +6,7 @@ const SearchBox = () => {
       <div className="container">
         <div className="topic">
           <h4>Topics</h4>
-          <div className="search">
+          {/* <div className="search">
             <label htmlFor="search-field">Find a topic</label>
             <input
               type="search"
@@ -14,7 +14,7 @@ const SearchBox = () => {
               className="search-field"
               placeholder="Search ...."
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
