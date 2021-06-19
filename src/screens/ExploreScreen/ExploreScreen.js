@@ -40,7 +40,7 @@ const ExploreScreen = ({ location, history }) => {
         <ExploreHeader></ExploreHeader>
       )}
       <SearchBox></SearchBox>
-      <ExploreSlider></ExploreSlider>
+      <ExploreSlider history={history}></ExploreSlider>
       <Filter history={history}></Filter>
       <section className="hr-section-14">
         <div className="container">

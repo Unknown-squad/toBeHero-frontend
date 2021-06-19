@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import sliderItemProgramming from "../../images/slider-item-programming.svg";
 import sliderItemMusic from "../../images/slider-item-music.svg";
 import sliderItemDrawing from "../../images/slider-item-drawing.svg";
@@ -7,7 +8,20 @@ import sliderItemMath from "../../images/slider-item-math.svg";
 import Carousel, { slidesToShowPlugin } from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 
-const ExploreSlider = () => {
+const ExploreSlider = ({ history }) => {
+  const dispatch = useDispatch();
+  const [sort, setSort] = useState("");
+  const [filter, setFilter] = useState("");
+
+  useEffect(() => {
+    history.push({
+      pathname: "/explore",
+      search: `?page=1${sort ? `&sortby=${sort}` : ""}${
+        filter ? `&genre=${filter}` : ""
+      }`,
+    });
+  }, [dispatch, filter, sort, history]);
+
   const topics = [
     { title: "Programming", img: sliderItemProgramming },
     { title: "Music", img: sliderItemMusic },
@@ -23,7 +37,6 @@ const ExploreSlider = () => {
           <Carousel
             plugins={[
               "arrows",
-              "infinite",
 
               {
                 resolve: slidesToShowPlugin,
@@ -61,7 +74,11 @@ const ExploreSlider = () => {
             }}
           >
             {topics.map((topic, index) => (
-              <div key={index} className="slider-item">
+              <div
+                key={index}
+                className="slider-item"
+                onClick={() => setFilter(topic.title)}
+              >
                 <div className="card-img">
                   <img src={topic.img} alt={`${topic.title}`} />
                   <div className="slider-purple-border"></div>
