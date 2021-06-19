@@ -1,6 +1,8 @@
 import React from "react";
 
-const MentorAppointmentForm = () => {
+const MentorAppointmentForm = ({ match }) => {
+  const subscriptionId = match.params.id;
+  // console.log(subscriptionId);
   return (
     <form action="">
       <div className="new-appointment-date">

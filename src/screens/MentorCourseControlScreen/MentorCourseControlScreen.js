@@ -145,7 +145,9 @@ const MentorCourseControlScreen = ({ match }) => {
                   <div className="new-appointment-container ">
                     <h4>New appointment</h4>
                     <div className="new-appointment-form">
-                      <MentorAppointmentForm></MentorAppointmentForm>
+                      <MentorAppointmentForm
+                        match={match}
+                      ></MentorAppointmentForm>
                     </div>
                   </div>
                 </div>
