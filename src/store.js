@@ -22,6 +22,7 @@ import { mentorAddNewCourseDashboardReducer } from "./reducers/mentorAddNewCours
 import { getReviewsForExploreServiceReducer } from "./reducers/getReviewsForExploreServiceReducers";
 import { mentorStatusUpdateAvailabilityReducer } from "./reducers/mentorStatusUpdateAvailabilityReducers";
 import { mentorGetControlCourseDetailsReducer } from "./reducers/mentorGetControlCourseDetailsReducers";
+import { mentorCancelAppointmentReducer } from "./reducers/mentorCancelAppointmentReducers";
 
 const rootReducer = combineReducers({
   courseList: courseListReducer,
@@ -45,6 +46,7 @@ const rootReducer = combineReducers({
   getReviews: getReviewsForExploreServiceReducer,
   mentorStatusUpdate: mentorStatusUpdateAvailabilityReducer,
   mentorGetControlCourse: mentorGetControlCourseDetailsReducer,
+  mentorCancelAppointment: mentorCancelAppointmentReducer,
 });
 
 const guardianInfoFromStorage = localStorage.getItem("guardianInfo")
