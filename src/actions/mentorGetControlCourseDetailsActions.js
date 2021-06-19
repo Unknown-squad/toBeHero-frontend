@@ -5,7 +5,7 @@ import {
   MENTOR_GET_CONTROL_COURSE_DETAILS_SUCCESS,
 } from "../constants/mentorGetControlCourseDetailsConstants";
 
-export const mentorGetControlCourseDetails =
+export const mentorGetControlCourseDetailsActions =
   (subscriptionId) => async (dispatch) => {
     try {
       dispatch({ type: MENTOR_GET_CONTROL_COURSE_DETAILS_REQUEST });

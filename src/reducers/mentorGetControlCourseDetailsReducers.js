@@ -1,13 +1,6 @@
 import {
-  MENTOR_EDIT_COURSE_DETAILS_FAIL,
-  MENTOR_EDIT_COURSE_DETAILS_REQUEST,
-  MENTOR_EDIT_COURSE_DETAILS_RESET,
-  MENTOR_EDIT_COURSE_DETAILS_SUCCESS,
-} from "../constants/mentorEditCourseDetailsConstants";
-import {
   MENTOR_GET_CONTROL_COURSE_DETAILS_FAIL,
   MENTOR_GET_CONTROL_COURSE_DETAILS_REQUEST,
-  MENTOR_GET_CONTROL_COURSE_DETAILS_RESET,
   MENTOR_GET_CONTROL_COURSE_DETAILS_SUCCESS,
 } from "../constants/mentorGetControlCourseDetailsConstants";
 
@@ -44,7 +37,7 @@ const initialState = {
     ],
   },
 };
-export const mentorEditCourseDashboardReducer = (
+export const mentorGetControlCourseDetailsReducer = (
   state = initialState,
   action
 ) => {
@@ -52,7 +45,7 @@ export const mentorEditCourseDashboardReducer = (
     case MENTOR_GET_CONTROL_COURSE_DETAILS_REQUEST:
       return { ...state, loading: true };
     case MENTOR_GET_CONTROL_COURSE_DETAILS_SUCCESS:
-      return { loading: false, data: action.payload.data };
+      return { loading: false, data: action.payload.data.items[0] };
     case MENTOR_GET_CONTROL_COURSE_DETAILS_FAIL:
       return { loading: false, error: action.payload };
     default:
