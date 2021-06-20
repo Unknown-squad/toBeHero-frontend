@@ -51,6 +51,11 @@ function App() {
           exact
         ></Route>
         <Route
+          path="/guardian/child/:childId"
+          component={GuardianHomeScreen}
+          exact
+        ></Route>
+        <Route
           path="/mentor/live"
           component={MentorCourseControlLiveScreen}
           exact
