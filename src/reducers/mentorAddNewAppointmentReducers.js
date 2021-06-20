@@ -1,6 +1,7 @@
 import {
   MENTOR_ADD_NEW_APPOINTMENT_FAIL,
   MENTOR_ADD_NEW_APPOINTMENT_REQUEST,
+  MENTOR_ADD_NEW_APPOINTMENT_RESET,
   MENTOR_ADD_NEW_APPOINTMENT_SUCCESS,
 } from "../constants/mentorAddNewAppointmentConstants";
 
@@ -16,6 +17,8 @@ export const mentorAddNewAppointmentReducer = (state = {}, action) => {
       };
     case MENTOR_ADD_NEW_APPOINTMENT_FAIL:
       return { loading: false, error: action.payload };
+    case MENTOR_ADD_NEW_APPOINTMENT_RESET:
+      return {};
     default:
       return state;
   }

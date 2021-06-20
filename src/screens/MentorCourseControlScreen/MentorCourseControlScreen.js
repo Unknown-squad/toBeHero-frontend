@@ -12,9 +12,6 @@ import SuccessMessage from "../../components/SuccessMessage";
 import { MENTOR_CANCEL_APPOINTMENT_RESET } from "../../constants/mentorCancelAppointmentConstants";
 
 const MentorCourseControlScreen = ({ match }) => {
-  const [message, setMessage] = useState("");
-  const [alert, setAlert] = useState("");
-
   const subscriptionId = match.params.id;
   const mentorGetControlCourse = useSelector(
     (state) => state.mentorGetControlCourse
@@ -88,9 +85,18 @@ const MentorCourseControlScreen = ({ match }) => {
                     {errorCancel ? (
                       <ErrorMessage>{errorCancel}</ErrorMessage>
                     ) : success ? (
-                      <SuccessMessage>{dataCancel}</SuccessMessage>
-                    ) : (
-                      ""
+                      <SuccessMessage>{dataCancel.message}</SuccessMessage>
+                    ) : null}
+                    {data.appontments && data.appontments.length === 0 && (
+                      <SuccessMessage
+                        style={{
+                          color: "#004085",
+                          backgroundColor: "#cce5ff",
+                          borderColor: "#b8daff",
+                        }}
+                      >
+                        There is no appointments yet
+                      </SuccessMessage>
                     )}
                     {data.appontments &&
                       data.appontments.map((appointement) => (
@@ -123,9 +129,7 @@ const MentorCourseControlScreen = ({ match }) => {
                               <div className="mentor-control-btn">
                                 <button
                                   style={{ backgroundColor: "#C97878" }}
-                                  onClick={(_id) =>
-                                    handleCancel(appointement._id)
-                                  }
+                                  onClick={() => handleCancel(appointement._id)}
                                 >
                                   Cancel
                                 </button>

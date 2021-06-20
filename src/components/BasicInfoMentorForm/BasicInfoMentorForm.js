@@ -100,7 +100,7 @@ const BasicInfoMentorForm = ({ history }) => {
       ) : error ? (
         <ErrorMessage>{error}</ErrorMessage>
       ) : (
-        <form action="" className="basic-info-form" onSubmit={handleSubmit}>
+        <form className="basic-info-form" onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-lg-6 col-12">
               <div className="input-field">
