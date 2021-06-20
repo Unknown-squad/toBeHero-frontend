@@ -193,3 +193,60 @@ header nav .nav-guardian {
   }
 }
 /* start page  guardian-home*/
+@media screen and (max-width: 768px) {
+  header {
+    padding: 10px;
+  }
+  header nav .navbar {
+    display: none;
+  }
+
+  header nav .hamburger {
+    display: block;
+  }
+  header nav .navbar {
+    background: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translatey(-100%);
+    text-align: center;
+    z-index: 9999;
+  }
+  header nav .navbar.show {
+    transform: translatey(110%);
+    opacity: 1;
+    padding-bottom: 10px;
+  }
+
+  .hr-section-23 .guardian-home .basic-info-child .someone-child {
+    left: -6%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .hr-section-23 .guardian-home {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hr-section-23 {
+    padding: 25px 0;
+  }
+  .hr-section-23 h3 {
+    text-align: center;
+    margin-left: 0;
+  }
+  .hr-section-23 .guardian-home .nav-guardian-home {
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: center;
+  }
+  .hr-section-23 .guardian-home .basic-info-child .someone-child {
+    top: -2.5%;
+    left: 0;
+  }
+}

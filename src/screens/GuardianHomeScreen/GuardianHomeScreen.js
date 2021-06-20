@@ -1,12 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./GuardianHomeScreen.scss";
 import GuardianHomeHeader from "../../components/GuardianHomeHeader";
 import Footer from "../../components/Footer";
 import GuardianAddHeroForm from "../../components/GuardianAddHeroForm";
 import someOne from "../../images/someone.svg";
+import addSomeOne from "../../images/add-someone.svg";
 import courseImgPlaceHolder from "../../images/course-img-placeholder.svg";
 import someOneChild from "../../images/someone-child.svg";
+import GuardianHerosColumn from "../../components/GuardianHerosColumn";
 
 const GuardianHomeScreen = () => {
   return (
@@ -17,33 +19,7 @@ const GuardianHomeScreen = () => {
         <div className="container">
           <h3>Reviews</h3>
           <div className="guardian-home">
-            <ul className="nav-guardian-home">
-              <li>
-                <Link to="" className="active">
-                  <img src={someOne} alt="" />
-                  <p>youssef</p>
-                </Link>
-              </li>
-              <li>
-                <Link to="">
-                  <img src={someOne} alt="" />
-                  <p>Alaa</p>
-                </Link>
-              </li>
-              <li>
-                <Link to="">
-                  <img src={someOne} alt="" />
-                  <p>someone</p>
-                </Link>
-              </li>
-              <li>
-                <Link to="">
-                  <img src={someOne} alt="" className="add-child" />
-                  <p>add new</p>
-                </Link>
-              </li>
-            </ul>
-
+            <GuardianHerosColumn></GuardianHerosColumn>
             <div className="basic-info-child">
               <GuardianAddHeroForm></GuardianAddHeroForm>
 

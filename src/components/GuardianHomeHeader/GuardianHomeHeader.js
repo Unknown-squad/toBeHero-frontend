@@ -33,7 +33,7 @@ const GuardianHomeHeader = () => {
                 <li className="active">
                   <NavLink
                     activeStyle={{ borderBottom: "1px solid #343090" }}
-                    to="/guardian/explore"
+                    to="/explore"
                     exact
                   >
                     Explore
@@ -65,7 +65,7 @@ const GuardianHomeHeader = () => {
                 </li>
                 <li className="active">
                   <NavLink
-                    to="/guardian/explore"
+                    to="/explore"
                     activeStyle={{ borderBottom: "1px solid #343090" }}
                     exact
                   >
