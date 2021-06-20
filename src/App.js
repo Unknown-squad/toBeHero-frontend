@@ -16,6 +16,7 @@ import {
   MentorLoginScreen,
   MentorProfileExploreScreen,
   MentorRegisterScreen,
+  NotFound,
 } from "./screens";
 import BasicInfoMentorDashboardScreen from "./screens/BasicInfoMentorDashboardScreen";
 import ExploreServiceScreen from "./screens/ExploreServiceScreen";
@@ -27,7 +28,7 @@ import MentorCourseControlScreen from "./screens/MentorCourseControlScreen";
 import MentorCourseControlLiveScreen from "./screens/MentorCourseControlLiveScreen";
 import EditCourseMentorDashboardScreen from "./screens/CoursesMentorDashboardScreen/EditCourseMentorDashboardScreen";
 import MentorEmailConfirmScreen from "./screens/MentorEmailConfirmScreen";
-import NotFoundScreen from "./screens/NotFoundScreen";
+// import NotFoundScreen from "./screens/NotFoundScreen";
 import GuardianEmailConfirmScreen from "./screens/GuardianEmailConfirmScreen";
 import MentorAnalyticsDashboardScreen from "./screens/MentorAnalyticsDashboardScreen";
 
@@ -144,7 +145,7 @@ function App() {
         <Route path="/login/mentor" component={MentorLoginScreen} exact></Route>
         <Route path="/" component={LandingScreen} exact></Route>
         <Redirect from="/home" to="/" exact></Redirect>
-        <Route path="*" component={NotFoundScreen}></Route>
+        <Route path="*" component={NotFound}></Route>
       </Switch>
     </Router>
   );
