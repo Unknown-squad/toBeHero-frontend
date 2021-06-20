@@ -32,11 +32,17 @@ import MentorEmailConfirmScreen from "./screens/MentorEmailConfirmScreen";
 // import NotFoundScreen from "./screens/NotFoundScreen";
 import GuardianEmailConfirmScreen from "./screens/GuardianEmailConfirmScreen";
 import MentorAnalyticsDashboardScreen from "./screens/MentorAnalyticsDashboardScreen";
+import GuardianHomeScreen from "./screens/GuardianHomeScreen";
 
 function App() {
   return (
     <Router>
       <Switch>
+        <Route
+          path="/guardian/home"
+          component={GuardianHomeScreen}
+          exact
+        ></Route>
         <Route
           path="/mentor/live"
           component={MentorCourseControlLiveScreen}

@@ -303,6 +303,14 @@ $text-color: #414141;
     width: 90%;
     margin: 0 auto;
   }
+  .hr-section-23
+    .guardian-home
+    .basic-info-child
+    .child-course-card
+    .child-course-info
+    h2 {
+    font-size: 18px;
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -342,6 +350,9 @@ $text-color: #414141;
   }
   .hr-section-22 {
     padding: 15px 0;
+  }
+  .hr-section-23 .guardian-home .basic-info-child .someone-child {
+    left: -3.5%;
   }
 }
 @media screen and (max-width: 992px) {
@@ -462,6 +473,9 @@ $text-color: #414141;
   .hr-section-21 .mentor-dashboard .basic-info-form .upload-picture {
     margin-top: 0.25rem;
   }
+  .hr-section-23 .guardian-home .basic-info-child .someone-child {
+    left: -6%;
+  }
 }
 @media screen and (max-width: 576px) {
   .hr-section-1 {
@@ -568,6 +582,26 @@ $text-color: #414141;
   }
   .hr-section-22 .mentor-appointment-control-container .appointment-title {
     width: auto;
+  }
+  .hr-section-23 .guardian-home {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hr-section-23 {
+    padding: 25px 0;
+  }
+  .hr-section-23 h3 {
+    text-align: center;
+    margin-left: 0;
+  }
+  .hr-section-23 .guardian-home .nav-guardian-home {
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: center;
+  }
+  .hr-section-23 .guardian-home .basic-info-child .someone-child {
+    top: -2.5%;
+    left: 0;
   }
   footer .footer-info {
     display: block;
