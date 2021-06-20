@@ -12,6 +12,7 @@ import { listCourses } from "../../actions/courseListActions";
 import Loader from "../../components/Loader";
 import ErrorMessage from "../../components/ErrorMessage";
 import MentorHomeHeader from "../../components/MentorHomeHeader";
+import GuardianHomeHeader from "../../components/GuardianHomeHeader";
 
 const ExploreScreen = ({ location, history }) => {
   const genre = new URLSearchParams(location.search).get("genre") || "";
@@ -34,8 +35,10 @@ const ExploreScreen = ({ location, history }) => {
   }, [dispatch, pageNumber, genre, sortby, ratings]);
   return (
     <>
-      {mentorInfo || guardianInfo ? (
+      {mentorInfo ? (
         <MentorHomeHeader></MentorHomeHeader>
+      ) : guardianInfo ? (
+        <GuardianHomeHeader></GuardianHomeHeader>
       ) : (
         <ExploreHeader></ExploreHeader>
       )}

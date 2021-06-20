@@ -33,6 +33,7 @@ import MentorEmailConfirmScreen from "./screens/MentorEmailConfirmScreen";
 import GuardianEmailConfirmScreen from "./screens/GuardianEmailConfirmScreen";
 import MentorAnalyticsDashboardScreen from "./screens/MentorAnalyticsDashboardScreen";
 import GuardianHomeScreen from "./screens/GuardianHomeScreen";
+import GuardianSettingsScreen from "./screens/GuardianSettingsScreen";
 
 function App() {
   return (
@@ -41,6 +42,12 @@ function App() {
         <Route
           path="/guardian/home"
           component={GuardianHomeScreen}
+          exact
+        ></Route>
+        <Route path="/guardian/explore" component={ExploreScreen} exact></Route>
+        <Route
+          path="/guardian/settings"
+          component={GuardianSettingsScreen}
           exact
         ></Route>
         <Route

@@ -79,7 +79,7 @@ const MentorHomeHeader = () => {
                 <li className="active">
                   <NavLink
                     activeStyle={{ fontWeight: "bold" }}
-                    to="/explore"
+                    to="/mentor/explore"
                     exact
                   >
                     Explore

@@ -2,7 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import useToggleNavbar from "../../hooks";
 import LogoutButton from "../../components/LogoutButton";
-import "./GuardianHomeHeader.scss";
+
 const GuardianHomeHeader = () => {
   const [showMobileMenu, onClick] = useToggleNavbar();
   return (
@@ -23,30 +23,33 @@ const GuardianHomeHeader = () => {
               <ul className="navbar nav-guardian show" id="navbar">
                 <li className="active">
                   <NavLink
+                    activeStyle={{ borderBottom: "1px solid #343090" }}
                     to="/guardian/home"
                     exact
-                    activeStyle={{ fontWeight: "bold" }}
                   >
                     home
                   </NavLink>
                 </li>
-                <li>
-                  <Link
+                <li className="active">
+                  <NavLink
+                    activeStyle={{ borderBottom: "1px solid #343090" }}
                     to="/guardian/explore"
-                    activeStyle={{ fontWeight: "bold" }}
                     exact
                   >
                     Explore
-                  </Link>
+                  </NavLink>
                 </li>
-                <li>
-                  <Link
+                <li className="active">
+                  <NavLink
+                    activeStyle={{ borderBottom: "1px solid #343090" }}
                     to="/guardian/settings"
-                    activeStyle={{ fontWeight: "bold" }}
                     exact
                   >
                     Settings
-                  </Link>
+                  </NavLink>
+                </li>
+                <li className="active">
+                  <LogoutButton user="guardian" />
                 </li>
               </ul>
             ) : (
@@ -54,25 +57,25 @@ const GuardianHomeHeader = () => {
                 <li className="active">
                   <NavLink
                     to="/guardian/home"
-                    activeStyle={{ fontWeight: "bold" }}
+                    activeStyle={{ borderBottom: "1px solid #343090" }}
                     exact
                   >
                     home
                   </NavLink>
                 </li>
-                <li>
+                <li className="active">
                   <NavLink
-                    to="/explore"
-                    activeStyle={{ fontWeight: "bold" }}
+                    to="/guardian/explore"
+                    activeStyle={{ borderBottom: "1px solid #343090" }}
                     exact
                   >
                     Explore
                   </NavLink>
                 </li>
-                <li>
+                <li className="active">
                   <NavLink
                     to="/guardian/settings"
-                    activeStyle={{ fontWeight: "bold" }}
+                    activeStyle={{ borderBottom: "1px solid #343090" }}
                     exact
                   >
                     Settings
