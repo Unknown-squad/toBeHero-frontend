@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import courseStar from "../../images/course-star.svg";
+import courseFiller from "../../images/course-filler.svg";
 
 const CourseCard = ({ course }) => {
   const {
@@ -18,12 +19,27 @@ const CourseCard = ({ course }) => {
       <div className="course-card">
         <div className="card-content">
           <div className="course-img">
-            <img src={picture} alt="course thumbnail" />
+            <img
+              src={`http://localhost:5000${picture}`}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = courseFiller;
+              }}
+              alt="course thumbnail"
+            />
           </div>
           <div className="mentor-name-price flex-row">
             <div className="mentor-name flex-row">
               <div className="mentor-img">
-                <img src={mentorId.picture} alt="Mentor avatar" />
+                <img
+                  src={`http://localhost:5000${mentorId.picture}`}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src =
+                      "https://img.icons8.com/ultraviolet/40/000000/user.png";
+                  }}
+                  alt="Mentor avatar"
+                />
               </div>
               <div className="mentor-info">
                 <Link to={`/explore/profile/${mentorId._id}`}>
@@ -45,7 +61,7 @@ const CourseCard = ({ course }) => {
             <Link to={`/explore/course/${_id}`}>
               <h2>{title}</h2>
             </Link>
-            <p>{`${description.substring(0, 90)}...`}</p>
+            <p>{`${description.substring(0, 70)}...`}</p>
           </div>
           <div className="course-rate flex-row">
             <img src={courseStar} alt="" />
