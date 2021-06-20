@@ -1,4 +1,9 @@
 import axios from "axios";
+import {
+  GET_BASIC_INFO_FOR_CHILD_FAIL,
+  GET_BASIC_INFO_FOR_CHILD_REQUEST,
+  GET_BASIC_INFO_FOR_CHILD_SUCCESS,
+} from "../constants/getBasicInfoForChildConstants";
 
 export const getBasicInfoForChildActions = (childId) => async (dispatch) => {
   try {
