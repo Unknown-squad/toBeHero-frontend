@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import "./GuardianHomeScreen.scss";
 import GuardianHomeHeader from "../../components/GuardianHomeHeader";
 import Footer from "../../components/Footer";
+import GuardianAddHeroForm from "../../components/GuardianAddHeroForm";
+import someOne from "../../images/someone.svg";
+import courseImgPlaceHolder from "../../images/course-img-placeholder.svg";
+import someOneChild from "../../images/someone-child.svg";
 
 const GuardianHomeScreen = () => {
   return (
@@ -16,43 +20,40 @@ const GuardianHomeScreen = () => {
             <ul className="nav-guardian-home">
               <li>
                 <Link to="" className="active">
-                  <img src="images/someone.svg" alt="" />
+                  <img src={someOne} alt="" />
                   <p>youssef</p>
                 </Link>
               </li>
               <li>
                 <Link to="">
-                  <img src="images/someone.svg" alt="" />
+                  <img src={someOne} alt="" />
                   <p>Alaa</p>
                 </Link>
               </li>
               <li>
                 <Link to="">
-                  <img src="images/someone.svg" alt="" />
+                  <img src={someOne} alt="" />
                   <p>someone</p>
                 </Link>
               </li>
               <li>
                 <Link to="">
-                  <img
-                    src="images/add-someone.svg"
-                    alt=""
-                    className="add-child"
-                  />
+                  <img src={someOne} alt="" className="add-child" />
                   <p>add new</p>
                 </Link>
               </li>
             </ul>
 
             <div className="basic-info-child">
-              _____________
+              <GuardianAddHeroForm></GuardianAddHeroForm>
+
               <h4>enrolled courses</h4>
               <div className="row">
                 <div className="col-lg-4 col-12 ">
                   <div className="child-course-card">
                     <div className="child-course-card-content">
                       <div className="child-course-img">
-                        <img src="images/course-img-placeholder.svg" alt="" />
+                        <img src={courseImgPlaceHolder} alt="" />
                       </div>
                       <div className="child-course-info">
                         <h2>Lorem ipsum dolor sit amet</h2>
@@ -74,7 +75,7 @@ const GuardianHomeScreen = () => {
                 </div>
               </div>
               <div className="someone-child">
-                <img src="images/someone-child.svg" alt="" />
+                <img src={someOneChild} alt="" />
               </div>
             </div>
           </div>
