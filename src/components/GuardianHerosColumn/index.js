@@ -1,1 +1,1 @@
-export { default } from "./GuardiansHerosColumn";
+export { default } from "./GuardianHerosColumn";

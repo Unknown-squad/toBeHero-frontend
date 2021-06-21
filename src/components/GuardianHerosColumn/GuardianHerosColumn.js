@@ -4,11 +4,10 @@ import someOne from "../../images/someone.svg";
 import addSomeOne from "../../images/add-someone.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { guardianGetChildrenActions } from "../../actions/guardianGetChildrenActions";
-import Loader from "../../components/Loader";
-import ErrorMessage from "../../components/ErrorMessage";
-import GuardianHomeScreen from "../../screens/GuardianHomeScreen";
+import Loader from "../Loader";
+import ErrorMessage from "../ErrorMessage";
 
-const GuardiansHerosColumn = () => {
+const GuardianHerosColumn = () => {
   //   const childId = match.params.id;
 
   const guardianGetChildren = useSelector((state) => state.guardianGetChildren);
@@ -60,4 +59,4 @@ const GuardiansHerosColumn = () => {
   );
 };
 
-export default GuardiansHerosColumn;
+export default GuardianHerosColumn;
