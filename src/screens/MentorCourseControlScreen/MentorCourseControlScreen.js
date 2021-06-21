@@ -12,6 +12,7 @@ import SuccessMessage from "../../components/SuccessMessage";
 import { MENTOR_CANCEL_APPOINTMENT_RESET } from "../../constants/mentorCancelAppointmentConstants";
 
 const MentorCourseControlScreen = ({ match }) => {
+  const [click, setClick] = useState(false);
   const subscriptionId = match.params.id;
   const mentorGetControlCourse = useSelector(
     (state) => state.mentorGetControlCourse
@@ -38,6 +39,7 @@ const MentorCourseControlScreen = ({ match }) => {
   const handleCancel = (appointmentId) => {
     // console.log(appointmentId);
     dispatch(mentorCancelAppointmentActions(subscriptionId, appointmentId));
+    setClick(true);
   };
   return (
     <>
@@ -122,19 +124,47 @@ const MentorCourseControlScreen = ({ match }) => {
                           <div className="appointment-sub-item appointment-title">
                             <p>{appointement.title}</p>
                           </div>
-                          {Date.now() > Date.parse(appointement.date) ? (
-                            ""
-                          ) : (
+                          {Date.now() > Date.parse(appointement.date) ? null : (
                             <div className="appointment-sub-item appointment-button">
                               <div className="mentor-control-btn">
-                                <button
-                                  style={{ backgroundColor: "#C97878" }}
-                                  onClick={() => handleCancel(appointement._id)}
-                                >
-                                  Cancel
-                                </button>
+                                {appointement.cancel ? (
+                                  <>
+                                    <div
+                                      className="mentor-live-btn"
+                                      style={{
+                                        display: "flex",
+                                        gridGap: "0.5rem",
+                                        gap: "0.5rem",
+                                      }}
+                                    >
+                                      <p
+                                        style={{
+                                          fontWeight: "500",
+                                          margin: "0.5rem",
+                                        }}
+                                      >
+                                        Canceled
+                                      </p>
+                                      <button>delete</button>
+                                    </div>
+                                  </>
+                                ) : (
+                                  <button
+                                    style={{ backgroundColor: "#C97878" }}
+                                    onClick={() =>
+                                      handleCancel(appointement._id)
+                                    }
+                                  >
+                                    Cancel
+                                  </button>
+                                )}
                               </div>
-                              <div className="mentor-live-btn">
+                              <div
+                                className="mentor-live-btn"
+                                style={
+                                  appointement.cancel ? { display: "none" } : {}
+                                }
+                              >
                                 <Link to="/mentor/live">
                                   <button>go live</button>
                                 </Link>

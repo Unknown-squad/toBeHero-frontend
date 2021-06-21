@@ -10,8 +10,9 @@ import courseImgPlaceHolder from "../../images/course-img-placeholder.svg";
 import someOneChild from "../../images/someone-child.svg";
 import GuardianHerosColumn from "../../components/GuardianHerosColumn";
 import GuardianGetBasicInfoForHeroForm from "../../components/GuardianGetBasicInfoForHeroForm";
+import EnrolledCoursesForChild from "../../components/EnrolledCoursesForChild";
 
-const GuardianHomeScreen = () => {
+const GuardianHomeScreen = ({ match }) => {
   // const childId = match.params.id;
 
   return (
@@ -24,35 +25,11 @@ const GuardianHomeScreen = () => {
           <div className="guardian-home">
             <GuardianHerosColumn></GuardianHerosColumn>
             <div className="basic-info-child">
-              <GuardianGetBasicInfoForHeroForm></GuardianGetBasicInfoForHeroForm>
-
+              <GuardianGetBasicInfoForHeroForm
+                match={match}
+              ></GuardianGetBasicInfoForHeroForm>
               <h4>enrolled courses</h4>
-              <div className="row">
-                <div className="col-lg-4 col-12 ">
-                  <div className="child-course-card">
-                    <div className="child-course-card-content">
-                      <div className="child-course-img">
-                        <img src={courseImgPlaceHolder} alt="" />
-                      </div>
-                      <div className="child-course-info">
-                        <h2>Lorem ipsum dolor sit amet</h2>
-                        <p>
-                          Lorem ipsum dolor sit amet, consetetur sadipscing
-                          elitred diam nonumy eirmod.
-                        </p>
-                      </div>
-                      <div className="mentor-appointment">
-                        <div className="mentor">
-                          Mentor: <span>someone</span>
-                        </div>
-                        <div className="next-appointment">
-                          nextappointment: <span>3-10 at 5 pm</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <EnrolledCoursesForChild></EnrolledCoursesForChild>
             </div>
           </div>
         </div>

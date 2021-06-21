@@ -41,8 +41,8 @@ function App() {
     <Router>
       <Switch>
         <Route
-          path="/guardian/home"
-          component={GuardianHomeScreen}
+          path="/guardian/home/:child?/:childId?"
+          component={GuardianHomeGetChildInfoScreen}
           exact
         ></Route>
         <Route
@@ -56,11 +56,11 @@ function App() {
           component={GuardianSettingsScreen}
           exact
         ></Route>
-        <Route
+        {/* <Route
           path="/guardian/home/child/:childId"
           component={GuardianHomeGetChildInfoScreen}
           exact
-        ></Route>
+        ></Route> */}
         <Route
           path="/mentor/live"
           component={MentorCourseControlLiveScreen}

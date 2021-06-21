@@ -9,7 +9,8 @@ import Loader from "../Loader";
 import ErrorMessage from "../ErrorMessage";
 import SuccessMessage from "../SuccessMessage";
 
-const GuardianGetBasicInfoForHeroForm = ({ childId }) => {
+const GuardianGetBasicInfoForHeroForm = ({ match }) => {
+  const childId = match.params.childId;
   const [fullName, setFullName] = useState("");
   const [userName, setUserName] = useState("");
   const [birthdate, setBirthdate] = useState("");
@@ -24,7 +25,7 @@ const GuardianGetBasicInfoForHeroForm = ({ childId }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (data) {
+    if (childId) {
       dispatch(getBasicInfoForChildActions(childId));
     } else {
       setFullName(data.fullName);
@@ -32,7 +33,7 @@ const GuardianGetBasicInfoForHeroForm = ({ childId }) => {
       setBirthdate(data.birthDate);
       setPicture(data.picture);
     }
-  }, [dispatch, childId]);
+  }, [dispatch, childId, data]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
