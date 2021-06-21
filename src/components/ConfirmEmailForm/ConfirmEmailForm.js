@@ -92,21 +92,50 @@ const ConfirmEmailForm = ({ history, user }) => {
   };
   return (
     <>
-      <form onSubmit={submitHandler}>
+      <form
+        onSubmit={submitHandler}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         {stateLoading && <Loader></Loader>}
         {alert && <SuccessMessage>{alert}</SuccessMessage>}
         {message ? <ErrorMessage>{message}</ErrorMessage> : null}
-        <label htmlFor="code">Enter Code</label>
+        <label htmlFor="code" style={{ fontSize: "20px", textAlign: "center" }}>
+          Verification code:
+        </label>
         <input
+          style={{
+            fontSize: "18px",
+            backgroundImage: "none",
+            textAlign: "center",
+            margin: "8px 0",
+          }}
           id="code"
           name="code"
           type="text"
-          placeholder="Enter code ..."
+          placeholder="Enter code"
           required
           value={code}
           onChange={(e) => setCode(e.target.value)}
         ></input>
-        <button type="submit">Confirm</button>
+        <button
+          type="submit"
+          style={{
+            fontSize: "18px",
+            width: "100px",
+            border: "none",
+            borderRadius: "6px",
+            padding: "3px 0",
+            color: "#fff",
+            backgroundColor: "#343090",
+            cursor: "pointer",
+          }}
+        >
+          Verify
+        </button>
       </form>
     </>
   );
