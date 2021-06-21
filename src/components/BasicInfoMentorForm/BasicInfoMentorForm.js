@@ -88,7 +88,7 @@ const BasicInfoMentorForm = ({ history }) => {
     );
     setTimeout(() => {
       setAlert(true);
-    }, 900);
+    }, 1100);
   };
 
   return (

@@ -10,9 +10,10 @@ import Loader from "../../components/Loader";
 import ErrorMessage from "../../components/ErrorMessage";
 import SuccessMessage from "../../components/SuccessMessage";
 import { MENTOR_CANCEL_APPOINTMENT_RESET } from "../../constants/mentorCancelAppointmentConstants";
+import { mentorDeleteAppointmentActions } from "../../actions/mentorDeleteAppointmentActions";
+import { MENTOR_DELETE_APPOINTMENT_RESET } from "../../constants/mentorDeleteAppointmentConstants";
 
 const MentorCourseControlScreen = ({ match }) => {
-  const [click, setClick] = useState(false);
   const subscriptionId = match.params.id;
   const mentorGetControlCourse = useSelector(
     (state) => state.mentorGetControlCourse
@@ -28,18 +29,39 @@ const MentorCourseControlScreen = ({ match }) => {
     data: dataCancel,
     success,
   } = mentorCancelAppointment;
+
+  const mentorDeleteAppointment = useSelector(
+    (state) => state.mentorDeleteAppointment
+  );
+  const {
+    loading: loadingDelete,
+    error: errorDelete,
+    data: dataDelete,
+    success: successDelete,
+  } = mentorDeleteAppointment;
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({ type: MENTOR_CANCEL_APPOINTMENT_RESET });
-    dispatch(mentorGetControlCourseDetailsActions(subscriptionId));
+    if (!success || !successDelete) {
+      dispatch({ type: MENTOR_CANCEL_APPOINTMENT_RESET });
+      dispatch({ type: MENTOR_DELETE_APPOINTMENT_RESET });
+      dispatch(mentorGetControlCourseDetailsActions(subscriptionId));
+    } else {
+      dispatch(mentorGetControlCourseDetailsActions(subscriptionId));
+    }
+
     // console.log(Date.now());
-  }, [dispatch, subscriptionId]);
+  }, [dispatch, subscriptionId, success, successDelete]);
 
   const handleCancel = (appointmentId) => {
     // console.log(appointmentId);
+
     dispatch(mentorCancelAppointmentActions(subscriptionId, appointmentId));
-    setClick(true);
+  };
+  const handleDelete = (appointmentId) => {
+    // console.log(appointmentId);
+    dispatch(mentorDeleteAppointmentActions(subscriptionId, appointmentId));
   };
   return (
     <>
@@ -47,9 +69,7 @@ const MentorCourseControlScreen = ({ match }) => {
       <section className="hr-section-22">
         <h4>{data.courseId && data.courseId.title}</h4>
         <div className="container">
-          {loading ? (
-            <Loader></Loader>
-          ) : error ? (
+          {error ? (
             <ErrorMessage>{error}</ErrorMessage>
           ) : (
             <>
@@ -100,6 +120,7 @@ const MentorCourseControlScreen = ({ match }) => {
                         There is no appointments yet
                       </SuccessMessage>
                     )}
+                    {loading && <Loader></Loader>}
                     {data.appontments &&
                       data.appontments.map((appointement) => (
                         <div
@@ -124,7 +145,9 @@ const MentorCourseControlScreen = ({ match }) => {
                           <div className="appointment-sub-item appointment-title">
                             <p>{appointement.title}</p>
                           </div>
-                          {Date.now() > Date.parse(appointement.date) ? null : (
+                          {Date.now() > Date.parse(appointement.date) ? (
+                            <p>Finished</p>
+                          ) : (
                             <div className="appointment-sub-item appointment-button">
                               <div className="mentor-control-btn">
                                 {appointement.cancel ? (
@@ -145,7 +168,13 @@ const MentorCourseControlScreen = ({ match }) => {
                                       >
                                         Canceled
                                       </p>
-                                      <button>delete</button>
+                                      <button
+                                        onClick={() =>
+                                          handleDelete(appointement._id)
+                                        }
+                                      >
+                                        delete
+                                      </button>
                                     </div>
                                   </>
                                 ) : (

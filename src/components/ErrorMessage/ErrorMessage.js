@@ -2,7 +2,7 @@ import React from "react";
 import "./ErrorMessage.scss";
 const ErrorMessage = ({ children, style }) => {
   return (
-    <div className="alert-danger">
+    <div className="alert-danger" style={style}>
       <p className="danger" style={style}>
         {children}
       </p>

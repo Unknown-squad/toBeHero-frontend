@@ -68,7 +68,15 @@ const MentorHomeScreen = () => {
             {loading ? (
               <Loader></Loader>
             ) : error ? (
-              <ErrorMessage>{error}</ErrorMessage>
+              <ErrorMessage
+                style={{
+                  color: "#004085",
+                  backgroundColor: "#cce5ff",
+                  borderColor: "#b8daff",
+                }}
+              >
+                There is no subscription with appointement yet
+              </ErrorMessage>
             ) : (
               data.items.map((service, i) =>
                 // Object.keys(service.appointments[0]).length > 0 ?
@@ -92,7 +100,15 @@ const MentorHomeScreen = () => {
               {loading ? (
                 <Loader></Loader>
               ) : error ? (
-                <ErrorMessage>{error}</ErrorMessage>
+                <ErrorMessage
+                  style={{
+                    color: "#004085",
+                    backgroundColor: "#cce5ff",
+                    borderColor: "#b8daff",
+                  }}
+                >
+                  There is no subscription yet
+                </ErrorMessage>
               ) : (
                 data.items.map((service, i) =>
                   // Object.keys(service.appointments[0]).length === 0
