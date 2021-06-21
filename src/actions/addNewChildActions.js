@@ -1,4 +1,9 @@
 import axios from "axios";
+import {
+  ADD_NEW_CHILD_FAIL,
+  ADD_NEW_CHILD_REQUEST,
+  ADD_NEW_CHILD_SUCCESS,
+} from "../constants/addNewChildConstants";
 
 export const addNewChildActions =
   ({ fullName, userName, password, birthDate, picture }) =>
