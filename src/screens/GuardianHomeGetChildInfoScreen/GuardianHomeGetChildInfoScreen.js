@@ -4,25 +4,32 @@ import Footer from "../../components/Footer";
 import GuardianHomeHeader from "../../components/GuardianHomeHeader";
 import GuardianHerosColumn from "../../components/GuardianHerosColumn";
 import { Route } from "react-router-dom";
+import EnrolledCoursesForChild from "../../components/EnrolledCoursesForChild";
 
 const GuardianHomeGetChildInfoScreen = ({ match }) => {
-  const ChildId = match.params.id;
+  const childId = match.params.id;
   return (
     <>
       <GuardianHomeHeader></GuardianHomeHeader>
       <section className="hr-section-23">
         <div className="container">
-          <h3>Reviews</h3>
+          <h3>Children</h3>
           <div className="guardian-home">
             <GuardianHerosColumn></GuardianHerosColumn>
-            <Route
-              path={`/guardian/home/child/${ChildId}`}
-              component={() => (
-                <GuardianGetBasicInfoForHeroForm
-                  ChildId={ChildId}
-                ></GuardianGetBasicInfoForHeroForm>
-              )}
-            ></Route>
+            <div className="basic-info-child">
+              {/* <Route
+                // path={`/guardian/home/child/${childId}`}
+                component={() => (
+                  <GuardianGetBasicInfoForHeroForm
+                    ChildId={childId}
+                  ></GuardianGetBasicInfoForHeroForm>
+                )}
+              ></Route> */}
+              <GuardianGetBasicInfoForHeroForm
+                childId={childId}
+              ></GuardianGetBasicInfoForHeroForm>
+              <EnrolledCoursesForChild></EnrolledCoursesForChild>
+            </div>
           </div>
         </div>
       </section>

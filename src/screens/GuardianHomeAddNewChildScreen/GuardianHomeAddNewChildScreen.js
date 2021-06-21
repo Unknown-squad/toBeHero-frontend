@@ -12,13 +12,15 @@ const GuardianHomeAddNewChildScreen = () => {
       <GuardianHomeHeader></GuardianHomeHeader>
       <section className="hr-section-23">
         <div className="container">
-          <h3>Reviews</h3>
+          <h3>Children</h3>
           <div className="guardian-home">
             <GuardianHerosColumn></GuardianHerosColumn>
-            <Route
-              path="/guardian/home/addchild"
-              component={GuardianAddNewChildForm}
-            ></Route>
+            <div className="basic-info-child">
+              <Route
+                path="/guardian/home/addchild"
+                component={GuardianAddNewChildForm}
+              ></Route>
+            </div>
           </div>
         </div>
       </section>

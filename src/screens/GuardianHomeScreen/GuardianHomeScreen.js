@@ -21,15 +21,24 @@ const GuardianHomeScreen = ({ match }) => {
 
       <section className="hr-section-23">
         <div className="container">
-          <h3>Reviews</h3>
+          <h3>Children</h3>
           <div className="guardian-home">
             <GuardianHerosColumn></GuardianHerosColumn>
             <div className="basic-info-child">
-              <GuardianGetBasicInfoForHeroForm
+              <p
+                style={{
+                  color: "#8c61ff",
+                  fontWeight: "500",
+                  fontSize: "20px",
+                }}
+              >
+                Please select a child or add one.
+              </p>
+              {/* <GuardianGetBasicInfoForHeroForm
                 match={match}
-              ></GuardianGetBasicInfoForHeroForm>
-              <h4>enrolled courses</h4>
-              <EnrolledCoursesForChild></EnrolledCoursesForChild>
+              ></GuardianGetBasicInfoForHeroForm> */}
+              {/* <h4>enrolled courses</h4> */}
+              {/* <EnrolledCoursesForChild></EnrolledCoursesForChild> */}
             </div>
           </div>
         </div>

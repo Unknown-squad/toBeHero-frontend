@@ -9,8 +9,8 @@ import Loader from "../Loader";
 import ErrorMessage from "../ErrorMessage";
 import SuccessMessage from "../SuccessMessage";
 
-const GuardianGetBasicInfoForHeroForm = ({ match }) => {
-  const childId = match.params.childId;
+const GuardianGetBasicInfoForHeroForm = ({ childId }) => {
+  // const childId = match.params.childId;
   const [fullName, setFullName] = useState("");
   const [userName, setUserName] = useState("");
   const [birthdate, setBirthdate] = useState("");
