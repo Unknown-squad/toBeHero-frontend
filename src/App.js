@@ -17,7 +17,6 @@ import {
   MentorProfileExploreScreen,
   MentorRegisterScreen,
   NotFound,
-  VerifyEmailScreen,
 } from "./screens";
 import BasicInfoMentorDashboardScreen from "./screens/BasicInfoMentorDashboardScreen";
 import ExploreServiceScreen from "./screens/ExploreServiceScreen";
@@ -162,7 +161,7 @@ function App() {
           exact
         ></Route>
         <Route path="/login/mentor" component={MentorLoginScreen} exact></Route>
-        <Route path="/verify" component={VerifyEmailScreen} exact></Route>
+
         <Route path="/" component={LandingScreen} exact></Route>
         <Redirect from="/home" to="/" exact></Redirect>
         <Route path="*" component={NotFound}></Route>

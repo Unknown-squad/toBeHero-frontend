@@ -1,6 +1,5 @@
 export { default as LandingScreen } from "./LandingScreen";
 export { default as NotFound } from "./NotFound";
-export { default as VerifyEmailScreen } from "./VerifyEmailScreen";
 export { default as GuardianLoginScreen } from "./LoginScreen/GuardianLoginScreen";
 export { default as HeroLoginScreen } from "./LoginScreen/HeroLoginScreen";
 export { default as MentorLoginScreen } from "./LoginScreen/MentorLoginScreen";
