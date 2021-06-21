@@ -23,16 +23,21 @@ const GuardianHomeHeader = () => {
               <ul className="navbar nav-guardian show" id="navbar">
                 <li className="active">
                   <NavLink
-                    activeStyle={{ borderBottom: "1px solid #343090" }}
+                    activeStyle={{
+                      borderBottom: "1px solid #343090",
+                      fontWeight: "500",
+                    }}
                     to="/guardian/home"
-                    exact
                   >
                     home
                   </NavLink>
                 </li>
                 <li className="active">
                   <NavLink
-                    activeStyle={{ borderBottom: "1px solid #343090" }}
+                    activeStyle={{
+                      borderBottom: "1px solid #343090",
+                      fontWeight: "500",
+                    }}
                     to="/explore"
                     exact
                   >
@@ -41,9 +46,11 @@ const GuardianHomeHeader = () => {
                 </li>
                 <li className="active">
                   <NavLink
-                    activeStyle={{ borderBottom: "1px solid #343090" }}
+                    activeStyle={{
+                      borderBottom: "1px solid #343090",
+                      fontWeight: "500",
+                    }}
                     to="/guardian/settings"
-                    exact
                   >
                     Settings
                   </NavLink>
@@ -57,8 +64,10 @@ const GuardianHomeHeader = () => {
                 <li className="active">
                   <NavLink
                     to="/guardian/home"
-                    activeStyle={{ borderBottom: "1px solid #343090" }}
-                    exact
+                    activeStyle={{
+                      borderBottom: "1px solid #343090",
+                      fontWeight: "500",
+                    }}
                   >
                     home
                   </NavLink>
@@ -66,7 +75,10 @@ const GuardianHomeHeader = () => {
                 <li className="active">
                   <NavLink
                     to="/explore"
-                    activeStyle={{ borderBottom: "1px solid #343090" }}
+                    activeStyle={{
+                      borderBottom: "1px solid #343090",
+                      fontWeight: "500",
+                    }}
                     exact
                   >
                     Explore
@@ -75,8 +87,10 @@ const GuardianHomeHeader = () => {
                 <li className="active">
                   <NavLink
                     to="/guardian/settings"
-                    activeStyle={{ borderBottom: "1px solid #343090" }}
-                    exact
+                    activeStyle={{
+                      borderBottom: "1px solid #343090",
+                      fontWeight: "500",
+                    }}
                   >
                     Settings
                   </NavLink>

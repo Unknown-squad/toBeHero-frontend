@@ -3,12 +3,13 @@ import { Link, NavLink } from "react-router-dom";
 import "./GuardianHomeScreen.scss";
 import GuardianHomeHeader from "../../components/GuardianHomeHeader";
 import Footer from "../../components/Footer";
-import GuardianAddHeroForm from "../../components/GuardianAddHeroForm";
+
 import someOne from "../../images/someone.svg";
 import addSomeOne from "../../images/add-someone.svg";
 import courseImgPlaceHolder from "../../images/course-img-placeholder.svg";
 import someOneChild from "../../images/someone-child.svg";
 import GuardianHerosColumn from "../../components/GuardianHerosColumn";
+import GuardianGetBasicInfoForHeroForm from "../../components/GuardianGetBasicInfoForHeroForm";
 
 const GuardianHomeScreen = () => {
   // const childId = match.params.id;
@@ -23,7 +24,7 @@ const GuardianHomeScreen = () => {
           <div className="guardian-home">
             <GuardianHerosColumn></GuardianHerosColumn>
             <div className="basic-info-child">
-              <GuardianAddHeroForm></GuardianAddHeroForm>
+              <GuardianGetBasicInfoForHeroForm></GuardianGetBasicInfoForHeroForm>
 
               <h4>enrolled courses</h4>
               <div className="row">
@@ -51,9 +52,6 @@ const GuardianHomeScreen = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="someone-child">
-                <img src={someOneChild} alt="" />
               </div>
             </div>
           </div>

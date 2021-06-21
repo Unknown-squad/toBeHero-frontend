@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import someOne from "../../images/someone.svg";
+import someoneChild from "../../images/someone-child.svg";
 import addSomeOne from "../../images/add-someone.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { guardianGetChildrenActions } from "../../actions/guardianGetChildrenActions";
@@ -30,7 +31,7 @@ const GuardianHerosColumn = () => {
             data.items.map((child) => (
               <li key={child._id}>
                 <NavLink
-                  to={`/guardian/child/${child._id}`}
+                  to={`/guardian/home/child/${child._id}`}
                   activeClassName="active"
                 >
                   <img
@@ -48,7 +49,7 @@ const GuardianHerosColumn = () => {
             ))}
 
           <li>
-            <Link to="">
+            <Link to="/guardian/home/addchild">
               <img src={addSomeOne} alt="" className="add-child" />
               <p>add new</p>
             </Link>
