@@ -11,6 +11,8 @@ import someOneChild from "../../images/someone-child.svg";
 import GuardianHerosColumn from "../../components/GuardianHerosColumn";
 
 const GuardianHomeScreen = () => {
+  // const childId = match.params.id;
+
   return (
     <>
       <GuardianHomeHeader></GuardianHomeHeader>

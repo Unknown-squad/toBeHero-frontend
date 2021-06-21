@@ -23,7 +23,7 @@ export const getBasicInfoForChildReducer = (state = initialState, action) => {
     case GET_BASIC_INFO_FOR_CHILD_REQUEST:
       return { ...state, loading: true };
     case GET_BASIC_INFO_FOR_CHILD_SUCCESS:
-      return { loading: false, data: action.payload };
+      return { loading: false, data: action.payload.data };
     case GET_BASIC_INFO_FOR_CHILD_FAIL:
       return { loading: false, error: action.payload };
     default:
