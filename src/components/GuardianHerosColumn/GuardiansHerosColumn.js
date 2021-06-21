@@ -34,7 +34,15 @@ const GuardiansHerosColumn = () => {
                   to={`/guardian/child/${child._id}`}
                   activeClassName="active"
                 >
-                  <img src={child.picture} alt="" />
+                  <img
+                    src={child.picture}
+                    alt=""
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src =
+                        "https://img.icons8.com/ultraviolet/40/000000/user.png";
+                    }}
+                  />
                   <p>{child.fullName}</p>
                 </NavLink>
               </li>

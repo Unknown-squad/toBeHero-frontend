@@ -28,6 +28,7 @@ import { guardianGetChildrenReducer } from "./reducers/guardianGetChildrenReduce
 import { getBasicInfoForChildReducer } from "./reducers/getBasicInfoForChildReducers";
 import { updateBasicInfoForChildReducer } from "./reducers/updateBasicInfoForChildReducers";
 import { heroRegisterReducer } from "./reducers/heroRegisterReducers";
+import { getSubscriptionsForChildReducer } from "./reducers/getSubscriptionsForChildReducers";
 
 const rootReducer = combineReducers({
   courseList: courseListReducer,
@@ -57,6 +58,7 @@ const rootReducer = combineReducers({
   getBasicInfoForChild: getBasicInfoForChildReducer,
   updateBasicInfoForChild: updateBasicInfoForChildReducer,
   heroRegister: heroRegisterReducer,
+  getSubscriptionsForChild: getSubscriptionsForChildReducer,
 });
 
 const guardianInfoFromStorage = localStorage.getItem("guardianInfo")
