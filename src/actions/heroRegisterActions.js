@@ -1,15 +1,15 @@
 import axios from "axios";
 import {
-  ADD_NEW_CHILD_FAIL,
-  ADD_NEW_CHILD_REQUEST,
-  ADD_NEW_CHILD_SUCCESS,
-} from "../constants/addNewChildConstants";
+  HERO_REGISTER_FAIL,
+  HERO_REGISTER_REQUEST,
+  HERO_REGISTER_SUCCESS,
+} from "../constants/heroRegisterConstants";
 
-export const addNewChildActions =
+export const heroRegisterActions =
   ({ fullName, userName, password, birthDate, picture }) =>
   async (dispatch) => {
     try {
-      dispatch({ type: ADD_NEW_CHILD_REQUEST });
+      dispatch({ type: HERO_REGISTER_REQUEST });
       const config = {
         headers: {
           "Content-Type": "application/json",
@@ -32,7 +32,8 @@ export const addNewChildActions =
         config
       );
 
-      dispatch({ type: ADD_NEW_CHILD_SUCCESS, payload: data });
+      dispatch({ type: HERO_REGISTER_SUCCESS, payload: data });
+      localStorage.setItem("heroInfo", JSON.stringify(data));
     } catch (error) {
       let err = "";
       if (error.response) {
@@ -46,7 +47,7 @@ export const addNewChildActions =
         err = error.message;
       }
       dispatch({
-        type: ADD_NEW_CHILD_FAIL,
+        type: HERO_REGISTER_FAIL,
         payload: err,
       });
     }

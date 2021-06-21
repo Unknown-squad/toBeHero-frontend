@@ -1,4 +1,5 @@
 import axios from "axios";
+import { MENTOR_LOGIN_SUCCESS } from "../constants/mentorLoginConstants";
 import {
   MENTOR_REGISTER_FAIL,
   MENTOR_REGISTER_REQUEST,
@@ -45,7 +46,6 @@ export const mentorRegisterActions =
             certificates,
             description,
             picture,
-            isVerify: true,
           },
         },
         { withCredentials: true },
@@ -53,7 +53,10 @@ export const mentorRegisterActions =
       );
       dispatch({ type: MENTOR_REGISTER_SUCCESS, payload: data });
 
-      //dispatch mentor login
+      dispatch({
+        type: MENTOR_LOGIN_SUCCESS,
+        payload: data,
+      });
       localStorage.setItem("mentorInfo", JSON.stringify(data));
 
       // localStorage.removeItem("mentorDraft");

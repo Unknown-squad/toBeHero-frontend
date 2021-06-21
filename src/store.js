@@ -27,6 +27,7 @@ import { mentorAddNewAppointmentReducer } from "./reducers/mentorAddNewAppointme
 import { guardianGetChildrenReducer } from "./reducers/guardianGetChildrenReducers";
 import { getBasicInfoForChildReducer } from "./reducers/getBasicInfoForChildReducers";
 import { updateBasicInfoForChildReducer } from "./reducers/updateBasicInfoForChildReducers";
+import { heroRegisterReducer } from "./reducers/heroRegisterReducers";
 
 const rootReducer = combineReducers({
   courseList: courseListReducer,
@@ -55,6 +56,7 @@ const rootReducer = combineReducers({
   guardianGetChildren: guardianGetChildrenReducer,
   getBasicInfoForChild: getBasicInfoForChildReducer,
   updateBasicInfoForChild: updateBasicInfoForChildReducer,
+  heroRegister: heroRegisterReducer,
 });
 
 const guardianInfoFromStorage = localStorage.getItem("guardianInfo")
