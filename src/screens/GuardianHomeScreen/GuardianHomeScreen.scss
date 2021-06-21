@@ -1,0 +1,252 @@
+@import "../../index.scss";
+
+/* start page  guardian-home*/
+
+header nav .nav-guardian {
+  li {
+    margin: 15px 20px;
+    transition: all 0.5s ease;
+    &:last-child {
+      margin: 15px;
+    }
+    a {
+      color: $purple-500;
+    }
+    &.active {
+      // a {
+      //   border-bottom: 1px solid $purple-500;
+      // }
+    }
+    &:hover {
+      a {
+        border-bottom: 1px solid $purple-500;
+      }
+    }
+  }
+}
+.hr-section-23 {
+  padding: 25px 80px;
+  min-height: calc(100vh - 122px);
+  h3 {
+    color: $text-color;
+    margin-left: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+  .guardian-home {
+    display: flex;
+    gap: 2rem;
+    .nav-guardian-home {
+      background-color: #f3f4f7;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
+      text-align: center;
+      min-width: 8rem;
+      border-radius: 10px;
+      height: 100%;
+      li {
+        padding: 0.35rem 0.35rem;
+        cursor: pointer;
+        position: relative;
+        border-radius: 50%;
+        a {
+          img {
+            width: auto;
+            border-radius: 50%;
+          }
+          .add-child {
+            opacity: 0.7;
+          }
+          p {
+            color: $purple-gray;
+            margin-top: -0.5rem;
+            font-size: 14px;
+          }
+          &.active {
+            img {
+              border: 2px solid $purple-300;
+              border-radius: 50%;
+              padding: 0.15rem;
+            }
+            p {
+              color: $text-color;
+            }
+          }
+        }
+      }
+    }
+    .basic-info-child {
+      position: relative;
+      background-color: #f3f4f7;
+      width: 100%;
+      padding: 2rem 1rem 1.5rem;
+      border-radius: 10px;
+      h4 {
+        color: $text-color;
+        margin-top: 1rem;
+        padding-left: 15px;
+        font-weight: 300;
+        font-size: 20px;
+      }
+      .someone-child {
+        position: absolute;
+        top: 5%;
+        left: -2%;
+      }
+      .basic-info-form {
+        color: $text-color;
+        border-bottom: 1px solid #707070;
+        img {
+          width: auto;
+        }
+        input {
+          background-color: #fff;
+          border: 1px solid $purple-200;
+        }
+        .Birthdate-mentor {
+          background-image: url(../../images/Birthdate-icon.svg);
+        }
+        .upload-picture {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-top: 0rem;
+          .img-back {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .img-up {
+              border: 1px solid $purple-200;
+              border-radius: 50%;
+            }
+            .icon-up {
+              position: absolute;
+            }
+            img {
+              width: auto;
+              cursor: pointer;
+            }
+          }
+          .img-content {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            a {
+              color: $purple-300;
+            }
+          }
+        }
+      }
+      .child-course-card {
+        background-color: #fff;
+        border: solid 1px $purple-500;
+        border-radius: 13px;
+        padding: 1rem 1rem;
+        margin-bottom: 0.25rem;
+        margin-top: 0.5rem;
+        /* card */
+        /* card image */
+        .child-course-img > img {
+          width: 100%;
+        }
+        /* card image */
+        /* child course info */
+        .child-course-info {
+          margin-bottom: 1rem;
+          h2 {
+            font-size: 16px;
+            font-weight: 400;
+            color: $text-color;
+          }
+          p {
+            font-size: 14px;
+            font-weight: 300;
+            color: $purple-gray;
+          }
+        }
+        /* child course info */
+        .mentor-appointment {
+          .mentor {
+            color: $text-color;
+            font-size: 14px;
+          }
+          .next-appointment {
+            color: $text-color;
+            font-size: 14px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+  .create-new {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i {
+      font-size: 10px;
+      font-weight: 600;
+      margin-left: 2px;
+    }
+  }
+}
+/* start page  guardian-home*/
+@media screen and (max-width: 768px) {
+  header {
+    padding: 10px;
+  }
+  header nav .navbar {
+    display: none;
+  }
+
+  header nav .hamburger {
+    display: block;
+  }
+  header nav .navbar {
+    background: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translatey(-100%);
+    text-align: center;
+    z-index: 9999;
+  }
+  header nav .navbar.show {
+    transform: translatey(110%);
+    opacity: 1;
+    padding-bottom: 10px;
+  }
+
+  .hr-section-23 .guardian-home .basic-info-child .someone-child {
+    left: -6%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .hr-section-23 .guardian-home {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hr-section-23 {
+    padding: 25px 0;
+  }
+  .hr-section-23 h3 {
+    text-align: center;
+    margin-left: 0;
+  }
+  .hr-section-23 .guardian-home .nav-guardian-home {
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: center;
+  }
+  .hr-section-23 .guardian-home .basic-info-child .someone-child {
+    top: -2.5%;
+    left: 0;
+  }
+}
