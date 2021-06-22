@@ -1,0 +1,61 @@
+@import "../../index.scss";
+
+/*start page guardian-settings*/
+.hr-section-25 {
+  padding: 5rem 5rem;
+  min-height: calc(100vh - 122px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h3 {
+    color: $text-color;
+    margin-left: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+  .guardian-settings {
+    display: flex;
+    width: 56rem;
+    .basic-guardian-settings {
+      position: relative;
+      background-color: #f3f4f7;
+      width: 100%;
+      padding: 2rem 1rem 1.5rem;
+      border-radius: 10px;
+      h4 {
+        color: $text-color;
+        margin-top: 1rem;
+        padding-left: 15px;
+        font-weight: 300;
+        font-size: 20px;
+      }
+
+      .basic-info-form {
+        color: $text-color;
+        img {
+          width: auto;
+        }
+        input {
+          background-color: #fff;
+          border: 1px solid $purple-200;
+        }
+        select {
+          padding: 0.35rem 0.6rem 0.35rem 0.1rem;
+          margin-right: 0.25rem;
+          background-color: #fff;
+          border: 1px solid $purple-200;
+        }
+      }
+    }
+    .create-new {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      i {
+        font-size: 10px;
+        font-weight: 600;
+        margin-left: 2px;
+      }
+    }
+  }
+}
+/*end page guardian-settings*/
