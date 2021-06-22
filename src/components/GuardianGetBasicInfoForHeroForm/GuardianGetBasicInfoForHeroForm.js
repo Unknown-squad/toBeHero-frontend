@@ -8,40 +8,91 @@ import { getBasicInfoForChildActions } from "../../actions/getBasicInfoForChildA
 import Loader from "../Loader";
 import ErrorMessage from "../ErrorMessage";
 import SuccessMessage from "../SuccessMessage";
+import { UPDATE_BASIC_INFO_FOR_CHILD_RESET } from "../../constants/updateBasicInfoForChildConstants";
+import { updateBasicInfoForChildActions } from "../../actions/updateBasicInfoForChildActions";
+import axios from "axios";
 
-const GuardianGetBasicInfoForHeroForm = ({ childId }) => {
-  // const childId = match.params.childId;
+const GuardianGetBasicInfoForHeroForm = ({ match }) => {
+  const childId = match.params.childId;
   const [fullName, setFullName] = useState("");
   const [userName, setUserName] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [password, setPassword] = useState("");
   const [picture, setPicture] = useState("");
+  const [uploading, setUploading] = useState(false);
 
   const getBasicInfoForChild = useSelector(
     (state) => state.getBasicInfoForChild
   );
-  const { loading, error, data } = getBasicInfoForChild;
+  const { loading, error, hero } = getBasicInfoForChild;
+
+  const updateBasicInfoForChild = useSelector(
+    (state) => state.updateBasicInfoForChild
+  );
+  const {
+    loading: loadingUpdate,
+    error: errorUpdate,
+    data,
+    success,
+  } = updateBasicInfoForChild;
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (childId) {
-      dispatch(getBasicInfoForChildActions(childId));
+    if (success) {
+      dispatch({ type: UPDATE_BASIC_INFO_FOR_CHILD_RESET });
     } else {
-      setFullName(data.fullName);
-      setUserName(data.userName);
-      setBirthDate(data.birthDate);
-      setPicture(data.picture);
+      if (!hero?.userName || hero?._id !== childId) {
+        dispatch(getBasicInfoForChildActions(childId));
+      } else {
+        setFullName(hero.fullName);
+        setUserName(hero.userName);
+        setBirthDate(new Date(hero.birthDate).toLocaleDateString());
+        setPicture(hero.picture);
+      }
     }
-  }, [dispatch, childId, data]);
+  }, [dispatch, childId, hero, success]);
 
+  // const uploadFileHandler = async (e) => {
+  //   const file = e.target.files[0];
+  //   const formData = new FormData();
+  //   formData.append("image", file);
+  //   setUploading(true);
+
+  //   try {
+  //     const config = {
+  //       headers: {
+  //         "Content-Type": "multipart/form-data",
+  //       },
+  //     };
+
+  //     const { data } = await axios.post("/api/upload", formData, config);
+
+  //     setPicture(data);
+  //     setUploading(false);
+  //   } catch (error) {
+  //     console.error(error);
+  //     setUploading(false);
+  //   }
+  // };
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(
+      updateBasicInfoForChildActions({
+        childId: childId,
+        fullName,
+        userName,
+        password,
+        birthDate,
+        picture,
+      })
+    );
   };
+
   return (
     <>
-      {/* {loadingUpdate && <Loader></Loader>} */}
-      {/* {errorUpdate && <ErrorMessage>{errorUpdate}</ErrorMessage>} */}
+      {loadingUpdate && <Loader></Loader>}
+      {errorUpdate && <ErrorMessage>{errorUpdate}</ErrorMessage>}
       {loading ? (
         <Loader></Loader>
       ) : error ? (
@@ -90,7 +141,6 @@ const GuardianGetBasicInfoForHeroForm = ({ childId }) => {
                     id="password"
                     name="password"
                     placeholder="Enter your password"
-                    required
                     value={password}
                     onChange={(e) => {
                       setPassword(e.target.value);
@@ -117,6 +167,20 @@ const GuardianGetBasicInfoForHeroForm = ({ childId }) => {
                 </div>
                 <div className="upload-picture">
                   <div className="img-back">
+                    {/* <input
+                      type="text"
+                      placeholder="Enter image url"
+                      value={picture}
+                      onChange={(e) => {
+                        setPicture(e.target.value);
+                      }}
+                    />
+                    <label htmlFor="img-file"></label>
+                    <input
+                      type="file"
+                      id="img-file"
+                      onChange={uploadFileHandler}
+                    /> */}
                     <img className="img-up" src={uploadPicture} alt="" />
                     <img className="icon-up" src={addPicture} alt="" />
                   </div>
@@ -125,6 +189,7 @@ const GuardianGetBasicInfoForHeroForm = ({ childId }) => {
                       <i className="fas fa-camera"></i>
                       upload new picture
                     </Link>
+                    {/* {uploading && <Loader />} */}
                     <button className="btn btn-purple-400">save</button>
                   </div>
                 </div>

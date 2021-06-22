@@ -7,7 +7,7 @@ import { Route } from "react-router-dom";
 import EnrolledCoursesForChild from "../../components/EnrolledCoursesForChild";
 
 const GuardianHomeGetChildInfoScreen = ({ match }) => {
-  const childId = match.params.id;
+  //   const childId = match.params.id;
   return (
     <>
       <GuardianHomeHeader></GuardianHomeHeader>
@@ -17,17 +17,17 @@ const GuardianHomeGetChildInfoScreen = ({ match }) => {
           <div className="guardian-home">
             <GuardianHerosColumn></GuardianHerosColumn>
             <div className="basic-info-child">
-              {/* <Route
-                // path={`/guardian/home/child/${childId}`}
+              <Route
+                path={`/guardian/home/child/:childId`}
                 component={() => (
                   <GuardianGetBasicInfoForHeroForm
-                    ChildId={childId}
+                    match={match}
                   ></GuardianGetBasicInfoForHeroForm>
                 )}
-              ></Route> */}
-              <GuardianGetBasicInfoForHeroForm
+              ></Route>
+              {/* <GuardianGetBasicInfoForHeroForm
                 childId={childId}
-              ></GuardianGetBasicInfoForHeroForm>
+              ></GuardianGetBasicInfoForHeroForm> */}
               <EnrolledCoursesForChild></EnrolledCoursesForChild>
             </div>
           </div>
