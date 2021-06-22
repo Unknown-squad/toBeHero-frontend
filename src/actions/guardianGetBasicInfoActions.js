@@ -1,4 +1,9 @@
 import axios from "axios";
+import {
+  GUARDIAN_GET_BASIC_INFO_FAIL,
+  GUARDIAN_GET_BASIC_INFO_REQUEST,
+  GUARDIAN_GET_BASIC_INFO_SUCCESS,
+} from "../constants/guardianGetBasicInfoConstants";
 
 export const guardianGetBasicInfoActions = () => async (dispatch) => {
   try {
