@@ -28,7 +28,7 @@ const GuardianHomeGetChildInfoScreen = ({ match }) => {
               {/* <GuardianGetBasicInfoForHeroForm
                 childId={childId}
               ></GuardianGetBasicInfoForHeroForm> */}
-              <EnrolledCoursesForChild></EnrolledCoursesForChild>
+              <EnrolledCoursesForChild match={match}></EnrolledCoursesForChild>
             </div>
           </div>
         </div>

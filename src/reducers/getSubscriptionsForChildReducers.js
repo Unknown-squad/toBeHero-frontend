@@ -15,7 +15,7 @@ const initialState = {
           description: "",
           Picture: "",
         },
-        Mentor: {
+        mentorId: {
           _id: "",
           fullName: "",
           picture: "",
