@@ -6,7 +6,7 @@ import {
 } from "../constants/guardianUpdateBasicInfoConstants";
 
 export const guardianUpdateBasicInfoActions =
-  ({ fullName, email, phoneNumber, countryCode, password }) =>
+  ({ fullName, email, phone, countryCode, password }) =>
   async (dispatch) => {
     try {
       dispatch({ type: GUARDIAN_UPDATE_BASIC_INFO_REQUEST });
@@ -17,7 +17,7 @@ export const guardianUpdateBasicInfoActions =
           params: {
             fullName,
             email,
-            phoneNumber,
+            phone,
             countryCode,
             password,
           },
