@@ -62,7 +62,12 @@ const EnrolledCoursesForChild = ({ match }) => {
                         Mentor: <span>{course.mentorId.fullName}</span>
                       </div>
                       <div className="next-appointment">
-                        nextappointment: <span>{course.nextAppointment}</span>
+                        nextappointment:{" "}
+                        <span>
+                          {course.nextAppointment === null
+                            ? "comming soon"
+                            : course.nextAppointment}
+                        </span>
                       </div>
                     </div>
                   </div>
