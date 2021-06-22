@@ -24,7 +24,15 @@ const EnrolledCoursesForChild = ({ match }) => {
       {loading ? (
         <Loader></Loader>
       ) : error ? (
-        <ErrorMessage>{error}</ErrorMessage>
+        <ErrorMessage
+          style={{
+            color: "#004085",
+            backgroundColor: "#cce5ff",
+            borderColor: "#b8daff",
+          }}
+        >
+          There is no subscription courses yet
+        </ErrorMessage>
       ) : (
         <>
           {data.items &&

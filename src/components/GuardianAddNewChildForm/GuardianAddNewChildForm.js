@@ -26,8 +26,16 @@ const GuardianAddNewChildForm = () => {
   const { loading, error, data } = heroRegister;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch({ type: HERO_REGISTER_RESET_ERROR });
-  }, [dispatch]);
+    if (data) {
+      setFullName("");
+      setUserName("");
+      setBirthDate("");
+      setPassword("");
+      //   setPicture('')
+      dispatch({ type: HERO_REGISTER_RESET_ERROR });
+    }
+    dispatch(guardianGetChildrenActions());
+  }, [dispatch, data]);
   const handleSubmit = (e) => {
     e.preventDefault();
     Promise.all([

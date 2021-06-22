@@ -6,7 +6,7 @@ import {
 } from "../constants/updateBasicInfoForChildConstants";
 
 export const updateBasicInfoForChildActions =
-  ({ childId, fullName, userName, password, birthDate, picture }) =>
+  ({ childId, fullName, userName, password, birthDate }) =>
   async (dispatch) => {
     try {
       dispatch({ type: UPDATE_BASIC_INFO_FOR_CHILD_REQUEST });
@@ -19,7 +19,6 @@ export const updateBasicInfoForChildActions =
             userName,
             password,
             birthDate,
-            picture,
           },
         },
         { withCredentials: true }

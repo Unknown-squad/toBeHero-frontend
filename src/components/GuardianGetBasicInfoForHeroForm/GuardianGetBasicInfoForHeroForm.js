@@ -19,6 +19,7 @@ const GuardianGetBasicInfoForHeroForm = ({ match }) => {
   const [birthDate, setBirthDate] = useState("");
   const [password, setPassword] = useState("");
   const [picture, setPicture] = useState("");
+  const [alert, setAlert] = useState(false);
   const [uploading, setUploading] = useState(false);
 
   const getBasicInfoForChild = useSelector(
@@ -40,7 +41,10 @@ const GuardianGetBasicInfoForHeroForm = ({ match }) => {
 
   useEffect(() => {
     if (success) {
-      dispatch({ type: UPDATE_BASIC_INFO_FOR_CHILD_RESET });
+      Promise.all([
+        dispatch({ type: UPDATE_BASIC_INFO_FOR_CHILD_RESET }),
+        dispatch(getBasicInfoForChildActions(childId)),
+      ]);
     } else {
       if (!hero?.userName || hero?._id !== childId) {
         dispatch(getBasicInfoForChildActions(childId));
@@ -51,6 +55,7 @@ const GuardianGetBasicInfoForHeroForm = ({ match }) => {
         setPicture(hero.picture);
       }
     }
+    setAlert(false);
   }, [dispatch, childId, hero, success]);
 
   // const uploadFileHandler = async (e) => {
@@ -84,15 +89,20 @@ const GuardianGetBasicInfoForHeroForm = ({ match }) => {
         userName,
         password,
         birthDate,
-        picture,
       })
     );
+    setTimeout(() => {
+      setAlert(true);
+    }, 1100);
   };
 
   return (
     <>
       {loadingUpdate && <Loader></Loader>}
       {errorUpdate && <ErrorMessage>{errorUpdate}</ErrorMessage>}
+      {alert && !error && !errorUpdate && (
+        <SuccessMessage>Child data is updated successfully</SuccessMessage>
+      )}
       {loading ? (
         <Loader></Loader>
       ) : error ? (
@@ -110,7 +120,6 @@ const GuardianGetBasicInfoForHeroForm = ({ match }) => {
                     id="name"
                     name="name"
                     placeholder="Enter your name"
-                    required
                     value={fullName}
                     onChange={(e) => {
                       setFullName(e.target.value);
@@ -126,7 +135,6 @@ const GuardianGetBasicInfoForHeroForm = ({ match }) => {
                     id="username"
                     name="username"
                     placeholder="Enter your username"
-                    required
                     value={userName}
                     onChange={(e) => {
                       setUserName(e.target.value);
@@ -158,7 +166,6 @@ const GuardianGetBasicInfoForHeroForm = ({ match }) => {
                     name="birthdate"
                     className="Birthdate-mentor"
                     placeholder="Enter your Birthdate"
-                    required
                     value={birthDate}
                     onChange={(e) => {
                       setBirthDate(e.target.value);
