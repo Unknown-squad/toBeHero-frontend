@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import courseImgPlaceHolder from "../../images/course-img-placeholder.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { getSubscriptionsForChildActions } from "../../actions/getSubscriptionsForChildActions";
+import courseFiller from "../../images/course-filler.svg";
 import Loader from "../Loader";
 import ErrorMessage from "../ErrorMessage";
 
@@ -32,11 +33,21 @@ const EnrolledCoursesForChild = ({ match }) => {
                 <div className="child-course-card">
                   <div className="child-course-card-content">
                     <div className="child-course-img">
-                      <img src={course.courseId.picture} alt="" />
+                      <img
+                        src={course.courseId.picture}
+                        alt=""
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = courseFiller;
+                        }}
+                      />
                     </div>
                     <div className="child-course-info">
                       <h2>{course.courseId.title}</h2>
-                      <p>{course.courseId.description}</p>
+                      <p>{`${course.courseId.description.substring(
+                        0,
+                        70
+                      )}...`}</p>
                     </div>
                     <div className="mentor-appointment">
                       <div className="mentor">
