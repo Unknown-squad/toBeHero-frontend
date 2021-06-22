@@ -13,7 +13,7 @@ const GuardianGetBasicInfoForHeroForm = ({ childId }) => {
   // const childId = match.params.childId;
   const [fullName, setFullName] = useState("");
   const [userName, setUserName] = useState("");
-  const [birthdate, setBirthdate] = useState("");
+  const [birthDate, setBirthDate] = useState("");
   const [password, setPassword] = useState("");
   const [picture, setPicture] = useState("");
 
@@ -30,7 +30,7 @@ const GuardianGetBasicInfoForHeroForm = ({ childId }) => {
     } else {
       setFullName(data.fullName);
       setUserName(data.userName);
-      setBirthdate(data.birthDate);
+      setBirthDate(data.birthDate);
       setPicture(data.picture);
     }
   }, [dispatch, childId, data]);
@@ -109,9 +109,9 @@ const GuardianGetBasicInfoForHeroForm = ({ childId }) => {
                     className="Birthdate-mentor"
                     placeholder="Enter your Birthdate"
                     required
-                    value={birthdate}
+                    value={birthDate}
                     onChange={(e) => {
-                      setBirthdate(e.target.value);
+                      setBirthDate(e.target.value);
                     }}
                   />
                 </div>

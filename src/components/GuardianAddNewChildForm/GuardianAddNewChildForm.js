@@ -5,20 +5,54 @@ import addPicture from "../../images/add-picture.svg";
 import uploadPicture from "../../images/upload-picture.svg";
 import someoneChild from "../../images/someone-child.svg";
 import { useDispatch, useSelector } from "react-redux";
+import { heroRegisterActions } from "../../actions/heroRegisterActions";
+import { HERO_REGISTER_RESET_ERROR } from "../../constants/heroRegisterConstants";
+import { guardianGetChildrenActions } from "../../actions/guardianGetChildrenActions";
+import Loader from "../Loader";
+import ErrorMessage from "../ErrorMessage";
+import SuccessMessage from "../SuccessMessage";
 
 const GuardianAddNewChildForm = () => {
   const [fullName, setFullName] = useState("");
   const [userName, setUserName] = useState("");
-  const [birthdate, setBirthdate] = useState("");
+  const [birthDate, setBirthDate] = useState("");
   const [password, setPassword] = useState("");
-  const [picture, setPicture] = useState("");
+  const [picture, setPicture] = useState(null);
 
-  useEffect(() => {}, []);
+  const onChangePicture = (e) => {
+    setPicture(URL.createObjectURL(e.target.files[0]));
+  };
+  const heroRegister = useSelector((state) => state.heroRegister);
+  const { loading, error, data } = heroRegister;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({ type: HERO_REGISTER_RESET_ERROR });
+  }, [dispatch]);
   const handleSubmit = (e) => {
     e.preventDefault();
+    Promise.all([
+      dispatch(
+        heroRegisterActions({
+          fullName,
+          userName,
+          birthDate,
+          password,
+          picture,
+        })
+      ),
+      dispatch(guardianGetChildrenActions()),
+    ]);
   };
+
   return (
     <>
+      {loading ? (
+        <Loader></Loader>
+      ) : error ? (
+        <ErrorMessage>{error}</ErrorMessage>
+      ) : data && !error ? (
+        <SuccessMessage>Child data added successfully.</SuccessMessage>
+      ) : null}
       <form className="basic-info-form add-new-form" onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-lg-6 col-12">
@@ -74,15 +108,15 @@ const GuardianAddNewChildForm = () => {
               <label htmlFor="Birthdate">Birthdate*</label>
               <br />
               <input
-                type="text"
+                type="date"
                 id="Birthdate"
                 name="birthdate"
                 className="Birthdate-mentor"
                 placeholder="Enter your Birthdate"
                 required
-                value={birthdate}
+                value={birthDate}
                 onChange={(e) => {
-                  setBirthdate(e.target.value);
+                  setBirthDate(e.target.value);
                 }}
               />
             </div>
@@ -90,6 +124,17 @@ const GuardianAddNewChildForm = () => {
               <div className="img-back">
                 <img className="img-up" src={uploadPicture} alt="" />
                 <img className="icon-up" src={addPicture} alt="" />
+                <label
+                  htmlFor="files"
+                  className="btn"
+                  style={{ color: "black" }}
+                ></label>
+                <input
+                  id="files"
+                  type="file"
+                  onChange={onChangePicture}
+                  // style={{ visibility: "hidden" }}
+                />
               </div>
               <div className="img-content">
                 <Link to="">
