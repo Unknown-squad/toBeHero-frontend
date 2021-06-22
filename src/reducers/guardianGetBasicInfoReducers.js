@@ -25,7 +25,7 @@ export const guardianGetBasicInfoReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        data: action.payload.data,
+        guardian: action.payload.data.items[0],
       };
     case GUARDIAN_GET_BASIC_INFO_FAIL:
       return { loading: false, error: action.payload };

@@ -7,10 +7,10 @@ const GuardianSettingsScreen = () => {
   return (
     <>
       <GuardianHomeHeader></GuardianHomeHeader>
-      <section class="hr-section-25">
-        <div class="container">
-          <div class="guardian-settings">
-            <div class="basic-guardian-settings">
+      <section className="hr-section-25">
+        <div className="container">
+          <div className="guardian-settings">
+            <div className="basic-guardian-settings">
               <GuardianSettingsForm></GuardianSettingsForm>
             </div>
           </div>
