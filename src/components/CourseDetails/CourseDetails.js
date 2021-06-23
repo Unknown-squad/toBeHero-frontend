@@ -21,7 +21,15 @@ const CourseDetails = ({ details }) => {
       <div className="visit-profile">
         <div className="mentor-service-info">
           <div className="mentor-img">
-            <img src={mentorImgPlaceholder} alt="" />
+            <img
+              src={details.picture}
+              alt=""
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src =
+                  "https://img.icons8.com/ultraviolet/40/000000/user.png";
+              }}
+            />
           </div>
           <div className="mentor-info">
             <h2>{details.mentorId.fullName}</h2>

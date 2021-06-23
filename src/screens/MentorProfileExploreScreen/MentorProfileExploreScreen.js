@@ -59,7 +59,15 @@ const MentorProfileExploreScreen = ({ match }) => {
               <>
                 <div className="col-lg-2 col-md-6 col-12 p-profile">
                   <div className="upload-img-profile">
-                    <img src={data.picture} alt="" />
+                    <img
+                      src={data.picture}
+                      alt=""
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src =
+                          "https://img.icons8.com/ultraviolet/40/000000/user.png";
+                      }}
+                    />
                     <p>{data.fullName}</p>
                   </div>
                 </div>

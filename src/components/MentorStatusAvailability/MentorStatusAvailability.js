@@ -39,7 +39,6 @@ const MentorStatusAvailability = () => {
           <input
             className="switch"
             type="checkbox"
-            //   checked={mentorStatusAvailable}
             checked={mentorStatusAvailable}
             onChange={toggleCheckbox}
           />
