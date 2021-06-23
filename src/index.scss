@@ -410,6 +410,9 @@ $text-color: #414141;
   .hr-section-25 .guardian-settings {
     width: auto;
   }
+  .hr-section-26 {
+    padding: 15px 0;
+  }
 }
 @media screen and (max-width: 768px) {
   header {
@@ -652,6 +655,32 @@ $text-color: #414141;
   .hr-section-25 {
     min-height: calc(100vh - 153px);
     padding: 0;
+  }
+  .hr-section-26 .checkout-card {
+    flex-direction: column;
+    padding: .5rem;
+  }
+  .hr-section-26 .checkout-card .credit-card-info {
+    width: 100%;
+    padding: 1.25rem;
+  }
+  .hr-section-26 .checkout-card .credit-card-info .select-child {
+    flex-direction: column;
+  }
+  .hr-section-26 .checkout-card .credit-card-info .name-card,
+  .hr-section-26 .checkout-card .credit-card-info .number-card {
+    flex-direction: column;
+  }
+  .hr-section-26 .checkout-card .credit-card-info .name-card .w-input-1,
+  .hr-section-26 .checkout-card .credit-card-info .name-card .w-input-2,
+  .hr-section-26 .checkout-card .credit-card-info .number-card .w-input-1,
+  .hr-section-26 .checkout-card .credit-card-info .number-card .exp-month,
+  .hr-section-26 .checkout-card .credit-card-info .number-card .exp-year,
+  .hr-section-26 .checkout-card .checkout {
+    width: auto;
+  }
+  .hr-section-26 .checkout-card .credit-card-info .styled-checkbox + label:before{
+    margin-right: 7px;
   }
   footer .footer-info {
     display: block;

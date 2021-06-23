@@ -12,7 +12,13 @@ const ReviewBox = ({ courseId }) => {
   const addNewReview = useSelector((state) => state.addNewReview);
   const { loading, error, success, data } = addNewReview;
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    if (success) {
+      //   alert("Review Submitted!");
+      setRate(1);
+      setDescription("");
+    }
+  }, [success]);
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(addNewReviewActions({ courseId, rate, description }));
@@ -27,7 +33,7 @@ const ReviewBox = ({ courseId }) => {
         <form className="rating-write-reviwe" onSubmit={submitHandler}>
           <div className="form-rating-reviwe">
             <div className="input-field write-reviwe">
-              <label htmlFor="write-reviwe">Write Reviwe</label>
+              <label htmlFor="write-reviwe">Write Review</label>
               <br />
               <textarea
                 name=""
@@ -96,6 +102,7 @@ const ReviewBox = ({ courseId }) => {
                   id="rat1"
                   name="radio-group"
                   value={1}
+                  defaultChecked={rate}
                   onChange={(e) => setRate(e.target.value)}
                 />
                 <label htmlFor="rat1" className="rat-1">
@@ -106,7 +113,7 @@ const ReviewBox = ({ courseId }) => {
           </div>
           <div className="input-field">
             <button className="btn btn-purple-400" type="submit">
-              Write Reviwe
+              Write Review
             </button>
           </div>
         </form>

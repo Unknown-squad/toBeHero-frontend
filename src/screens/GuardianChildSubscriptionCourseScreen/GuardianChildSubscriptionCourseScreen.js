@@ -11,6 +11,7 @@ import { getChildSubscriptionCourseDetailsActions } from "../../actions/getChild
 import Loader from "../../components/Loader";
 import ErrorMessage from "../../components/ErrorMessage";
 import { ADD_NEW_REVIEW_RESET } from "../../constants/addNewReviewConstants";
+import SuccessMessage from "../../components/SuccessMessage";
 const GuardianChildSubscriptionCourseScreen = ({ match }) => {
   const childId = match.params.childId;
   const courseId = match.params.courseId;
@@ -70,50 +71,70 @@ const GuardianChildSubscriptionCourseScreen = ({ match }) => {
               <ErrorMessage>{error}</ErrorMessage>
             ) : (
               <>
-                {data &&
-                  data.appointments &&
-                  data.appointments.map((appointment) => (
-                    <div
-                      className={`appointment-control-item ${
-                        Date.now() > Date.parse(appointment.date)
-                          ? ""
-                          : "live-active"
-                      }`}
-                      key={appointment._id}
-                    >
-                      {/* <!-- add className live-active to toggle item border and button --> */}
-                      <div className="appointment-sub-item appointment-date">
-                        <p>
-                          <span>
-                            {new Date(appointment.date).toLocaleDateString()}
-                          </span>
-                          {/* <span>22 Mar</span> */}
-                        </p>
-                      </div>
-                      <div className="appointment-sub-item appointment-time">
-                        <p>
-                          {new Date(appointment.date).toLocaleTimeString([], {
-                            hour: "2-digit",
-                            minute: "2-digit",
-                          })}
-                        </p>
-                      </div>
-                      <div className="appointment-sub-item appointment-title">
-                        <p>{appointment.title}</p>
-                      </div>
-                      {Date.now() > Date.parse(appointment.date) ? (
-                        <p>Finished</p>
-                      ) : (
-                        <div className="appointment-sub-item appointment-button active">
-                          <div className="guardian-live-btn ">
-                            <button>
-                              live now <span></span>
-                            </button>
+                {data && data.appointments && data.appointments.length === 0 ? (
+                  <SuccessMessage
+                    style={{
+                      color: "#004085",
+                      backgroundColor: "#cce5ff",
+                      borderColor: "#b8daff",
+                      width: "80%",
+                    }}
+                  >
+                    There is no appointments yet.
+                  </SuccessMessage>
+                ) : (
+                  <>
+                    {data &&
+                      data.appointments &&
+                      data.appointments.map((appointment) => (
+                        <div
+                          className={`appointment-control-item ${
+                            Date.now() > Date.parse(appointment.date)
+                              ? ""
+                              : "live-active"
+                          }`}
+                          key={appointment._id}
+                        >
+                          {/* <!-- add className live-active to toggle item border and button --> */}
+                          <div className="appointment-sub-item appointment-date">
+                            <p>
+                              <span>
+                                {new Date(
+                                  appointment.date
+                                ).toLocaleDateString()}
+                              </span>
+                              {/* <span>22 Mar</span> */}
+                            </p>
                           </div>
+                          <div className="appointment-sub-item appointment-time">
+                            <p>
+                              {new Date(appointment.date).toLocaleTimeString(
+                                [],
+                                {
+                                  hour: "2-digit",
+                                  minute: "2-digit",
+                                }
+                              )}
+                            </p>
+                          </div>
+                          <div className="appointment-sub-item appointment-title">
+                            <p>{appointment.title}</p>
+                          </div>
+                          {Date.now() > Date.parse(appointment.date) ? (
+                            <p>Finished</p>
+                          ) : (
+                            <div className="appointment-sub-item appointment-button active">
+                              <div className="guardian-live-btn ">
+                                <button>
+                                  live now <span></span>
+                                </button>
+                              </div>
+                            </div>
+                          )}
                         </div>
-                      )}
-                    </div>
-                  ))}
+                      ))}
+                  </>
+                )}
               </>
             )}
 
