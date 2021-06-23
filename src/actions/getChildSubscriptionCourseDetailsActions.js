@@ -6,13 +6,14 @@ import {
 } from "../constants/getChildSubscriptionCourseDetailsConstants";
 
 export const getChildSubscriptionCourseDetailsActions =
-  ({ childId, subscriptionId }) =>
+  ({ childId, courseId }) =>
   async (dispatch) => {
     try {
       dispatch({ type: GET_CHILD_SUBSCRIPTION_COURSE_DETAILS_REQUEST });
 
       const { data } = await axios.get(
-        `http://localhost:5000/api/v1/guardian/child-subscription/${childId}/${subscriptionId}`
+        `http://localhost:5000/api/v1/guardian/child-subscription/${childId}/${courseId}`,
+        { withCredentials: true }
       );
 
       dispatch({
