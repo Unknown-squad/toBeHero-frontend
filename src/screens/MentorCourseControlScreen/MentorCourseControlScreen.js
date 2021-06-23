@@ -56,14 +56,15 @@ const MentorCourseControlScreen = ({ match }) => {
 
   const handleCancel = (appointmentId) => {
     // console.log(appointmentId);
-    // if (window.confirm("Are you sure?")) {}
-
-    dispatch(mentorCancelAppointmentActions(subscriptionId, appointmentId));
+    if (window.confirm("Are you sure?")) {
+      dispatch(mentorCancelAppointmentActions(subscriptionId, appointmentId));
+    }
   };
   const handleDelete = (appointmentId) => {
     // console.log(appointmentId);
-    // if (window.confirm("Are you sure?")) {}
-    dispatch(mentorDeleteAppointmentActions(subscriptionId, appointmentId));
+    if (window.confirm("Are you sure?")) {
+      dispatch(mentorDeleteAppointmentActions(subscriptionId, appointmentId));
+    }
   };
   return (
     <>

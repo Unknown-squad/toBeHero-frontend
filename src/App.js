@@ -35,6 +35,7 @@ import GuardianHomeScreen from "./screens/GuardianHomeScreen";
 import GuardianSettingsScreen from "./screens/GuardianSettingsScreen";
 import GuardianHomeAddNewChildScreen from "./screens/GuardianHomeAddNewChildScreen";
 import GuardianHomeGetChildInfoScreen from "./screens/GuardianHomeGetChildInfoScreen";
+import GuardianChildSubscriptionCourseScreen from "./screens/GuardianChildSubscriptionCourseScreen";
 
 function App() {
   return (
@@ -59,6 +60,11 @@ function App() {
         <Route
           path="/guardian/home/child/:childId"
           component={GuardianHomeGetChildInfoScreen}
+          exact
+        ></Route>
+        <Route
+          path="/guardian/home/child/:childId/course-subscription/:courseId"
+          component={GuardianChildSubscriptionCourseScreen}
           exact
         ></Route>
         <Route

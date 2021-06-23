@@ -20,7 +20,7 @@ import { mentorUpdateEditCourseDashboardReducer } from "./reducers/mentorUpdateE
 import { mentorEditCourseDashboardReducer } from "./reducers/mentorEditCourseDashboardReducers";
 import { mentorAddNewCourseDashboardReducer } from "./reducers/mentorAddNewCourseDashboardReducers";
 import { getReviewsForExploreServiceReducer } from "./reducers/getReviewsForExploreServiceReducers";
-import { mentorStatusUpdateAvailabilityReducer } from "./reducers/mentorStatusUpdateAvailabilityReducers";
+// import { mentorStatusUpdateAvailabilityReducer } from "./reducers/mentorStatusUpdateAvailabilityReducers";
 import { mentorGetControlCourseDetailsReducer } from "./reducers/mentorGetControlCourseDetailsReducers";
 import { mentorCancelAppointmentReducer } from "./reducers/mentorCancelAppointmentReducers";
 import { mentorAddNewAppointmentReducer } from "./reducers/mentorAddNewAppointmentReducers";
@@ -53,7 +53,7 @@ const rootReducer = combineReducers({
   mentorUpdateEditCourseDashboard: mentorUpdateEditCourseDashboardReducer,
   mentorAddNewCourse: mentorAddNewCourseDashboardReducer,
   getReviews: getReviewsForExploreServiceReducer,
-  mentorStatusUpdate: mentorStatusUpdateAvailabilityReducer,
+  // mentorStatusUpdate: mentorStatusUpdateAvailabilityReducer,
   mentorGetControlCourse: mentorGetControlCourseDetailsReducer,
   mentorCancelAppointment: mentorCancelAppointmentReducer,
   mentorAddNewAppointment: mentorAddNewAppointmentReducer,

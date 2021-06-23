@@ -5,6 +5,7 @@ import { getSubscriptionsForChildActions } from "../../actions/getSubscriptionsF
 import courseFiller from "../../images/course-filler.svg";
 import Loader from "../Loader";
 import ErrorMessage from "../ErrorMessage";
+import { Link } from "react-router-dom";
 
 const EnrolledCoursesForChild = ({ match }) => {
   const childId = match.params.childId;
@@ -38,40 +39,44 @@ const EnrolledCoursesForChild = ({ match }) => {
           {data.items &&
             data.items.map((course) => (
               <div className="col-lg-4 col-12 " key={course._id}>
-                <div className="child-course-card">
-                  <div className="child-course-card-content">
-                    <div className="child-course-img">
-                      <img
-                        src={course.courseId.picture}
-                        alt=""
-                        onError={(e) => {
-                          e.target.onerror = null;
-                          e.target.src = courseFiller;
-                        }}
-                      />
-                    </div>
-                    <div className="child-course-info">
-                      <h2>{course.courseId.title}</h2>
-                      <p>{`${course.courseId.description.substring(
-                        0,
-                        70
-                      )}...`}</p>
-                    </div>
-                    <div className="mentor-appointment">
-                      <div className="mentor">
-                        Mentor: <span>{course.mentorId.fullName}</span>
+                <Link
+                  to={`/guardian/home/child/${childId}/course-subscription/${course._id}`}
+                >
+                  <div className="child-course-card">
+                    <div className="child-course-card-content">
+                      <div className="child-course-img">
+                        <img
+                          src={course.courseId.picture}
+                          alt=""
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = courseFiller;
+                          }}
+                        />
                       </div>
-                      <div className="next-appointment">
-                        nextappointment:{" "}
-                        <span>
-                          {course.nextAppointment === null
-                            ? "comming soon"
-                            : course.nextAppointment}
-                        </span>
+                      <div className="child-course-info">
+                        <h2>{course.courseId.title}</h2>
+                        <p>{`${course.courseId.description.substring(
+                          0,
+                          70
+                        )}...`}</p>
+                      </div>
+                      <div className="mentor-appointment">
+                        <div className="mentor">
+                          Mentor: <span>{course.mentorId.fullName}</span>
+                        </div>
+                        <div className="next-appointment">
+                          nextappointment:{" "}
+                          <span>
+                            {course.nextAppointment === null
+                              ? "comming soon"
+                              : course.nextAppointment}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               </div>
             ))}
         </>
