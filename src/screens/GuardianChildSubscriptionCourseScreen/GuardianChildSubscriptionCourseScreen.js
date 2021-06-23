@@ -4,6 +4,7 @@ import GuardianChildSubscriptionHeader from "../../components/GuardianChildSubsc
 
 import { Link, Route } from "react-router-dom";
 import ReviewBox from "../../components/ReviewBox/ReviewBox";
+import ReportProblem from "../../components/ReportProblem/ReportProblem";
 
 const GuardianChildSubscriptionCourseScreen = ({ match }) => {
   return (
@@ -62,7 +63,7 @@ const GuardianChildSubscriptionCourseScreen = ({ match }) => {
                 </div>
               </div>
             </div>
-
+            <ReportProblem></ReportProblem>
             <ReviewBox></ReviewBox>
           </div>
         </div>
