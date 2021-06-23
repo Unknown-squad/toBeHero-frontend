@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getChildSubscriptionCourseDetailsActions } from "../../actions/getChildSubscriptionCourseDetailsActions";
 import Loader from "../../components/Loader";
 import ErrorMessage from "../../components/ErrorMessage";
+import { ADD_NEW_REVIEW_RESET } from "../../constants/addNewReviewConstants";
 const GuardianChildSubscriptionCourseScreen = ({ match }) => {
   const childId = match.params.childId;
   const courseId = match.params.courseId;
@@ -21,6 +22,7 @@ const GuardianChildSubscriptionCourseScreen = ({ match }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch({ type: ADD_NEW_REVIEW_RESET });
     dispatch(getChildSubscriptionCourseDetailsActions({ childId, courseId }));
   }, [dispatch, childId, courseId]);
   console.log(data);
@@ -117,7 +119,9 @@ const GuardianChildSubscriptionCourseScreen = ({ match }) => {
 
             {/* <SubscriptionAppointmentsForChild></SubscriptionAppointmentsForChild> */}
             <ReportProblem></ReportProblem>
-            <ReviewBox></ReviewBox>
+            <ReviewBox
+              courseId={data && data.course && data.course._id}
+            ></ReviewBox>
           </div>
         </div>
       </section>
