@@ -23,11 +23,10 @@ const GuardianHerosColumn = () => {
     <>
       {loading ? (
         <Loader></Loader>
-      ) : error ? (
-        <ErrorMessage>{error}</ErrorMessage>
       ) : (
         <ul className="nav-guardian-home">
-          {data.items &&
+          {data &&
+            data.items &&
             data.items.map((child) => (
               <li key={child._id}>
                 <NavLink

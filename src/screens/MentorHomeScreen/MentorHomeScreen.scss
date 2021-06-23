@@ -32,6 +32,7 @@ header nav .nav-mentor {
   }
 }
 .hr-section-20 {
+  min-height: calc(100vh - 122px);
   padding: 15px 0 35px;
   .my-services-title {
     display: flex;
