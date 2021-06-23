@@ -2,7 +2,7 @@ import React from "react";
 import "./GuardianChildSubscriptionCourseScreen.scss";
 import GuardianChildSubscriptionHeader from "../../components/GuardianChildSubscriptionHeader";
 
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ReviewBox from "../../components/ReviewBox/ReviewBox";
 import ReportProblem from "../../components/ReportProblem/ReportProblem";
 import SubscriptionAppointmentsForChild from "../../components/SubscriptionAppointmentsForChild";
