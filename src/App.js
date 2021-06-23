@@ -36,6 +36,7 @@ import GuardianSettingsScreen from "./screens/GuardianSettingsScreen";
 import GuardianHomeAddNewChildScreen from "./screens/GuardianHomeAddNewChildScreen";
 import GuardianHomeGetChildInfoScreen from "./screens/GuardianHomeGetChildInfoScreen";
 import GuardianChildSubscriptionCourseScreen from "./screens/GuardianChildSubscriptionCourseScreen";
+import GuardianCheckoutScreen from "./screens/GuardianCheckoutScreen";
 
 function App() {
   return (
@@ -52,6 +53,11 @@ function App() {
           exact
         ></Route>
         <Route path="/guardian/explore" component={ExploreScreen} exact></Route>
+        <Route
+          path="/guardian/checkout"
+          component={GuardianCheckoutScreen}
+          exact
+        ></Route>
         <Route
           path="/guardian/settings"
           component={GuardianSettingsScreen}
