@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./GuardianChildSubscriptionCourseScreen.scss";
 import GuardianChildSubscriptionHeader from "../../components/GuardianChildSubscriptionHeader";
 
@@ -6,8 +6,13 @@ import { Link } from "react-router-dom";
 import ReviewBox from "../../components/ReviewBox/ReviewBox";
 import ReportProblem from "../../components/ReportProblem/ReportProblem";
 import SubscriptionAppointmentsForChild from "../../components/SubscriptionAppointmentsForChild";
+import { useDispatch, useSelector } from "react-redux";
 
 const GuardianChildSubscriptionCourseScreen = ({ match }) => {
+  const state = useSelector((state) => state.state);
+
+  const dispatch = useDispatch();
+  useEffect(() => {}, []);
   return (
     <>
       <GuardianChildSubscriptionHeader
@@ -42,7 +47,28 @@ const GuardianChildSubscriptionCourseScreen = ({ match }) => {
 
           <div className="guardian-appointment-control-container flex-column">
             <h4>Appointments</h4>
-            <SubscriptionAppointmentsForChild></SubscriptionAppointmentsForChild>
+            <div className="appointment-control-item live-active">
+              {/* <!-- add className live-active to toggle item border and button --> */}
+              <div className="appointment-sub-item appointment-date">
+                <p>
+                  <span>Wed</span> <span>22 Mar</span>
+                </p>
+              </div>
+              <div className="appointment-sub-item appointment-time">
+                <p>03 PM</p>
+              </div>
+              <div className="appointment-sub-item appointment-title">
+                <p>Appointment Title</p>
+              </div>
+              <div className="appointment-sub-item appointment-button active">
+                <div className="guardian-live-btn ">
+                  <button>
+                    live now <span></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            {/* <SubscriptionAppointmentsForChild></SubscriptionAppointmentsForChild> */}
             <ReportProblem></ReportProblem>
             <ReviewBox></ReviewBox>
           </div>
