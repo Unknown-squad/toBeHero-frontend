@@ -25,7 +25,7 @@ const LoginForm = ({ location, history, user }) => {
   const dispatch = useDispatch();
   const redirect = location.search
     ? location.search.split("=")[1]
-    : `/${user}/home`;
+    : `/${user}/explore`;
 
   useEffect(() => {
     dispatch({ type: MENTOR_LOGIN_RESET_ERROR });

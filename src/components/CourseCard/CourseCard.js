@@ -20,7 +20,7 @@ const CourseCard = ({ course }) => {
         <div className="card-content">
           <div className="course-img">
             <img
-              src={`http://localhost:5000${picture}`}
+              src={`${picture}`}
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src = courseFiller;
@@ -32,7 +32,7 @@ const CourseCard = ({ course }) => {
             <div className="mentor-name flex-row">
               <div className="mentor-img">
                 <img
-                  src={`http://localhost:5000${mentorId.picture}`}
+                  src={`${mentorId.picture}`}
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src =

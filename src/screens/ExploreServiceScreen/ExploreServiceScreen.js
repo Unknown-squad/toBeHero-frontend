@@ -14,7 +14,7 @@ import ErrorMessage from "../../components/ErrorMessage";
 import { courseDetailsAction } from "../../actions/courseDetailsActions";
 import { getReviewsForExploreServiceActions } from "../../actions/getReviewsForExploreServiceActions";
 
-const ExploreServiceScreen = ({ match }) => {
+const ExploreServiceScreen = ({ match, location, history }) => {
   const courseDetails = useSelector((state) => state.courseDetails);
   const { loading, error, data } = courseDetails;
   const getReviews = useSelector((state) => state.getReviews);
@@ -44,7 +44,12 @@ const ExploreServiceScreen = ({ match }) => {
               <>
                 <CourseDetails details={data.items[0]}></CourseDetails>
                 <CourseImageSlider details={data.items[0]}></CourseImageSlider>
-                <CoursePayment details={data.items[0]}></CoursePayment>
+                <CoursePayment
+                  course={data.items[0]._id}
+                  history={history}
+                  location={location}
+                  details={data.items[0]}
+                ></CoursePayment>
               </>
             )}
           </div>
