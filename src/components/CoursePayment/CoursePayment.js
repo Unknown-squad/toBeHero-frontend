@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 
 const CoursePayment = ({ details, location, history }) => {
+  const mentorLogin = useSelector((state) => state.mentorLogin);
+  const { mentorInfo } = mentorLogin;
   const checkoutHandler = () => {
     history.push(`/login/guardian?redirect=/guardian/checkout/${details._id}`);
   };
@@ -26,17 +28,26 @@ const CoursePayment = ({ details, location, history }) => {
           </div>
         </div>
         <div className="service-purchase-btns flex-column alin-itms-cntr">
-          <div className="service-purchase">
-            <button className="btn btn-purple-500" onClick={checkoutHandler}>
-              continue(10%)
-            </button>
-          </div>
-          <div>
-            <p>or</p>
-          </div>
-          <div className="service-contact">
-            <button className="btn btn-purple-200">Contact the mentor</button>
-          </div>
+          {mentorInfo ? null : (
+            <>
+              <div className="service-purchase">
+                <button
+                  className="btn btn-purple-500"
+                  onClick={checkoutHandler}
+                >
+                  continue(10%)
+                </button>
+              </div>
+              <div>
+                <p>or</p>
+              </div>
+              <div className="service-contact">
+                <button className="btn btn-purple-200">
+                  Contact the mentor
+                </button>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

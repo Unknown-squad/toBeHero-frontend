@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./GuardianChildSubscriptionCourseScreen.scss";
 import GuardianChildSubscriptionHeader from "../../components/GuardianChildSubscriptionHeader";
 
@@ -15,6 +15,7 @@ import SuccessMessage from "../../components/SuccessMessage";
 const GuardianChildSubscriptionCourseScreen = ({ match }) => {
   const childId = match.params.childId;
   const courseId = match.params.courseId;
+  const [show, setShow] = useState(false);
 
   const getChildSubscriptionCourseDetails = useSelector(
     (state) => state.getChildSubscriptionCourseDetails
@@ -44,13 +45,21 @@ const GuardianChildSubscriptionCourseScreen = ({ match }) => {
                 <p>{data && data.mentor && data.mentor.fullName}</p>
               </div>
               <div className="mentor-plate-phone-number">
-                <Link to="">
-                  {/* <p>Click to view phone number</p> */}
-                  <p>
-                    {data && data.mentor && data.mentor.countryCode}{" "}
+                <p
+                  onClick={() => setShow(!show)}
+                  style={show ? { display: "none" } : { cursor: "pointer" }}
+                >
+                  Click to view phone number
+                </p>
+                {show && (
+                  <p
+                    onClick={() => setShow(!show)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    {data && data.mentor && data.mentor.countryCode}
                     {data && data.mentor && data.mentor.phone}
                   </p>
-                </Link>
+                )}
               </div>
             </div>
             <div className="hero-name-plate">

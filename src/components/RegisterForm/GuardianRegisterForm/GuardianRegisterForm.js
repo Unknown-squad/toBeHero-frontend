@@ -7,7 +7,7 @@ import { MENTOR_REGISTER_RESET_ERROR } from "../../../constants/mentorRegisterCo
 import ErrorMessage from "../../ErrorMessage";
 import Loader from "../../Loader";
 
-const GuardianRegisterForm = ({ location, history }) => {
+const GuardianRegisterForm = ({ location, history, match }) => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
