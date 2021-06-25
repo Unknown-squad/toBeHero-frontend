@@ -1,7 +1,7 @@
 import React from "react";
 import GuardianHomeHeader from "../../components/GuardianHomeHeader";
 import Footer from "../../components/Footer";
-
+import StripeContainer from "../../components/StripeContainer";
 import "./GuardianCheckoutScreen.scss";
 const GuardianCheckoutScreen = () => {
   return (
@@ -64,62 +64,7 @@ const GuardianCheckoutScreen = () => {
                 </div>
                 <h6>Credit Card Info</h6>
                 <div className="name-card">
-                  <div className="input-field w-input-1">
-                    <label htmlFor="name">Name on card</label>
-                    <br />
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      placeholder=""
-                      required
-                      value=""
-                    />
-                  </div>
-                  <div className="input-field w-input-2">
-                    <label htmlFor="name-cvv">CVV Number</label>
-                    <br />
-                    <input
-                      type="text"
-                      id="name-cvv"
-                      name="name"
-                      placeholder=""
-                      required
-                      value=""
-                    />
-                  </div>
-                </div>
-                <div className="number-card">
-                  <div className="input-field w-input-1">
-                    <label htmlFor="name">Card number</label>
-                    <br />
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      placeholder=""
-                      required
-                      value=""
-                    />
-                  </div>
-                  <div className="exp-month">
-                    <label htmlFor="ex-month">EXP. Month</label>
-                    <select name="exp-month" id="ex-month">
-                      <option selected disabled></option>
-                      <option value="1">Programming</option>
-                      <option value="2">Programming</option>
-                      <option value="3">Programming</option>
-                    </select>
-                  </div>
-                  <div className="exp-year">
-                    <label htmlFor="ex-month">EXP. Year</label>
-                    <select name="exp-month" id="ex-month">
-                      <option selected disabled></option>
-                      <option value="1">Programming</option>
-                      <option value="2">Programming</option>
-                      <option value="3">Programming</option>
-                    </select>
-                  </div>
+                  <StripeContainer></StripeContainer>
                 </div>
                 <div className="input-field">
                   <input
