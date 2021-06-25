@@ -71,15 +71,15 @@ const EnrolledCoursesForChild = ({ match }) => {
                             <span>coming soon</span>
                           ) : (
                             <span>
-                              {" "}
                               {new Date(
-                                course.nextAppointment
-                              ).toLocaleDateString() -
-                                new Date(
-                                  course.nextAppointment
-                                ).toLocaleTimeString([], {
-                                  timeStyle: "short",
-                                })}
+                                course && course.nextAppointment
+                              ).toLocaleDateString()}{" "}
+                              -{" "}
+                              {new Date(
+                                course && course.nextAppointment
+                              ).toLocaleTimeString([], {
+                                timeStyle: "short",
+                              })}
                             </span>
                           )}
                         </div>

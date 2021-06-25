@@ -13,6 +13,8 @@ import Loader from "../../components/Loader";
 import ErrorMessage from "../../components/ErrorMessage";
 import { courseDetailsAction } from "../../actions/courseDetailsActions";
 import { getReviewsForExploreServiceActions } from "../../actions/getReviewsForExploreServiceActions";
+import MentorHomeHeader from "../../components/MentorHomeHeader";
+import GuardianHomeHeader from "../../components/GuardianHomeHeader";
 
 const ExploreServiceScreen = ({ match, location, history }) => {
   const courseDetails = useSelector((state) => state.courseDetails);
@@ -23,6 +25,10 @@ const ExploreServiceScreen = ({ match, location, history }) => {
     error: errorReviews,
     data: dataReviews,
   } = getReviews;
+  const mentorLogin = useSelector((state) => state.mentorLogin);
+  const { mentorInfo } = mentorLogin;
+  const guardianLogin = useSelector((state) => state.guardianLogin);
+  const { guardianInfo } = guardianLogin;
   const dispatch = useDispatch();
   useEffect(() => {
     Promise.all([
@@ -32,7 +38,14 @@ const ExploreServiceScreen = ({ match, location, history }) => {
   }, [dispatch, match]);
   return (
     <>
-      <MentorProfileExploreHeader></MentorProfileExploreHeader>
+      {mentorInfo ? (
+        <MentorHomeHeader></MentorHomeHeader>
+      ) : guardianInfo ? (
+        <GuardianHomeHeader></GuardianHomeHeader>
+      ) : (
+        <MentorProfileExploreHeader></MentorProfileExploreHeader>
+      )}
+
       <section className="hr-section-19">
         <div className="container">
           <div className="row">

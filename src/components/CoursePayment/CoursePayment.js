@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 
 const CoursePayment = ({ details, location, history }) => {
+  const [show, setShow] = useState(false);
   const mentorLogin = useSelector((state) => state.mentorLogin);
   const { mentorInfo } = mentorLogin;
   const checkoutHandler = () => {
@@ -35,16 +36,29 @@ const CoursePayment = ({ details, location, history }) => {
                   className="btn btn-purple-500"
                   onClick={checkoutHandler}
                 >
-                  continue(10%)
+                  continue({details.price} EGP)
                 </button>
               </div>
               <div>
                 <p>or</p>
               </div>
               <div className="service-contact">
-                <button className="btn btn-purple-200">
+                <button
+                  className="btn btn-purple-200"
+                  onClick={() => setShow(!show)}
+                  style={show ? { display: "none" } : { cursor: "pointer" }}
+                >
                   Contact the mentor
                 </button>
+                {show && (
+                  <p
+                    onClick={() => setShow(!show)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    {details && details.mentor && details.mentor.countryCode}
+                    {details && details.mentor && details.mentor.phone}
+                  </p>
+                )}
               </div>
             </>
           )}

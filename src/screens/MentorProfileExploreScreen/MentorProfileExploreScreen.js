@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import CourseCard from "../../components/CourseCard";
 import MentorProfileExploreHeader from "../../components/MentorProfileExploreHeader";
 
@@ -16,8 +16,11 @@ import Footer from "../../components/Footer";
 import { Link } from "react-router-dom";
 import Reviews from "../../components/Reviews";
 import { mentorProfileCoursesAction } from "../../actions/mentorProfileCoursesActions";
+import MentorHomeHeader from "../../components/MentorHomeHeader";
+import GuardianHomeHeader from "../../components/GuardianHomeHeader";
 
 const MentorProfileExploreScreen = ({ match }) => {
+  const [show, setShow] = useState(false);
   const mentorDetails = useSelector((state) => state.mentorDetails);
   const { loading, error, data } = mentorDetails;
   const mentorProfileCourses = useSelector(
@@ -28,6 +31,10 @@ const MentorProfileExploreScreen = ({ match }) => {
     error: errorMentorProfileCourses,
     data: dataMentorProfileCourses,
   } = mentorProfileCourses;
+  const mentorLogin = useSelector((state) => state.mentorLogin);
+  const { mentorInfo } = mentorLogin;
+  const guardianLogin = useSelector((state) => state.guardianLogin);
+  const { guardianInfo } = guardianLogin;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -47,7 +54,13 @@ const MentorProfileExploreScreen = ({ match }) => {
 
   return (
     <>
-      <MentorProfileExploreHeader></MentorProfileExploreHeader>
+      {mentorInfo ? (
+        <MentorHomeHeader></MentorHomeHeader>
+      ) : guardianInfo ? (
+        <GuardianHomeHeader></GuardianHomeHeader>
+      ) : (
+        <MentorProfileExploreHeader></MentorProfileExploreHeader>
+      )}
       <section className="hr-section-15">
         <div className="container container-profile">
           <div className="row">
@@ -91,11 +104,37 @@ const MentorProfileExploreScreen = ({ match }) => {
                       </li>
                       <li>
                         <img src={coloredPhoneIcon} alt="" />
-                        <Link to="">
-                          {data.countryCode}
-                          {data.phone}
-                        </Link>
+                        <p
+                          onClick={() => setShow(!show)}
+                          style={
+                            show
+                              ? { display: "none" }
+                              : {
+                                  cursor: "pointer",
+                                  fontSize: "14px",
+                                  textDecoration: "underline",
+                                  color: "#551A8B",
+                                }
+                          }
+                        >
+                          Show
+                        </p>
+                        {show && (
+                          <p
+                            onClick={() => setShow(!show)}
+                            style={{
+                              cursor: "pointer",
+                              fontSize: "14px",
+                              textDecoration: "underline",
+                              color: "#551A8B",
+                            }}
+                          >
+                            {data && data.countryCode}
+                            {data && data.phone}
+                          </p>
+                        )}
                       </li>
+
                       <li>
                         <img src={langIcon} alt="" />
                         {data.languages && data.languages.length > 0

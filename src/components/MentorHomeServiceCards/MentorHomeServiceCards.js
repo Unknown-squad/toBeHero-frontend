@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const MentorHomeServiceCards = ({ service }) => {
+  const [show, setShow] = useState(false);
   return (
     <div className="available-course">
       <div className="part-student">
@@ -50,9 +51,40 @@ const MentorHomeServiceCards = ({ service }) => {
           <p>or</p>
         </div>
         <div className="service-contact">
-          <Link to="">
-            {service.guardianId.countryCode} {service.guardianId.phone}
-          </Link>
+          <p
+            onClick={() => setShow(!show)}
+            style={
+              show
+                ? {
+                    display: "none",
+                    textDecoration: "underline",
+                    fontSize: "14px",
+                    color: "#551A8B",
+                  }
+                : {
+                    cursor: "pointer",
+                    textDecoration: "underline",
+                    fontSize: "14px",
+                    color: "#551A8B",
+                  }
+            }
+          >
+            Contact the Guardian
+          </p>
+          {show && (
+            <p
+              onClick={() => setShow(!show)}
+              style={{
+                cursor: "pointer",
+                textDecoration: "underline",
+                fontSize: "14px",
+                color: "#551A8B",
+              }}
+            >
+              {service && service.guardianId && service.guardianId.countryCode}
+              {service && service.guardianId && service.guardianId.phone}
+            </p>
+          )}
         </div>
       </div>
     </div>
