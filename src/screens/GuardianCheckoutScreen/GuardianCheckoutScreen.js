@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import GuardianHomeHeader from "../../components/GuardianHomeHeader";
 import Footer from "../../components/Footer";
 import StripeContainer from "../../components/StripeContainer";
 import "./GuardianCheckoutScreen.scss";
-const GuardianCheckoutScreen = () => {
+import { useDispatch, useSelector } from "react-redux";
+import { guardianGetChildrenActions } from "../../actions/guardianGetChildrenActions";
+import Loader from "../../components/Loader";
+import { Link } from "react-router-dom";
+
+import addSomeOne from "../../images/add-someone.svg";
+const GuardianCheckoutScreen = ({ match }) => {
+  const [select, setSelect] = useState();
+  const courseId = match.params.courseId;
+  const guardianGetChildren = useSelector((state) => state.guardianGetChildren);
+  const { loading, error, data } = guardianGetChildren;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(guardianGetChildrenActions());
+  }, [dispatch]);
   return (
     <>
       <GuardianHomeHeader></GuardianHomeHeader>
@@ -15,53 +30,52 @@ const GuardianCheckoutScreen = () => {
                 <span> Course:</span>
                 Lorem ipsum dolor sit amet, consetetur
               </h4>
-              <form action="">
-                <div className="select-child">
-                  <div className="option-child">
-                    <input
-                      type="radio"
-                      id="child-1"
-                      name="radio-group"
-                      checked
-                    />
-                    <label htmlFor="child-1">
-                      <img
-                        src="images/someone.svg"
-                        alt=""
-                        onError={(e) => {
-                          e.target.onerror = null;
-                          e.target.src =
-                            "https://img.icons8.com/ultraviolet/40/000000/user.png";
-                        }}
-                      />{" "}
-                      youssef
-                    </label>
+              <form>
+                {loading ? (
+                  <Loader></Loader>
+                ) : (
+                  <div className="select-child">
+                    {data &&
+                      data.items &&
+                      data.items.map((child, i) => (
+                        <div className="option-child" key={child._id}>
+                          <Link
+                            to={`/guardian/checkout/${courseId}/${child._id}`}
+                          >
+                            <input
+                              type="radio"
+                              id={`child-${i + 1}`}
+                              name="radio-group"
+                              value={`child-${i + 1}`}
+                              checked={select === `child-${i + 1}`}
+                              onChange={(e) => setSelect(e.target.value)}
+                            />
+                            <label htmlFor={`child-${i + 1}`}>
+                              <img
+                                src={child.picture}
+                                alt=""
+                                onError={(e) => {
+                                  e.target.onerror = null;
+                                  e.target.src =
+                                    "https://img.icons8.com/ultraviolet/40/000000/user.png";
+                                }}
+                              />
+                              {child.fullName}
+                            </label>
+                          </Link>
+                        </div>
+                      ))}
+                    <Link
+                      to={`/guardian/home/addchild?redirect=/guardian/checkout/${courseId}`}
+                    >
+                      <div className="add-new">
+                        <img src={addSomeOne} alt="" />
+                        <span>Add new</span>
+                      </div>
+                    </Link>
                   </div>
-                  <div className="option-child">
-                    <input
-                      type="radio"
-                      id="child-2"
-                      name="radio-group"
-                      checked
-                    />
-                    <label htmlFor="child-2">
-                      <img
-                        src="images/someone.svg"
-                        alt=""
-                        onError={(e) => {
-                          e.target.onerror = null;
-                          e.target.src =
-                            "https://img.icons8.com/ultraviolet/40/000000/user.png";
-                        }}
-                      />{" "}
-                      youssef
-                    </label>
-                  </div>
-                  <div className="add-new">
-                    <img src="images/add-new.svg" alt="" />
-                    <span>Add new</span>
-                  </div>
-                </div>
+                )}
+
                 <h6>Credit Card Info</h6>
                 <div className="name-card">
                   <StripeContainer></StripeContainer>

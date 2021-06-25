@@ -19,14 +19,11 @@ export const heroRegisterActions =
       const { data } = await axios.post(
         `http://localhost:5000/api/v1/guardian/new-child`,
         {
-          method: "newChild.post",
-          params: {
-            fullName,
-            userName,
-            password,
-            birthDate,
-            picture,
-          },
+          fullName,
+          userName,
+          password,
+          birthDate,
+          picture,
         },
         { withCredentials: true },
         config

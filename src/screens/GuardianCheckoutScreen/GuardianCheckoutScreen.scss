@@ -8,6 +8,10 @@
     display: flex;
     gap: 1rem;
     padding: 1rem 2rem;
+    form,
+    form div {
+      padding-bottom: 5px;
+    }
     .credit-card-info {
       background-color: #f3f4f7;
       width: 75%;
@@ -22,6 +26,7 @@
         }
       }
       .select-child {
+        overflow-x: scroll;
         display: flex;
         justify-content: flex-start;
         margin-top: 0.5rem;
@@ -115,13 +120,66 @@
         border: 1px solid $purple-200;
         background-image: none;
       }
-
-      .name-card {
-        // display: flex;
-        // gap: 0.75rem;
-        width: 30vw;
+      select {
+        padding: 0.35rem 0.6rem 0.35rem 0.1rem;
+        background-color: #fff;
+        border: 1px solid $purple-200;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+        outline: 0;
+        box-shadow: none;
+        background: #fff;
+        flex: 1;
+        color: $text-color;
+        cursor: pointer;
+        height: 100%;
+        background-image: none;
       }
-
+      .name-card {
+        display: flex;
+        gap: 0.75rem;
+        .w-input-1 {
+          width: 380px;
+        }
+        .w-input-2 {
+          width: 100px;
+        }
+      }
+      .number-card {
+        display: flex;
+        gap: 0.75rem;
+        .w-input-1 {
+          width: 380px;
+        }
+        .exp-month,
+        .exp-year {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          width: 100px;
+          line-height: 1;
+          border-radius: 12px;
+          height: 47px;
+          gap: 5px;
+          margin-top: 0.65rem;
+          &::after {
+            content: url(../../images/arrow-exp.svg);
+            position: absolute;
+            top: 1.5rem;
+            right: 0;
+            padding: 0 0.55rem;
+            width: auto;
+            cursor: pointer;
+            pointer-events: none;
+            -webkit-transition: 0.25s all ease;
+            -o-transition: 0.25s all ease;
+            transition: 0.25s all ease;
+          }
+        }
+      }
       .styled-checkbox {
         position: absolute;
         opacity: 0;

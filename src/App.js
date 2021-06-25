@@ -54,7 +54,7 @@ function App() {
         ></Route>
         <Route path="/guardian/explore" component={ExploreScreen} exact></Route>
         <Route
-          path="/guardian/checkout/:courseId"
+          path="/guardian/checkout/:courseId/:childId?"
           component={GuardianCheckoutScreen}
           exact
         ></Route>
