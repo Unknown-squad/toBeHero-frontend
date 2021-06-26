@@ -26,7 +26,7 @@ export const getBasicInfoForChildReducer = (state = initialState, action) => {
     case GET_BASIC_INFO_FOR_CHILD_SUCCESS:
       return {
         loading: false,
-        hero: action.payload.date.items[0],
+        hero: action.payload.data.items[0],
       };
     case GET_BASIC_INFO_FOR_CHILD_FAIL:
       return { loading: false, error: action.payload };

@@ -112,7 +112,7 @@ const MentorCourseControlScreen = ({ match }) => {
                     ) : success ? (
                       <SuccessMessage>{dataCancel.message}</SuccessMessage>
                     ) : null}
-                    {data.appontments && data.appontments.length === 0 && (
+                    {data.appoinments && data.appoinments.length === 0 && (
                       <SuccessMessage
                         style={{
                           color: "#004085",
@@ -124,8 +124,8 @@ const MentorCourseControlScreen = ({ match }) => {
                       </SuccessMessage>
                     )}
                     {loading && <Loader></Loader>}
-                    {data.appontments &&
-                      data.appontments.map((appointement) => (
+                    {data.appoinments &&
+                      data.appoinments.map((appointement) => (
                         <div
                           className="appointment-control-item live-active"
                           key={appointement._id}

@@ -57,6 +57,7 @@ const GuardianGetBasicInfoForHeroForm = ({ match }) => {
     }
     setAlert(false);
   }, [dispatch, childId, hero, success]);
+  console.log(hero);
 
   // const uploadFileHandler = async (e) => {
   //   const file = e.target.files[0];
