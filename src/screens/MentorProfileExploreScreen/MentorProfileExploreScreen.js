@@ -21,6 +21,7 @@ import GuardianHomeHeader from "../../components/GuardianHomeHeader";
 
 const MentorProfileExploreScreen = ({ match }) => {
   const [show, setShow] = useState(false);
+  const [limitTo, setLimitTo] = useState(4);
   const mentorDetails = useSelector((state) => state.mentorDetails);
   const { loading, error, data } = mentorDetails;
   const mentorProfileCourses = useSelector(
@@ -52,6 +53,9 @@ const MentorProfileExploreScreen = ({ match }) => {
     return Math.abs(ageDate.getUTCFullYear() - 1970);
   };
 
+  const onLoadMore = () => {
+    setLimitTo(limitTo + 4);
+  };
   return (
     <>
       {mentorInfo ? (
@@ -202,18 +206,29 @@ const MentorProfileExploreScreen = ({ match }) => {
         <div className="container">
           <h4>Reviews</h4>
           <div className="row">
-            {data.topReviewsId && data.topReviewsId.length > 0
-              ? data.topReviewsId.map((review) => (
-                  <Reviews
-                    review={review}
-                    path="mentorProfile"
-                    key={review._id}
-                  ></Reviews>
-                ))
-              : "No Reviews"}
+            {data && data.topReviewsId && data.topReviewsId.length > 0
+              ? data.topReviewsId
+                  .slice(0, limitTo)
+                  .map((review) => (
+                    <Reviews
+                      review={review}
+                      path="mentorProfile"
+                      key={review._id}
+                    ></Reviews>
+                  ))
+              : "No Reviews yet"}
           </div>
           <div className="view-more">
-            <Link to="">View more reviews</Link>
+            <p
+              style={{
+                color: "#8c61ff",
+                textDecoration: "underline",
+                cursor: "pointer",
+              }}
+              onClick={onLoadMore}
+            >
+              View more reviews
+            </p>
           </div>
         </div>
       </section>

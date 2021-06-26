@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
 import MentorProfileExploreHeader from "../../components/MentorProfileExploreHeader";
 import { Link } from "react-router-dom";
@@ -17,6 +17,9 @@ import MentorHomeHeader from "../../components/MentorHomeHeader";
 import GuardianHomeHeader from "../../components/GuardianHomeHeader";
 
 const ExploreServiceScreen = ({ match, location, history }) => {
+  const [limitTo, setLimitTo] = useState({ itemsToShow: 4, expanded: false });
+  // const [limitTo, setLimitTo] = useState(1);
+
   const courseDetails = useSelector((state) => state.courseDetails);
   const { loading, error, data } = courseDetails;
   const getReviews = useSelector((state) => state.getReviews);
@@ -36,6 +39,25 @@ const ExploreServiceScreen = ({ match, location, history }) => {
       dispatch(getReviewsForExploreServiceActions(match.params.id)),
     ]);
   }, [dispatch, match]);
+
+  // const onLoadMore = () => {
+  //   setLimitTo(limitTo + 1);
+  // };
+
+  // Object.keys(dataReviews.items[0].length
+  const showMore = () => {
+    limitTo.itemsToShow === 4
+      ? setLimitTo({
+          itemsToShow:
+            limitTo.itemsToShow + Object.keys(dataReviews.items[0]).length,
+          expanded: true,
+        })
+      : setLimitTo({
+          itemsToShow: 4,
+          expanded: false,
+        });
+  };
+
   return (
     <>
       {mentorInfo ? (
@@ -79,14 +101,28 @@ const ExploreServiceScreen = ({ match, location, history }) => {
                 <ErrorMessage>{errorReviews}</ErrorMessage>
               ) : (
                 dataReviews.items
-                  // .slice(0, 4)
+                  .slice(0, limitTo.itemsToShow)
+                  // .slice(0, limitTo)
                   .map((review) => (
                     <Reviews review={review} key={review._id}></Reviews>
                   ))
               )}
             </div>
             <div className="view-more">
-              <Link to="">View more reviews</Link>
+              <p
+                style={{
+                  color: "#8c61ff",
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                }}
+                onClick={showMore}
+              >
+                {limitTo.expanded ? (
+                  <span>Show less</span>
+                ) : (
+                  <span>Show more</span>
+                )}
+              </p>
             </div>
           </div>
         </div>
