@@ -51,13 +51,16 @@ const CoursePayment = ({ details, location, history }) => {
                   Contact the mentor
                 </button>
                 {show && (
-                  <p
+                  <button
+                    className="btn btn-purple-200"
                     onClick={() => setShow(!show)}
                     style={{ cursor: "pointer" }}
                   >
-                    {details && details.mentor && details.mentor.countryCode}
-                    {details && details.mentor && details.mentor.phone}
-                  </p>
+                    {details &&
+                      details.mentorId &&
+                      details.mentorId.countryCode}
+                    {details && details.mentorId && details.mentorId.phone}
+                  </button>
                 )}
               </div>
             </>
