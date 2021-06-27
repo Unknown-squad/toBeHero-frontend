@@ -30,7 +30,7 @@ export const heroRegisterActions =
       );
 
       dispatch({ type: HERO_REGISTER_SUCCESS, payload: data });
-      localStorage.setItem("heroInfo", JSON.stringify(data));
+      // localStorage.setItem("heroInfo", JSON.stringify(data));
     } catch (error) {
       let err = "";
       if (error.response) {
