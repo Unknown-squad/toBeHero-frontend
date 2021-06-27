@@ -1,0 +1,31 @@
+@import "../../index.scss";
+/* start page sign in-hero*/
+.header-signIn-hero {
+  padding: 0.5rem 1.5rem 0.5rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .arrow {
+    img {
+      width: auto;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        transform: scaleX(1.25);
+      }
+    }
+  }
+  .arrow-back {
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: #fff;
+      padding: 5px 5px 0 9px;
+      border-radius: 100%;
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+    }
+  }
+  .nav-signIn-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
