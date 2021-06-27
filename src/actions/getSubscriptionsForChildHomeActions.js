@@ -1,6 +1,11 @@
 import axios from "axios";
+import {
+  GET_SUBSCRIPTIONS_FOR_CHILD_HOME_FAIL,
+  GET_SUBSCRIPTIONS_FOR_CHILD_HOME_REQUEST,
+  GET_SUBSCRIPTIONS_FOR_CHILD_HOME_SUCCESS,
+} from "../constants/getSubscriptionsForChildHomeConstants";
 
-export const getSubscriptionForChildHomeActions = () => async (dispatch) => {
+export const getSubscriptionsForChildHomeActions = () => async (dispatch) => {
   try {
     dispatch({ type: GET_SUBSCRIPTIONS_FOR_CHILD_HOME_REQUEST });
 
