@@ -122,7 +122,7 @@ const MentorCourseControlScreen = ({ match }) => {
                     ) : success ? (
                       <SuccessMessage>{dataCancel.message}</SuccessMessage>
                     ) : null}
-                    {data.appoinments && data.appoinments.length === 0 && (
+                    {data.appointments && data.appointments.length === 0 && (
                       <SuccessMessage
                         style={{
                           color: "#004085",

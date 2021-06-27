@@ -14,7 +14,9 @@ const HeroLoginScreen = ({ location, history }) => {
   const heroLogin = useSelector((state) => state.heroLogin);
   const { loading, error, heroInfo } = heroLogin;
   const dispatch = useDispatch();
-  const redirect = location.search ? location.search.split("=")[1] : "/";
+  const redirect = location.search
+    ? location.search.split("=")[1]
+    : "/hero/home";
   useEffect(() => {
     if (heroInfo) {
       history.push(redirect);
