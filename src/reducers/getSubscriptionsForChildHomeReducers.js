@@ -40,7 +40,7 @@ export const getSubscriptionsForChildHomeReducer = (
       return {
         ...state,
         loading: false,
-        data: action.payload.data.items[0],
+        data: action.payload.data,
       };
     case GET_SUBSCRIPTIONS_FOR_CHILD_HOME_FAIL:
       return { loading: false, error: action.payload };
