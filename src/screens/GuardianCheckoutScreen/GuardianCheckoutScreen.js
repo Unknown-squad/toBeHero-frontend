@@ -41,6 +41,7 @@ const GuardianCheckoutScreen = ({ match }) => {
                 <span> Course: </span>
                 {courseData && courseData.title}
               </h4>
+              <p style={{ color: "#8C61FF" }}>Please select one Child</p>
               <form>
                 {loading ? (
                   <Loader></Loader>
