@@ -15,6 +15,8 @@ import { MENTOR_DELETE_APPOINTMENT_RESET } from "../../constants/mentorDeleteApp
 
 const MentorCourseControlScreen = ({ match }) => {
   const subscriptionId = match.params.id;
+  const [show, setShow] = useState(false);
+
   const mentorGetControlCourse = useSelector(
     (state) => state.mentorGetControlCourse
   );
@@ -85,13 +87,21 @@ const MentorCourseControlScreen = ({ match }) => {
                     <p>{data.guardianId && data.guardianId.fullName}</p>
                   </div>
                   <div className="guardian-plate-phone-number">
-                    <Link to="">
-                      {/* <p>Click to view phone number</p> */}
-                      <p>
-                        {data.guardianId && data.guardianId.countryCode}{" "}
+                    <p
+                      onClick={() => setShow(!show)}
+                      style={show ? { display: "none" } : { cursor: "pointer" }}
+                    >
+                      Click to view phone number
+                    </p>
+                    {show && (
+                      <p
+                        onClick={() => setShow(!show)}
+                        style={{ cursor: "pointer" }}
+                      >
+                        {data.guardianId && data.guardianId.countryCode}
                         {data.guardianId && data.guardianId.phone}
                       </p>
-                    </Link>
+                    )}
                   </div>
                 </div>
                 <div className="hero-name-plate">
@@ -124,20 +134,21 @@ const MentorCourseControlScreen = ({ match }) => {
                       </SuccessMessage>
                     )}
                     {loading && <Loader></Loader>}
-                    {data.appoinments &&
-                      data.appoinments.map((appointement) => (
+                    {data &&
+                      data.appointments &&
+                      data.appointments.map((appointment) => (
                         <div
                           className="appointment-control-item live-active"
-                          key={appointement._id}
+                          key={appointment._id}
                         >
                           <div className="appointment-sub-item appointment-date">
                             <p>
-                              {new Date(appointement.date).toLocaleDateString()}
+                              {new Date(appointment.date).toLocaleDateString()}
                             </p>
                           </div>
                           <div className="appointment-sub-item appointment-time">
                             <p>
-                              {new Date(appointement.date).toLocaleTimeString(
+                              {new Date(appointment.date).toLocaleTimeString(
                                 [],
                                 {
                                   timeStyle: "short",
@@ -146,14 +157,14 @@ const MentorCourseControlScreen = ({ match }) => {
                             </p>
                           </div>
                           <div className="appointment-sub-item appointment-title">
-                            <p>{appointement.title}</p>
+                            <p>{appointment.title}</p>
                           </div>
-                          {Date.now() > Date.parse(appointement.date) ? (
+                          {Date.now() > Date.parse(appointment.date) ? (
                             <p>Finished</p>
                           ) : (
                             <div className="appointment-sub-item appointment-button">
                               <div className="mentor-control-btn">
-                                {appointement.cancel ? (
+                                {appointment.cancel ? (
                                   <>
                                     <div
                                       className="mentor-live-btn"
@@ -173,7 +184,7 @@ const MentorCourseControlScreen = ({ match }) => {
                                       </p>
                                       <button
                                         onClick={() =>
-                                          handleDelete(appointement._id)
+                                          handleDelete(appointment._id)
                                         }
                                       >
                                         delete
@@ -184,7 +195,7 @@ const MentorCourseControlScreen = ({ match }) => {
                                   <button
                                     style={{ backgroundColor: "#C97878" }}
                                     onClick={() =>
-                                      handleCancel(appointement._id)
+                                      handleCancel(appointment._id)
                                     }
                                   >
                                     Cancel
@@ -194,7 +205,7 @@ const MentorCourseControlScreen = ({ match }) => {
                               <div
                                 className="mentor-live-btn"
                                 style={
-                                  appointement.cancel ? { display: "none" } : {}
+                                  appointment.cancel ? { display: "none" } : {}
                                 }
                               >
                                 <Link to="/mentor/live">

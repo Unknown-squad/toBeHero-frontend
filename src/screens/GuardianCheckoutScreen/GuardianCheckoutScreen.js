@@ -9,16 +9,27 @@ import Loader from "../../components/Loader";
 import { Link } from "react-router-dom";
 
 import addSomeOne from "../../images/add-someone.svg";
+import { getCourseDataForCheckoutActions } from "../../actions/getCourseDataForCheckoutActions";
 const GuardianCheckoutScreen = ({ match }) => {
-  const [select, setSelect] = useState();
+  const [childId, setChildId] = useState("");
   const courseId = match.params.courseId;
+
   const guardianGetChildren = useSelector((state) => state.guardianGetChildren);
   const { loading, error, data } = guardianGetChildren;
+  const getCourseDataForCheckout = useSelector(
+    (state) => state.getCourseDataForCheckout
+  );
+  const {
+    loading: loadingCourseData,
+    error: errorCourseData,
+    data: courseData,
+  } = getCourseDataForCheckout;
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(guardianGetChildrenActions());
-  }, [dispatch]);
+    dispatch(getCourseDataForCheckoutActions(courseId));
+  }, [dispatch, courseId]);
   return (
     <>
       <GuardianHomeHeader></GuardianHomeHeader>
@@ -27,8 +38,8 @@ const GuardianCheckoutScreen = ({ match }) => {
           <div className="checkout-card">
             <div className="credit-card-info">
               <h4 className="course">
-                <span> Course:</span>
-                Lorem ipsum dolor sit amet, consetetur
+                <span> Course: </span>
+                {courseData && courseData.title}
               </h4>
               <form>
                 {loading ? (
@@ -39,30 +50,26 @@ const GuardianCheckoutScreen = ({ match }) => {
                       data.items &&
                       data.items.map((child, i) => (
                         <div className="option-child" key={child._id}>
-                          <Link
-                            to={`/guardian/checkout/${courseId}/${child._id}`}
-                          >
+                          <label htmlFor={`child-${i + 1}`}>
                             <input
                               type="radio"
                               id={`child-${i + 1}`}
                               name="radio-group"
-                              value={`child-${i + 1}`}
-                              checked={select === `child-${i + 1}`}
-                              onChange={(e) => setSelect(e.target.value)}
+                              value={`${child._id}`}
+                              checked={childId === `${child._id}`}
+                              onChange={(e) => setChildId(e.target.value)}
                             />
-                            <label htmlFor={`child-${i + 1}`}>
-                              <img
-                                src={child.picture}
-                                alt=""
-                                onError={(e) => {
-                                  e.target.onerror = null;
-                                  e.target.src =
-                                    "https://img.icons8.com/ultraviolet/40/000000/user.png";
-                                }}
-                              />
-                              {child.fullName}
-                            </label>
-                          </Link>
+                            <img
+                              src={child.picture}
+                              alt=""
+                              onError={(e) => {
+                                e.target.onerror = null;
+                                e.target.src =
+                                  "https://img.icons8.com/ultraviolet/40/000000/user.png";
+                              }}
+                            />
+                            {child.fullName}
+                          </label>
                         </div>
                       ))}
                     <Link
@@ -75,29 +82,34 @@ const GuardianCheckoutScreen = ({ match }) => {
                     </Link>
                   </div>
                 )}
+              </form>
 
-                <h6>Credit Card Info</h6>
-                <div className="name-card">
-                  <StripeContainer></StripeContainer>
-                </div>
-                <div className="input-field">
+              <h6>Credit Card Info</h6>
+              <div className="name-card">
+                <StripeContainer
+                  childId={childId}
+                  courseId={courseId}
+                  price={courseData && courseData.price}
+                ></StripeContainer>
+              </div>
+
+              <div className="input-field">
+                <label htmlFor="save-card">
                   <input
                     className="styled-checkbox"
                     id="save-card"
                     type="checkbox"
-                    value=""
+                    value={false}
                   />
-                  <label htmlFor="save-card">
-                    save card data for future transactions
-                  </label>
-                </div>
-              </form>
+                  save card data for future transactions
+                </label>
+              </div>
             </div>
             <div className="checkout">
-              <div className="price">10.00$</div>
+              <div className="price">{courseData && courseData.price} EGP</div>
               <div className="total-price">
                 tolal
-                <span>10.0$</span>
+                <span>{courseData && courseData.price} EGP</span>
               </div>
               <div className="btn-checkout">
                 <button className="btn btn-purple-400">Checkout</button>

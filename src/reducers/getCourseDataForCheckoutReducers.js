@@ -26,7 +26,7 @@ export const getCourseDataForCheckoutReducer = (
       return {
         ...state,
         loading: false,
-        data: action.payload.data,
+        data: action.payload.data.items[0],
       };
     case GET_COURSE_DATA_FOR_CHECKOUT_FAIL:
       return { loading: false, error: action.payload };

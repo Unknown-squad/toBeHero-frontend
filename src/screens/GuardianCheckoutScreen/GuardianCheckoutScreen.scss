@@ -40,7 +40,7 @@
           color: $text-color;
           [type="radio"]:checked,
           [type="radio"]:not(:checked) {
-            display: none;
+            // display: none;
           }
           [type="radio"]:checked + label,
           [type="radio"]:not(:checked) + label {
