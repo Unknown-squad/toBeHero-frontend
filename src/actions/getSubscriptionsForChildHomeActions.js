@@ -9,7 +9,10 @@ export const getSubscriptionsForChildHomeActions = () => async (dispatch) => {
   try {
     dispatch({ type: GET_SUBSCRIPTIONS_FOR_CHILD_HOME_REQUEST });
 
-    const { data } = await axios.get(`http://localhost:5000/api/v1/child/home`);
+    const { data } = await axios.get(
+      `http://localhost:5000/api/v1/child/home`,
+      { withCredentials: true }
+    );
 
     dispatch({
       type: GET_SUBSCRIPTIONS_FOR_CHILD_HOME_SUCCESS,
