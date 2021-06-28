@@ -12,6 +12,7 @@ import SuccessMessage from "../../components/SuccessMessage";
 import { MENTOR_CANCEL_APPOINTMENT_RESET } from "../../constants/mentorCancelAppointmentConstants";
 import { mentorDeleteAppointmentActions } from "../../actions/mentorDeleteAppointmentActions";
 import { MENTOR_DELETE_APPOINTMENT_RESET } from "../../constants/mentorDeleteAppointmentConstants";
+import { completeCourseForMentorActions } from "../../actions/completeCourseForMentorActions";
 
 const MentorCourseControlScreen = ({ match }) => {
   const subscriptionId = match.params.id;
@@ -70,7 +71,7 @@ const MentorCourseControlScreen = ({ match }) => {
   };
   const onClickFinishCourse = (e) => {
     e.preventDefault();
-    dispatch();
+    dispatch(completeCourseForMentorActions(data._id));
   };
   return (
     <>

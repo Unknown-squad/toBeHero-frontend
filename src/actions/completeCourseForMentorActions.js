@@ -1,4 +1,9 @@
 import axios from "axios";
+import {
+  COMPLETE_COURSE_FOR_MENTOR_FAIL,
+  COMPLETE_COURSE_FOR_MENTOR_REQUEST,
+  COMPLETE_COURSE_FOR_MENTOR_SUCCESS,
+} from "../constants/completeCourseForMentorConstants";
 
 export const completeCourseForMentorActions =
   (subscriptionId) => async (dispatch) => {
