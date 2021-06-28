@@ -68,6 +68,10 @@ const MentorCourseControlScreen = ({ match }) => {
       dispatch(mentorDeleteAppointmentActions(subscriptionId, appointmentId));
     }
   };
+  const onClickFinishCourse = (e) => {
+    e.preventDefault();
+    dispatch();
+  };
   return (
     <>
       <MentorControlCourseHeader></MentorControlCourseHeader>
@@ -225,6 +229,15 @@ const MentorCourseControlScreen = ({ match }) => {
                       <MentorAppointmentForm
                         match={match}
                       ></MentorAppointmentForm>
+                    </div>
+                    <div className="add-new-appointment-button">
+                      <button
+                        type="submit"
+                        className="add-new-button"
+                        onClick={onClickFinishCourse}
+                      >
+                        Finish Course
+                      </button>
                     </div>
                   </div>
                 </div>

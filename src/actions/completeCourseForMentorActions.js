@@ -1,0 +1,36 @@
+import axios from "axios";
+
+export const completeCourseForMentorActions =
+  (subscriptionId) => async (dispatch) => {
+    try {
+      dispatch({ type: COMPLETE_COURSE_FOR_MENTOR_REQUEST });
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      const { data } = await axios.post(
+        `http://localhost:5000/api/v1/mentor/complete-subscription/${subscriptionId}`,
+        {},
+        { withCredentials: true },
+        config
+      );
+      dispatch({ type: COMPLETE_COURSE_FOR_MENTOR_SUCCESS, payload: data });
+    } catch (error) {
+      let err = "";
+      if (error.response) {
+        // Request made and server responded
+        err = error.response.data.error.message;
+      } else if (error.request) {
+        // The request was made but no response was received
+        err = error.request;
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        err = error.message;
+      }
+      dispatch({
+        type: COMPLETE_COURSE_FOR_MENTOR_FAIL,
+        payload: err,
+      });
+    }
+  };
