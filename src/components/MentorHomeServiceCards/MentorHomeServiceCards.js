@@ -15,10 +15,16 @@ const MentorHomeServiceCards = ({ service }) => {
       <div className="part-appointments">
         <h4>Appointments</h4>
         {service.appointments.map((date, i) => (
-          <p key={i}>
-            {new Date(date.date).toLocaleDateString()} -{" "}
-            {new Date(date.date).toLocaleTimeString([], { timeStyle: "short" })}{" "}
-          </p>
+          <React.Fragment key={i}>
+            {Date.now() > Date.parse(date.date) + 86400000 ? null : (
+              <p>
+                {new Date(date.date).toLocaleDateString()} -
+                {new Date(date.date).toLocaleTimeString([], {
+                  timeStyle: "short",
+                })}
+              </p>
+            )}
+          </React.Fragment>
 
           //   {service.appointments.map((date) =>
           //     new Date(date.date).toLocaleString()

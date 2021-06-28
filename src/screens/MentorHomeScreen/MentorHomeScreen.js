@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Footer from "../../components/Footer";
 
@@ -8,6 +8,8 @@ import "./MentorHomeScreen.scss";
 
 import MentorStatusAvailability from "../../components/MentorStatusAvailability";
 import MentorHomeServiceList from "../../components/MentorHomeServiceList";
+import { useDispatch, useSelector } from "react-redux";
+import { listServices } from "../../actions/serviceListActions";
 
 const MentorHomeScreen = () => {
   // const [status, setStatus] = useState(false);

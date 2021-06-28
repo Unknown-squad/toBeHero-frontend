@@ -72,6 +72,7 @@ const MentorCourseControlScreen = ({ match }) => {
   const onClickFinishCourse = (e) => {
     e.preventDefault();
     dispatch(completeCourseForMentorActions(subscriptionId));
+    window.location.href = "/mentor/home";
   };
   return (
     <>
@@ -164,9 +165,11 @@ const MentorCourseControlScreen = ({ match }) => {
                           <div className="appointment-sub-item appointment-title">
                             <p>{appointment.title}</p>
                           </div>
-                          {Date.now() > Date.parse(appointment.date) ? (
-                            <p>Finished</p>
-                          ) : (
+
+                          {new Date().toISOString().split("T")[0] ===
+                          new Date(appointment.date)
+                            .toISOString()
+                            .split("T")[0] ? (
                             <div className="appointment-sub-item appointment-button">
                               <div className="mentor-control-btn">
                                 {appointment.cancel ? (
@@ -218,6 +221,10 @@ const MentorCourseControlScreen = ({ match }) => {
                                 </Link>
                               </div>
                             </div>
+                          ) : Date.now() > Date.parse(appointment.date) ? (
+                            <p>Finished</p>
+                          ) : (
+                            <p>Coming soon</p>
                           )}
                         </div>
                       ))}
