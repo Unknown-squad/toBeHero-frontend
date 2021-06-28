@@ -71,7 +71,7 @@ const MentorCourseControlScreen = ({ match }) => {
   };
   const onClickFinishCourse = (e) => {
     e.preventDefault();
-    dispatch(completeCourseForMentorActions(data._id));
+    dispatch(completeCourseForMentorActions(subscriptionId));
   };
   return (
     <>
