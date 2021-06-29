@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import hero1 from "../../images/hero1.png";
 import heroIconTeach from "../../images/hero-icon-teach.svg";
@@ -13,11 +13,14 @@ import "./LandingScreen.scss";
 import Footer from "../../components/Footer";
 import LandingHeader from "../../components/LandingHeader";
 import Meta from "../../components/Meta";
+import Headroom from "react-headroom";
 const LandingScreen = () => {
   return (
     <>
       <Meta></Meta>
-      <LandingHeader></LandingHeader>
+      <Headroom style={{ zIndex: "999999" }}>
+        <LandingHeader></LandingHeader>
+      </Headroom>
       {/* <!-- start sextion-1 --> */}
       <section className="hr-section-1">
         <div className="container">
