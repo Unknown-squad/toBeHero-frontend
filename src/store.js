@@ -32,6 +32,11 @@ import { getSubscriptionsForChildReducer } from "./reducers/getSubscriptionsForC
 import { mentorDeleteAppointmentReducer } from "./reducers/mentorDeleteAppointmentReducers";
 import { guardianGetBasicInfoReducer } from "./reducers/guardianGetBasicInfoReducers";
 import { guardianUpdateBasicInfoReducer } from "./reducers/guardianUpdateBasicInfoReducers";
+import { getChildSubscriptionCourseDetailsReducer } from "./reducers/getChildSubscriptionCourseDetailsReducers";
+import { addNewReviewReducer } from "./reducers/addNewReviewReducers";
+import { getCourseDataForCheckoutReducer } from "./reducers/getCourseDataForCheckoutReducers";
+import { getSubscriptionsForChildHomeReducer } from "./reducers/getSubscriptionsForChildHomeReducers";
+import { completeCourseForMentorReducer } from "./reducers/completeCourseForMentorReducers";
 
 const rootReducer = combineReducers({
   courseList: courseListReducer,
@@ -65,6 +70,11 @@ const rootReducer = combineReducers({
   mentorDeleteAppointment: mentorDeleteAppointmentReducer,
   guardianGetBasicInfo: guardianGetBasicInfoReducer,
   guardianUpdateBasicInfo: guardianUpdateBasicInfoReducer,
+  getChildSubscriptionCourseDetails: getChildSubscriptionCourseDetailsReducer,
+  addNewReview: addNewReviewReducer,
+  getCourseDataForCheckout: getCourseDataForCheckoutReducer,
+  getSubscriptionsForChildHome: getSubscriptionsForChildHomeReducer,
+  completeCourseForMentor: completeCourseForMentorReducer,
 });
 
 const guardianInfoFromStorage = localStorage.getItem("guardianInfo")

@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const MentorHomeServiceCards = ({ service }) => {
+  const [show, setShow] = useState(false);
+  let data = [];
+  let dataa = [];
+  let input;
+  data.forEach((el) => {
+    if (Date.now() > Date.parse(el) + 86400000) {
+      dataa.push(el);
+    }
+  });
+  if (dataa.length === 0) {
+    input = `-`;
+  }
   return (
     <div className="available-course">
       <div className="part-student">
@@ -14,10 +26,16 @@ const MentorHomeServiceCards = ({ service }) => {
       <div className="part-appointments">
         <h4>Appointments</h4>
         {service.appointments.map((date, i) => (
-          <p key={i}>
-            {new Date(date.date).toLocaleDateString()} -{" "}
-            {new Date(date.date).toLocaleTimeString([], { timeStyle: "short" })}{" "}
-          </p>
+          <React.Fragment key={i}>
+            {Date.now() > Date.parse(date.date) ? null : (
+              <p>
+                {new Date(date.date).toLocaleDateString()} -
+                {new Date(date.date).toLocaleTimeString([], {
+                  timeStyle: "short",
+                })}
+              </p>
+            )}
+          </React.Fragment>
 
           //   {service.appointments.map((date) =>
           //     new Date(date.date).toLocaleString()
@@ -39,6 +57,7 @@ const MentorHomeServiceCards = ({ service }) => {
           //     new Date(date.date).toLocaleTimeString()
           //   )}{" "} */}
         ))}{" "}
+        {/* {service.appointments.map((date) => data.push(date.date))} */}
       </div>
       <div className="part-contact">
         <div className="service-course">
@@ -50,9 +69,40 @@ const MentorHomeServiceCards = ({ service }) => {
           <p>or</p>
         </div>
         <div className="service-contact">
-          <Link to="">
-            {service.guardianId.countryCode} {service.guardianId.phone}
-          </Link>
+          <p
+            onClick={() => setShow(!show)}
+            style={
+              show
+                ? {
+                    display: "none",
+                    textDecoration: "underline",
+                    fontSize: "14px",
+                    color: "#551A8B",
+                  }
+                : {
+                    cursor: "pointer",
+                    textDecoration: "underline",
+                    fontSize: "14px",
+                    color: "#551A8B",
+                  }
+            }
+          >
+            Contact the Guardian
+          </p>
+          {show && (
+            <p
+              onClick={() => setShow(!show)}
+              style={{
+                cursor: "pointer",
+                textDecoration: "underline",
+                fontSize: "14px",
+                color: "#551A8B",
+              }}
+            >
+              {service && service.guardianId && service.guardianId.countryCode}
+              {service && service.guardianId && service.guardianId.phone}
+            </p>
+          )}
         </div>
       </div>
     </div>

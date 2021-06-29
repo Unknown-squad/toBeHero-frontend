@@ -67,11 +67,21 @@ const EnrolledCoursesForChild = ({ match }) => {
                         </div>
                         <div className="next-appointment">
                           nextappointment:{" "}
-                          <span>
-                            {course.nextAppointment === null
-                              ? "comming soon"
-                              : course.nextAppointment}
-                          </span>
+                          {course.nextAppointment === null ? (
+                            <span>coming soon</span>
+                          ) : (
+                            <span>
+                              {new Date(
+                                course && course.nextAppointment
+                              ).toLocaleDateString()}{" "}
+                              -{" "}
+                              {new Date(
+                                course && course.nextAppointment
+                              ).toLocaleTimeString([], {
+                                timeStyle: "short",
+                              })}
+                            </span>
+                          )}
                         </div>
                       </div>
                     </div>

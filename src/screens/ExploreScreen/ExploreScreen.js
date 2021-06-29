@@ -13,6 +13,7 @@ import Loader from "../../components/Loader";
 import ErrorMessage from "../../components/ErrorMessage";
 import MentorHomeHeader from "../../components/MentorHomeHeader";
 import GuardianHomeHeader from "../../components/GuardianHomeHeader";
+import Meta from "../../components/Meta";
 
 const ExploreScreen = ({ location, history }) => {
   const genre = new URLSearchParams(location.search).get("genre") || "";
@@ -35,6 +36,7 @@ const ExploreScreen = ({ location, history }) => {
   }, [dispatch, pageNumber, genre, sortby, ratings]);
   return (
     <>
+      <Meta title="ToBeHero | Explore"></Meta>
       {mentorInfo ? (
         <MentorHomeHeader></MentorHomeHeader>
       ) : guardianInfo ? (

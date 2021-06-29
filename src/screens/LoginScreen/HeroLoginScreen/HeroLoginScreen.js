@@ -7,6 +7,7 @@ import HeroHeader from "../../../components/HeroHeader";
 import { heroLoginActions } from "../../../actions/heroLoginActions";
 import Loader from "../../../components/Loader";
 import ErrorMessage from "../../../components/ErrorMessage";
+import Meta from "../../../components/Meta";
 
 const HeroLoginScreen = ({ location, history }) => {
   const [userName, setUserName] = useState("");
@@ -14,7 +15,9 @@ const HeroLoginScreen = ({ location, history }) => {
   const heroLogin = useSelector((state) => state.heroLogin);
   const { loading, error, heroInfo } = heroLogin;
   const dispatch = useDispatch();
-  const redirect = location.search ? location.search.split("=")[1] : "/";
+  const redirect = location.search
+    ? location.search.split("=")[1]
+    : "/hero/home";
   useEffect(() => {
     if (heroInfo) {
       history.push(redirect);
@@ -26,6 +29,7 @@ const HeroLoginScreen = ({ location, history }) => {
   };
   return (
     <>
+      <Meta title="ToBeHero | Hero Login"></Meta>
       <HeroHeader></HeroHeader>
       <div className="container-sign">
         <section className="hr-section-9">

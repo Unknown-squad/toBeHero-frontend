@@ -6,9 +6,11 @@ import { Route } from "react-router-dom";
 import GuardianAddNewChildForm from "../../components/GuardianAddNewChildForm";
 
 import "./GuardianHomeAddNewChildScreen.scss";
+import Meta from "../../components/Meta";
 const GuardianHomeAddNewChildScreen = () => {
   return (
     <>
+      <Meta title="Guardian | Add New Child"></Meta>
       <GuardianHomeHeader></GuardianHomeHeader>
       <section className="hr-section-23">
         <div className="container">

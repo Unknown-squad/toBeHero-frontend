@@ -2,268 +2,683 @@
 
 /*start page guardian-course*/
 .hr-section-24 {
-    padding: 15px 80px 60px;
-    min-height: calc(100vh - 119px);
-    h4 {
-      text-align: center;
-      color: $text-color;
-      font-size: 22px;
-      font-weight: 300;
+  padding: 15px 80px 60px;
+  min-height: calc(100vh - 119px);
+  h4 {
+    text-align: center;
+    color: $text-color;
+    font-size: 22px;
+    font-weight: 300;
+  }
+  .name-plate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 2.5rem 0 1.5rem;
+    .mentor-name-plate {
+      border: 1px solid $purple-300;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 20rem;
+      padding: 1.25rem 0;
+      color: $purple-500;
+      position: relative;
+      .mentor-plate-phone-number * {
+        text-decoration: none;
+        font-weight: 300;
+        font-size: 12px;
+        color: $text-color;
+      }
     }
-    .name-plate {
+    .plate-title {
+      border: 1px solid $purple-300;
+      border-radius: 25px;
+      padding: 0.3rem 3rem;
+      background-color: white;
+      position: absolute;
+      top: -1.25rem;
+      p {
+        font-size: 16px;
+        font-weight: 300;
+      }
+    }
+    .inner-name-plate p {
+      font-size: 18px;
+      font-weight: 400;
+    }
+    .hero-name-plate {
+      border: 1px solid $purple-300;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 20rem;
+      padding: 1.75rem 0;
+      color: $purple-500;
+      position: relative;
+    }
+  }
+
+  .guardian-appointment-control-container {
+    row-gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    h4 {
+      color: $purple-500;
+    }
+    .appointment-control-item {
+      display: flex;
+      background-color: #f3f4f7;
+      align-items: center;
+      border-radius: 12px;
+      gap: 0.75rem;
+      padding: 0.5rem;
+      width: 41rem;
+      border: 1px solid transparent;
+      &.live-active {
+        border: 1px solid $purple-200;
+        box-shadow: 0px 0px 4px $purple-200;
+        .appointment-date,
+        .appointment-time,
+        .appointment-title {
+          border: 1px solid $purple-200;
+        }
+      }
+    }
+    .appointment-sub-item p {
+      color: $text-color;
+      font-size: 14px;
+      font-weight: 300;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .appointment-date,
+    .appointment-time,
+    .appointment-title {
+      background-color: white;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid transparent;
+      border-radius: 7px;
+    }
+
+    .appointment-title {
+      width: 17.45rem;
+    }
+
+    .appointment-button {
+      display: flex;
+      gap: 0.5rem;
+      margin-left: 0.5rem;
+      button {
+        cursor: pointer;
+      }
+      visibility: hidden;
+      &.active {
+        visibility: inherit;
+      }
+    }
+    .live-active .appointment-button .guardian-live-btn button {
+      background-color: $purple-200;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 0.4rem 1.5rem;
+      opacity: 1;
+      span {
+        background-color: #fff;
+        border-radius: 50%;
+        width: 7px;
+        height: 7px;
+        display: inline-flex;
+        margin-left: 3px;
+      }
+    }
+    .guardian-live-btn button {
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 0.4rem 1.5rem;
+      background-color: $purple-200;
+      opacity: 0.4;
+    }
+    .report {
+      text-align: center;
+      .report-problem {
+        color: #fff;
+        background-color: $purple-200;
+        width: 180px;
+        padding: 0.25rem 1.5rem;
+        margin-top: 0.5rem;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 25px;
+      }
+    }
+
+    .rating-box {
+      width: 100%;
+      margin-top: 1.75rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 1rem;
-      margin: 2.5rem 0 1.5rem;
-      .mentor-name-plate {
-        border: 1px solid $purple-300;
-        border-radius: 12px;
+      .rating-write-reviwe {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        gap: 1rem;
         justify-content: center;
-        width: 20rem;
-        padding: 1.25rem 0;
-        color: $purple-500;
-        position: relative;
-        .mentor-plate-phone-number * {
-          text-decoration: none;
-          font-weight: 300;
-          font-size: 12px;
-          color: $text-color;
-        }
-      }
-      .plate-title {
-        border: 1px solid $purple-300;
-        border-radius: 25px;
-        padding: 0.3rem 3rem;
-        background-color: white;
-        position: absolute;
-        top: -1.25rem;
-        p {
-          font-size: 16px;
-          font-weight: 300;
-        }
-      }
-      .inner-name-plate p {
-        font-size: 18px;
-        font-weight: 400;
-      }
-      .hero-name-plate {
-        border: 1px solid $purple-300;
-        border-radius: 12px;
-        display: flex;
-        flex-direction: column;
         align-items: center;
-        justify-content: center;
-        width: 20rem;
-        padding: 1.75rem 0;
-        color: $purple-500;
-        position: relative;
-      }
-    }
-  
-    .guardian-appointment-control-container {
-      row-gap: 0.5rem;
-      justify-content: center;
-      align-items: center;
-      h4 {
-        color: $purple-500;
-      }
-      .appointment-control-item {
-        display: flex;
-        background-color: #f3f4f7;
-        align-items: center;
-        border-radius: 12px;
-        gap: 0.75rem;
-        padding: 0.5rem;
-        width: 41rem;
-        border: 1px solid transparent;
-        &.live-active {
-          border: 1px solid $purple-200;
-          box-shadow: 0px 0px 4px $purple-200;
-          .appointment-date,
-          .appointment-time,
-          .appointment-title {
-            border: 1px solid $purple-200;
+        .form-rating-reviwe {
+          display: flex;
+          justify-content: center;
+          gap: 2rem;
+          padding: 0.5rem 3rem 0.5rem 0.75rem;
+          border-radius: 12px;
+          background-color: #f3f4f7;
+          color: $purple-500;
+          font-size: 20px;
+          .write-reviwe {
+            label {
+              font-size: 16px;
+            }
+            textarea {
+              border: 1px solid $cyan;
+              border-radius: 12px;
+              resize: none;
+              padding-left: 10px;
+              padding-top: 10px;
+              width: 500px;
+              height: 150px;
+            }
+          }
+          .rating {
+            margin-top: 0.15rem;
+            [type="radio"]:checked,
+            [type="radio"]:not(:checked) {
+              display: none;
+            }
+            [type="radio"]:checked + label,
+            [type="radio"]:not(:checked) + label {
+              position: relative;
+              padding-left: 22px;
+              cursor: pointer;
+              line-height: 17px;
+              display: flex;
+              align-items: center;
+              gap: 5px;
+              font-size: 18px;
+              color: $text-color;
+              &.rat-1 {
+                gap: 7px;
+                padding-left: 25px;
+              }
+            }
+            [type="radio"]:checked + label:before,
+            [type="radio"]:not(:checked) + label:before {
+              content: "";
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 16px;
+              height: 16px;
+              border: 1px solid $purple-400;
+              border-radius: 100%;
+              background: #fff;
+            }
+            [type="radio"]:checked + label:after,
+            [type="radio"]:not(:checked) + label:after {
+              content: "";
+              width: 12px;
+              height: 12px;
+              background: $purple-400;
+              position: absolute;
+              top: 3px;
+              left: 3px;
+              border-radius: 100%;
+              -webkit-transition: all 0.2s ease;
+              transition: all 0.2s ease;
+            }
+            [type="radio"]:not(:checked) + label:after {
+              opacity: 0;
+              -webkit-transform: scale(0);
+              transform: scale(0);
+            }
+            [type="radio"]:checked + label:after {
+              opacity: 1;
+              -webkit-transform: scale(1);
+              transform: scale(1);
+            }
+            img {
+              width: auto;
+            }
           }
         }
-      }
-      .appointment-sub-item p {
-        color: $text-color;
-        font-size: 14px;
-        font-weight: 300;
-        display: flex;
-        gap: 1rem;
-      }
-  
-      .appointment-date,
-      .appointment-time,
-      .appointment-title {
-        background-color: white;
-        padding: 0.3rem 0.75rem;
-        border: 1px solid transparent;
-        border-radius: 7px;
-      }
-  
-      .appointment-title {
-        width: 17.45rem;
-      }
-  
-      .appointment-button {
-        display: flex;
-        gap: 0.5rem;
-        margin-left: 0.5rem;
-        button {
-          cursor: pointer;
-        }
-        visibility: hidden;
-        &.active {
-          visibility: inherit;
-        }
-      }
-      .live-active .appointment-button .guardian-live-btn button {
-        background-color: $purple-200;
-        color: white;
-        border: none;
-        border-radius: 25px;
-        padding: 0.4rem 1.5rem;
-        opacity: 1;
-        span {
-          background-color: #fff;
-          border-radius: 50%;
-          width: 7px;
-          height: 7px;
-          display: inline-flex;
-          margin-left: 3px;
-        }
-      }
-      .guardian-live-btn button {
-        color: white;
-        border: none;
-        border-radius: 25px;
-        padding: 0.4rem 1.5rem;
-        background-color: $purple-200;
-        opacity: 0.4;
-      }
-      .report {
-        text-align: center;
-        .report-problem {
-          color: #fff;
-          background-color: $purple-200;
+        .btn-purple-400 {
           width: 180px;
           padding: 0.25rem 1.5rem;
-          margin-top: 0.5rem;
-          margin-left: auto;
-          margin-right: auto;
-          border-radius: 25px;
-        }
-      }
-  
-      .rating-box {
-        width: 100%;
-        margin-top: 1.75rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .rating-write-reviwe {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          justify-content: center;
-          align-items: center;
-          .form-rating-reviwe {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            padding: 0.5rem 3rem 0.5rem 0.75rem;
-            border-radius: 12px;
-            background-color: #f3f4f7;
-            color: $purple-500;
-            font-size: 20px;
-            .write-reviwe {
-              label {
-                font-size: 16px;
-              }
-              textarea {
-                border: 1px solid $cyan;
-                border-radius: 12px;
-                resize: none;
-                padding-left: 10px;
-                padding-top: 10px;
-                width: 500px;
-                height: 150px;
-              }
-            }
-            .rating {
-              margin-top: 0.15rem;
-              [type="radio"]:checked,
-              [type="radio"]:not(:checked) {
-                display: none;
-              }
-              [type="radio"]:checked + label,
-              [type="radio"]:not(:checked) + label {
-                position: relative;
-                padding-left: 22px;
-                cursor: pointer;
-                line-height: 17px;
-                display: flex;
-                align-items: center;
-                gap: 5px;
-                font-size: 18px;
-                color: $text-color;
-                &.rat-1 {
-                  gap: 7px;
-                  padding-left: 25px;
-                }
-              }
-              [type="radio"]:checked + label:before,
-              [type="radio"]:not(:checked) + label:before {
-                content: "";
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 16px;
-                height: 16px;
-                border: 1px solid $purple-400;
-                border-radius: 100%;
-                background: #fff;
-              }
-              [type="radio"]:checked + label:after,
-              [type="radio"]:not(:checked) + label:after {
-                content: "";
-                width: 12px;
-                height: 12px;
-                background: $purple-400;
-                position: absolute;
-                top: 3px;
-                left: 3px;
-                border-radius: 100%;
-                -webkit-transition: all 0.2s ease;
-                transition: all 0.2s ease;
-              }
-              [type="radio"]:not(:checked) + label:after {
-                opacity: 0;
-                -webkit-transform: scale(0);
-                transform: scale(0);
-              }
-              [type="radio"]:checked + label:after {
-                opacity: 1;
-                -webkit-transform: scale(1);
-                transform: scale(1);
-              }
-              img {
-                width: auto;
-              }
-            }
-          }
-          .btn-purple-400 {
-            width: 180px;
-            padding: 0.25rem 1.5rem;
-          }
         }
       }
     }
   }
-  /*end page guardian-course-*/
+}
+/*end page guardian-course-*/
+/*media*/
+@media screen and (min-width: 992px) {
+  .col-lg-30 {
+    flex: 0 0 29%;
+    max-width: 29%;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+  .hr-section-22 .mentor-appointment-control-container .appointment-title {
+    width: 24.75rem;
+  }
+  .hr-section-22 .notes-container {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .hr-section-23
+    .guardian-home
+    .basic-info-child
+    .child-course-card
+    .child-course-info
+    h2 {
+    font-size: 18px;
+  }
+  .hr-section-25 .guardian-settings {
+    width: 68rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .hr-section-19 .lead-profile {
+    font-size: 16px;
+  }
+  .hr-section-19 .mentor-rate h3 {
+    font-size: 22px;
+  }
+  .hr-section-19 .p-service .service-category {
+    font-size: 16px;
+  }
+  .hr-section-19 .slider-service .slider-service-content .circle-arrow-left {
+    left: 6.5%;
+  }
+  .hr-section-19 .purchase-container {
+    max-width: 32.5rem;
+  }
+  .hr-section-20 {
+    min-height: calc(100vh - 122px);
+  }
+}
+@media screen and (max-width: 1024px) {
+  .hr-section-21 {
+    padding: 15px 0;
+  }
+  .hr-section-21
+    .mentor-dashboard
+    .dashboard-course-service
+    .service-info-details
+    .select-topic-price {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .hr-section-22 .mentor-appointment-control-container .appointment-title {
+    width: 10rem;
+  }
+  .hr-section-22 {
+    padding: 15px 0;
+  }
+  .hr-section-23 .guardian-home .basic-info-child .someone-child {
+    left: -3.5%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .container {
+    max-width: 94%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+  section {
+    padding: 30px 0;
+  }
+  .hr-section-3 .btn-g-m-start::after {
+    bottom: 50px;
+  }
+  .hr-section-2 .card-overlay {
+    max-width: 230px;
+  }
+  .hr-section-9,
+  .hr-section-16 {
+    padding: 30px 0;
+  }
+  .hr-section-2 .ml-card-4 {
+    margin-left: 0;
+  }
+  .hr-section-11,
+  .hr-section-13,
+  .hr-section-14 {
+    padding: 15px 0;
+  }
+  .hr-section-21 {
+    padding: 15px 80px;
+  }
+  .hr-section-21
+    .mentor-dashboard
+    .dashboard-course-service
+    .service-info-details
+    .select-topic-price {
+    flex-direction: row;
+    gap: 11px;
+  }
+  .hr-section-22,
+  .hr-section-24 {
+    padding: 15px 0;
+  }
+  .hr-section-22 .mentor-appointment-control-container .appointment-title,
+  .hr-section-24 .guardian-appointment-control-container .appointment-title {
+    width: 16.25rem;
+  }
+  .hr-section-25 {
+    padding: 1rem;
+  }
+  .hr-section-25 .guardian-settings {
+    width: auto;
+  }
+  .hr-section-26 {
+    padding: 15px 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  header {
+    padding: 10px;
+  }
+  header nav .navbar {
+    display: none;
+  }
+
+  header nav .hamburger {
+    display: block;
+  }
+  header nav .navbar {
+    background: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translatey(-100%);
+    text-align: center;
+    z-index: 9999;
+  }
+  header nav .navbar.show {
+    transform: translatey(110%);
+    opacity: 1;
+    padding-bottom: 10px;
+  }
+  .hr-section-2 .hero-icon-angle {
+    top: 0;
+  }
+  .hr-section-3 .btn-g-m-start::after {
+    bottom: 10px;
+  }
+  .hr-section-2 .card-overlay {
+    max-width: 260px;
+  }
+  .hr-section-8 .nav-form {
+    max-width: 100%;
+  }
+  .hr-section-8 .form-register-container {
+    max-width: 95%;
+  }
+  .header-signIn-hero::before {
+    top: 2%;
+  }
+  .hr-section-15 .p-profile {
+    margin-bottom: 1rem;
+    padding-right: 15px;
+  }
+  .hr-section-19 {
+    padding: 0 1rem;
+  }
+  .hr-section-19 .p-service {
+    padding-right: 15px;
+  }
+  .hr-section-19 .slider-service {
+    padding: 1rem 0;
+  }
+  .hr-section-19 .slider-service .slider-service-content .circle-arrow-left {
+    left: 0;
+  }
+  .hr-section-19 .slider-service .slider-service-content .circle-arrow-right {
+    right: 0;
+  }
+  .hr-section-19 .purchase-container {
+    max-width: 100%;
+  }
+  .hr-section-21 .mentor-dashboard .basic-info-form .upload-picture {
+    margin-top: 0.25rem;
+  }
+  .hr-section-23 .guardian-home .basic-info-child .someone-child {
+    left: -6%;
+  }
+  .hr-section-23 .guardian-home .basic-info-child .add-someone {
+    top: 74%;
+    left: -4%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .hr-section-1 {
+    text-align: center;
+  }
+  .hr-section-1 .ex-now:hover:before {
+    margin: -1.2rem 2.5rem;
+  }
+  .hr-section-2 {
+    padding: 35px 38px 125px;
+  }
+  .hr-section-3 {
+    text-align: center;
+  }
+  .hr-section-5 .wings {
+    padding: 3rem;
+    padding-bottom: 1rem;
+    background-size: 20rem auto;
+    font-size: 14px;
+  }
+  .hr-section-2 .card-help,
+  .hr-section-2 .card-overlay {
+    max-width: 240px;
+  }
+  .hr-section-7 .nav-form {
+    padding: 0;
+  }
+  .hr-section-7 .form-container,
+  .hr-section-8 .form-register-container {
+    padding: 3rem 1.75rem;
+  }
+  .hr-section-7 {
+    padding-bottom: 55rem;
+  }
+  .hr-section-9 .form-container {
+    max-width: 100%;
+  }
+  .hr-section-9 .hero-signIn {
+    height: 230px;
+  }
+  .hr-section-11 .topic {
+    display: block;
+  }
+  .hr-section-11 .topic h4 {
+    margin-bottom: 0.5rem;
+  }
+  .hr-section-11 input[type="search"] {
+    width: 60%;
+  }
+  .hr-section-11 .topic .search {
+    width: 22rem;
+  }
+  .hr-section-13 .services {
+    display: grid;
+  }
+  .hr-section-13 .services h4 {
+    margin-bottom: 0.75rem;
+  }
+  .hr-section-13 .services .select-services {
+    display: grid;
+  }
+  .hr-section-13 .services .select-services .sort-by {
+    margin-bottom: 0.75rem;
+  }
+  .hr-section-15 .p-profile {
+    padding: 0;
+  }
+  .hr-section-15 {
+    margin: 0 0 1rem 0;
+  }
+  .hr-section-19 .mentor-rate {
+    display: block;
+  }
+  .hr-section-19 .visit-profile {
+    display: block;
+    .mentor-service-info {
+      margin-bottom: 1rem;
+    }
+  }
+  .hr-section-19 .purchase-container {
+    display: block;
+  }
+  .hr-section-19 .purchase-container > div {
+    margin-bottom: 1rem;
+  }
+  .hr-section-20 .available .available-course {
+    display: grid;
+  }
+  .hr-section-21 {
+    padding: 15px 0px;
+  }
+  .hr-section-21 .mentor-dashboard {
+    flex-direction: column;
+  }
+  .hr-section-22 .name-plate,
+  .hr-section-24 .name-plate {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .hr-section-22
+    .mentor-appointment-control-container
+    .appointment-control-item,
+  .hr-section-24
+    .guardian-appointment-control-container
+    .appointment-control-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hr-section-22 .mentor-appointment-control-container .appointment-title,
+  .hr-section-24 .guardian-appointment-control-container .appointment-title,
+  .hr-section-24
+    .guardian-appointment-control-container
+    .appointment-control-item {
+    width: auto;
+  }
+  .hr-section-23 .guardian-home {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hr-section-23 {
+    padding: 25px 0;
+  }
+  .hr-section-23 h3 {
+    text-align: center;
+    margin-left: 0;
+  }
+  .hr-section-23 .guardian-home .nav-guardian-home {
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: center;
+  }
+  .hr-section-23 .guardian-home .basic-info-child .someone-child,
+  .hr-section-23 .guardian-home .basic-info-child .add-someone {
+    top: -4%;
+    left: 0;
+  }
+  .hr-section-24 .guardian-appointment-control-container {
+    align-items: stretch;
+  }
+  .hr-section-24
+    .guardian-appointment-control-container
+    .rating-box
+    .rating-write-reviwe
+    .form-rating-reviwe {
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 1rem 0.5rem 0.75rem;
+  }
+  .hr-section-24
+    .guardian-appointment-control-container
+    .rating-box
+    .rating-write-reviwe
+    .form-rating-reviwe
+    .write-reviwe
+    textarea {
+    width: 100%;
+    height: 100%;
+  }
+  .hr-section-25 {
+    min-height: calc(100vh - 153px);
+    padding: 0;
+  }
+  .hr-section-26 .checkout-card {
+    flex-direction: column;
+    padding: 0.5rem;
+  }
+  .hr-section-26 .checkout-card .credit-card-info {
+    width: 100%;
+    padding: 1.25rem;
+  }
+  .hr-section-26 .checkout-card .credit-card-info .select-child {
+    flex-direction: column;
+  }
+  .hr-section-26 .checkout-card .credit-card-info .name-card,
+  .hr-section-26 .checkout-card .credit-card-info .number-card {
+    flex-direction: column;
+  }
+  .hr-section-26 .checkout-card .credit-card-info .name-card .w-input-1,
+  .hr-section-26 .checkout-card .credit-card-info .name-card .w-input-2,
+  .hr-section-26 .checkout-card .credit-card-info .number-card .w-input-1,
+  .hr-section-26 .checkout-card .credit-card-info .number-card .exp-month,
+  .hr-section-26 .checkout-card .credit-card-info .number-card .exp-year,
+  .hr-section-26 .checkout-card .checkout {
+    width: auto;
+  }
+  .hr-section-26
+    .checkout-card
+    .credit-card-info
+    .styled-checkbox
+    + label:before {
+    margin-right: 7px;
+  }
+  footer .footer-info {
+    display: block;
+    text-align: center;
+  }
+  footer .footer-info h5 {
+    margin-bottom: 10px;
+  }
+}

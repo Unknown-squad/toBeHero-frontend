@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Link, Redirect } from "react-router-dom";
 
-const CoursePayment = ({ details }) => {
+const CoursePayment = ({ details, location, history }) => {
+  const [show, setShow] = useState(false);
+  const mentorLogin = useSelector((state) => state.mentorLogin);
+  const { mentorInfo } = mentorLogin;
+  const checkoutHandler = () => {
+    history.push(`/login/guardian?redirect=/guardian/checkout/${details._id}`);
+  };
   return (
     <div className="col-12">
       <div className="purchase-container">
@@ -21,15 +29,42 @@ const CoursePayment = ({ details }) => {
           </div>
         </div>
         <div className="service-purchase-btns flex-column alin-itms-cntr">
-          <div className="service-purchase">
-            <button className="btn btn-purple-500">continue(10%)</button>
-          </div>
-          <div>
-            <p>or</p>
-          </div>
-          <div className="service-contact">
-            <button className="btn btn-purple-200">Contact the mentor</button>
-          </div>
+          {mentorInfo ? null : (
+            <>
+              <div className="service-purchase">
+                <button
+                  className="btn btn-purple-500"
+                  onClick={checkoutHandler}
+                >
+                  continue({details.price} EGP)
+                </button>
+              </div>
+              <div>
+                <p>or</p>
+              </div>
+              <div className="service-contact">
+                <button
+                  className="btn btn-purple-200"
+                  onClick={() => setShow(!show)}
+                  style={show ? { display: "none" } : { cursor: "pointer" }}
+                >
+                  Contact the mentor
+                </button>
+                {show && (
+                  <button
+                    className="btn btn-purple-200"
+                    onClick={() => setShow(!show)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    {details &&
+                      details.mentorId &&
+                      details.mentorId.countryCode}
+                    {details && details.mentorId && details.mentorId.phone}
+                  </button>
+                )}
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

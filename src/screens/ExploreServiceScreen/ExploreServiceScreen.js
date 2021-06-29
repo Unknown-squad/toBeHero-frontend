@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
 import MentorProfileExploreHeader from "../../components/MentorProfileExploreHeader";
 import { Link } from "react-router-dom";
@@ -13,8 +13,14 @@ import Loader from "../../components/Loader";
 import ErrorMessage from "../../components/ErrorMessage";
 import { courseDetailsAction } from "../../actions/courseDetailsActions";
 import { getReviewsForExploreServiceActions } from "../../actions/getReviewsForExploreServiceActions";
+import MentorHomeHeader from "../../components/MentorHomeHeader";
+import GuardianHomeHeader from "../../components/GuardianHomeHeader";
+import Meta from "../../components/Meta";
 
-const ExploreServiceScreen = ({ match }) => {
+const ExploreServiceScreen = ({ match, location, history }) => {
+  const [limitTo, setLimitTo] = useState({ itemsToShow: 4, expanded: false });
+  // const [limitTo, setLimitTo] = useState(1);
+
   const courseDetails = useSelector((state) => state.courseDetails);
   const { loading, error, data } = courseDetails;
   const getReviews = useSelector((state) => state.getReviews);
@@ -23,6 +29,10 @@ const ExploreServiceScreen = ({ match }) => {
     error: errorReviews,
     data: dataReviews,
   } = getReviews;
+  const mentorLogin = useSelector((state) => state.mentorLogin);
+  const { mentorInfo } = mentorLogin;
+  const guardianLogin = useSelector((state) => state.guardianLogin);
+  const { guardianInfo } = guardianLogin;
   const dispatch = useDispatch();
   useEffect(() => {
     Promise.all([
@@ -30,9 +40,36 @@ const ExploreServiceScreen = ({ match }) => {
       dispatch(getReviewsForExploreServiceActions(match.params.id)),
     ]);
   }, [dispatch, match]);
+
+  // const onLoadMore = () => {
+  //   setLimitTo(limitTo + 1);
+  // };
+
+  // Object.keys(dataReviews.items[0].length
+  const showMore = () => {
+    limitTo.itemsToShow === 4
+      ? setLimitTo({
+          itemsToShow:
+            limitTo.itemsToShow + Object.keys(dataReviews.items[0]).length,
+          expanded: true,
+        })
+      : setLimitTo({
+          itemsToShow: 4,
+          expanded: false,
+        });
+  };
+
   return (
     <>
-      <MentorProfileExploreHeader></MentorProfileExploreHeader>
+      <Meta title="ToBeHero | Explore Service"></Meta>
+      {mentorInfo ? (
+        <MentorHomeHeader></MentorHomeHeader>
+      ) : guardianInfo ? (
+        <GuardianHomeHeader></GuardianHomeHeader>
+      ) : (
+        <MentorProfileExploreHeader></MentorProfileExploreHeader>
+      )}
+
       <section className="hr-section-19">
         <div className="container">
           <div className="row">
@@ -44,7 +81,12 @@ const ExploreServiceScreen = ({ match }) => {
               <>
                 <CourseDetails details={data.items[0]}></CourseDetails>
                 <CourseImageSlider details={data.items[0]}></CourseImageSlider>
-                <CoursePayment details={data.items[0]}></CoursePayment>
+                <CoursePayment
+                  course={data.items[0]._id}
+                  history={history}
+                  location={location}
+                  details={data.items[0]}
+                ></CoursePayment>
               </>
             )}
           </div>
@@ -61,14 +103,28 @@ const ExploreServiceScreen = ({ match }) => {
                 <ErrorMessage>{errorReviews}</ErrorMessage>
               ) : (
                 dataReviews.items
-                  // .slice(0, 4)
+                  .slice(0, limitTo.itemsToShow)
+                  // .slice(0, limitTo)
                   .map((review) => (
                     <Reviews review={review} key={review._id}></Reviews>
                   ))
               )}
             </div>
             <div className="view-more">
-              <Link to="">View more reviews</Link>
+              <p
+                style={{
+                  color: "#8c61ff",
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                }}
+                onClick={showMore}
+              >
+                {limitTo.expanded ? (
+                  <span>Show less</span>
+                ) : (
+                  <span>Show more</span>
+                )}
+              </p>
             </div>
           </div>
         </div>

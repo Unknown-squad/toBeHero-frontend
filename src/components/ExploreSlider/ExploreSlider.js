@@ -37,7 +37,6 @@ const ExploreSlider = ({ history }) => {
           <Carousel
             plugins={[
               "arrows",
-
               {
                 resolve: slidesToShowPlugin,
                 options: {

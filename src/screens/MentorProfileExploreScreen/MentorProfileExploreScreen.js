@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import CourseCard from "../../components/CourseCard";
 import MentorProfileExploreHeader from "../../components/MentorProfileExploreHeader";
 
@@ -16,8 +16,13 @@ import Footer from "../../components/Footer";
 import { Link } from "react-router-dom";
 import Reviews from "../../components/Reviews";
 import { mentorProfileCoursesAction } from "../../actions/mentorProfileCoursesActions";
+import MentorHomeHeader from "../../components/MentorHomeHeader";
+import GuardianHomeHeader from "../../components/GuardianHomeHeader";
+import Meta from "../../components/Meta";
 
 const MentorProfileExploreScreen = ({ match }) => {
+  const [show, setShow] = useState(false);
+  const [limitTo, setLimitTo] = useState(4);
   const mentorDetails = useSelector((state) => state.mentorDetails);
   const { loading, error, data } = mentorDetails;
   const mentorProfileCourses = useSelector(
@@ -28,6 +33,10 @@ const MentorProfileExploreScreen = ({ match }) => {
     error: errorMentorProfileCourses,
     data: dataMentorProfileCourses,
   } = mentorProfileCourses;
+  const mentorLogin = useSelector((state) => state.mentorLogin);
+  const { mentorInfo } = mentorLogin;
+  const guardianLogin = useSelector((state) => state.guardianLogin);
+  const { guardianInfo } = guardianLogin;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -45,9 +54,20 @@ const MentorProfileExploreScreen = ({ match }) => {
     return Math.abs(ageDate.getUTCFullYear() - 1970);
   };
 
+  const onLoadMore = () => {
+    setLimitTo(limitTo + 4);
+  };
   return (
     <>
-      <MentorProfileExploreHeader></MentorProfileExploreHeader>
+      <Meta title="ToBeHero | Mentor Profile"></Meta>
+
+      {mentorInfo ? (
+        <MentorHomeHeader></MentorHomeHeader>
+      ) : guardianInfo ? (
+        <GuardianHomeHeader></GuardianHomeHeader>
+      ) : (
+        <MentorProfileExploreHeader></MentorProfileExploreHeader>
+      )}
       <section className="hr-section-15">
         <div className="container container-profile">
           <div className="row">
@@ -59,7 +79,15 @@ const MentorProfileExploreScreen = ({ match }) => {
               <>
                 <div className="col-lg-2 col-md-6 col-12 p-profile">
                   <div className="upload-img-profile">
-                    <img src={data.picture} alt="" />
+                    <img
+                      src={data.picture}
+                      alt=""
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src =
+                          "https://img.icons8.com/ultraviolet/40/000000/user.png";
+                      }}
+                    />
                     <p>{data.fullName}</p>
                   </div>
                 </div>
@@ -83,11 +111,37 @@ const MentorProfileExploreScreen = ({ match }) => {
                       </li>
                       <li>
                         <img src={coloredPhoneIcon} alt="" />
-                        <Link to="">
-                          {data.countryCode}
-                          {data.phone}
-                        </Link>
+                        <p
+                          onClick={() => setShow(!show)}
+                          style={
+                            show
+                              ? { display: "none" }
+                              : {
+                                  cursor: "pointer",
+                                  fontSize: "14px",
+                                  textDecoration: "underline",
+                                  color: "#551A8B",
+                                }
+                          }
+                        >
+                          Show
+                        </p>
+                        {show && (
+                          <p
+                            onClick={() => setShow(!show)}
+                            style={{
+                              cursor: "pointer",
+                              fontSize: "14px",
+                              textDecoration: "underline",
+                              color: "#551A8B",
+                            }}
+                          >
+                            {data && data.countryCode}
+                            {data && data.phone}
+                          </p>
+                        )}
                       </li>
+
                       <li>
                         <img src={langIcon} alt="" />
                         {data.languages && data.languages.length > 0
@@ -155,18 +209,29 @@ const MentorProfileExploreScreen = ({ match }) => {
         <div className="container">
           <h4>Reviews</h4>
           <div className="row">
-            {data.topReviewsId && data.topReviewsId.length > 0
-              ? data.topReviewsId.map((review) => (
-                  <Reviews
-                    review={review}
-                    path="mentorProfile"
-                    key={review._id}
-                  ></Reviews>
-                ))
-              : "No Reviews"}
+            {data && data.topReviewsId && data.topReviewsId.length > 0
+              ? data.topReviewsId
+                  .slice(0, limitTo)
+                  .map((review) => (
+                    <Reviews
+                      review={review}
+                      path="mentorProfile"
+                      key={review._id}
+                    ></Reviews>
+                  ))
+              : "No Reviews yet"}
           </div>
           <div className="view-more">
-            <Link to="">View more reviews</Link>
+            <p
+              style={{
+                color: "#8c61ff",
+                textDecoration: "underline",
+                cursor: "pointer",
+              }}
+              onClick={onLoadMore}
+            >
+              View more reviews
+            </p>
           </div>
         </div>
       </section>

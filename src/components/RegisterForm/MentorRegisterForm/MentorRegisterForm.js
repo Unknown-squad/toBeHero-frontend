@@ -22,9 +22,7 @@ const MentorRegisterForm = ({ location, history }) => {
   const mentorRegister = useSelector((state) => state.mentorRegister);
   const { loading, error } = mentorRegister;
 
-  const redirect = location.search
-    ? location.search.split("=")[1]
-    : "/mentor/home";
+  const redirect = location.search ? location.search.split("=")[1] : "/explore";
   const checkUserEmail = async (email) => {
     setStateLoading(true);
     try {

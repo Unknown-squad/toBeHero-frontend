@@ -36,8 +36,14 @@ import GuardianSettingsScreen from "./screens/GuardianSettingsScreen";
 import GuardianHomeAddNewChildScreen from "./screens/GuardianHomeAddNewChildScreen";
 import GuardianHomeGetChildInfoScreen from "./screens/GuardianHomeGetChildInfoScreen";
 import GuardianChildSubscriptionCourseScreen from "./screens/GuardianChildSubscriptionCourseScreen";
+import GuardianCheckoutScreen from "./screens/GuardianCheckoutScreen";
+import HeroHomeScreen from "./screens/HeroHomeScreen";
+import { useSelector } from "react-redux";
+import PrivateRoute from "./PrivateRoute";
 
 function App() {
+  const mentorLogin = useSelector((state) => state.mentorLogin);
+  const { mentorInfo } = mentorLogin;
   return (
     <Router>
       <Switch>
@@ -52,6 +58,11 @@ function App() {
           exact
         ></Route>
         <Route path="/guardian/explore" component={ExploreScreen} exact></Route>
+        <Route
+          path="/guardian/checkout/:courseId"
+          component={GuardianCheckoutScreen}
+          exact
+        ></Route>
         <Route
           path="/guardian/settings"
           component={GuardianSettingsScreen}
@@ -168,6 +179,9 @@ function App() {
           exact
         ></Route>
         <Route path="/login/hero" component={HeroLoginScreen} exact></Route>
+
+        <Route path="/hero/home" component={HeroHomeScreen} exact></Route>
+
         <Route
           path="/login/guardian"
           component={GuardianLoginScreen}
@@ -175,8 +189,11 @@ function App() {
         ></Route>
         <Route path="/login/mentor" component={MentorLoginScreen} exact></Route>
 
-        <Route path="/" component={LandingScreen} exact></Route>
-        <Redirect from="/home" to="/" exact></Redirect>
+        <Route path="/" component={LandingScreen} exact>
+          {/* {mentorInfo ? <Redirect to="/mentor/home"></Redirect> : null} */}
+        </Route>
+
+        <Route from="/home" to="/" exact></Route>
         <Route path="*" component={NotFound}></Route>
       </Switch>
     </Router>

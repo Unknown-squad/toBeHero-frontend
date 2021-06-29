@@ -5,10 +5,12 @@ import Footer from "../../../components/Footer";
 import LoginRegHeader from "../../../components/LoginRegHeader";
 import "../LoginScreen.scss";
 import LoginForm from "../../../components/LoginForm";
+import Meta from "../../../components/Meta";
 
 const GuardianLoginScreen = ({ location, history }) => {
   return (
     <>
+      <Meta title="ToBeHero | Guardian Login"></Meta>
       <LoginRegHeader></LoginRegHeader>
       {/* <!-- start sextion-7 --> */}
       <div className="container-sign">

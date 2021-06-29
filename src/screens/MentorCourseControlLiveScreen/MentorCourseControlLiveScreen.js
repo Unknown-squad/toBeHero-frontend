@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import MentorControlCourseHeader from "../../components/MentorControlCourseHeader";
+import Meta from "../../components/Meta";
 import iconLoading from "../../images/icon-loading.svg";
 import "./MentorCourseControlLiveScreen.scss";
 const MentorCourseControlLiveScreen = () => {
   return (
     <>
+      <Meta title="Mentor | Live Share"></Meta>
+
       <MentorControlCourseHeader></MentorControlCourseHeader>
       <section className="hr-section-22">
         <h4>Lorem ipsum dolor sit amet, consetetur</h4>

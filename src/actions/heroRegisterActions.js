@@ -19,21 +19,18 @@ export const heroRegisterActions =
       const { data } = await axios.post(
         `http://localhost:5000/api/v1/guardian/new-child`,
         {
-          method: "newChild.post",
-          params: {
-            fullName,
-            userName,
-            password,
-            birthDate,
-            picture,
-          },
+          fullName,
+          userName,
+          password,
+          birthDate,
+          picture,
         },
         { withCredentials: true },
         config
       );
 
       dispatch({ type: HERO_REGISTER_SUCCESS, payload: data });
-      localStorage.setItem("heroInfo", JSON.stringify(data));
+      // localStorage.setItem("heroInfo", JSON.stringify(data));
     } catch (error) {
       let err = "";
       if (error.response) {

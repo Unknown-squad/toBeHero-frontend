@@ -3,10 +3,12 @@ import { Route } from "react-router";
 import Footer from "../../components/Footer";
 import MentorDashboardNavLinks from "../../components/MentorDashboardNavLinks";
 import MentorHomeHeader from "../../components/MentorHomeHeader";
+import Meta from "../../components/Meta";
 
 const MentorAnalyticsDashboardScreen = () => {
   return (
     <>
+      <Meta title="Mentor | Dashboard Analytics"></Meta>
       <MentorHomeHeader></MentorHomeHeader>
 
       <section className="hr-section-21">

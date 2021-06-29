@@ -6,10 +6,12 @@ import EditCourseMentor from "../../../components/EditCourseMentor";
 import Footer from "../../../components/Footer";
 import MentorDashboardNavLinks from "../../../components/MentorDashboardNavLinks";
 import MentorHomeHeader from "../../../components/MentorHomeHeader";
+import Meta from "../../../components/Meta";
 import "./EditCourseMentorDashboardScreen.scss";
 const EditCourseMentorDashboardScreen = ({ match, history }) => {
   return (
     <>
+      <Meta title="Mentor | Dashboard Edit Courses"></Meta>
       <MentorHomeHeader></MentorHomeHeader>
       <section className="hr-section-21">
         <div className="container">

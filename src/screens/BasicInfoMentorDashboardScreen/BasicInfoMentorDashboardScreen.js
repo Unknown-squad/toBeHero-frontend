@@ -5,10 +5,12 @@ import { Route } from "react-router-dom";
 import MentorDashboardNavLinks from "../../components/MentorDashboardNavLinks";
 import "./BasicInfoMentorDashboardScreen.scss";
 import BasicInfoMentorForm from "../../components/BasicInfoMentorForm";
+import Meta from "../../components/Meta";
 
 const BasicInfoMentorDashboardScreen = ({ history }) => {
   return (
     <>
+      <Meta title="Mentor | Dashboard Info"></Meta>
       <MentorHomeHeader></MentorHomeHeader>
 
       <section className="hr-section-21">

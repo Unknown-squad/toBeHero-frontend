@@ -5,10 +5,13 @@ import "../RegisterScreen.scss";
 import Footer from "../../../components/Footer";
 import { GuardianRegisterForm } from "../../../components/RegisterForm";
 import LoginRegHeader from "../../../components/LoginRegHeader";
+import Meta from "../../../components/Meta";
 
-const GuardianRegisterScreen = ({ location, history }) => {
+const GuardianRegisterScreen = ({ location, history, match }) => {
   return (
     <>
+      <Meta title="ToBeHero | Guardian Signup"></Meta>
+
       <LoginRegHeader></LoginRegHeader>
       <div className="container-sign">
         <section className="hr-section-8">
@@ -35,6 +38,7 @@ const GuardianRegisterScreen = ({ location, history }) => {
                 <div className="form-register-container flex-column just-cont">
                   <div className="register-form">
                     <GuardianRegisterForm
+                      match={match}
                       location={location}
                       history={history}
                     ></GuardianRegisterForm>

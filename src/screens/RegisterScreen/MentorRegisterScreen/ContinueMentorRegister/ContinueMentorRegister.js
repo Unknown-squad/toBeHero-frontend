@@ -10,6 +10,7 @@ import ErrorMessage from "../../../../components/ErrorMessage";
 import Loader from "../../../../components/Loader";
 import "./ContinueMentorRegister.scss";
 import { mentorRegisterActions } from "../../../../actions/mentorRegisterActions";
+import Meta from "../../../../components/Meta";
 
 const ContinueMentorRegister = ({ history, location }) => {
   const [birthDate, setBirthDate] = useState("12/05/1990");
@@ -60,6 +61,7 @@ const ContinueMentorRegister = ({ history, location }) => {
 
   return (
     <>
+      <Meta title="ToBeHero | Mentor Signup"></Meta>
       <ContinueMentorHeader></ContinueMentorHeader>
       <div className="container-sign">
         <section className="hr-section-10">

@@ -1,0 +1,135 @@
+@import "../../index.scss";
+
+/*start page hero-home*/
+.hr-section-27 {
+  padding: 15px 80px 60px;
+  min-height: calc(100vh - 119px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h4 {
+    text-align: center;
+    color: $text-color;
+    font-size: 22px;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+  .hero-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 55rem;
+    border: 1px solid $purple-500;
+    border-radius: 10px;
+    padding: 0.75rem;
+    margin-bottom: 2rem;
+    img {
+      border-radius: 10px;
+    }
+    .appointment-hero-mentor {
+      display: flex;
+      gap: 3.5rem;
+      .hero-appointment-control-container {
+        row-gap: 0.5rem;
+        justify-content: flex-start;
+        align-items: flex-start;
+        h4 {
+          color: $text-color;
+        }
+        .appointment-control-item {
+          display: flex;
+          background-color: #f3f4f7;
+          align-items: center;
+          border-radius: 12px;
+          gap: 0.75rem;
+          padding: 0.5rem;
+          width: 41rem;
+          border: 1px solid transparent;
+          &.live-active {
+            border: 1px solid $purple-200;
+            box-shadow: 0px 0px 4px $purple-200;
+            .appointment-date,
+            .appointment-time,
+            .appointment-title {
+              border: 1px solid $purple-200;
+            }
+          }
+        }
+        .appointment-sub-item p {
+          color: $text-color;
+          font-size: 14px;
+          font-weight: 300;
+          display: flex;
+          gap: 1rem;
+        }
+
+        .appointment-date,
+        .appointment-time,
+        .appointment-title {
+          background-color: white;
+          padding: 0.3rem 0.75rem;
+          border: 1px solid transparent;
+          border-radius: 7px;
+        }
+
+        .appointment-title {
+          width: 17.45rem;
+        }
+
+        .appointment-button {
+          display: flex;
+          gap: 0.5rem;
+          margin-left: 0.5rem;
+          button {
+            cursor: pointer;
+          }
+          visibility: hidden;
+          &.active {
+            visibility: inherit;
+          }
+        }
+        .live-active .appointment-button .guardian-live-btn button {
+          background-color: $purple-200;
+          color: white;
+          border: none;
+          border-radius: 25px;
+          padding: 0.4rem 1.5rem;
+          opacity: 1;
+          span {
+            background-color: #fff;
+            border-radius: 50%;
+            width: 7px;
+            height: 7px;
+            display: inline-flex;
+            margin-left: 3px;
+          }
+        }
+        .guardian-live-btn button {
+          color: white;
+          border: none;
+          border-radius: 25px;
+          padding: 0.4rem 1.5rem;
+          background-color: $purple-200;
+          opacity: 0.4;
+        }
+      }
+      .mentor-img {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .title-img {
+          color: $text-color;
+          font-size: 16px;
+        }
+        img {
+          width: auto;
+          border-radius: 100%;
+        }
+      }
+    }
+  }
+}
+/*end page hero-home*/
