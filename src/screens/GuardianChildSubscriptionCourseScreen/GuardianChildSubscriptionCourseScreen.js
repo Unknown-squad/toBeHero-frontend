@@ -12,6 +12,7 @@ import Loader from "../../components/Loader";
 import ErrorMessage from "../../components/ErrorMessage";
 import { ADD_NEW_REVIEW_RESET } from "../../constants/addNewReviewConstants";
 import SuccessMessage from "../../components/SuccessMessage";
+import Meta from "../../components/Meta";
 const GuardianChildSubscriptionCourseScreen = ({ match }) => {
   const childId = match.params.childId;
   const courseId = match.params.courseId;
@@ -30,6 +31,7 @@ const GuardianChildSubscriptionCourseScreen = ({ match }) => {
   console.log(data);
   return (
     <>
+      <Meta title="Guardian | Child Subscribtion Course"></Meta>
       <GuardianChildSubscriptionHeader
         match={match}
       ></GuardianChildSubscriptionHeader>

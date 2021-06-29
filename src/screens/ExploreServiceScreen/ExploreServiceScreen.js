@@ -15,6 +15,7 @@ import { courseDetailsAction } from "../../actions/courseDetailsActions";
 import { getReviewsForExploreServiceActions } from "../../actions/getReviewsForExploreServiceActions";
 import MentorHomeHeader from "../../components/MentorHomeHeader";
 import GuardianHomeHeader from "../../components/GuardianHomeHeader";
+import Meta from "../../components/Meta";
 
 const ExploreServiceScreen = ({ match, location, history }) => {
   const [limitTo, setLimitTo] = useState({ itemsToShow: 4, expanded: false });
@@ -60,6 +61,7 @@ const ExploreServiceScreen = ({ match, location, history }) => {
 
   return (
     <>
+      <Meta title="ToBeHero | Explore Service"></Meta>
       {mentorInfo ? (
         <MentorHomeHeader></MentorHomeHeader>
       ) : guardianInfo ? (

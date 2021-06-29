@@ -13,6 +13,7 @@ import { MENTOR_CANCEL_APPOINTMENT_RESET } from "../../constants/mentorCancelApp
 import { mentorDeleteAppointmentActions } from "../../actions/mentorDeleteAppointmentActions";
 import { MENTOR_DELETE_APPOINTMENT_RESET } from "../../constants/mentorDeleteAppointmentConstants";
 import { completeCourseForMentorActions } from "../../actions/completeCourseForMentorActions";
+import Meta from "../../components/Meta";
 
 const MentorCourseControlScreen = ({ match }) => {
   const subscriptionId = match.params.id;
@@ -76,6 +77,8 @@ const MentorCourseControlScreen = ({ match }) => {
   };
   return (
     <>
+      <Meta title="Mentor | Course Control"></Meta>
+
       <MentorControlCourseHeader></MentorControlCourseHeader>
       <section className="hr-section-22">
         <h4>{data.courseId && data.courseId.title}</h4>

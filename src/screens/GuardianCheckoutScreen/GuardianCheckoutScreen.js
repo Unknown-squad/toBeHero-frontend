@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 
 import addSomeOne from "../../images/add-someone.svg";
 import { getCourseDataForCheckoutActions } from "../../actions/getCourseDataForCheckoutActions";
+import Meta from "../../components/Meta";
 const GuardianCheckoutScreen = ({ match }) => {
   const [childId, setChildId] = useState("");
   const courseId = match.params.courseId;
@@ -32,6 +33,7 @@ const GuardianCheckoutScreen = ({ match }) => {
   }, [dispatch, courseId]);
   return (
     <>
+      <Meta title="Guardian | Checkout Payment"></Meta>
       <GuardianHomeHeader></GuardianHomeHeader>
       <section className="hr-section-26">
         <div className="container">

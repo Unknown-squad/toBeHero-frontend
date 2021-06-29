@@ -5,11 +5,13 @@ import GuardianHomeHeader from "../../components/GuardianHomeHeader";
 import GuardianHerosColumn from "../../components/GuardianHerosColumn";
 import { Route } from "react-router-dom";
 import EnrolledCoursesForChild from "../../components/EnrolledCoursesForChild";
+import Meta from "../../components/Meta";
 
 const GuardianHomeGetChildInfoScreen = ({ match }) => {
   //   const childId = match.params.id;
   return (
     <>
+      <Meta title="Guardian | Child Info"></Meta>
       <GuardianHomeHeader></GuardianHomeHeader>
       <section className="hr-section-23">
         <div className="container">

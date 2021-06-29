@@ -5,10 +5,12 @@ import { Link } from "react-router-dom";
 import { MentorRegisterForm } from "../../../components/RegisterForm";
 import LoginRegHeader from "../../../components/LoginRegHeader";
 import "../RegisterScreen.scss";
+import Meta from "../../../components/Meta";
 
 const MentorRegisterScreen = ({ location, history }) => {
   return (
     <>
+      <Meta title="ToBeHero | Mentor Signup"></Meta>
       <LoginRegHeader></LoginRegHeader>
       <div className="container-sign">
         <section className="hr-section-8">

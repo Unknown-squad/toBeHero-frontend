@@ -10,12 +10,15 @@ import MentorStatusAvailability from "../../components/MentorStatusAvailability"
 import MentorHomeServiceList from "../../components/MentorHomeServiceList";
 import { useDispatch, useSelector } from "react-redux";
 import { listServices } from "../../actions/serviceListActions";
+import Meta from "../../components/Meta";
 
 const MentorHomeScreen = () => {
   // const [status, setStatus] = useState(false);
 
   return (
     <>
+      <Meta title="Mentor | Home"></Meta>
+
       <MentorHomeHeader></MentorHomeHeader>
 
       <section className="hr-section-20">

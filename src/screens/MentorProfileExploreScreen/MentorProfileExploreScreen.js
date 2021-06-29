@@ -18,6 +18,7 @@ import Reviews from "../../components/Reviews";
 import { mentorProfileCoursesAction } from "../../actions/mentorProfileCoursesActions";
 import MentorHomeHeader from "../../components/MentorHomeHeader";
 import GuardianHomeHeader from "../../components/GuardianHomeHeader";
+import Meta from "../../components/Meta";
 
 const MentorProfileExploreScreen = ({ match }) => {
   const [show, setShow] = useState(false);
@@ -58,6 +59,8 @@ const MentorProfileExploreScreen = ({ match }) => {
   };
   return (
     <>
+      <Meta title="ToBeHero | Mentor Profile"></Meta>
+
       {mentorInfo ? (
         <MentorHomeHeader></MentorHomeHeader>
       ) : guardianInfo ? (

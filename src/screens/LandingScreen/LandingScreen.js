@@ -12,9 +12,11 @@ import heroImg from "../../images/hero-img-1.png";
 import "./LandingScreen.scss";
 import Footer from "../../components/Footer";
 import LandingHeader from "../../components/LandingHeader";
+import Meta from "../../components/Meta";
 const LandingScreen = () => {
   return (
     <>
+      <Meta></Meta>
       <LandingHeader></LandingHeader>
       {/* <!-- start sextion-1 --> */}
       <section className="hr-section-1">

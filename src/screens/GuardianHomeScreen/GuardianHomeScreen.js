@@ -11,12 +11,14 @@ import someOneChild from "../../images/someone-child.svg";
 import GuardianHerosColumn from "../../components/GuardianHerosColumn";
 import GuardianGetBasicInfoForHeroForm from "../../components/GuardianGetBasicInfoForHeroForm";
 import EnrolledCoursesForChild from "../../components/EnrolledCoursesForChild";
+import Meta from "../../components/Meta";
 
 const GuardianHomeScreen = ({ match }) => {
   // const childId = match.params.id;
 
   return (
     <>
+      <Meta title="Guardian | Home"></Meta>
       <GuardianHomeHeader></GuardianHomeHeader>
 
       <section className="hr-section-23">
