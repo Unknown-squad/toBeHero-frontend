@@ -10,14 +10,14 @@ import ErrorMessage from "../../../../components/ErrorMessage";
 import Loader from "../../../../components/Loader";
 import "./ContinueMentorRegister.scss";
 import { mentorRegisterActions } from "../../../../actions/mentorRegisterActions";
+
 const ContinueMentorRegister = ({ history, location }) => {
   const [birthDate, setBirthDate] = useState("12/05/1990");
   const [languages, setLanguages] = useState(["english"]);
   const [description, setDescription] = useState("gggg");
   const [occupation, setOccupation] = useState(["hhhhhhh"]);
   const [certificates, setCertificates] = useState(["nnnnnnnn"]);
-  // const [picture, setPicture] = useState("");
-  const [uploading, setUploading] = useState(false);
+  const [picture, setPicture] = useState(null);
 
   const dispatch = useDispatch();
   const mentorRegister = useSelector((state) => state.mentorRegister);
@@ -25,60 +25,39 @@ const ContinueMentorRegister = ({ history, location }) => {
   const redirect = location.search
     ? location.search.split("=")[1]
     : "/mentor/home";
-  // const uploadFileHandler = async (e) => {
-  //   const file = e.target.files[0]
-  //   const formData = new FormData()
-  //   formData.append('image', file)
-  //   setUploading(true)
 
-  //   try {
-  //     const config = {
-  //       headers: {
-  //         'Content-Type': 'multipart/form-data',
-  //       },
-  //     }
-
-  //     const { data } = await axios.post('/api/upload', formData, config)
-
-  //     setImage(data)
-  //     setUploading(false)
-  //   } catch (error) {
-  //     console.error(error)
-  //     setUploading(false)
-  //   }
-  // }
   useEffect(() => {
     if (mentorInfo) {
       history.push(redirect);
     }
+    console.log(JSON.parse(localStorage.getItem("mentorDraft")));
   }, [history, mentorInfo, redirect]);
 
   const submitHandler = (e) => {
     e.preventDefault();
     const mentorDraft = JSON.parse(localStorage.getItem("mentorDraft"));
-
+    const dataArray = new FormData();
+    dataArray.append("occupation", occupation);
+    dataArray.append("countryCode", mentorDraft.countryCode);
+    dataArray.append("phone", mentorDraft.phone);
+    dataArray.append("email", mentorDraft.email);
+    dataArray.append("fullName", mentorDraft.fullName);
+    dataArray.append("gender", mentorDraft.gender);
+    dataArray.append("password", mentorDraft.password);
+    dataArray.append("birthDate", birthDate);
+    dataArray.append("languages", languages);
+    dataArray.append("description", description);
+    dataArray.append("certificates", certificates);
+    dataArray.append("img", picture);
     if (mentorDraft) {
-      dispatch(
-        mentorRegisterActions({
-          ...mentorDraft,
-          birthDate,
-          languages,
-          description,
-          occupation,
-          certificates,
-          picture,
-        })
-      );
+      dispatch(mentorRegisterActions(dataArray));
     } else {
       history.push("/register/mentor");
     }
     history.replace("/mentor/email-confirm");
+    console.log(dataArray);
   };
-  const [picture, setPicture] = useState(null);
 
-  const onChangePicture = (e) => {
-    setPicture(URL.createObjectURL(e.target.files[0]));
-  };
   return (
     <>
       <ContinueMentorHeader></ContinueMentorHeader>
@@ -196,41 +175,16 @@ const ContinueMentorRegister = ({ history, location }) => {
                           </div>
                           <div className="col-lg-2 col-12">
                             <label
-                              htmlFor="files"
+                              htmlFor="img"
                               className="btn"
                               style={{ color: "black" }}
                             ></label>
                             <input
-                              id="files"
+                              id="img"
+                              name="img"
                               type="file"
-                              onChange={onChangePicture}
-                              // style={{ visibility: "hidden" }}
+                              onChange={(e) => setPicture(e.target.files[0])}
                             />
-                            <div
-                              className="img-back"
-                              style={{
-                                display: "inline-block",
-                                position: "relative",
-                                width: "100px",
-                                height: "100px",
-                                overflow: "hidden",
-                                borderRadius: "50%",
-                              }}
-                            >
-                              <img className="img-up" src={upload} alt="" />
-                              <img
-                                className="icon-up"
-                                // src={cameraIcon}
-                                alt=""
-                                src={picture && picture}
-                                style={{
-                                  // width: "100%",
-                                  // width: "auto",
-                                  height: "auto",
-                                  // marginLeft: "-10px",
-                                }}
-                              />
-                            </div>
                             <p>upload your picture</p>
                           </div>
                         </div>
@@ -238,12 +192,9 @@ const ContinueMentorRegister = ({ history, location }) => {
                           <p className="text-center">*required</p>
                         </div>
                         <div className="form-btns sign-up-btns flex-column just-cont-cntr alin-itms-cntr">
-                          <input
-                            type="submit"
-                            className="btn btn-sign"
-                            name="Continue"
-                            value="Continue"
-                          ></input>
+                          <button type="submit" className="btn btn-sign">
+                            Continue
+                          </button>
                           <Link
                             to={
                               redirect
