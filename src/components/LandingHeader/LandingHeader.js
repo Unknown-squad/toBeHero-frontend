@@ -5,6 +5,7 @@ import useToggleNavbar from "../../hooks";
 import "./LandingHeader.scss";
 const LandingHeader = () => {
   const [showMobileMenu, onClick] = useToggleNavbar();
+
   return (
     <header>
       <div className="container" id="up">
@@ -20,6 +21,7 @@ const LandingHeader = () => {
             <button className="hamburger" id="hamburger" onClick={onClick}>
               <i className="fas fa-bars"></i>
             </button>
+
             {showMobileMenu ? (
               <ul className="navbar show" id="navbar">
                 <li>
