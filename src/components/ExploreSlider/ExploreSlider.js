@@ -5,8 +5,8 @@ import sliderItemMusic from "../../images/slider-item-music.svg";
 import sliderItemDrawing from "../../images/slider-item-drawing.svg";
 import sliderItemQuran from "../../images/slider-item-quran.svg";
 import sliderItemMath from "../../images/slider-item-math.svg";
-import Carousel, { slidesToShowPlugin } from "@brainhubeu/react-carousel";
-import "@brainhubeu/react-carousel/lib/style.css";
+import Slider from "react-slick";
+import "./ExploreSlider.scss";
 
 const ExploreSlider = ({ history }) => {
   const dispatch = useDispatch();
@@ -21,7 +21,73 @@ const ExploreSlider = ({ history }) => {
       }`,
     });
   }, [dispatch, filter, sort, history]);
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{
+          ...style,
+          display: "block",
+        }}
+        onClick={onClick}
+      />
+    );
+  }
 
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block" }}
+        onClick={onClick}
+      />
+    );
+  }
+  let settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    lazyLoad: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: false,
+          lazyLoad: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+          lazyLoad: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          lazyLoad: true,
+          dots: false,
+        },
+      },
+    ],
+  };
   const topics = [
     { title: "Programming", img: sliderItemProgramming },
     { title: "Music", img: sliderItemMusic },
@@ -32,53 +98,22 @@ const ExploreSlider = ({ history }) => {
 
   return (
     <section className="hr-section-12">
-      <div className="slider-container">
+      <div
+        className="slider-container"
+        style={{ width: "90%", margin: "auto" }}
+      >
         <div className="slider-content">
-          <Carousel
-            plugins={[
-              "arrows",
-              {
-                resolve: slidesToShowPlugin,
-                options: {
-                  numberOfSlides: 5,
-                },
-              },
-            ]}
-            breakpoints={{
-              640: {
-                plugins: [
-                  "arrows",
-                  "infinite",
-
-                  {
-                    resolve: slidesToShowPlugin,
-                    options: {
-                      numberOfSlides: 1,
-                    },
-                  },
-                ],
-              },
-              900: {
-                plugins: [
-                  "arrows",
-                  "infinite",
-                  {
-                    resolve: slidesToShowPlugin,
-                    options: {
-                      numberOfSlides: 2,
-                    },
-                  },
-                ],
-              },
-            }}
-          >
+          <Slider {...settings}>
             {topics.map((topic, index) => (
               <div
                 key={index}
                 className="slider-item"
                 onClick={() => setFilter(topic.title)}
               >
-                <div className="card-img">
+                <div
+                  className="card-img"
+                  style={{ marginLeft: "1rem", marginRight: "1rem" }}
+                >
                   <img src={topic.img} alt={`${topic.title}`} />
                   <div className="slider-purple-border"></div>
                 </div>
@@ -87,7 +122,7 @@ const ExploreSlider = ({ history }) => {
                 </div>
               </div>
             ))}
-          </Carousel>
+          </Slider>
         </div>
       </div>
     </section>

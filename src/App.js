@@ -189,9 +189,14 @@ function App() {
         ></Route>
         <Route path="/login/mentor" component={MentorLoginScreen} exact></Route>
 
-        <Route path="/" component={LandingScreen} exact>
+        <PrivateRoute
+          path="/"
+          component={LandingScreen}
+          exact
+          redirectRoute="/explore"
+        >
           {/* {mentorInfo ? <Redirect to="/mentor/home"></Redirect> : null} */}
-        </Route>
+        </PrivateRoute>
 
         <Route from="/home" to="/" exact></Route>
         <Route path="*" component={NotFound}></Route>

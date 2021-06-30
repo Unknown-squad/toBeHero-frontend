@@ -1,18 +1,14 @@
 import { Route, Redirect } from "react-router-dom";
 
-const PrivateRoute = ({ component: Component, handleChildFunc, ...rest }) => {
+const PrivateRoute = ({ component: Component, redirectRoute, ...rest }) => {
   return (
     <Route
       {...rest}
       render={(props) =>
         localStorage.getItem("mentorInfo") ? (
-          <Redirect to="/explore" />
-        ) : localStorage.getItem("guardianInfo") ? (
-          <Redirect to="/explore" />
-        ) : localStorage.getItem("heroInfo") ? (
-          <Redirect to="/hero/home" />
+          <Redirect to={redirectRoute} />
         ) : (
-          <Component {...props} handleChildFunc={handleChildFunc} />
+          <Component {...props} />
         )
       }
     />
