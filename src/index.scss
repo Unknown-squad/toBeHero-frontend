@@ -279,7 +279,6 @@ $cyan: #44c2fd;
 $text-color: #414141;
 /* fontsize: 24-20-18-16-14(px)*/
 
-
 /*media*/
 @media screen and (min-width: 992px) {
   .col-lg-30 {
@@ -358,7 +357,7 @@ $text-color: #414141;
   .hr-section-23 .guardian-home .basic-info-child .someone-child {
     left: -3.5%;
   }
-  .hr-section-27{
+  .hr-section-27 {
     align-items: inherit;
     justify-content: inherit;
   }
@@ -500,17 +499,24 @@ $text-color: #414141;
     top: 74%;
     left: -4%;
   }
-  .hr-section-27 .hero-card{
+  .hr-section-27 .hero-card {
     width: auto;
   }
-  .hr-section-27 .hero-card .appointment-hero-mentor .hero-appointment-control-container .appointment-control-item{
+  .hr-section-27
+    .hero-card
+    .appointment-hero-mentor
+    .hero-appointment-control-container
+    .appointment-control-item {
     width: auto;
   }
-  .hr-section-27 .hero-card .appointment-hero-mentor{
+  .hr-section-27 .hero-card .appointment-hero-mentor {
     flex-direction: column;
     gap: 1rem;
   }
-  .hr-section-27 .hero-card .appointment-hero-mentor .hero-appointment-control-container{
+  .hr-section-27
+    .hero-card
+    .appointment-hero-mentor
+    .hero-appointment-control-container {
     justify-content: center;
     align-items: center;
   }
@@ -706,7 +712,11 @@ $text-color: #414141;
     + label:before {
     margin-right: 7px;
   }
-  .hr-section-27 .hero-card .appointment-hero-mentor .hero-appointment-control-container .appointment-control-item{
+  .hr-section-27
+    .hero-card
+    .appointment-hero-mentor
+    .hero-appointment-control-container
+    .appointment-control-item {
     flex-direction: column;
     align-items: initial;
   }

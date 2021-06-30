@@ -142,7 +142,7 @@ const MentorRegisterForm = ({ location, history }) => {
           ></input>
         </div>
         <div className="input-field">
-          <label htmlFor="confirmPassword">re-Password*</label>
+          <label htmlFor="confirmPassword">Confirm Password*</label>
           <br />
           <input
             type="password"

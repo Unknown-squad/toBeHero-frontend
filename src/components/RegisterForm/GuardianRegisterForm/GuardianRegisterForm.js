@@ -6,6 +6,8 @@ import { GUARDIAN_REGISTER_RESET_ERROR } from "../../../constants/guardianRegist
 import { MENTOR_REGISTER_RESET_ERROR } from "../../../constants/mentorRegisterConstants";
 import ErrorMessage from "../../ErrorMessage";
 import Loader from "../../Loader";
+import lock from "../../../images/lock.svg";
+import unLock from "../../../images/unlock.svg";
 
 const GuardianRegisterForm = ({ location, history, match }) => {
   const [fullName, setFullName] = useState("");
@@ -15,6 +17,7 @@ const GuardianRegisterForm = ({ location, history, match }) => {
   const [countryCode, setCountryCode] = useState("+20");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -43,116 +46,134 @@ const GuardianRegisterForm = ({ location, history, match }) => {
   };
 
   return (
-    <div className="form-inputs">
-      {loading && <Loader></Loader>}
-      {message ? (
-        <ErrorMessage>{message}</ErrorMessage>
-      ) : error ? (
-        <ErrorMessage>{error}</ErrorMessage>
-      ) : (
-        ""
-      )}
+    <>
+      <div className="form-inputs">
+        {loading && <Loader></Loader>}
+        {message ? (
+          <ErrorMessage>{message}</ErrorMessage>
+        ) : error ? (
+          <ErrorMessage>{error}</ErrorMessage>
+        ) : (
+          ""
+        )}
 
-      <form onSubmit={submitHandler}>
-        <div className="input-field">
-          <label htmlFor="name">Full name*</label>
-          <br />
-          <input
-            type="text"
-            id="name"
-            value={fullName}
-            name="name"
-            placeholder="Enter your name"
-            required
-            onChange={(e) => setFullName(e.target.value)}
-          />
-        </div>
-        <div className="input-field">
-          <label htmlFor="email">Email*</label>
-          <br />
-          <input
-            type="email"
-            id="email"
-            value={email}
-            name="register-email"
-            placeholder="Enter your email"
-            required
-            onChange={(e) => setEmail(e.target.value)}
-          ></input>
-        </div>
-        <div className="input-field">
-          <label htmlFor="password">Password*</label>
-          <br />
-          <input
-            type="password"
-            id="password"
-            value={password}
-            name="password"
-            placeholder="Enter your password"
-            required
-            onChange={(e) => setPassword(e.target.value)}
-          ></input>
-        </div>
-        <div className="input-field">
-          <label htmlFor="confirmPassword">re-Password*</label>
-          <br />
-          <input
-            type="password"
-            id="confirmPassword"
-            name="password"
-            value={confirmPassword}
-            placeholder="Re-enter your password"
-            required
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          ></input>
-        </div>
-        <div className="input-field">
-          <label htmlFor="phone">Phone</label>
-          <br />
-          <div className="flex-row w-100">
-            <select
-              name="phone-code"
-              id="phone-code"
-              onChange={(e) => setCountryCode(e.target.value)}
-              value={countryCode}
-            >
-              <option value="+20">+20</option>
-            </select>
+        <form onSubmit={submitHandler}>
+          <div className="input-field">
+            <label htmlFor="name">Full name*</label>
+            <br />
             <input
-              type="tel"
-              id="phone"
-              value={phone}
-              name="phone"
-              placeholder="Enter
-          your phone"
-              onChange={(e) => setPhone(e.target.value)}
+              type="text"
+              id="name"
+              value={fullName}
+              name="name"
+              placeholder="Enter your name"
+              required
+              onChange={(e) => setFullName(e.target.value)}
+            />
+          </div>
+          <div className="input-field">
+            <label htmlFor="email">Email*</label>
+            <br />
+            <input
+              type="email"
+              id="email"
+              value={email}
+              name="register-email"
+              placeholder="Enter your email"
+              required
+              onChange={(e) => setEmail(e.target.value)}
             ></input>
           </div>
-        </div>
+          <div className="input-field">
+            <label htmlFor="password">Password*</label>
+            <br />
+            <input
+              type={showPassword ? "text" : "password"}
+              id="password"
+              value={password}
+              name="password"
+              placeholder="Enter your password"
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            ></input>
 
-        <div className="form-note just-cont-cntr">
-          <p className="text-center">*required</p>
-        </div>
+            {/* show password hide password  */}
 
-        <div className="form-btns sign-up-btns flex-column just-cont-cntr alin-itms-cntr">
-          <input
-            type="submit"
-            className="btn btn-sign"
-            name="register"
-            value="Register"
-          ></input>
-          <Link
-            to={
-              redirect
-                ? `/login/guardian?redirect=${redirect}`
-                : "/login/guardian"
-            }
-          >
-            already registered?
-          </Link>
-        </div>
-      </form>
-    </div>
+            {/* <img
+              style={{
+                cursor: "pointer",
+                position: "absolute",
+                width: "15px",
+                right: "9rem",
+                top: "15.7rem",
+              }}
+              title={showPassword ? "Hide password" : "Show password"}
+              src={showPassword ? unLock : lock}
+              alt=""
+              onClick={() => setShowPassword((prevState) => !prevState)}
+            /> */}
+          </div>
+          <div className="input-field">
+            <label htmlFor="confirmPassword">Confirm Password*</label>
+            <br />
+            <input
+              type="password"
+              id="confirmPassword"
+              name="password"
+              value={confirmPassword}
+              placeholder="Re-enter your password"
+              required
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            ></input>
+          </div>
+          <div className="input-field">
+            <label htmlFor="phone">Phone</label>
+            <br />
+            <div className="flex-row w-100">
+              <select
+                name="phone-code"
+                id="phone-code"
+                onChange={(e) => setCountryCode(e.target.value)}
+                value={countryCode}
+              >
+                <option value="+20">+20</option>
+              </select>
+              <input
+                type="tel"
+                id="phone"
+                value={phone}
+                name="phone"
+                placeholder="Enter
+          your phone"
+                onChange={(e) => setPhone(e.target.value)}
+              ></input>
+            </div>
+          </div>
+
+          <div className="form-note just-cont-cntr">
+            <p className="text-center">*required</p>
+          </div>
+
+          <div className="form-btns sign-up-btns flex-column just-cont-cntr alin-itms-cntr">
+            <input
+              type="submit"
+              className="btn btn-sign"
+              name="register"
+              value="Register"
+            ></input>
+            <Link
+              to={
+                redirect
+                  ? `/login/guardian?redirect=${redirect}`
+                  : "/login/guardian"
+              }
+            >
+              already registered?
+            </Link>
+          </div>
+        </form>
+      </div>
+    </>
   );
 };
 

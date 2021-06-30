@@ -14,7 +14,7 @@ import Footer from "../../components/Footer";
 import LandingHeader from "../../components/LandingHeader";
 import Meta from "../../components/Meta";
 import Headroom from "react-headroom";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+
 const LandingScreen = () => {
   return (
     <>
