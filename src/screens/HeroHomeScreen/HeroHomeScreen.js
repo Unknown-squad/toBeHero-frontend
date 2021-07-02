@@ -7,7 +7,7 @@ const HeroHomeScreen = ({ match }) => {
   return (
     <>
       <Meta title="Welcome Our Hero !"></Meta>
-      <HeroHomeHeader></HeroHomeHeader>
+      <HeroHomeHeader homeScreen={true}></HeroHomeHeader>
       <section className="hr-section-27">
         <h4>Classroom</h4>
         <HeroClassroom match={match}></HeroClassroom>
