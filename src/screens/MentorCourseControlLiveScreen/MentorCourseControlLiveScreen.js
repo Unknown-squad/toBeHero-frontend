@@ -1,17 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { mentorCancelAppointmentActions } from "../../actions/mentorCancelAppointmentActions";
+import { mentorGetControlCourseDetailsActions } from "../../actions/mentorGetControlCourseDetailsActions";
 import MentorControlCourseHeader from "../../components/MentorControlCourseHeader";
 import Meta from "../../components/Meta";
 import iconLoading from "../../images/icon-loading.svg";
 import "./MentorCourseControlLiveScreen.scss";
-const MentorCourseControlLiveScreen = () => {
+const MentorCourseControlLiveScreen = ({ match, history }) => {
+  const [show, setShow] = useState(false);
+  const appointmentId = match.params.appointmentId;
+  const subscriptionId = match.params.subscriptionId;
+  const appointmentTitle = match.params.appointmentTitle;
+
+  const mentorGetControlCourse = useSelector(
+    (state) => state.mentorGetControlCourse
+  );
+  const { loading, error, data } = mentorGetControlCourse;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (
+      !data ||
+      !data.guardianId ||
+      !data.guardianId.fullName ||
+      (!data && !data.appointments._id !== appointmentId) ||
+      (!data && !data._id !== subscriptionId)
+    ) {
+      dispatch(mentorGetControlCourseDetailsActions(subscriptionId));
+    }
+  }, [dispatch, subscriptionId, data, appointmentId]);
+
+  const handleCancel = (appointmentId) => {
+    // console.log(appointmentId);
+    if (window.confirm("Are you sure?")) {
+      dispatch(mentorCancelAppointmentActions(subscriptionId, appointmentId));
+      history.goBack();
+    }
+  };
   return (
     <>
       <Meta title="Mentor | Live Share"></Meta>
 
       <MentorControlCourseHeader></MentorControlCourseHeader>
       <section className="hr-section-22">
-        <h4>Lorem ipsum dolor sit amet, consetetur</h4>
+        <h4>{appointmentTitle}</h4>
         <div className="container">
           <div className="name-plate">
             <div className="guardian-name-plate">
@@ -19,10 +51,24 @@ const MentorCourseControlLiveScreen = () => {
                 <p>Guardian</p>
               </div>
               <div className="inner-name-plate">
-                <p>Islam gohar</p>
+                <p>{data && data.guardianId && data.guardianId.fullName}</p>
               </div>
               <div className="guardian-plate-phone-number">
-                <p>Click to view phone number</p>
+                <p
+                  onClick={() => setShow(!show)}
+                  style={show ? { display: "none" } : { cursor: "pointer" }}
+                >
+                  Click to view phone number
+                </p>
+                {show && (
+                  <p
+                    onClick={() => setShow(!show)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    {data && data.guardianId && data.guardianId.countryCode}
+                    {data && data.guardianId && data.guardianId.phone}
+                  </p>
+                )}
               </div>
             </div>
             <div className="hero-name-plate">
@@ -30,7 +76,7 @@ const MentorCourseControlLiveScreen = () => {
                 <p>Hero</p>
               </div>
               <div className="inner-name-plate">
-                <p>Youssef Gohar</p>
+                <p>{data && data.childId && data.childId.fullName}</p>
               </div>
             </div>
           </div>
@@ -70,7 +116,10 @@ const MentorCourseControlLiveScreen = () => {
                     Start Live session <span></span>
                   </button>
 
-                  <button className="btn btn-cancel">
+                  <button
+                    className="btn btn-cancel"
+                    onClick={() => handleCancel(appointmentId)}
+                  >
                     cancel appointement
                   </button>
                 </div>

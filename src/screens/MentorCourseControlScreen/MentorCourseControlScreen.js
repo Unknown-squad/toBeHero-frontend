@@ -14,9 +14,11 @@ import { mentorDeleteAppointmentActions } from "../../actions/mentorDeleteAppoin
 import { MENTOR_DELETE_APPOINTMENT_RESET } from "../../constants/mentorDeleteAppointmentConstants";
 import { completeCourseForMentorActions } from "../../actions/completeCourseForMentorActions";
 import Meta from "../../components/Meta";
+import MentorCourseControlLiveScreen from "../MentorCourseControlLiveScreen";
 
 const MentorCourseControlScreen = ({ match }) => {
   const subscriptionId = match.params.id;
+
   const [show, setShow] = useState(false);
 
   const mentorGetControlCourse = useSelector(
@@ -81,7 +83,7 @@ const MentorCourseControlScreen = ({ match }) => {
 
       <MentorControlCourseHeader></MentorControlCourseHeader>
       <section className="hr-section-22">
-        <h4>{data.courseId && data.courseId.title}</h4>
+        <h4>{data && data.courseId && data.courseId.title}</h4>
         <div className="container">
           {error ? (
             <ErrorMessage>{error}</ErrorMessage>
@@ -93,7 +95,7 @@ const MentorCourseControlScreen = ({ match }) => {
                     <p>Guardian</p>
                   </div>
                   <div className="inner-name-plate">
-                    <p>{data.guardianId && data.guardianId.fullName}</p>
+                    <p>{data && data.guardianId && data.guardianId.fullName}</p>
                   </div>
                   <div className="guardian-plate-phone-number">
                     <p
@@ -107,8 +109,8 @@ const MentorCourseControlScreen = ({ match }) => {
                         onClick={() => setShow(!show)}
                         style={{ cursor: "pointer" }}
                       >
-                        {data.guardianId && data.guardianId.countryCode}
-                        {data.guardianId && data.guardianId.phone}
+                        {data && data.guardianId && data.guardianId.countryCode}
+                        {data && data.guardianId && data.guardianId.phone}
                       </p>
                     )}
                   </div>
@@ -118,7 +120,7 @@ const MentorCourseControlScreen = ({ match }) => {
                     <p>Hero</p>
                   </div>
                   <div className="inner-name-plate">
-                    <p>{data.childId && data.childId.fullName}</p>
+                    <p>{data && data.childId && data.childId.fullName}</p>
                   </div>
                 </div>
               </div>
@@ -131,17 +133,19 @@ const MentorCourseControlScreen = ({ match }) => {
                     ) : success ? (
                       <SuccessMessage>{dataCancel.message}</SuccessMessage>
                     ) : null}
-                    {data.appointments && data.appointments.length === 0 && (
-                      <SuccessMessage
-                        style={{
-                          color: "#004085",
-                          backgroundColor: "#cce5ff",
-                          borderColor: "#b8daff",
-                        }}
-                      >
-                        There is no appointments yet
-                      </SuccessMessage>
-                    )}
+                    {data &&
+                      data.appointments &&
+                      data.appointments.length === 0 && (
+                        <SuccessMessage
+                          style={{
+                            color: "#004085",
+                            backgroundColor: "#cce5ff",
+                            borderColor: "#b8daff",
+                          }}
+                        >
+                          There is no appointments yet
+                        </SuccessMessage>
+                      )}
                     {loading && <Loader></Loader>}
                     {data &&
                       data.appointments &&
@@ -219,7 +223,9 @@ const MentorCourseControlScreen = ({ match }) => {
                                   appointment.cancel ? { display: "none" } : {}
                                 }
                               >
-                                <Link to="/mentor/live">
+                                <Link
+                                  to={`/mentor/live/${subscriptionId}/${appointment._id}/${appointment.title}`}
+                                >
                                   <button>go live</button>
                                 </Link>
                               </div>

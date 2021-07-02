@@ -45,7 +45,10 @@ export const mentorGetControlCourseDetailsReducer = (
     case MENTOR_GET_CONTROL_COURSE_DETAILS_REQUEST:
       return { ...state, loading: true };
     case MENTOR_GET_CONTROL_COURSE_DETAILS_SUCCESS:
-      return { loading: false, data: action.payload.data.items[0] };
+      return {
+        loading: false,
+        data: action.payload.data.items[0],
+      };
     case MENTOR_GET_CONTROL_COURSE_DETAILS_FAIL:
       return { loading: false, error: action.payload };
     default:

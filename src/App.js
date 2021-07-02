@@ -91,7 +91,7 @@ function App() {
           exact
         ></Route>
         <Route
-          path="/mentor/live"
+          path="/mentor/live/:subscriptionId/:appointmentId/:appointmentTitle"
           component={MentorCourseControlLiveScreen}
           exact
         ></Route>
