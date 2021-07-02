@@ -11,7 +11,7 @@ export const listCourses =
     try {
       dispatch({ type: COURSE_LIST_REQUEST });
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API_URL}/courses?${
+        `http://tobehero.codes:5000/api/v1/courses?${
           pageNumber ? `page=${pageNumber}` : "page=1"
         }${genre ? `&genre=${genre}` : ""}${sortby ? `&sortby=${sortby}` : ""}${
           ratings ? `&ratings=${ratings}` : ""

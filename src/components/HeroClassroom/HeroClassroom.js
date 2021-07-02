@@ -78,10 +78,10 @@ const HeroClassroom = ({ match }) => {
                               <div className="appointment-sub-item appointment-title">
                                 <p>{appointment && appointment.title}</p>
                               </div>
-                              {new Date().toISOString().split("T")[0] ===
-                              new Date(appointment.date)
-                                .toISOString()
-                                .split("T")[0] ? (
+                              {new Date().toLocaleDateString() ===
+                              new Date(
+                                appointment.date
+                              ).toLocaleDateString() ? (
                                 <div className="appointment-sub-item appointment-button active">
                                   <Link
                                     to={`/hero/live/${course._id}/${appointment._id}/${appointment.title}`}
