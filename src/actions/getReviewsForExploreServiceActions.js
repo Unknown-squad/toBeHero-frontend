@@ -11,7 +11,7 @@ export const getReviewsForExploreServiceActions =
       dispatch({ type: GET_REVIEWS_REQUEST });
 
       const { data } = await axios.get(
-        `http://localhost:5000/api/v1/reviews/${courseId}`
+        `${process.env.REACT_APP_API_URL}/reviews/${courseId}`
       );
 
       dispatch({

@@ -27,7 +27,7 @@ const MentorRegisterForm = ({ location, history }) => {
     setStateLoading(true);
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/v1/mentor/email/status/${email}`
+        `${process.env.REACT_APP_API_URL}/mentor/email/status/${email}`
       );
       setStateLoading(false);
       localStorage.setItem(

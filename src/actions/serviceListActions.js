@@ -15,7 +15,7 @@ export const listServices = () => async (dispatch) => {
       withCredentials: true,
     };
     const { data } = await axios.get(
-      "http://localhost:5000/api/v1/mentor/subscriptions",
+      `${process.env.REACT_APP_API_URL}/mentor/subscriptions`,
       config
     );
 

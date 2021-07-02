@@ -11,7 +11,7 @@ export const guardianGetChildrenActions = () => async (dispatch) => {
     dispatch({ type: GUARDIAN_GET_CHILDREN_REQUEST });
 
     const { data } = await axios.get(
-      `http://localhost:5000/api/v1/guardian/children`,
+      `${process.env.REACT_APP_API_URL}/guardian/children`,
       { withCredentials: true }
     );
 

@@ -11,7 +11,7 @@ export const guardianUpdateBasicInfoActions =
     try {
       dispatch({ type: GUARDIAN_UPDATE_BASIC_INFO_REQUEST });
       const { data } = await axios.put(
-        `http://localhost:5000/api/v1/guardian/basic-info`,
+        `${process.env.REACT_APP_API_URL}/guardian/basic-info`,
         {
           method: "guardain.basicInfo.put",
           params: {

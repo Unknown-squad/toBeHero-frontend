@@ -15,7 +15,7 @@ export const updateMentorEditCourseDashboardActions =
         },
       };
       const { data } = await axios.put(
-        `http://localhost:5000/api/v1/courses/${course._id}`,
+        `${process.env.REACT_APP_API_URL}/courses/${course._id}`,
         {
           method: "course.put",
           params: {

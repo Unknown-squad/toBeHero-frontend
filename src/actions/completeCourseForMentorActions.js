@@ -15,7 +15,7 @@ export const completeCourseForMentorActions =
         },
       };
       const { data } = await axios.post(
-        `http://localhost:5000/api/v1/mentor/complete-subscription/${subscriptionId}`,
+        `${process.env.REACT_APP_API_URL}/mentor/complete-subscription/${subscriptionId}`,
         {},
         { withCredentials: true },
         config

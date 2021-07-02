@@ -19,7 +19,7 @@ const ConfirmEmailForm = ({ history, user }) => {
       };
 
       const { data } = await axios.post(
-        `http://localhost:5000/api/v1/user/verify-email`,
+        `${process.env.REACT_APP_API_URL}/user/verify-email`,
         {
           method: "verify-email.post",
           params: {

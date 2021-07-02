@@ -30,7 +30,7 @@ export const updateMentorBasicInfoActions =
         },
       };
       const { data } = await axios.put(
-        `http://localhost:5000/api/v1/mentor/dashboard/basic-info`,
+        `${process.env.REACT_APP_API_URL}/mentor/dashboard/basic-info`,
         {
           method: "mentor.basicInfo.put",
           params: {
