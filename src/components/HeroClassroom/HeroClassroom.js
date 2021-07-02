@@ -78,8 +78,10 @@ const HeroClassroom = ({ match }) => {
                               <div className="appointment-sub-item appointment-title">
                                 <p>{appointment && appointment.title}</p>
                               </div>
-                              {Date.now() >
-                              Date.parse(appointment.date) ? null : (
+                              {new Date().toISOString().split("T")[0] ===
+                              new Date(appointment.date)
+                                .toISOString()
+                                .split("T")[0] ? (
                                 <div className="appointment-sub-item appointment-button active">
                                   <Link
                                     to={`/hero/live/${course._id}/${appointment._id}/${appointment.title}`}
@@ -91,7 +93,7 @@ const HeroClassroom = ({ match }) => {
                                     </div>
                                   </Link>
                                 </div>
-                              )}
+                              ) : null}
                             </div>
                           ))}
                       </>
