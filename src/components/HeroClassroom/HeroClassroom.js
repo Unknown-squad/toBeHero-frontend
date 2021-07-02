@@ -6,12 +6,14 @@ import uploadPicture from "../../images/upload-picture.svg";
 import ErrorMessage from "../ErrorMessage";
 import SuccessMessage from "../SuccessMessage";
 import Loader from "../Loader";
-const HeroClassroom = () => {
+import { Link } from "react-router-dom";
+const HeroClassroom = ({ match }) => {
   const getSubscriptionsForChildHome = useSelector(
     (state) => state.getSubscriptionsForChildHome
   );
   const { loading, error, data } = getSubscriptionsForChildHome;
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getSubscriptionsForChildHomeActions());
   }, [dispatch]);
@@ -79,11 +81,15 @@ const HeroClassroom = () => {
                               {Date.now() >
                               Date.parse(appointment.date) ? null : (
                                 <div className="appointment-sub-item appointment-button active">
-                                  <div className="guardian-live-btn ">
-                                    <button>
-                                      Join live <span></span>
-                                    </button>
-                                  </div>
+                                  <Link
+                                    to={`/hero/live/${course._id}/${appointment._id}/${appointment.title}`}
+                                  >
+                                    <div className="guardian-live-btn ">
+                                      <button>
+                                        Join live <span></span>
+                                      </button>
+                                    </div>
+                                  </Link>
                                 </div>
                               )}
                             </div>

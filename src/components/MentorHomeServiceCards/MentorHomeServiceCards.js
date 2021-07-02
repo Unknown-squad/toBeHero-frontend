@@ -18,45 +18,50 @@ const MentorHomeServiceCards = ({ service }) => {
     <div className="available-course">
       <div className="part-student">
         <h4>
-          {service.courseId.title} <span>{service.courseId.genre}</span>
+          {service && service.courseId && service.courseId.title}{" "}
+          <span>{service && service.courseId && service.courseId.genre}</span>
         </h4>
-        <p>student: {service.childId.fullName}</p>
-        <p>guardian: {service.guardianId.fullName}</p>
+        <p>student: {service && service.childId && service.childId.fullName}</p>
+        <p>
+          guardian:
+          {service && service.guardianId && service.guardianId.fullName}
+        </p>
       </div>
       <div className="part-appointments">
         <h4>Appointments</h4>
-        {service.appointments.map((date, i) => (
-          <React.Fragment key={i}>
-            {Date.now() > Date.parse(date.date) ? null : (
-              <p>
-                {new Date(date.date).toLocaleDateString()} -
-                {new Date(date.date).toLocaleTimeString([], {
-                  timeStyle: "short",
-                })}
-              </p>
-            )}
-          </React.Fragment>
+        {service &&
+          service.appointments.map((date, i) => (
+            <React.Fragment key={i}>
+              {Date.now() > Date.parse(date.date) ? null : (
+                <p>
+                  {new Date(date.date).toLocaleDateString()} -
+                  {new Date(date.date).toLocaleTimeString([], {
+                    timeStyle: "short",
+                  })}
+                </p>
+              )}
+            </React.Fragment>
 
-          //   {service.appointments.map((date) =>
-          //     new Date(date.date).toLocaleString()
-          //   )}
-          // {/* {new Date(date.date).toLocaleDateString()} */}
-          //   {/* {service.appointments.map((date) =>
-          //     new Date(date.date).toUTCString()
-          //   )} */}
-          //   {/* {service.appointments.map((date) =>
-          //     new Date(date.date).getUTCHours()
-          //   )} */}
-          //   {/* {service.appointments.map((date) =>
-          //   new Date(date.date).getUTCMinutes()
-          // )}{" "} */}
-          //   {/* {service.appointments.map((date) =>
-          //     new Date(date.date).toDateString()
-          //   )}{" "} */}
-          //   {/* {service.appointments.map((date) =>
-          //     new Date(date.date).toLocaleTimeString()
-          //   )}{" "} */}
-        ))}{" "}
+            //   {service.appointments.map((date) =>
+            //     new Date(date.date).toLocaleString()
+            //   )}
+            // {/* {new Date(date.date).toLocaleDateString()} */}
+            //   {/* {service.appointments.map((date) =>
+            //     new Date(date.date).toUTCString()
+            //   )} */}
+            //   {/* {service.appointments.map((date) =>
+            //     new Date(date.date).getUTCHours()
+            //   )} */}
+            //   {/* {service.appointments.map((date) =>
+            //   new Date(date.date).getUTCMinutes()
+            // )}{" "} */}
+            //   {/* {service.appointments.map((date) =>
+            //     new Date(date.date).toDateString()
+            //   )}{" "} */}
+            //   {/* {service.appointments.map((date) =>
+            //     new Date(date.date).toLocaleTimeString()
+            //   )}{" "} */}
+          ))}{" "}
         {/* {service.appointments.map((date) => data.push(date.date))} */}
       </div>
       <div className="part-contact">

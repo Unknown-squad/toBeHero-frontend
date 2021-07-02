@@ -23,15 +23,14 @@ const MentorCourseControlLiveScreen = ({ match, history }) => {
       !data ||
       !data.guardianId ||
       !data.guardianId.fullName ||
-      (!data && !data.appointments._id !== appointmentId) ||
-      (!data && !data._id !== subscriptionId)
+      (!data && data.appointments._id !== appointmentId) ||
+      (!data && data._id !== subscriptionId)
     ) {
       dispatch(mentorGetControlCourseDetailsActions(subscriptionId));
     }
   }, [dispatch, subscriptionId, data, appointmentId]);
 
   const handleCancel = (appointmentId) => {
-    // console.log(appointmentId);
     if (window.confirm("Are you sure?")) {
       dispatch(mentorCancelAppointmentActions(subscriptionId, appointmentId));
       history.goBack();

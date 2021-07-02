@@ -37,6 +37,7 @@ const MentorHomeServiceList = () => {
               There is no subscription with appointement yet
             </ErrorMessage>
           ) : (
+            data &&
             data.items.map((service, i) =>
               // Object.keys(service.appointments[0]).length > 0 ?
               service.appointments.length > 0 ? (
@@ -69,6 +70,7 @@ const MentorHomeServiceList = () => {
                 There is no subscription yet
               </ErrorMessage>
             ) : (
+              data &&
               data.items.map((service, i) =>
                 // Object.keys(service.appointments[0]).length === 0
                 service.appointments.length === 0 ? (

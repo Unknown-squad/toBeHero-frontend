@@ -8,10 +8,16 @@ const MentorHomeAppointmentsCards = ({ service }) => {
       <div className="available-course">
         <div className="part-student">
           <h4>
-            {service.courseId.title} <span>{service.courseId.genre}</span>
+            {service && service.courseId && service.courseId.title}{" "}
+            <span>{service && service.courseId && service.courseId.genre}</span>
           </h4>
-          <p>student: {service.childId.fullName}</p>
-          <p>guardian: {service.guardianId.fullName}</p>
+          <p>
+            student: {service && service.childId && service.childId.fullName}
+          </p>
+          <p>
+            guardian:{" "}
+            {service && service.guardianId && service.guardianId.fullName}
+          </p>
         </div>
 
         <div className="part-contact">

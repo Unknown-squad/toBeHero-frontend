@@ -42,6 +42,7 @@ import MentorPrivateRoute from "./MentorPrivateRoute";
 import GuardianPrivateRoute from "./GuardianPrivateRoute";
 import HeroPrivateRoute from "./HeroPrivateRoute";
 import PublicRoute from "./PublicRoute";
+import HeroLiveCallScreen from "./screens/HeroLiveCallScreen/HeroLiveCallScreen";
 function App() {
   return (
     <Router>
@@ -150,6 +151,11 @@ function App() {
 
         {/* Hero Routes */}
         <Route path="/hero/home" component={HeroHomeScreen} exact></Route>
+        <Route
+          path="/hero/live/:subscriptionId/:appointmentId/:appointmentTitle"
+          component={HeroLiveCallScreen}
+          exact
+        ></Route>
 
         {/* Public Routes */}
         <Route path="/explore" component={ExploreScreen} exact></Route>

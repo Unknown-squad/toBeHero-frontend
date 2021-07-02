@@ -35,7 +35,7 @@ export const getSubscriptionsForChildHomeReducer = (
 ) => {
   switch (action.type) {
     case GET_SUBSCRIPTIONS_FOR_CHILD_HOME_REQUEST:
-      return { loading: true };
+      return { ...state, loading: true };
     case GET_SUBSCRIPTIONS_FOR_CHILD_HOME_SUCCESS:
       return {
         ...state,
