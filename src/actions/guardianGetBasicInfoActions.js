@@ -10,7 +10,7 @@ export const guardianGetBasicInfoActions = () => async (dispatch) => {
     dispatch({ type: GUARDIAN_GET_BASIC_INFO_REQUEST });
 
     const { data } = await axios.get(
-      `http://localhost:5000/api/v1/guardian/basic-info`,
+      `${process.env.REACT_APP_API_URL}/guardian/basic-info`,
       { withCredentials: true }
     );
 

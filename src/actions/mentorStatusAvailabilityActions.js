@@ -14,7 +14,7 @@ export const mentorStatusAvailabilityActions = () => async (dispatch) => {
   try {
     dispatch({ type: MENTOR_STATUS_REQUEST });
     const { data } = await axios.get(
-      "http://localhost:5000/api/v1/mentor/availability",
+      `${process.env.REACT_APP_API_URL}/mentor/availability`,
       { withCredentials: true }
     );
 
@@ -45,7 +45,7 @@ export const mentorStatusUpdateAvailabilityActions = () => async (dispatch) => {
   try {
     dispatch({ type: MENTOR_UPDATE_STATUS_REQUEST });
     const { data } = await axios.put(
-      "http://localhost:5000/api/v1/mentor/availability",
+      `${process.env.REACT_APP_API_URL}/mentor/availability`,
       {},
       { withCredentials: true }
     );

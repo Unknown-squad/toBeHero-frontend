@@ -9,7 +9,7 @@ export const mentorProfileCoursesAction = (mentorId) => async (dispatch) => {
   try {
     dispatch({ type: MENTOR_PROFILE_COURSES_LIST_REQUEST });
     const { data } = await axios.get(
-      `http://localhost:5000/api/v1/mentor/courses/${mentorId}`
+      `${process.env.REACT_APP_API_URL}/mentor/courses/${mentorId}`
     );
     // console.log(data);
     dispatch({

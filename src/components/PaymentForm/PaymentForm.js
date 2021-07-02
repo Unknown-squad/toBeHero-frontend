@@ -48,7 +48,7 @@ const PaymentForm = ({ courseId, childId, price }) => {
       try {
         const { id } = paymentMethod;
         const { data } = await axios.post(
-          "http://localhost:5000/api/v1/guardian/checkout",
+          `${process.env.REACT_APP_API_URL}/guardian/checkout`,
           {
             method: "Guardian.checkout",
             params: {

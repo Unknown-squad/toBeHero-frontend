@@ -11,7 +11,7 @@ export const updateBasicInfoForChildActions =
     try {
       dispatch({ type: UPDATE_BASIC_INFO_FOR_CHILD_REQUEST });
       const { data } = await axios.put(
-        `http://localhost:5000/api/v1/child/${childId}`,
+        `${process.env.REACT_APP_API_URL}/child/${childId}`,
         {
           method: "child.basicInfo.put",
           params: {

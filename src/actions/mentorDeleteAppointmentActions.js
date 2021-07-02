@@ -10,7 +10,7 @@ export const mentorDeleteAppointmentActions =
     try {
       dispatch({ type: MENTOR_DELETE_APPOINTMENT_REQUEST });
       const { data } = await axios.delete(
-        `http://localhost:5000/api/v1/mentor/subscription/${subscriptionId}/appointment/${appointmentId}/delete`,
+        `${process.env.REACT_APP_API_URL}/mentor/subscription/${subscriptionId}/appointment/${appointmentId}/delete`,
 
         { withCredentials: true }
       );

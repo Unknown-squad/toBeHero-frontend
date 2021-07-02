@@ -10,7 +10,7 @@ export const mentorGetControlCourseDetailsActions =
     try {
       dispatch({ type: MENTOR_GET_CONTROL_COURSE_DETAILS_REQUEST });
       const { data } = await axios.get(
-        `http://localhost:5000/api/v1/mentor/subscription/${subscriptionId}`,
+        `${process.env.REACT_APP_API_URL}/mentor/subscription/${subscriptionId}`,
         { withCredentials: true }
       );
       dispatch({

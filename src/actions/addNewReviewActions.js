@@ -16,7 +16,7 @@ export const addNewReviewActions =
         },
       };
       const { data } = await axios.post(
-        "http://localhost:5000/api/v1/add-review",
+        `${process.env.REACT_APP_API_URL}/add-review`,
         {
           method: "review.post",
           params: {

@@ -16,7 +16,7 @@ export const mentorAddNewCourseDashboardActions =
         },
       };
       const { data } = await axios.post(
-        "http://localhost:5000/api/v1/mentor/dashboard/new-course",
+        `${process.env.REACT_APP_API_URL}/mentor/dashboard/new-course`,
         {
           method: "course.post",
           params: {

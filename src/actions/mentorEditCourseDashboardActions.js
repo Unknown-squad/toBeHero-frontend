@@ -11,7 +11,7 @@ export const getMentorEditCourseDetailsDashboardActions =
     try {
       dispatch({ type: MENTOR_EDIT_COURSE_DETAILS_REQUEST });
       const { data } = await axios.get(
-        `http://localhost:5000/api/v1/courses/${courseId}`,
+        `${process.env.REACT_APP_API_URL}/courses/${courseId}`,
         { withCredentials: true }
       );
       dispatch({ type: MENTOR_EDIT_COURSE_DETAILS_SUCCESS, payload: data });

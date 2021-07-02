@@ -12,7 +12,7 @@ export const getChildSubscriptionCourseDetailsActions =
       dispatch({ type: GET_CHILD_SUBSCRIPTION_COURSE_DETAILS_REQUEST });
 
       const { data } = await axios.get(
-        `http://localhost:5000/api/v1/guardian/child-subscription/${childId}/${courseId}`,
+        `${process.env.REACT_APP_API_URL}/guardian/child-subscription/${childId}/${courseId}`,
         { withCredentials: true }
       );
 

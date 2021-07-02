@@ -17,7 +17,7 @@ export const mentorAddNewAppointmentActions =
       };
 
       const { data } = await axios.post(
-        `http://localhost:5000/api/v1/mentor/subscription/${subscriptionId}/add-appointment`,
+        `${process.env.REACT_APP_API_URL}/mentor/subscription/${subscriptionId}/add-appointment`,
         {
           method: "mentor.appointment.post",
           params: {

@@ -11,7 +11,7 @@ export const mentorCancelAppointmentActions =
     try {
       dispatch({ type: MENTOR_CANCEL_APPOINTMENT_REQUEST });
       const { data } = await axios.put(
-        `http://localhost:5000/api/v1/mentor/subscription/${subscriptionId}/appointment/${appointmentId}/cancel`,
+        `${process.env.REACT_APP_API_URL}/mentor/subscription/${subscriptionId}/appointment/${appointmentId}/cancel`,
         {},
         { withCredentials: true }
       );

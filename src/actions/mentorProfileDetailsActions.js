@@ -14,7 +14,7 @@ export const mentorProfileDetails = (mentorId) => async (dispatch) => {
       },
     };
     const { data } = await axios.get(
-      `http://localhost:5000/api/v1/mentor/profile/${mentorId}`,
+      `${process.env.REACT_APP_API_URL}/mentor/profile/${mentorId}`,
       { withCredentials: true },
       config
     );

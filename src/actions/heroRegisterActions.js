@@ -17,7 +17,7 @@ export const heroRegisterActions =
       };
 
       const { data } = await axios.post(
-        `http://localhost:5000/api/v1/guardian/new-child`,
+        `${process.env.REACT_APP_API_URL}/guardian/new-child`,
         {
           fullName,
           userName,

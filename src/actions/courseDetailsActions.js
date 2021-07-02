@@ -14,7 +14,7 @@ export const courseDetailsAction = (courseId) => async (dispatch) => {
       },
     };
     const { data } = await axios.get(
-      `http://localhost:5000/api/v1/courses/${courseId}`,
+      `${process.env.REACT_APP_API_URL}/courses/${courseId}`,
       { withCredentials: true },
       config
     );

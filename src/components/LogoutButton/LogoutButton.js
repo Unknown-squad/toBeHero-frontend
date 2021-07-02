@@ -12,7 +12,7 @@ const LogoutButton = ({ user }) => {
   const dispatch = useDispatch();
   const logout = () => {
     setLoggedOut(true);
-    axios.delete("http://localhost:5000/api/v1/user/logout", {
+    axios.delete(`${process.env.REACT_APP_API_URL}/user/logout`, {
       withCredentials: true,
     });
   };

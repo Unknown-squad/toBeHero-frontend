@@ -10,7 +10,7 @@ export const getSubscriptionsForChildHomeActions = () => async (dispatch) => {
     dispatch({ type: GET_SUBSCRIPTIONS_FOR_CHILD_HOME_REQUEST });
 
     const { data } = await axios.get(
-      `http://localhost:5000/api/v1/child/home`,
+      `${process.env.REACT_APP_API_URL}/child/home`,
       { withCredentials: true }
     );
 

@@ -17,7 +17,7 @@ export const mentorRegisterActions = (dataArray) => async (dispatch) => {
     const { data } = await axios({
       ...config,
       method: "POST",
-      url: "http://localhost:5000/api/v1/mentor/signup",
+      url: `${process.env.REACT_APP_API_URL}/mentor/signup`,
       data: dataArray,
       withCredentials: true,
     });
