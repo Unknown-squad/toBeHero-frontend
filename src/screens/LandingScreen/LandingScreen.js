@@ -26,26 +26,46 @@ const LandingScreen = () => {
   };
   let content = {
     English: {
-      sectionOne: {
-        title: {
-          partOne: "اجعل طفلك ",
-          partTWo: "البطل",
-          partThree: "",
-          partFour: "",
+      section: [
+        {
+          title: {
+            partOne: "Turn your child to the ",
+            partTwo: "hero",
+            partThree: "he deserves",
+            partFour: "to be",
+          },
+          description: {
+            partOne: "We are a platform that assists guardians in finding ",
+            partTwo: "mentors",
+            partThree: "for their children for a better education through a",
+            partFour: "one-on-one live video calls",
+          },
         },
-        description: "",
-      },
-      linkTwo: "Login",
-      linkThree: "Hero",
+      ],
       dir: "ltr",
     },
     Arabic: {
-      linkOne: "استكشاف",
-      linkTwo: "تسجيل الدخول",
-      linkThree: "البطل",
+      section: [
+        {
+          title: {
+            partOne: "اجعل طفلك ",
+            partTwo: "البطل",
+            partThree: "الذي",
+            partFour: "يستحقه",
+          },
+          description: {
+            partOne: "We are a platform that assists guardians in finding ",
+            partTwo: "mentors",
+            partThree: "for their children for a better education through a",
+            partFour: "one-on-one live video calls",
+          },
+        },
+      ],
       dir: "rtl",
     },
   };
+
+  const { English } = content;
   language === "English"
     ? (content = content.English)
     : (content = content.Arabic);
@@ -70,8 +90,15 @@ const LandingScreen = () => {
             </div>
             <div className="col-md-6 col-12">
               <h1>
-                Turn your child to the <span className="hero-bord">hero</span>{" "}
-                he deserves <span className="to-be"> to be</span>
+                {content.section[0].title.partOne}{" "}
+                <span className="hero-bord">
+                  {content.section[0].title.partTwo}
+                </span>{" "}
+                {content.section[0].title.partThree}{" "}
+                <span className="to-be">
+                  {" "}
+                  {content.section[0].title.partFour}
+                </span>
               </h1>
               <p className="mb-3">
                 We are a platform that assists guardians in finding
