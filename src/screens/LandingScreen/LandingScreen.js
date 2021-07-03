@@ -23,7 +23,7 @@ const LandingScreen = () => {
         <LandingHeader></LandingHeader>
       </Headroom>
       {/* <!-- start sextion-1 --> */}
-      <section className="hr-section-1">
+      <section className="hr-section-1" id="up">
         <div className="container">
           <div className="row">
             <div className="col-md-6 col-12 pr-3 mb-3">

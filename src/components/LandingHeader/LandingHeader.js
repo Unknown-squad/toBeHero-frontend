@@ -8,7 +8,7 @@ const LandingHeader = () => {
 
   return (
     <header>
-      <div className="container" id="up">
+      <div className="container">
         <nav>
           <div className="logo">
             <Link to="/">

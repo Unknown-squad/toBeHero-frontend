@@ -26,7 +26,7 @@
         }
       }
       .select-child {
-        overflow-x: scroll;
+        overflow-x: overlay;
         display: flex;
         justify-content: flex-start;
         margin-top: 0.5rem;

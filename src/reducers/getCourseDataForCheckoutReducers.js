@@ -6,13 +6,19 @@ import {
 
 const initialState = {
   data: {
-    Kind: "",
-    items: [
-      {
-        courseTitle: "",
-        coursePrice: "",
+    kind: "",
+    items: {
+      course: {
+        title: "",
+        price: 0,
       },
-    ],
+      children: [
+        {
+          fullName: "",
+          picture: "",
+        },
+      ],
+    },
   },
 };
 export const getCourseDataForCheckoutReducer = (
@@ -21,12 +27,12 @@ export const getCourseDataForCheckoutReducer = (
 ) => {
   switch (action.type) {
     case GET_COURSE_DATA_FOR_CHECKOUT_REQUEST:
-      return { loading: true };
+      return { ...state, loading: true };
     case GET_COURSE_DATA_FOR_CHECKOUT_SUCCESS:
       return {
         ...state,
         loading: false,
-        data: action.payload.data.items[0],
+        data: action.payload.data.items,
       };
     case GET_COURSE_DATA_FOR_CHECKOUT_FAIL:
       return { loading: false, error: action.payload };

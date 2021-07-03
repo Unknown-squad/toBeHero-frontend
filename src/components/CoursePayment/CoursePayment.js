@@ -6,6 +6,8 @@ const CoursePayment = ({ details, location, history }) => {
   const [show, setShow] = useState(false);
   const mentorLogin = useSelector((state) => state.mentorLogin);
   const { mentorInfo } = mentorLogin;
+  const guardianLogin = useSelector((state) => state.guardianLogin);
+  const { guardianInfo } = guardianLogin;
   const checkoutHandler = () => {
     history.push(`/login/guardian?redirect=/guardian/checkout/${details._id}`);
   };
@@ -29,7 +31,7 @@ const CoursePayment = ({ details, location, history }) => {
           </div>
         </div>
         <div className="service-purchase-btns flex-column alin-itms-cntr">
-          {mentorInfo ? null : (
+          {mentorInfo ? null : guardianInfo ? (
             <>
               <div className="service-purchase">
                 <button
@@ -64,6 +66,12 @@ const CoursePayment = ({ details, location, history }) => {
                 )}
               </div>
             </>
+          ) : (
+            <div className="service-purchase">
+              <button className="btn btn-purple-500" onClick={checkoutHandler}>
+                continue({details.price} EGP)
+              </button>
+            </div>
           )}
         </div>
       </div>

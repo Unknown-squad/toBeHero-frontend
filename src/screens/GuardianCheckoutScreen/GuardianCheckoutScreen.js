@@ -15,21 +15,15 @@ const GuardianCheckoutScreen = ({ match }) => {
   const [childId, setChildId] = useState("");
   const courseId = match.params.courseId;
 
-  const guardianGetChildren = useSelector((state) => state.guardianGetChildren);
-  const { loading, error, data } = guardianGetChildren;
   const getCourseDataForCheckout = useSelector(
     (state) => state.getCourseDataForCheckout
   );
-  const {
-    loading: loadingCourseData,
-    error: errorCourseData,
-    data: courseData,
-  } = getCourseDataForCheckout;
+  const { loading, error, data } = getCourseDataForCheckout;
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(guardianGetChildrenActions());
     dispatch(getCourseDataForCheckoutActions(courseId));
+    // console.log(data);
   }, [dispatch, courseId]);
   return (
     <>
@@ -41,7 +35,7 @@ const GuardianCheckoutScreen = ({ match }) => {
             <div className="credit-card-info">
               <h4 className="course">
                 <span> Course: </span>
-                {courseData && courseData.title}
+                {data && data.course && data.course.title}
               </h4>
               <p style={{ color: "#8C61FF" }}>Please select one Child</p>
               <form>
@@ -50,8 +44,8 @@ const GuardianCheckoutScreen = ({ match }) => {
                 ) : (
                   <div className="select-child">
                     {data &&
-                      data.items &&
-                      data.items.map((child, i) => (
+                      data.children &&
+                      data.children.map((child, i) => (
                         <div className="option-child" key={child._id}>
                           <label htmlFor={`child-${i + 1}`}>
                             <input
@@ -92,7 +86,7 @@ const GuardianCheckoutScreen = ({ match }) => {
                 <StripeContainer
                   childId={childId}
                   courseId={courseId}
-                  price={courseData && courseData.price}
+                  price={data && data.course && data.course.price}
                 ></StripeContainer>
               </div>
 
@@ -109,10 +103,12 @@ const GuardianCheckoutScreen = ({ match }) => {
               </div>
             </div>
             <div className="checkout">
-              <div className="price">{courseData && courseData.price} EGP</div>
+              <div className="price">
+                {data && data.course && data.course.price} EGP
+              </div>
               <div className="total-price">
                 tolal
-                <span>{courseData && courseData.price} EGP</span>
+                <span>{data && data.course && data.course.price} EGP</span>
               </div>
               <div className="btn-checkout">
                 <button className="btn btn-purple-400">Checkout</button>
