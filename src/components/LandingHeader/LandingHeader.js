@@ -1,13 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import useToggleNavbar from "../../hooks";
-
 import "./LandingHeader.scss";
-const LandingHeader = () => {
+const LandingHeader = (props) => {
   const [showMobileMenu, onClick] = useToggleNavbar();
+  let content = {
+    English: {
+      linkOne: "Explore",
+      linkTwo: "Login",
+      linkThree: "Hero",
+      dir: "ltr",
+    },
+    Arabic: {
+      linkOne: "استكشاف",
+      linkTwo: "تسجيل الدخول",
+      linkThree: "البطل",
+      dir: "rtl",
+    },
+  };
+  props.language === "English"
+    ? (content = content.English)
+    : (content = content.Arabic);
+
+  useEffect(() => {
+    document.body.dir = content.dir;
+  }, [content.dir]);
 
   return (
-    <header>
+    <header style={{ direction: "ltr" }}>
       <div className="container">
         <nav>
           <div className="logo">
@@ -25,32 +45,42 @@ const LandingHeader = () => {
             {showMobileMenu ? (
               <ul className="navbar show" id="navbar">
                 <li>
-                  <Link to="/explore">explore</Link>
+                  <Link to="/explore">{content.linkOne}</Link>
                 </li>
                 <li>
-                  <Link to="/login">login</Link>
+                  <Link to="/login">{content.linkTwo}</Link>
                 </li>
                 <li>
                   <Link to="/login/hero" className="hero">
-                    HERO
+                    {content.linkThree}
                   </Link>
                 </li>
               </ul>
             ) : (
               <ul className="navbar" id="navbar">
                 <li>
-                  <Link to="/explore">explore</Link>
+                  <Link to="/explore">{content.linkOne}</Link>
                 </li>
                 <li>
-                  <Link to="/login">login</Link>
+                  <Link to="/login">{content.linkTwo}</Link>
                 </li>
                 <li>
                   <Link to="/login/hero" className="hero">
-                    HERO
+                    {content.linkThree}
                   </Link>
                 </li>
               </ul>
             )}
+            <div style={{ marginLeft: "2rem" }}>
+              <select
+                className="custom-select"
+                value={props.language}
+                onChange={(e) => props.handleSetLanguage(e.target.value)}
+              >
+                <option value="English">English</option>
+                <option value="Arabic">Arabic</option>
+              </select>
+            </div>
           </div>
         </nav>
       </div>

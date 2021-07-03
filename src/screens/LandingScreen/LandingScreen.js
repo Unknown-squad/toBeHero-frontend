@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import hero1 from "../../images/hero1.png";
 import heroIconTeach from "../../images/hero-icon-teach.svg";
@@ -16,11 +16,50 @@ import Meta from "../../components/Meta";
 import Headroom from "react-headroom";
 
 const LandingScreen = () => {
+  let languageStoredInLocalStorage = localStorage.getItem("language");
+  const [language, setLanguage] = useState(
+    languageStoredInLocalStorage ? languageStoredInLocalStorage : "English"
+  );
+
+  const storeLanguageInLocalStorage = (language) => {
+    localStorage.setItem("language", language);
+  };
+  let content = {
+    English: {
+      sectionOne: {
+        title: {
+          partOne: "اجعل طفلك ",
+          partTWo: "البطل",
+          partThree: "",
+          partFour: "",
+        },
+        description: "",
+      },
+      linkTwo: "Login",
+      linkThree: "Hero",
+      dir: "ltr",
+    },
+    Arabic: {
+      linkOne: "استكشاف",
+      linkTwo: "تسجيل الدخول",
+      linkThree: "البطل",
+      dir: "rtl",
+    },
+  };
+  language === "English"
+    ? (content = content.English)
+    : (content = content.Arabic);
   return (
     <>
       <Meta></Meta>
       <Headroom style={{ zIndex: "999999" }}>
-        <LandingHeader></LandingHeader>
+        <LandingHeader
+          language={language}
+          handleSetLanguage={(language) => {
+            setLanguage(language);
+            storeLanguageInLocalStorage(language);
+          }}
+        ></LandingHeader>
       </Headroom>
       {/* <!-- start sextion-1 --> */}
       <section className="hr-section-1" id="up">
