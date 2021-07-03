@@ -100,9 +100,10 @@ const GuardianChildSubscriptionCourseScreen = ({ match }) => {
                       data.appointments.map((appointment) => (
                         <div
                           className={`appointment-control-item ${
-                            Date.now() > Date.parse(appointment.date)
-                              ? ""
-                              : "live-active"
+                            new Date().toLocaleDateString() ===
+                            new Date(appointment.date).toLocaleDateString()
+                              ? "live-active"
+                              : ""
                           }`}
                           key={appointment._id}
                         >
@@ -131,13 +132,20 @@ const GuardianChildSubscriptionCourseScreen = ({ match }) => {
                           <div className="appointment-sub-item appointment-title">
                             <p>{appointment.title}</p>
                           </div>
-                          {Date.now() > Date.parse(appointment.date) ? (
-                            <p>Finished</p>
-                          ) : (
+                          {new Date().toLocaleDateString() ===
+                          new Date(appointment.date).toLocaleDateString() ? (
                             <div className="appointment-sub-item appointment-button active">
                               <div className="guardian-live-btn ">
                                 <button>
                                   live now <span></span>
+                                </button>
+                              </div>
+                            </div>
+                          ) : (
+                            <div className="appointment-sub-item appointment-button active">
+                              <div className="guardian-live-btn ">
+                                <button disabled>
+                                  Coming Soon <span></span>
                                 </button>
                               </div>
                             </div>
