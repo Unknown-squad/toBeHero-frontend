@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import hero1 from "../../images/hero1.png";
 import heroIconTeach from "../../images/hero-icon-teach.svg";
@@ -14,6 +14,8 @@ import Footer from "../../components/Footer";
 import LandingHeader from "../../components/LandingHeader";
 import Meta from "../../components/Meta";
 import Headroom from "react-headroom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const LandingScreen = () => {
   let languageStoredInLocalStorage = localStorage.getItem("language");
@@ -26,29 +28,203 @@ const LandingScreen = () => {
   };
   let content = {
     English: {
-      sectionOne: {
-        title: {
-          partOne: "اجعل طفلك ",
-          partTWo: "البطل",
-          partThree: "",
-          partFour: "",
+      section: [
+        {
+          title: {
+            partOne: "Turn your child to the ",
+            partTwo: "hero",
+            partThree: "he deserves",
+            partFour: "to be",
+          },
+          description: {
+            partOne: "We are a platform that assists guardians in finding ",
+            partTwo: "mentors",
+            partThree: "for their children for a better education through a",
+            partFour: "one-on-one live video calls",
+          },
+          button: {
+            btnOne: "Explore now",
+            btnTwo: "Guardian",
+            btnThree: "Mentor",
+            btnFour: "Or join as a",
+          },
         },
-        description: "",
-      },
-      linkTwo: "Login",
-      linkThree: "Hero",
+        {
+          title: {
+            partOne: "How",
+            partTwo: "ToBeHero",
+            partThree: "can Help",
+          },
+          card: {
+            titleCardOne: "Easy to find a Mentor",
+            titleCardTwo: "Simple progress monitoring",
+            titleCardThree: "Variable teaching methods",
+          },
+          description: {
+            partOne:
+              "Finding a suitable mentor to satisfy your child's needs is fast and easy ",
+            partTwo:
+              "Monitoring a child's progress with their mentor is as easy as reading a list",
+            partThree:
+              " Mentors have the freedom of teaching using their creative and innovative methods",
+          },
+        },
+        {
+          title: {
+            partOne: "Mentors",
+            partTwo: "Become the creative mentor you always wanted to be",
+            partThree: "Guardian",
+            partFour: "Finding a mentor for your child never been easier!",
+          },
+          card: {
+            titleCardOne: "Easy to find a Mentor",
+            titleCardTwo: "Simple progress monitoring",
+            titleCardThree: "Variable teaching methods",
+          },
+          description: {
+            partOne:
+              "Simple course management and you can be as creative and innovative with your mentoring methods ",
+            partTwo:
+              "Find the most suitable mentor for your child and it is easy to monitor their progress",
+          },
+          button: {
+            btnOne: "Mentors, start here",
+            btnTwo: "Guardian, start here",
+          },
+        },
+        {
+          description: {
+            partOne:
+              '"I have been using To Be Hero for all my children for their favorite hobbies and they magnificently improved since i started using the platform. It is easy to find a suitable mentor to satisfy your child\'s needs."',
+          },
+          title: {
+            titleOne: "Mohamed",
+            titleTwo: "Egypt",
+          },
+        },
+        {
+          title: {
+            titleOne: "Join TO BE HERO today",
+            titleTwo: "Built and Developed By",
+          },
+          text: {
+            textOne: "OR",
+          },
+          button: {
+            btnOne: "Mentor",
+            btnTwo: "Guardian",
+          },
+          description: {
+            partOne:
+              " Mohammed Sobhi - Mohammed Ramadan - Islam Goher - Osama Mohammed Ammar - Mahmoud serag - Mohammed Ali - Mohammed Ibrahim",
+            partTwo:
+              " under supervision of: Prof. Mohammed Badawy and T.A. Andrew Nader",
+          },
+        },
+      ],
       dir: "ltr",
     },
     Arabic: {
-      linkOne: "استكشاف",
-      linkTwo: "تسجيل الدخول",
-      linkThree: "البطل",
+      section: [
+        {
+          title: {
+            partOne: "اجعـل طفلـك ",
+            partTwo: "البطــــل",
+            partThree: "الـذي",
+            partFour: "يسـتحقه",
+          },
+          description: {
+            partOne: "نحن منصة تساعد أولياء الأمور في العثور علي ",
+            partTwo: "المعلمين",
+            partThree: "لأبنائهم من أجل تعليم أفضل من خلال ",
+            partFour: "مكالمات فيديو فردية",
+          },
+          button: {
+            btnOne: "استكشف الآن",
+            btnTwo: "ولي الأمر",
+            btnThree: "معلم",
+            btnFour: "او انضم إلينا كـ",
+          },
+        },
+        {
+          title: {
+            partOne: "كيف ",
+            partTwo: "يمكن ان ",
+            partThree: "تساعدك منصتنا",
+          },
+          card: {
+            titleCardOne: "ايجاد معلم امر سهل",
+            titleCardTwo: "مراقبة التقدم امر بسيط وسهل",
+            titleCardThree: "اساليب تعلم مبتكرة",
+          },
+          description: {
+            partOne:
+              "العثور على معلم مناسب لتلبية احتياجات طفلك امٌر سريع وسهل ",
+            partTwo:
+              "تعد مراقبة تقدم الطفل مع معلمه أمرًا سهلاً مثل قراءة كتاب",
+            partThree:
+              " يتمتع المعلمون بحرية التدريس باستخدام أساليبهم الإبداعية والمبتكرة",
+          },
+        },
+        {
+          title: {
+            partOne: "المعلمين",
+            partTwo: "كن المعلم المبدع الذي طالما رغبت  أن تكون ",
+            partThree: "أولياء الأمور",
+            partFour: " العثور على معلم لطفلك أسهل من أي وقت مضى!",
+          },
+          description: {
+            partOne:
+              "إدارة دوراتك التدريبية بطريقة سهله ومبسطة مع امكانية أن تكون مبدعًا ومبتكرًا مع أساليب التوجيه الخاصة بك",
+            partTwo:
+              "اعثر على المعلم الأنسب لطفلك وسيكون من السهل عليك مراقبة تقدمه",
+          },
+          button: {
+            btnOne: "المعلمون, ابدأ من هنا",
+            btnTwo: "أولياء الأمور, ابدأ من هنا",
+          },
+        },
+        {
+          description: {
+            partOne:
+              '"لقد كنت أستخدم To Be Hero لجميع أطفالي من أجل هواياتهم المفضلة وقد تحسنت بشكل رائع منذ أن بدأت في استخدام المنصة. من السهل العثور على معلم مناسب لتلبيه احتياجات طفلك."',
+          },
+          title: {
+            titleOne: "محمد",
+            titleTwo: "مصر",
+          },
+        },
+        {
+          title: {
+            titleOne: "انضــم إليــنـا اليـــوم",
+            titleTwo: "تم بناؤه وتطويره بواسطة",
+          },
+          text: {
+            textOne: "أو",
+          },
+          button: {
+            btnOne: "معلم",
+            btnTwo: "ولي الأمر",
+          },
+          description: {
+            partOne:
+              " محمد صبحي - محمد رمضان - اسلام جوهر - اسامة محمد عمار - محمود سراج - محمد علي - محمد ابراهيم",
+            partTwo: "تحت إشراف: أ.د.محمد بدوي و م.م أندرو نادر",
+          },
+        },
+      ],
       dir: "rtl",
     },
   };
+
   language === "English"
     ? (content = content.English)
     : (content = content.Arabic);
+
+  useEffect(() => {
+    document.body.dir = content.dir;
+  }, [content.dir]);
+
   return (
     <>
       <Meta></Meta>
@@ -66,28 +242,46 @@ const LandingScreen = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-6 col-12 pr-3 mb-3">
-              <img src={hero1} alt="hero-1" />
+              <LazyLoadImage src={hero1} alt="hero-1" effect="blur" />
             </div>
             <div className="col-md-6 col-12">
               <h1>
-                Turn your child to the <span className="hero-bord">hero</span>{" "}
-                he deserves <span className="to-be"> to be</span>
+                {content.section[0].title.partOne}{" "}
+                <span className="hero-bord">
+                  {content.section[0].title.partTwo}
+                </span>{" "}
+                {content.section[0].title.partThree}{" "}
+                <span className="to-be">
+                  {" "}
+                  {content.section[0].title.partFour}
+                </span>
               </h1>
               <p className="mb-3">
-                We are a platform that assists guardians in finding
-                <span className="font-500"> mentors</span> for their children
-                for a better education through a
-                <span className="font-500"> one-on-one live video calls</span>
+                {content.section[0].description.partOne}
+                <span className="font-500">
+                  {content.section[0].description.partTwo}
+                </span>{" "}
+                {content.section[0].description.partThree}
+                <span className="font-500">
+                  {" "}
+                  {content.section[0].description.partFour}
+                </span>
               </p>
               <Link to="/explore">
-                <button className="btn ex-now">Explore now</button>
+                <button className="btn ex-now">
+                  {content.section[0].button.btnOne}
+                </button>
               </Link>
-              <p className="font-500">Or join as a</p>
+              <p className="font-500">{content.section[0].button.btnFour}</p>
               <Link to="/register/guardian">
-                <button className="btn gr-mentor">Guardian</button>
+                <button className="btn gr-mentor">
+                  {content.section[0].button.btnTwo}
+                </button>
               </Link>
               <Link to="/register/mentor">
-                <button className="btn gr-mentor">Mentor</button>
+                <button className="btn gr-mentor">
+                  {content.section[0].button.btnThree}
+                </button>
               </Link>
             </div>
           </div>
@@ -103,45 +297,38 @@ const LandingScreen = () => {
         </div>
         <div className="container" id="down">
           <h1>
-            How <span>ToBeHero</span> can Help
+            {content.section[1].title.partOne}{" "}
+            <span>{content.section[1].title.partTwo} </span>{" "}
+            {content.section[1].title.partThree}
           </h1>
           <div className="row just-cont-cntr">
             <div className="col-lg-30 ml-card-4 col-md-6 col-12 mb-4">
               <div className="card-help">
                 <div className="img-card">
-                  <img src={heroIconSearch} alt="" />
+                  <LazyLoadImage src={heroIconSearch} alt="" effect="blur" />
                 </div>
-                <h6>Easy to find a Mentor</h6>
-                <p>
-                  Finding a suitable mentor to satisfy your child's needs is
-                  fast and easy
-                </p>
+                <h6>{content.section[1].card.titleCardOne}</h6>
+                <p>{content.section[1].description.partOne}</p>
               </div>
               <div className="card-overlay"></div>
             </div>
             <div className="col-lg-30 ml-card-4 col-md-6 col-12 mb-4">
               <div className="card-help">
                 <div className="img-card">
-                  <img src={heroIconProgress} alt="" />
+                  <LazyLoadImage src={heroIconProgress} alt="" effect="blur" />
                 </div>
-                <h6>Simple progress monitoring</h6>
-                <p>
-                  Monitoring a child's progress with their mentor is as easy as
-                  reading a list
-                </p>
+                <h6>{content.section[1].card.titleCardTwo}</h6>
+                <p>{content.section[1].description.partTwo}</p>
               </div>
               <div className="card-overlay"></div>
             </div>
             <div className="col-lg-30 ml-card-4 col-md-6 col-12 mb-4">
               <div className="card-help">
                 <div className="img-card">
-                  <img src={heroIconTeach} alt="" />
+                  <LazyLoadImage src={heroIconTeach} alt="" effect="blur" />
                 </div>
-                <h6>Variable teaching methods</h6>
-                <p>
-                  Mentors have the freedom of teaching using their creative and
-                  innovative methods
-                </p>
+                <h6>{content.section[1].card.titleCardThree}</h6>
+                <p>{content.section[1].description.partThree}</p>
               </div>
               <div className="card-overlay"></div>
             </div>
@@ -155,45 +342,53 @@ const LandingScreen = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-5 col-md-6 col-12 pr-3 mb-5">
-              <h6>Mentors</h6>
-              <h1>Become the creative mentor you always wanted to be</h1>
-              <p>
-                Simple course management and you can be as creative and
-                innovative with your mentoring methods
-              </p>
+              <h6>{content.section[2].title.partOne}</h6>
+              <h1>{content.section[2].title.partTwo}</h1>
+              <p>{content.section[2].description.partOne}</p>
               <div className="btn-arrow">
                 <Link to="/register/mentor">
                   <button className="btn btn-g-m-start">
-                    Mentors, start here
+                    {content.section[2].button.btnOne}
                   </button>
                 </Link>
-                <img src={curvedArrow} alt="" />
+                <LazyLoadImage
+                  src={curvedArrow}
+                  alt=""
+                  style={
+                    language === "Arabic" ? { transform: "scaleX(-1)" } : {}
+                  }
+                  effect="blur"
+                />
               </div>
             </div>
             <div className="col-lg-5 col-md-6 col-lg-offset-1 col-12 mb-5">
               <div className="shadow-img">
-                <img src={hero3} alt="" />
+                <LazyLoadImage src={hero3} alt="" effect="blur" />
               </div>
             </div>
             <div className="col-lg-5 col-md-6 col-12 mt-5">
               <div className="shadow-img-cy">
-                <img src={hero4} alt="" />
+                <LazyLoadImage src={hero4} alt="" effect="blur" />
               </div>
             </div>
             <div className="col-lg-5 col-md-6 col-lg-offset-1 col-12 mt-5 pl-3">
-              <h6>Guardian</h6>
-              <h1>Finding a mentor for your child never been easier!</h1>
-              <p>
-                Find the most suitable mentor for your child and it is easy to
-                monitor their progress
-              </p>
+              <h6>{content.section[2].title.partThree}</h6>
+              <h1>{content.section[2].title.partFour}</h1>
+              <p>{content.section[2].description.partTwo}</p>
               <div className="btn-arrow">
                 <Link to="/register/guardian">
                   <button className="btn btn-g-m-start">
-                    Guardian, start here
+                    {content.section[2].button.btnTwo}
                   </button>
                 </Link>
-                <img src={curvedArrow} alt="" />
+                <LazyLoadImage
+                  src={curvedArrow}
+                  alt=""
+                  style={
+                    language === "Arabic" ? { transform: "scaleX(-1)" } : {}
+                  }
+                  effect="blur"
+                />
               </div>
             </div>
           </div>
@@ -207,17 +402,33 @@ const LandingScreen = () => {
           <div className="row">
             <div className="col-lg-9 col-12">
               <p>
-                <img src={hero5Icon} alt="" /> "I have been using To Be Hero for
-                all my children for their favorite hobbies and they
-                magnificently improved since i started using the platform. It is
-                easy to find a suitable mentor to satisfy your child's needs."
+                <LazyLoadImage
+                  src={hero5Icon}
+                  alt=""
+                  style={
+                    language === "Arabic"
+                      ? { transform: "scalex(-1)", position: "inherit" }
+                      : {}
+                  }
+                  effect="blur"
+                />{" "}
+                {content.section[3].description.partOne}
               </p>
             </div>
             <div className="col-lg-3 col-12">
               <div className="hero-img-p">
-                <img src={heroImg} alt="" />
-                <h6>Mohamed</h6>
-                <p>Egypt</p>
+                <LazyLoadImage
+                  src={heroImg}
+                  alt=""
+                  style={
+                    language === "Arabic"
+                      ? { transform: "scalex(1)", position: "inherit" }
+                      : {}
+                  }
+                  effect="blur"
+                />
+                <h6>{content.section[3].title.titleOne}</h6>
+                <p>{content.section[3].title.titleTwo}</p>
               </div>
             </div>
           </div>
@@ -229,15 +440,19 @@ const LandingScreen = () => {
       <section className="hr-section-5">
         <div className="container">
           <div className="wings">
-            <h1>Join TO BE HERO today</h1>
+            <h1>{content.section[4].title.titleOne}</h1>
           </div>
           <div className="met-or-gur">
             <Link to="/register/mentor">
-              <button className="btn">Mentor</button>
+              <button className="btn">
+                {content.section[4].button.btnOne}
+              </button>
             </Link>
-            <h1>OR</h1>
+            <h1>{content.section[4].text.textOne}</h1>
             <Link to="/register/guardian">
-              <button className="btn">Guardian</button>
+              <button className="btn">
+                {content.section[4].button.btnTwo}
+              </button>
             </Link>
           </div>
           <hr />
@@ -247,18 +462,13 @@ const LandingScreen = () => {
       {/* //   <!-- start section-6 --> */}
       <section className="hr-section-6">
         <div className="container">
-          <h2>Built and Developed By</h2>
-          <p>
-            Mohammed Sobhi - Mohammed Ramadan - Islam Goher - Mahmoud serag -
-            Osama Mohammed Ammar - Mohammed Ali - Mohammed Ibrahim
-          </p>
-          <p>
-            under supervision of: Prof. Mohammed Badawy and T.A. Andrew Nader
-          </p>
+          <h2>{content.section[4].title.titleTwo}</h2>
+          <p>{content.section[4].description.partOne}</p>
+          <p>{content.section[4].description.partTwo}</p>
         </div>
       </section>
       {/* //   <!-- end sextion-6 -->; */}
-      <Footer></Footer>
+      <Footer language={language}></Footer>
     </>
   );
 };

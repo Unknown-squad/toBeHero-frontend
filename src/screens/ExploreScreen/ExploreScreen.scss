@@ -176,7 +176,7 @@
   }
   /* card */
   /* card image */
-  .course-img > img {
+  .course-img > LazyLoadImage {
     max-height: 110px;
     max-width: 260px;
     border: 1px solid #343090;
@@ -199,7 +199,7 @@
     align-items: center;
   }
 
-  .mentor-img > img {
+  .mentor-img > LazyLoadImage {
     width: 35px;
     height: 35px;
     border-radius: 50%;
@@ -254,7 +254,7 @@
     column-gap: 10px;
     padding-top: 5px;
     margin-top: auto;
-    img {
+    LazyLoadImage {
       width: auto;
     }
   }

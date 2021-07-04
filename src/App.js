@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import {
   BrowserRouter as Router,
   Redirect,
@@ -43,9 +43,11 @@ import GuardianPrivateRoute from "./GuardianPrivateRoute";
 import HeroPrivateRoute from "./HeroPrivateRoute";
 import PublicRoute from "./PublicRoute";
 import HeroLiveCallScreen from "./screens/HeroLiveCallScreen/HeroLiveCallScreen";
+// const LandingScreen = lazy(() => import("./screens/LandingScreen"));
 function App() {
   return (
     <Router>
+      {/* <Suspense fallback={<div>Loading...</div>}> */}
       <Switch>
         {/* Guardian Routes */}
         <Route
@@ -710,6 +712,7 @@ function App() {
         exact
         redirectRoute="/"
       ></PublicRoute>
+      {/* </Suspense> */}
     </Router>
   );
 }

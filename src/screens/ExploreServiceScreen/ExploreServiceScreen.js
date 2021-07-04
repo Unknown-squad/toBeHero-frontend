@@ -58,7 +58,6 @@ const ExploreServiceScreen = ({ match, location, history }) => {
           expanded: false,
         });
   };
-
   return (
     <>
       <Meta title="ToBeHero | Explore Service"></Meta>

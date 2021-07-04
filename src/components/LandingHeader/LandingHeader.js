@@ -12,19 +12,15 @@ const LandingHeader = (props) => {
       dir: "ltr",
     },
     Arabic: {
-      linkOne: "استكشاف",
-      linkTwo: "تسجيل الدخول",
-      linkThree: "البطل",
+      linkOne: "استكشــاف",
+      linkTwo: "تسجيـل الدخـول",
+      linkThree: "البطــــل",
       dir: "rtl",
     },
   };
   props.language === "English"
     ? (content = content.English)
     : (content = content.Arabic);
-
-  useEffect(() => {
-    document.body.dir = content.dir;
-  }, [content.dir]);
 
   return (
     <header style={{ direction: "ltr" }}>

@@ -43,46 +43,90 @@ const HeroClassroomSubscriptionCard = ({ course, subscriptionId }) => {
               {course &&
                 course.appointments &&
                 course.appointments.map((appointment, i) => (
-                  <div className="appointment-control-item live-active" key={i}>
-                    {/* <!-- add className live-active to toggle item border and button --> */}
-                    <div className="appointment-sub-item appointment-date">
-                      <p>
-                        <span>
-                          {new Date(
-                            appointment && appointment.date
-                          ).toLocaleDateString()}
-                        </span>
-                      </p>
-                    </div>
-                    <div className="appointment-sub-item appointment-time">
-                      <p>
-                        {new Date(
-                          appointment && appointment.date
-                        ).toLocaleTimeString([], {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                        })}
-                      </p>
-                    </div>
-                    <div className="appointment-sub-item appointment-title">
-                      <p>{appointment && appointment.title}</p>
-                    </div>
+                  <React.Fragment key={i}>
                     {new Date().toLocaleDateString() ===
-                      new Date(appointment.date).toLocaleDateString() &&
-                    active ? (
-                      <div className="appointment-sub-item appointment-button active">
-                        <Link
-                          to={`/hero/live/${course._id}/${appointment._id}/${appointment.title}`}
-                        >
-                          <div className="guardian-live-btn ">
-                            <button>
-                              Live Today <span></span>
-                            </button>
+                    new Date(appointment.date).toLocaleDateString() ? (
+                      <>
+                        <div className="appointment-control-item live-active">
+                          {/* <!-- add className live-active to toggle item border and button --> */}
+                          <div className="appointment-sub-item appointment-date">
+                            <p>
+                              <span>
+                                {new Date(
+                                  appointment && appointment.date
+                                ).toLocaleDateString()}
+                              </span>
+                            </p>
                           </div>
-                        </Link>
-                      </div>
-                    ) : null}
-                  </div>
+                          <div className="appointment-sub-item appointment-time">
+                            <p>
+                              {new Date(
+                                appointment && appointment.date
+                              ).toLocaleTimeString([], {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                              })}
+                            </p>
+                          </div>
+                          <div className="appointment-sub-item appointment-title">
+                            <p>{appointment && appointment.title}</p>
+                          </div>
+
+                          <div className="appointment-sub-item appointment-button active">
+                            <Link
+                              to={`/hero/live/${course._id}/${appointment._id}/${appointment.title}`}
+                            >
+                              <div className="guardian-live-btn active">
+                                <button>
+                                  Join live <span></span>
+                                </button>
+                              </div>
+                            </Link>
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="appointment-control-item">
+                          {/* <!-- add className live-active to toggle item border and button --> */}
+                          <div className="appointment-sub-item appointment-date">
+                            <p>
+                              <span>
+                                {new Date(
+                                  appointment && appointment.date
+                                ).toLocaleDateString()}
+                              </span>
+                            </p>
+                          </div>
+                          <div className="appointment-sub-item appointment-time">
+                            <p>
+                              {new Date(
+                                appointment && appointment.date
+                              ).toLocaleTimeString([], {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                              })}
+                            </p>
+                          </div>
+                          <div className="appointment-sub-item appointment-title">
+                            <p>{appointment && appointment.title}</p>
+                          </div>
+                          {/* 
+                          <div className="appointment-sub-item appointment-button active">
+                            <Link
+                              to={`/hero/live/${course._id}/${appointment._id}/${appointment.title}`}
+                            >
+                              <div className="guardian-live-btn active ">
+                                <button>
+                                  Join live <span></span>
+                                </button>
+                              </div>
+                            </Link>
+                          </div> */}
+                        </div>
+                      </>
+                    )}
+                  </React.Fragment>
                 ))}
             </>
           ) : (
