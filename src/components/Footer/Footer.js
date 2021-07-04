@@ -1,13 +1,30 @@
 import React from "react";
 import "./Footer.scss";
-const Footer = () => {
+const Footer = (props) => {
+  let content = {
+    English: {
+      linkOne: " ToBeHERO Inc.",
+      linkTwo: " © Copyright 2021. All Rights Reserved.",
+      linkThree: "Palestine is Free",
+      dir: "ltr",
+    },
+    Arabic: {
+      linkOne: "منصة ToBeHero.",
+      linkTwo: "© حقوق الطبع والنشر 2021. جميع الحقوق محفوظة.",
+      linkThree: "الحريـــــة لفلســـطيــــن",
+      dir: "rtl",
+    },
+  };
+  localStorage.getItem("language") === "Arabic"
+    ? (content = content.Arabic)
+    : (content = content.English);
+
   return (
     <footer>
       <div className="container">
         <div className="footer-info">
           <h5>
-            <a href="#up">ToBeHERO Inc.</a> © Copyright 2021. All Rights
-            Reserved.
+            <a href="#up">{content.linkOne}</a> {content.linkTwo}
           </h5>
           <ul className="icon-foooter">
             <li>
@@ -38,7 +55,7 @@ const Footer = () => {
                     marginLeft: "5px",
                   }}
                 >
-                  Palestine is Free
+                  {content.linkThree}
                 </p>
               </a>
             </li>
