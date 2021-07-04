@@ -4,7 +4,7 @@ import { getSubscriptionsForChildHomeActions } from "../../actions/getSubscripti
 
 import ErrorMessage from "../ErrorMessage";
 import Loader from "../Loader";
-import HeroClassroomSubscriptionCard from "../HeroClassRoomSubscriptionCard";
+import HeroClassroomSubscriptionCard from "../HeroClassroomSubscriptionCard";
 const HeroClassroom = ({ match }) => {
   const getSubscriptionsForChildHome = useSelector(
     (state) => state.getSubscriptionsForChildHome

@@ -8,11 +8,13 @@ import SuccessMessage from "../SuccessMessage";
 const socket = io.connect("http://localhost:5000");
 
 const HeroClassroomSubscriptionCard = ({ course, subscriptionId }) => {
-  const [active, setActive] = useState(true);
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
+    console.log(subscriptionId);
+
     socket.on(`child-in${subscriptionId}`, (data) => {
-      setActive(data);
+      setActive(true);
     });
   }, []);
 
@@ -45,7 +47,8 @@ const HeroClassroomSubscriptionCard = ({ course, subscriptionId }) => {
                 course.appointments.map((appointment, i) => (
                   <React.Fragment key={i}>
                     {new Date().toLocaleDateString() ===
-                    new Date(appointment.date).toLocaleDateString() ? (
+                      new Date(appointment.date).toLocaleDateString() &&
+                    active ? (
                       <>
                         <div className="appointment-control-item live-active">
                           {/* <!-- add className live-active to toggle item border and button --> */}
