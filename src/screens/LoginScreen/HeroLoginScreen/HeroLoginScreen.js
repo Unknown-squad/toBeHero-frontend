@@ -8,7 +8,8 @@ import { heroLoginActions } from "../../../actions/heroLoginActions";
 import Loader from "../../../components/Loader";
 import ErrorMessage from "../../../components/ErrorMessage";
 import Meta from "../../../components/Meta";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 const HeroLoginScreen = ({ location, history }) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -75,7 +76,11 @@ const HeroLoginScreen = ({ location, history }) => {
                         <div className="form-btns flex-column just-cont-cntr alin-itms-cntr">
                           <button className="btn btn-sign" type="submit">
                             GO!
-                            <img src={arrowGo} alt=""></img>
+                            <LazyLoadImage
+                              src={arrowGo}
+                              alt=""
+                              effect="blur"
+                            ></LazyLoadImage>
                           </button>
                         </div>
                       </form>

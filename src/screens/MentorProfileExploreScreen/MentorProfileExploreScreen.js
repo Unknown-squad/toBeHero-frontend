@@ -57,6 +57,7 @@ const MentorProfileExploreScreen = ({ match }) => {
   const onLoadMore = () => {
     setLimitTo(limitTo + 4);
   };
+
   return (
     <>
       <Meta title="ToBeHero | Mentor Profile"></Meta>
@@ -80,7 +81,11 @@ const MentorProfileExploreScreen = ({ match }) => {
                 <div className="col-lg-2 col-md-6 col-12 p-profile">
                   <div className="upload-img-profile">
                     <img
-                      src={data.picture}
+                      src={
+                        data.picture === undefined
+                          ? "https://img.icons8.com/ultraviolet/40/000000/user.png"
+                          : data.picture
+                      }
                       alt=""
                       onError={(e) => {
                         e.target.onerror = null;
@@ -177,7 +182,10 @@ const MentorProfileExploreScreen = ({ match }) => {
       <section className="hr-section-16">
         <div className="container">
           <h4>My services</h4>
-          <div className="row">
+          <div
+            className="row"
+            style={{ display: "flex", flexWrap: "wrap", width: "100%" }}
+          >
             {loadingMentorProfileCourses ? (
               <Loader></Loader>
             ) : errorMentorProfileCourses ? (
@@ -186,7 +194,9 @@ const MentorProfileExploreScreen = ({ match }) => {
               <>
                 {dataMentorProfileCourses.items &&
                   dataMentorProfileCourses.items.map((course) => (
-                    <CourseCard course={course} key={course._id}></CourseCard>
+                    <div key={course._id} className="col-lg-3 col-md-6 col-12">
+                      <CourseCard course={course}></CourseCard>
+                    </div>
                   ))}
               </>
             )}

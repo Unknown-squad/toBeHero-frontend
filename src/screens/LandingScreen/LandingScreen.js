@@ -14,6 +14,8 @@ import Footer from "../../components/Footer";
 import LandingHeader from "../../components/LandingHeader";
 import Meta from "../../components/Meta";
 import Headroom from "react-headroom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const LandingScreen = () => {
   let languageStoredInLocalStorage = localStorage.getItem("language");
@@ -239,11 +241,9 @@ const LandingScreen = () => {
       <section className="hr-section-1" id="up">
         <div className="container">
           <div className="row">
-            <Suspense fallback={<div>Loading...</div>}>
-              <div className="col-md-6 col-12 pr-3 mb-3">
-                <img src={hero1} alt="hero-1" loading="lazy" />
-              </div>
-            </Suspense>
+            <div className="col-md-6 col-12 pr-3 mb-3">
+              <LazyLoadImage src={hero1} alt="hero-1" effect="blur" />
+            </div>
             <div className="col-md-6 col-12">
               <h1>
                 {content.section[0].title.partOne}{" "}
@@ -305,7 +305,7 @@ const LandingScreen = () => {
             <div className="col-lg-30 ml-card-4 col-md-6 col-12 mb-4">
               <div className="card-help">
                 <div className="img-card">
-                  <img src={heroIconSearch} alt="" />
+                  <LazyLoadImage src={heroIconSearch} alt="" effect="blur" />
                 </div>
                 <h6>{content.section[1].card.titleCardOne}</h6>
                 <p>{content.section[1].description.partOne}</p>
@@ -315,7 +315,7 @@ const LandingScreen = () => {
             <div className="col-lg-30 ml-card-4 col-md-6 col-12 mb-4">
               <div className="card-help">
                 <div className="img-card">
-                  <img src={heroIconProgress} alt="" />
+                  <LazyLoadImage src={heroIconProgress} alt="" effect="blur" />
                 </div>
                 <h6>{content.section[1].card.titleCardTwo}</h6>
                 <p>{content.section[1].description.partTwo}</p>
@@ -325,7 +325,7 @@ const LandingScreen = () => {
             <div className="col-lg-30 ml-card-4 col-md-6 col-12 mb-4">
               <div className="card-help">
                 <div className="img-card">
-                  <img src={heroIconTeach} alt="" />
+                  <LazyLoadImage src={heroIconTeach} alt="" effect="blur" />
                 </div>
                 <h6>{content.section[1].card.titleCardThree}</h6>
                 <p>{content.section[1].description.partThree}</p>
@@ -351,23 +351,24 @@ const LandingScreen = () => {
                     {content.section[2].button.btnOne}
                   </button>
                 </Link>
-                <img
+                <LazyLoadImage
                   src={curvedArrow}
                   alt=""
                   style={
                     language === "Arabic" ? { transform: "scaleX(-1)" } : {}
                   }
+                  effect="blur"
                 />
               </div>
             </div>
             <div className="col-lg-5 col-md-6 col-lg-offset-1 col-12 mb-5">
               <div className="shadow-img">
-                <img src={hero3} alt="" />
+                <LazyLoadImage src={hero3} alt="" effect="blur" />
               </div>
             </div>
             <div className="col-lg-5 col-md-6 col-12 mt-5">
               <div className="shadow-img-cy">
-                <img src={hero4} alt="" />
+                <LazyLoadImage src={hero4} alt="" effect="blur" />
               </div>
             </div>
             <div className="col-lg-5 col-md-6 col-lg-offset-1 col-12 mt-5 pl-3">
@@ -380,12 +381,13 @@ const LandingScreen = () => {
                     {content.section[2].button.btnTwo}
                   </button>
                 </Link>
-                <img
+                <LazyLoadImage
                   src={curvedArrow}
                   alt=""
                   style={
                     language === "Arabic" ? { transform: "scaleX(-1)" } : {}
                   }
+                  effect="blur"
                 />
               </div>
             </div>
@@ -400,7 +402,7 @@ const LandingScreen = () => {
           <div className="row">
             <div className="col-lg-9 col-12">
               <p>
-                <img
+                <LazyLoadImage
                   src={hero5Icon}
                   alt=""
                   style={
@@ -408,13 +410,14 @@ const LandingScreen = () => {
                       ? { transform: "scalex(-1)", position: "inherit" }
                       : {}
                   }
+                  effect="blur"
                 />{" "}
                 {content.section[3].description.partOne}
               </p>
             </div>
             <div className="col-lg-3 col-12">
               <div className="hero-img-p">
-                <img
+                <LazyLoadImage
                   src={heroImg}
                   alt=""
                   style={
@@ -422,6 +425,7 @@ const LandingScreen = () => {
                       ? { transform: "scalex(1)", position: "inherit" }
                       : {}
                   }
+                  effect="blur"
                 />
                 <h6>{content.section[3].title.titleOne}</h6>
                 <p>{content.section[3].title.titleTwo}</p>

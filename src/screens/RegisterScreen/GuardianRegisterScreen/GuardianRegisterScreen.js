@@ -6,7 +6,8 @@ import Footer from "../../../components/Footer";
 import { GuardianRegisterForm } from "../../../components/RegisterForm";
 import LoginRegHeader from "../../../components/LoginRegHeader";
 import Meta from "../../../components/Meta";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 const GuardianRegisterScreen = ({ location, history, match }) => {
   return (
     <>
@@ -19,7 +20,7 @@ const GuardianRegisterScreen = ({ location, history, match }) => {
             <div className="row">
               <div className="col-lg-5 col-md-5 col-12 pr-3 mb-3">
                 <h1>Join now and Help your child to achieve dreams</h1>
-                <img src={hero1} alt="hero-1" />
+                <LazyLoadImage src={hero1} alt="hero-1" effect="blur" />
               </div>
 
               <div className="col-lg-offset-1 col-lg-6 col-md-7 col-12 ">

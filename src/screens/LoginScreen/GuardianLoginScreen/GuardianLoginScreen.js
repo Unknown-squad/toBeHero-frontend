@@ -6,7 +6,8 @@ import LoginRegHeader from "../../../components/LoginRegHeader";
 import "../LoginScreen.scss";
 import LoginForm from "../../../components/LoginForm";
 import Meta from "../../../components/Meta";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 const GuardianLoginScreen = ({ location, history }) => {
   return (
     <>
@@ -19,7 +20,7 @@ const GuardianLoginScreen = ({ location, history }) => {
             <div className="row">
               <div className="col-lg-4 col-md-5 col-12 mb-3">
                 <h1>Welcome back</h1>
-                <img src={hero1} alt="hero-1" />
+                <LazyLoadImage src={hero1} alt="hero-1" effect="blur" />
               </div>
               <div className="col-lg-offset-1 col-lg-7 col-md-7 col-12">
                 <ul className="nav-form">
