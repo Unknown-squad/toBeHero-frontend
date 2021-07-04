@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import io from "socket.io-client";
 import cardHero from "../../images/card-hero.png";
 import uploadPicture from "../../images/upload-picture.svg";
 import { Link } from "react-router-dom";
 import SuccessMessage from "../SuccessMessage";
 
+const socket = io.connect("http://localhost:5000");
+
 const HeroClassroomSubscriptionCard = ({ course, subscriptionId }) => {
+  const [active, setActive] = useState(true);
+
+  useEffect(() => {
+    socket.on(`child-in${subscriptionId}`, (data) => {
+      setActive(data);
+    });
+  }, []);
+
   return (
     <div className="hero-card">
       <img
@@ -17,7 +28,15 @@ const HeroClassroomSubscriptionCard = ({ course, subscriptionId }) => {
       />
       <div className="appointment-hero-mentor">
         <div className="hero-appointment-control-container flex-column">
-          <h4>{course && course.courseId && course.courseId.title}</h4>
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <h4>{course && course.courseId && course.courseId.title}</h4>
+          </div>
           {course && course.appointments && course.appointments.length > 0 ? (
             <>
               {" "}
@@ -49,14 +68,15 @@ const HeroClassroomSubscriptionCard = ({ course, subscriptionId }) => {
                       <p>{appointment && appointment.title}</p>
                     </div>
                     {new Date().toLocaleDateString() ===
-                    new Date(appointment.date).toLocaleDateString() ? (
+                      new Date(appointment.date).toLocaleDateString() &&
+                    active ? (
                       <div className="appointment-sub-item appointment-button active">
                         <Link
                           to={`/hero/live/${course._id}/${appointment._id}/${appointment.title}`}
                         >
                           <div className="guardian-live-btn ">
                             <button>
-                              Join live <span></span>
+                              Live Today <span></span>
                             </button>
                           </div>
                         </Link>
