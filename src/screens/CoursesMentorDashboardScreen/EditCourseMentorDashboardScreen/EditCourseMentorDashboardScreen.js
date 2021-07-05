@@ -8,7 +8,11 @@ import MentorDashboardNavLinks from "../../../components/MentorDashboardNavLinks
 import MentorHomeHeader from "../../../components/MentorHomeHeader";
 import Meta from "../../../components/Meta";
 import "./EditCourseMentorDashboardScreen.scss";
-const EditCourseMentorDashboardScreen = ({ match, history }) => {
+import { useRouteMatch } from "react-router";
+import { useHistory } from "react-router";
+const EditCourseMentorDashboardScreen = () => {
+  let history = useHistory();
+  const match = useRouteMatch("/mentor/dashboard/courses");
   return (
     <>
       <Meta title="Mentor | Dashboard Edit Courses"></Meta>
@@ -21,18 +25,11 @@ const EditCourseMentorDashboardScreen = ({ match, history }) => {
               <h4>Service Info. and details</h4>
               <Route
                 path="/mentor/dashboard/course/create"
-                component={() => (
-                  <CreateCourseMentor
-                    match={match}
-                    history={history}
-                  ></CreateCourseMentor>
-                )}
+                component={() => <CreateCourseMentor></CreateCourseMentor>}
               ></Route>
               <Route
                 path="/mentor/dashboard/course/edit/:id"
-                component={() => (
-                  <EditCourseMentor match={match}></EditCourseMentor>
-                )}
+                component={() => <EditCourseMentor></EditCourseMentor>}
               ></Route>
             </div>
           </div>

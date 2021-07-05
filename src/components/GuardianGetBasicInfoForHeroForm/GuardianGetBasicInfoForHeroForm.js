@@ -11,9 +11,13 @@ import SuccessMessage from "../SuccessMessage";
 import { UPDATE_BASIC_INFO_FOR_CHILD_RESET } from "../../constants/updateBasicInfoForChildConstants";
 import { updateBasicInfoForChildActions } from "../../actions/updateBasicInfoForChildActions";
 import axios from "axios";
+import { useRouteMatch } from "react-router";
 
 const GuardianGetBasicInfoForHeroForm = ({ match }) => {
+  // const match = useRouteMatch("/guardian/home/child/:childId");
   const childId = match.params.childId;
+
+  // const childId = useRouteMatch(":childId");
   const [fullName, setFullName] = useState("");
   const [userName, setUserName] = useState("");
   const [birthDate, setBirthDate] = useState("");

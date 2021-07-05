@@ -1,6 +1,6 @@
 import { Route, Redirect } from "react-router-dom";
 
-const PublicRoute = ({ component: Component, redirectRoute, ...rest }) => {
+const PrivateRoute = ({ component: Component, redirectRoute, ...rest }) => {
   return (
     <Route
       {...rest}
@@ -8,10 +8,12 @@ const PublicRoute = ({ component: Component, redirectRoute, ...rest }) => {
         !localStorage.getItem("heroInfo") &&
         !localStorage.getItem("guardianInfo") &&
         !localStorage.getItem("mentorInfo") ? (
-          <Redirect to={redirectRoute} />
-        ) : null
+          <Component {...rest} />
+        ) : (
+          <Redirect to="/" />
+        )
       }
     />
   );
 };
-export default PublicRoute;
+export default PrivateRoute;

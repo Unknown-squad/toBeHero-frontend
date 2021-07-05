@@ -13,13 +13,10 @@ export const updateBasicInfoForChildActions =
       const { data } = await axios.put(
         `${process.env.REACT_APP_API_URL}/child/${childId}`,
         {
-          method: "child.basicInfo.put",
-          params: {
-            fullName,
-            userName,
-            password,
-            birthDate,
-          },
+          fullName,
+          userName,
+          password,
+          birthDate,
         },
         { withCredentials: true }
       );

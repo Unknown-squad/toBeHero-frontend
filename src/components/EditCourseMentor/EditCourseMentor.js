@@ -6,8 +6,10 @@ import { MENTOR_UPDATE_COURSE_RESET } from "../../constants/mentorUpdateCourseDa
 import ErrorMessage from "../ErrorMessage";
 import Loader from "../Loader";
 import SuccessMessage from "../SuccessMessage";
-
-const EditCourseMentor = ({ match }) => {
+import { useRouteMatch } from "react-router";
+import { useHistory } from "react-router";
+const EditCourseMentor = () => {
+  const match = useRouteMatch("/mentor/dashboard/course/edit/:id");
   const courseId = match.params.id;
   const [title, setTitle] = useState("");
   const [genre, setGenre] = useState("");

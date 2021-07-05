@@ -54,17 +54,18 @@ header nav .nav-mentor {
         appearance: none;
         width: 35px;
         height: 23px;
-        background-color: #44c2fd;
+        background-color: #999695;
         border-radius: 40px;
-        border: 1px solid #44c2fd;
+        border: 1px solid #999695;
+
         outline: none;
         position: relative;
         transition: 200ms;
       }
 
       .switch:checked {
-        background-color: #fd8244;
-        border: 1px solid #fd8244;
+        background-color: #44c2fd;
+        border: 1px solid #44c2fd;
       }
       .switch:before {
         content: "";

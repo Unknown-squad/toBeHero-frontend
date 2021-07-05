@@ -16,7 +16,6 @@ import Meta from "../../components/Meta";
 import Headroom from "react-headroom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-
 const LandingScreen = () => {
   let languageStoredInLocalStorage = localStorage.getItem("language");
   const [language, setLanguage] = useState(

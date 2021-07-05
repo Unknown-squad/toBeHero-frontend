@@ -13,7 +13,7 @@ import { mentorRegisterActions } from "../../../../actions/mentorRegisterActions
 import Meta from "../../../../components/Meta";
 
 const ContinueMentorRegister = ({ history, location }) => {
-  const [birthDate, setBirthDate] = useState("12/05/1990");
+  const [birthDate, setBirthDate] = useState("");
   const [languages, setLanguages] = useState(["english"]);
   const [description, setDescription] = useState("gggg");
   const [occupation, setOccupation] = useState(["hhhhhhh"]);
@@ -97,7 +97,7 @@ const ContinueMentorRegister = ({ history, location }) => {
                               <label htmlFor="Birthdate">Birthdate*</label>
                               <br />
                               <input
-                                type="text"
+                                type="date"
                                 id="Birthdate"
                                 name="name"
                                 value={birthDate}

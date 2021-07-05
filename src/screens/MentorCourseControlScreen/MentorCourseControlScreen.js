@@ -15,8 +15,10 @@ import { MENTOR_DELETE_APPOINTMENT_RESET } from "../../constants/mentorDeleteApp
 import { completeCourseForMentorActions } from "../../actions/completeCourseForMentorActions";
 import Meta from "../../components/Meta";
 import MentorCourseControlLiveScreen from "../MentorCourseControlLiveScreen";
+import { useRouteMatch } from "react-router";
+const MentorCourseControlScreen = () => {
+  const match = useRouteMatch("/mentor/home/course/:id");
 
-const MentorCourseControlScreen = ({ match }) => {
   const subscriptionId = match.params.id;
 
   const [show, setShow] = useState(false);

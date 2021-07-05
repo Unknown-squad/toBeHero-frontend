@@ -39,9 +39,23 @@ const GuardianRegisterForm = ({ location, history, match }) => {
       setMessage("Passwords do not match");
     } else {
       dispatch(
-        guardianRegisterActions(fullName, email, password, countryCode, phone)
+        guardianRegisterActions(
+          fullName,
+          email,
+          password,
+          countryCode,
+          phone,
+          history
+        )
       );
       history.push("/guardian/email-confirm");
+      localStorage.setItem(
+        "guardianDraft",
+        JSON.stringify({
+          fullName,
+          email,
+        })
+      );
     }
   };
 
@@ -167,6 +181,7 @@ const GuardianRegisterForm = ({ location, history, match }) => {
                   ? `/login/guardian?redirect=${redirect}`
                   : "/login/guardian"
               }
+              className="Link"
             >
               already registered?
             </Link>

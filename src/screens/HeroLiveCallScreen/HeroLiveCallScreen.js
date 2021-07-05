@@ -8,7 +8,7 @@ import iconLoading from "../../images/icon-loading.svg";
 import Peer from "simple-peer";
 import io from "socket.io-client";
 
-const socket = io.connect("http://localhost:5000");
+const socket = io.connect("ws://localhost:5000");
 
 const HeroLiveCallScreen = ({ match }) => {
   const [me, setMe] = useState("");

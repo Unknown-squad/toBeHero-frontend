@@ -7,12 +7,14 @@ import sliderItemQuran from "../../images/slider-item-quran.svg";
 import sliderItemMath from "../../images/slider-item-math.svg";
 import Slider from "react-slick";
 import "./ExploreSlider.scss";
+import { useHistory } from "react-router";
 
-const ExploreSlider = ({ history }) => {
+const ExploreSlider = (props) => {
+  let history = useHistory();
   const dispatch = useDispatch();
   const [sort, setSort] = useState("");
   const [filter, setFilter] = useState("");
-
+  console.log(history);
   useEffect(() => {
     history.push({
       pathname: "/explore",

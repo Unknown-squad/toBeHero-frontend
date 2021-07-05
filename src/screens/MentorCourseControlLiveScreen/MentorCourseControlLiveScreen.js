@@ -9,10 +9,16 @@ import iconLoading from "../../images/icon-loading.svg";
 import "./MentorCourseControlLiveScreen.scss";
 import Peer from "simple-peer";
 import io from "socket.io-client";
+import { useHistory } from "react-router";
+import { useRouteMatch } from "react-router";
+const socket = io.connect("ws://localhost:5000");
 
-const socket = io.connect("http://localhost:5000");
+const MentorCourseControlLiveScreen = () => {
+  let history = useHistory();
+  const match = useRouteMatch(
+    "/mentor/live/:subscriptionId/:appointmentId/:appointmentTitle"
+  );
 
-const MentorCourseControlLiveScreen = ({ match, history }) => {
   const [show, setShow] = useState(false);
   const [me, setMe] = useState("");
   const [stream, setStream] = useState();

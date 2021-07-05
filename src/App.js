@@ -41,7 +41,7 @@ import HeroHomeScreen from "./screens/HeroHomeScreen";
 import MentorPrivateRoute from "./MentorPrivateRoute";
 import GuardianPrivateRoute from "./GuardianPrivateRoute";
 import HeroPrivateRoute from "./HeroPrivateRoute";
-import PublicRoute from "./PublicRoute";
+import PrivateRoute from "./PrivateRoute";
 import HeroLiveCallScreen from "./screens/HeroLiveCallScreen/HeroLiveCallScreen";
 // const LandingScreen = lazy(() => import("./screens/LandingScreen"));
 function App() {
@@ -49,70 +49,87 @@ function App() {
     <Router>
       {/* <Suspense fallback={<div>Loading...</div>}> */}
       <Switch>
-        {/* Guardian Routes */}
-        <Route
+        {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+      ___________Guardian Private Route__________ 
+      >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/}
+        <GuardianPrivateRoute
           path="/guardian/home"
           component={GuardianHomeScreen}
           exact
-        ></Route>
-        <Route
+          redirectRoute="/"
+        ></GuardianPrivateRoute>
+        <PrivateRoute
           path="/guardian/email-confirm"
           component={GuardianEmailConfirmScreen}
           exact
-        ></Route>
-        <Route
+        ></PrivateRoute>
+        <GuardianPrivateRoute
           path="/guardian/home/addchild"
           component={GuardianHomeAddNewChildScreen}
           exact
-        ></Route>
-        <Route path="/guardian/explore" component={ExploreScreen} exact></Route>
-        <Route
+          redirectRoute="/"
+        ></GuardianPrivateRoute>
+        {/* <Route path="/guardian/explore" component={ExploreScreen} exact></Route> */}
+        <GuardianPrivateRoute
           path="/guardian/checkout/:courseId"
           component={GuardianCheckoutScreen}
           exact
-        ></Route>
-        <Route
+          redirectRoute="/"
+        ></GuardianPrivateRoute>
+        <GuardianPrivateRoute
           path="/guardian/settings"
           component={GuardianSettingsScreen}
           exact
-        ></Route>
-        <Route
+          redirectRoute="/"
+        ></GuardianPrivateRoute>
+        <GuardianPrivateRoute
           path="/guardian/home/child/:childId"
           component={GuardianHomeGetChildInfoScreen}
           exact
-        ></Route>
-        <Route
+          redirectRoute="/"
+        ></GuardianPrivateRoute>
+        <GuardianPrivateRoute
           path="/guardian/home/child/:childId/course-subscription/:courseId"
           component={GuardianChildSubscriptionCourseScreen}
           exact
-        ></Route>
+          redirectRoute="/"
+        ></GuardianPrivateRoute>
 
-        {/* Mentor Routes */}
-        <Route
+        {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+      ___________Mentor Private Route__________ 
+      >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/}
+        <PrivateRoute
           path="/mentor/email-confirm"
           component={MentorEmailConfirmScreen}
           exact
-        ></Route>
-        <Route
+        ></PrivateRoute>
+        <MentorPrivateRoute
           path="/mentor/live/:subscriptionId/:appointmentId/:appointmentTitle"
           component={MentorCourseControlLiveScreen}
           exact
-        ></Route>
-        <Route path="/mentor/home" component={MentorHomeScreen} exact></Route>
+          redirectRoute="/"
+        ></MentorPrivateRoute>
+        <MentorPrivateRoute
+          path="/mentor/home"
+          component={MentorHomeScreen}
+          exact
+          redirectRoute="/"
+        ></MentorPrivateRoute>
 
-        <Route
+        {/* <Route
           path="/mentor/home/course"
           component={MentorCourseControlScreen}
           exact
         >
           <Redirect from="/mentor/home/course" to="/mentor/home"></Redirect>
-        </Route>
+        </Route> */}
 
-        <Route
+        <MentorPrivateRoute
           path="/mentor/home/course/:id"
           component={MentorCourseControlScreen}
-        ></Route>
-        <Route
+          redirectRoute="/"
+        ></MentorPrivateRoute>
+        {/* <MentorPrivateRoute
           path="/mentor/dashboard"
           component={BasicInfoMentorDashboardScreen}
           exact
@@ -121,45 +138,63 @@ function App() {
             from="/mentor/dashboard"
             to="/mentor/dashboard/basicinfo"
           ></Redirect>
-        </Route>
-        <Route
+        </MentorPrivateRoute> */}
+        <MentorPrivateRoute
           path="/mentor/dashboard/basicinfo"
           component={BasicInfoMentorDashboardScreen}
           exact
-        ></Route>
-        <Route
+          redirectRoute="/"
+        ></MentorPrivateRoute>
+        <MentorPrivateRoute
           path="/mentor/dashboard/balance"
           component={BalanceMentorDashboardScreen}
-        ></Route>
-        <Route
+          redirectRoute="/"
+        ></MentorPrivateRoute>
+        <MentorPrivateRoute
           path="/mentor/dashboard/courses"
           component={CoursesMentorDashboardScreen}
-        ></Route>
-        <Route
+          redirectRoute="/"
+        ></MentorPrivateRoute>
+        <MentorPrivateRoute
           path="/mentor/dashboard/course/create"
           component={CreateCourseMentorDashboardScreen}
           exact
-        ></Route>
-        <Route
+          redirectRoute="/"
+        ></MentorPrivateRoute>
+        <MentorPrivateRoute
           path="/mentor/dashboard/course/edit/:id"
           component={EditCourseMentorDashboardScreen}
           exact
-        ></Route>
-        <Route
+          redirectRoute="/"
+        ></MentorPrivateRoute>
+        <MentorPrivateRoute
           path="/mentor/dashboard/analytics"
           component={MentorAnalyticsDashboardScreen}
           exact
-        ></Route>
+          redirectRoute="/"
+        ></MentorPrivateRoute>
 
-        {/* Hero Routes */}
-        <Route path="/hero/home" component={HeroHomeScreen} exact></Route>
-        <Route
+        {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+      ___________Hero Private Route__________ 
+      >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/}
+
+        <HeroPrivateRoute
+          path="/hero/home"
+          component={HeroHomeScreen}
+          exact
+          redirectRoute="/"
+        ></HeroPrivateRoute>
+        <HeroPrivateRoute
           path="/hero/live/:subscriptionId/:appointmentId/:appointmentTitle"
           component={HeroLiveCallScreen}
           exact
-        ></Route>
+          redirectRoute="/"
+        ></HeroPrivateRoute>
 
-        {/* Public Routes */}
+        {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+      __________Public Private Route__________ 
+      >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/}
+
         <Route path="/explore" component={ExploreScreen} exact></Route>
 
         <Route
@@ -199,7 +234,16 @@ function App() {
         ></Route>
         <Route path="/login/mentor" component={MentorLoginScreen} exact></Route>
 
-        <Route path="/" component={LandingScreen} exact></Route>
+        <Route
+          path="/"
+          component={
+            localStorage.getItem("mentorInfo") ||
+            localStorage.getItem("guardianInfo")
+              ? ExploreScreen
+              : LandingScreen
+          }
+          exact
+        ></Route>
         <Redirect from="/home" to="/" exact></Redirect>
         <Route path="*" component={NotFound}></Route>
       </Switch>
@@ -207,7 +251,7 @@ function App() {
       {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
       ___________Mentor Private Route__________ 
       >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/}
-      <MentorPrivateRoute
+      {/* <MentorPrivateRoute
         path="/"
         component={LandingScreen}
         exact
@@ -292,12 +336,12 @@ function App() {
         component={ContinueMentorRegister}
         exact
         redirectRoute="/explore"
-      ></MentorPrivateRoute>
+      ></MentorPrivateRoute> */}
 
       {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
       ___________Guardian Private Route__________ 
       >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/}
-      <GuardianPrivateRoute
+      {/* <GuardianPrivateRoute
         path="/"
         component={LandingScreen}
         exact
@@ -412,13 +456,13 @@ function App() {
         component={ContinueMentorRegister}
         exact
         redirectRoute="/explore"
-      ></GuardianPrivateRoute>
+      ></GuardianPrivateRoute> */}
 
       {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
       ___________Hero Private Route__________ 
       >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/}
 
-      <HeroPrivateRoute
+      {/* <HeroPrivateRoute
         path="/"
         component={LandingScreen}
         exact
@@ -575,12 +619,12 @@ function App() {
         component={ContinueMentorRegister}
         exact
         redirectRoute="/hero/home"
-      ></HeroPrivateRoute>
+      ></HeroPrivateRoute> */}
 
       {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
       ___________Public Route__________ 
       >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/}
-      <PublicRoute
+      {/* <PublicRoute
         path="/hero/home"
         component={HeroHomeScreen}
         exact
@@ -711,7 +755,7 @@ function App() {
         component={MentorAnalyticsDashboardScreen}
         exact
         redirectRoute="/"
-      ></PublicRoute>
+      ></PublicRoute> */}
       {/* </Suspense> */}
     </Router>
   );

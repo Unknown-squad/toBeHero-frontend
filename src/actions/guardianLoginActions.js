@@ -26,6 +26,7 @@ export const guardianLoginActions = (email, password) => async (dispatch) => {
       { withCredentials: true },
       config
     );
+
     dispatch({ type: GUARDIAN_LOGIN_SUCCESS, payload: data });
     localStorage.setItem("guardianInfo", JSON.stringify(data));
   } catch (error) {

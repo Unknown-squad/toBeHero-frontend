@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
-const Filter = ({ history }) => {
+import { useHistory } from "react-router";
+const Filter = () => {
+  let history = useHistory();
   const dispatch = useDispatch();
   const [sort, setSort] = useState("");
   const [filter, setFilter] = useState("");

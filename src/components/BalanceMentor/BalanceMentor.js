@@ -6,6 +6,11 @@ import ErrorMessage from "../ErrorMessage";
 import Loader from "../Loader";
 
 const BalanceMentor = () => {
+  const formatter = new Intl.NumberFormat("en-EG", {
+    // style: "currency",
+    // currency: "EGP",
+    minimumFractionDigits: 2,
+  });
   const mentorBalance = useSelector((state) => state.mentorBalance);
   const { loading, error, data } = mentorBalance;
   const dispatch = useDispatch();
@@ -23,7 +28,9 @@ const BalanceMentor = () => {
         <>
           <div className="dashboard-balance-box">
             <p>Current Balance</p>
-            <div className="price">{data.items[0].balance}</div>
+            <div className="price">
+              {formatter.format(data.items[0].balance)} EGP
+            </div>
           </div>
         </>
       )}

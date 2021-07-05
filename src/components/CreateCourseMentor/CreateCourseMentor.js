@@ -5,8 +5,11 @@ import { updateMentorEditCourseDashboardActions } from "../../actions/updateMent
 import ErrorMessage from "../ErrorMessage";
 import Loader from "../Loader";
 import SuccessMessage from "../SuccessMessage";
+import { useRouteMatch } from "react-router";
+import { useHistory } from "react-router";
 
-const CreateCourseMentor = ({ match, history }) => {
+const CreateCourseMentor = () => {
+  let history = useHistory();
   const [title, setTitle] = useState("");
   const [genre, setGenre] = useState("Programming");
   const [price, setPrice] = useState("");

@@ -4,8 +4,9 @@ import ConfirmEmailForm from "../../components/ConfirmEmailForm";
 import ConfirmEmailHeader from "../../components/ConfirmEmailHeader";
 import inbox from "../../images/inbox.svg";
 import Meta from "../../components/Meta";
-
-const MentorEmailConfirmScreen = ({ location, history }) => {
+import { useHistory } from "react-router";
+const MentorEmailConfirmScreen = () => {
+  let history = useHistory();
   return (
     <>
       <Meta title="Mentor - Please Verify Your Email"></Meta>

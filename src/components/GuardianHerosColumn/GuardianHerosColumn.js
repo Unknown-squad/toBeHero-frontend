@@ -7,7 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { guardianGetChildrenActions } from "../../actions/guardianGetChildrenActions";
 import Loader from "../Loader";
 import ErrorMessage from "../ErrorMessage";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import GuardianHomeAddNewChildScreen from "../../screens/GuardianHomeAddNewChildScreen";
 const GuardianHerosColumn = () => {
   //   const childId = match.params.id;
 
@@ -21,40 +23,42 @@ const GuardianHerosColumn = () => {
 
   return (
     <>
-      {loading ? (
-        <Loader></Loader>
-      ) : (
-        <ul className="nav-guardian-home">
-          {data &&
-            data.items &&
-            data.items.map((child) => (
-              <li key={child._id}>
-                <NavLink
-                  to={`/guardian/home/child/${child._id}`}
-                  activeClassName="active"
-                >
-                  <img
-                    src={child.picture}
-                    alt=""
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src =
-                        "https://img.icons8.com/ultraviolet/40/000000/user.png";
-                    }}
-                  />
-                  <p>{child.fullName}</p>
-                </NavLink>
-              </li>
-            ))}
+      <ul className="nav-guardian-home">
+        {data &&
+          data.items &&
+          data.items.map((child) => (
+            <li key={child._id}>
+              <NavLink
+                to={`/guardian/home/child/${child._id}`}
+                activeClassName="active"
+              >
+                <LazyLoadImage
+                  src={child.picture}
+                  alt=""
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src =
+                      "https://img.icons8.com/ultraviolet/40/000000/user.png";
+                  }}
+                  effect="blur"
+                />
+                <p>{child.fullName}</p>
+              </NavLink>
+            </li>
+          ))}
 
-          <li>
-            <Link to="/guardian/home/addchild">
-              <img src={addSomeOne} alt="" className="add-child" />
-              <p>add new</p>
-            </Link>
-          </li>
-        </ul>
-      )}
+        <li>
+          <Link to="/guardian/home/addchild">
+            <LazyLoadImage
+              src={addSomeOne}
+              alt=""
+              className="add-child"
+              effect="blur"
+            />
+            <p>add new</p>
+          </Link>
+        </li>
+      </ul>
     </>
   );
 };

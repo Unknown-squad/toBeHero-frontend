@@ -73,7 +73,7 @@ const CourseCard = ({ course }) => {
             </div>
           </div>
           <div className="course-info">
-            <Link to={`/explore/course/${_id}`}>
+            <Link to={`/explore/course/${_id}`} className="Link">
               <h2
                 style={{
                   fontSize: "18px",

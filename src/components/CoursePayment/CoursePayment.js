@@ -40,7 +40,7 @@ const CoursePayment = ({ details, location, history }) => {
                   className="btn btn-purple-500"
                   onClick={checkoutHandler}
                 >
-                  continue({details.price} EGP)
+                  Checkout ({details.price} EGP)
                 </button>
               </div>
               <div>
@@ -117,7 +117,7 @@ const CoursePayment = ({ details, location, history }) => {
           ) : (
             <div className="service-purchase">
               <button className="btn btn-purple-500" onClick={checkoutHandler}>
-                continue({details.price} EGP)
+                Checkout ({details.price} EGP)
               </button>
             </div>
           )}

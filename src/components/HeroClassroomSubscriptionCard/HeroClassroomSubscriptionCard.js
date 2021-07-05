@@ -5,7 +5,7 @@ import uploadPicture from "../../images/upload-picture.svg";
 import { Link } from "react-router-dom";
 import SuccessMessage from "../SuccessMessage";
 
-const socket = io.connect("http://localhost:5000");
+const socket = io.connect("ws://localhost:5000");
 
 const HeroClassroomSubscriptionCard = ({ course, subscriptionId }) => {
   const [active, setActive] = useState(false);

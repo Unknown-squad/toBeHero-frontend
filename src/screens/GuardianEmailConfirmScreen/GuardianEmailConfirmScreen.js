@@ -5,8 +5,10 @@ import ConfirmEmailForm from "../../components/ConfirmEmailForm";
 import ConfirmEmailHeader from "../../components/ConfirmEmailHeader";
 import inbox from "../../images/inbox.svg";
 import Meta from "../../components/Meta";
+import { useHistory } from "react-router";
+const GuardianEmailConfirmScreen = () => {
+  let history = useHistory();
 
-const GuardianEmailConfirmScreen = ({ location, history }) => {
   return (
     <>
       <Meta title="Guardian - Please Verify Your Email"></Meta>

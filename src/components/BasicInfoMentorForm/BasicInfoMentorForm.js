@@ -195,7 +195,7 @@ const BasicInfoMentorForm = ({ history }) => {
                 <label htmlFor="Birthdate">Birthdate*</label>
                 <br />
                 <input
-                  type="text"
+                  type="date"
                   id="Birthdate"
                   name="name"
                   className="Birthdate-mentor"
