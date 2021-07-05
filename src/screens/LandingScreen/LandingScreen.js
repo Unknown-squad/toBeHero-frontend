@@ -16,209 +16,20 @@ import Meta from "../../components/Meta";
 import Headroom from "react-headroom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { default as locales } from "./locales.json";
+
 const LandingScreen = () => {
   let languageStoredInLocalStorage = localStorage.getItem("language");
   const [language, setLanguage] = useState(
     languageStoredInLocalStorage ? languageStoredInLocalStorage : "English"
   );
-
   const storeLanguageInLocalStorage = (language) => {
     localStorage.setItem("language", language);
   };
-  let content = {
-    English: {
-      section: [
-        {
-          title: {
-            partOne: "Turn your child to the ",
-            partTwo: "hero",
-            partThree: "he deserves",
-            partFour: "to be",
-          },
-          description: {
-            partOne: "We are a platform that assists guardians in finding ",
-            partTwo: "mentors",
-            partThree: "for their children for a better education through a",
-            partFour: "one-on-one live video calls",
-          },
-          button: {
-            btnOne: "Explore now",
-            btnTwo: "Guardian",
-            btnThree: "Mentor",
-            btnFour: "Or join as a",
-          },
-        },
-        {
-          title: {
-            partOne: "How",
-            partTwo: "ToBeHero",
-            partThree: "can Help",
-          },
-          card: {
-            titleCardOne: "Easy to find a Mentor",
-            titleCardTwo: "Simple progress monitoring",
-            titleCardThree: "Variable teaching methods",
-          },
-          description: {
-            partOne:
-              "Finding a suitable mentor to satisfy your child's needs is fast and easy ",
-            partTwo:
-              "Monitoring a child's progress with their mentor is as easy as reading a list",
-            partThree:
-              " Mentors have the freedom of teaching using their creative and innovative methods",
-          },
-        },
-        {
-          title: {
-            partOne: "Mentors",
-            partTwo: "Become the creative mentor you always wanted to be",
-            partThree: "Guardian",
-            partFour: "Finding a mentor for your child never been easier!",
-          },
-          card: {
-            titleCardOne: "Easy to find a Mentor",
-            titleCardTwo: "Simple progress monitoring",
-            titleCardThree: "Variable teaching methods",
-          },
-          description: {
-            partOne:
-              "Simple course management and you can be as creative and innovative with your mentoring methods ",
-            partTwo:
-              "Find the most suitable mentor for your child and it is easy to monitor their progress",
-          },
-          button: {
-            btnOne: "Mentors, start here",
-            btnTwo: "Guardian, start here",
-          },
-        },
-        {
-          description: {
-            partOne:
-              '"I have been using To Be Hero for all my children for their favorite hobbies and they magnificently improved since i started using the platform. It is easy to find a suitable mentor to satisfy your child\'s needs."',
-          },
-          title: {
-            titleOne: "Mohamed",
-            titleTwo: "Egypt",
-          },
-        },
-        {
-          title: {
-            titleOne: "Join TO BE HERO today",
-            titleTwo: "Built and Developed By",
-          },
-          text: {
-            textOne: "OR",
-          },
-          button: {
-            btnOne: "Mentor",
-            btnTwo: "Guardian",
-          },
-          description: {
-            partOne:
-              " Mohammed Sobhi - Mohammed Ramadan - Islam Goher - Osama Mohammed Ammar - Mahmoud serag - Mohammed Ali - Mohammed Ibrahim",
-            partTwo:
-              " under supervision of: Prof. Mohammed Badawy and T.A. Andrew Nader",
-          },
-        },
-      ],
-      dir: "ltr",
-    },
-    Arabic: {
-      section: [
-        {
-          title: {
-            partOne: "اجعـل طفلـك ",
-            partTwo: "البطــــل",
-            partThree: "الـذي",
-            partFour: "يسـتحقه",
-          },
-          description: {
-            partOne: "نحن منصة تساعد أولياء الأمور في العثور علي ",
-            partTwo: "المعلمين",
-            partThree: "لأبنائهم من أجل تعليم أفضل من خلال ",
-            partFour: "مكالمات فيديو فردية",
-          },
-          button: {
-            btnOne: "استكشف الآن",
-            btnTwo: "ولي الأمر",
-            btnThree: "معلم",
-            btnFour: "او انضم إلينا كـ",
-          },
-        },
-        {
-          title: {
-            partOne: "كيف ",
-            partTwo: "يمكن ان ",
-            partThree: "تساعدك منصتنا",
-          },
-          card: {
-            titleCardOne: "ايجاد معلم امر سهل",
-            titleCardTwo: "مراقبة التقدم امر بسيط وسهل",
-            titleCardThree: "اساليب تعلم مبتكرة",
-          },
-          description: {
-            partOne:
-              "العثور على معلم مناسب لتلبية احتياجات طفلك امٌر سريع وسهل ",
-            partTwo:
-              "تعد مراقبة تقدم الطفل مع معلمه أمرًا سهلاً مثل قراءة كتاب",
-            partThree:
-              " يتمتع المعلمون بحرية التدريس باستخدام أساليبهم الإبداعية والمبتكرة",
-          },
-        },
-        {
-          title: {
-            partOne: "المعلمين",
-            partTwo: "كن المعلم المبدع الذي طالما رغبت  أن تكون ",
-            partThree: "أولياء الأمور",
-            partFour: " العثور على معلم لطفلك أسهل من أي وقت مضى!",
-          },
-          description: {
-            partOne:
-              "إدارة دوراتك التدريبية بطريقة سهله ومبسطة مع امكانية أن تكون مبدعًا ومبتكرًا مع أساليب التوجيه الخاصة بك",
-            partTwo:
-              "اعثر على المعلم الأنسب لطفلك وسيكون من السهل عليك مراقبة تقدمه",
-          },
-          button: {
-            btnOne: "المعلمون, ابدأ من هنا",
-            btnTwo: "أولياء الأمور, ابدأ من هنا",
-          },
-        },
-        {
-          description: {
-            partOne:
-              '"لقد كنت أستخدم To Be Hero لجميع أطفالي من أجل هواياتهم المفضلة وقد تحسنت بشكل رائع منذ أن بدأت في استخدام المنصة. من السهل العثور على معلم مناسب لتلبيه احتياجات طفلك."',
-          },
-          title: {
-            titleOne: "محمد",
-            titleTwo: "مصر",
-          },
-        },
-        {
-          title: {
-            titleOne: "انضــم إليــنـا اليـــوم",
-            titleTwo: "تم بناؤه وتطويره بواسطة",
-          },
-          text: {
-            textOne: "أو",
-          },
-          button: {
-            btnOne: "معلم",
-            btnTwo: "ولي الأمر",
-          },
-          description: {
-            partOne:
-              " محمد صبحي - محمد رمضان - اسلام جوهر - اسامة محمد عمار - محمود سراج - محمد علي - محمد ابراهيم",
-            partTwo: "تحت إشراف: أ.د.محمد بدوي و م.م أندرو نادر",
-          },
-        },
-      ],
-      dir: "rtl",
-    },
-  };
-
+  let content;
   language === "English"
-    ? (content = content.English)
-    : (content = content.Arabic);
+    ? (content = locales.English)
+    : (content = locales.Arabic);
 
   useEffect(() => {
     document.body.dir = content.dir;
@@ -407,7 +218,7 @@ const LandingScreen = () => {
                   style={
                     language === "Arabic"
                       ? { transform: "scalex(-1)", position: "inherit" }
-                      : {}
+                      : { top: "-53px", left: "-14px" }
                   }
                   effect="blur"
                 />{" "}

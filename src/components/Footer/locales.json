@@ -1,0 +1,14 @@
+{
+  "English": {
+    "linkOne": " ToBeHERO Inc.",
+    "linkTwo": " © Copyright 2021. All Rights Reserved.",
+    "linkThree": "Palestine is Free",
+    "dir": "ltr"
+  },
+  "Arabic": {
+    "linkOne": "منصة ToBeHero.",
+    "linkTwo": "© حقوق الطبع والنشر 2021. جميع الحقوق محفوظة.",
+    "linkThree": "الحريـــــة لفلســـطيــــن",
+    "dir": "rtl"
+  }
+}

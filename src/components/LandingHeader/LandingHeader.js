@@ -2,25 +2,14 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import useToggleNavbar from "../../hooks";
 import "./LandingHeader.scss";
+import { default as locales } from "./locales.json";
 const LandingHeader = (props) => {
   const [showMobileMenu, onClick] = useToggleNavbar();
-  let content = {
-    English: {
-      linkOne: "Explore",
-      linkTwo: "Login",
-      linkThree: "Hero",
-      dir: "ltr",
-    },
-    Arabic: {
-      linkOne: "استكشــاف",
-      linkTwo: "تسجيـل الدخـول",
-      linkThree: "البطــــل",
-      dir: "rtl",
-    },
-  };
+
+  let content;
   props.language === "English"
-    ? (content = content.English)
-    : (content = content.Arabic);
+    ? (content = locales.English)
+    : (content = locales.Arabic);
 
   return (
     <header style={{ direction: "ltr" }}>

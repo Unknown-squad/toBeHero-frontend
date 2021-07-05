@@ -2,25 +2,13 @@ import React from "react";
 import "./Footer.scss";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { default as locales } from "./locales.json";
 
 const Footer = (props) => {
-  let content = {
-    English: {
-      linkOne: " ToBeHERO Inc.",
-      linkTwo: " © Copyright 2021. All Rights Reserved.",
-      linkThree: "Palestine is Free",
-      dir: "ltr",
-    },
-    Arabic: {
-      linkOne: "منصة ToBeHero.",
-      linkTwo: "© حقوق الطبع والنشر 2021. جميع الحقوق محفوظة.",
-      linkThree: "الحريـــــة لفلســـطيــــن",
-      dir: "rtl",
-    },
-  };
+  let content;
   localStorage.getItem("language") === "Arabic"
-    ? (content = content.Arabic)
-    : (content = content.English);
+    ? (content = locales.Arabic)
+    : (content = locales.English);
 
   return (
     <footer>
