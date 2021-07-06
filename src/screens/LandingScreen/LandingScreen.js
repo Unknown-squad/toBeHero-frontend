@@ -17,6 +17,8 @@ import Headroom from "react-headroom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { default as locales } from "./locales.json";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const LandingScreen = () => {
   let languageStoredInLocalStorage = localStorage.getItem("language");
@@ -35,6 +37,26 @@ const LandingScreen = () => {
     document.body.dir = content.dir;
   }, [content.dir]);
 
+  AOS.init({
+    // Global settings:
+    disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+    startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
+    initClassName: "aos-init", // class applied after initialization
+    animatedClassName: "aos-animate", // class applied on animation
+    useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+    disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+    debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+    throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+    // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+    offset: 120, // offset (in px) from the original trigger point
+    delay: 0, // values from 0 to 3000, with step 50ms
+    duration: 800, // values from 0 to 3000, with step 50ms
+    easing: "ease", // default easing for AOS animations
+    once: false, // whether animation should happen only once - while scrolling down
+    mirror: false, // whether elements should animate out while scrolling past them
+    anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
+  });
   return (
     <>
       <Meta></Meta>
@@ -51,10 +73,10 @@ const LandingScreen = () => {
       <section className="hr-section-1" id="up">
         <div className="container">
           <div className="row">
-            <div className="col-md-6 col-12 pr-3 mb-3">
+            <div className="col-md-6 col-12 pr-3 mb-3" data-aos="fade-right">
               <LazyLoadImage src={hero1} alt="hero-1" effect="blur" />
             </div>
-            <div className="col-md-6 col-12">
+            <div className="col-md-6 col-12" data-aos="fade-left">
               <h1>
                 {content.section[0].title.partOne}{" "}
                 <span className="hero-bord">
@@ -106,13 +128,16 @@ const LandingScreen = () => {
           </a>
         </div>
         <div className="container" id="down">
-          <h1>
+          <h1 data-aos="fade-down">
             {content.section[1].title.partOne}{" "}
             <span>{content.section[1].title.partTwo} </span>{" "}
             {content.section[1].title.partThree}
           </h1>
           <div className="row just-cont-cntr">
-            <div className="col-lg-30 ml-card-4 col-md-6 col-12 mb-4">
+            <div
+              className="col-lg-30 ml-card-4 col-md-6 col-12 mb-4"
+              data-aos="zoom-in-up"
+            >
               <div className="card-help">
                 <div className="img-card">
                   <LazyLoadImage src={heroIconSearch} alt="" effect="blur" />
@@ -122,7 +147,10 @@ const LandingScreen = () => {
               </div>
               <div className="card-overlay"></div>
             </div>
-            <div className="col-lg-30 ml-card-4 col-md-6 col-12 mb-4">
+            <div
+              className="col-lg-30 ml-card-4 col-md-6 col-12 mb-4"
+              data-aos="zoom-in-up"
+            >
               <div className="card-help">
                 <div className="img-card">
                   <LazyLoadImage src={heroIconProgress} alt="" effect="blur" />
@@ -132,7 +160,10 @@ const LandingScreen = () => {
               </div>
               <div className="card-overlay"></div>
             </div>
-            <div className="col-lg-30 ml-card-4 col-md-6 col-12 mb-4">
+            <div
+              className="col-lg-30 ml-card-4 col-md-6 col-12 mb-4"
+              data-aos="zoom-in-up"
+            >
               <div className="card-help">
                 <div className="img-card">
                   <LazyLoadImage src={heroIconTeach} alt="" effect="blur" />
@@ -151,7 +182,10 @@ const LandingScreen = () => {
       <section className="hr-section-3">
         <div className="container">
           <div className="row">
-            <div className="col-lg-5 col-md-6 col-12 pr-3 mb-5">
+            <div
+              className="col-lg-5 col-md-6 col-12 pr-3 mb-5"
+              data-aos="fade-left"
+            >
               <h6>{content.section[2].title.partOne}</h6>
               <h1>{content.section[2].title.partTwo}</h1>
               <p>{content.section[2].description.partOne}</p>
@@ -171,17 +205,26 @@ const LandingScreen = () => {
                 />
               </div>
             </div>
-            <div className="col-lg-5 col-md-6 col-lg-offset-1 col-12 mb-5">
+            <div
+              className="col-lg-5 col-md-6 col-lg-offset-1 col-12 mb-5"
+              data-aos="fade-left"
+            >
               <div className="shadow-img">
                 <LazyLoadImage src={hero3} alt="" effect="blur" />
               </div>
             </div>
-            <div className="col-lg-5 col-md-6 col-12 mt-5">
+            <div
+              className="col-lg-5 col-md-6 col-12 mt-5"
+              data-aos="fade-right"
+            >
               <div className="shadow-img-cy">
                 <LazyLoadImage src={hero4} alt="" effect="blur" />
               </div>
             </div>
-            <div className="col-lg-5 col-md-6 col-lg-offset-1 col-12 mt-5 pl-3">
+            <div
+              className="col-lg-5 col-md-6 col-lg-offset-1 col-12 mt-5 pl-3"
+              data-aos="fade-right"
+            >
               <h6>{content.section[2].title.partThree}</h6>
               <h1>{content.section[2].title.partFour}</h1>
               <p>{content.section[2].description.partTwo}</p>
@@ -249,18 +292,18 @@ const LandingScreen = () => {
       {/* //   <!-- start section-5 --> */}
       <section className="hr-section-5">
         <div className="container">
-          <div className="wings">
+          <div className="wings" data-aos="zoom-in-down">
             <h1>{content.section[4].title.titleOne}</h1>
           </div>
           <div className="met-or-gur">
             <Link to="/register/mentor">
-              <button className="btn">
+              <button className="btn" data-aos="flip-left">
                 {content.section[4].button.btnOne}
               </button>
             </Link>
             <h1>{content.section[4].text.textOne}</h1>
             <Link to="/register/guardian">
-              <button className="btn">
+              <button className="btn" data-aos="flip-left">
                 {content.section[4].button.btnTwo}
               </button>
             </Link>

@@ -11,7 +11,7 @@ import Peer from "simple-peer";
 import io from "socket.io-client";
 import { useHistory } from "react-router";
 import { useRouteMatch } from "react-router";
-const socket = io.connect("ws://localhost:5000");
+const socket = io.connect("http://localhost:5000");
 
 const MentorCourseControlLiveScreen = () => {
   let history = useHistory();
