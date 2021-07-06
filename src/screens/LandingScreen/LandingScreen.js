@@ -8,7 +8,8 @@ import curvedArrow from "../../images/curved-arrow.svg";
 import hero3 from "../../images/hero3.png";
 import hero4 from "../../images/hero4.png";
 import hero5Icon from "../../images/hero5-icon.svg";
-import heroImg from "../../images/hero-img-1.png";
+import heroImgSobhi from "../../images/hero-img-1.png";
+import heroImgOsama from "../../images/hero-img-2.jpg";
 import "./LandingScreen.scss";
 import Footer from "../../components/Footer";
 import LandingHeader from "../../components/LandingHeader";
@@ -19,6 +20,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { default as locales } from "./locales.json";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Slider from "react-slick";
 
 const LandingScreen = () => {
   let languageStoredInLocalStorage = localStorage.getItem("language");
@@ -57,6 +59,82 @@ const LandingScreen = () => {
     mirror: false, // whether elements should animate out while scrolling past them
     anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
   });
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{
+          ...style,
+          display: "block",
+        }}
+        onClick={onClick}
+      />
+    );
+  }
+
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block" }}
+        onClick={onClick}
+      />
+    );
+  }
+  let settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    lazyLoad: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+          lazyLoad: true,
+          autoplay: true,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+          lazyLoad: true,
+          dots: true,
+          autoplay: true,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          lazyLoad: true,
+          dots: true,
+          autoplay: true,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
+        },
+      },
+    ],
+  };
   return (
     <>
       <Meta></Meta>
@@ -251,41 +329,102 @@ const LandingScreen = () => {
 
       {/* //   <!-- start section-4 --> */}
       <section className="hr-section-4">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-9 col-12">
-              <p>
-                <LazyLoadImage
-                  src={hero5Icon}
-                  alt=""
+        <Slider {...settings}>
+          <div className="container">
+            <div className="row" dir={language === "Arabic" ? "rtl" : "ltr"}>
+              <div
+                className="col-lg-9 col-12"
+                style={{ marginLeft: "5rem", flex: "0 0 65%" }}
+              >
+                <p
                   style={
                     language === "Arabic"
-                      ? { transform: "scalex(-1)", position: "inherit" }
-                      : { top: "-53px", left: "-14px" }
+                      ? { marginTop: "1rem" }
+                      : { marginTop: "2rem" }
                   }
-                  effect="blur"
-                />{" "}
-                {content.section[3].description.partOne}
-              </p>
-            </div>
-            <div className="col-lg-3 col-12">
-              <div className="hero-img-p">
-                <LazyLoadImage
-                  src={heroImg}
-                  alt=""
-                  style={
-                    language === "Arabic"
-                      ? { transform: "scalex(1)", position: "inherit" }
-                      : {}
-                  }
-                  effect="blur"
-                />
-                <h6>{content.section[3].title.titleOne}</h6>
-                <p>{content.section[3].title.titleTwo}</p>
+                >
+                  <LazyLoadImage
+                    src={hero5Icon}
+                    alt=""
+                    style={
+                      language === "Arabic"
+                        ? { transform: "scalex(-1)", position: "inherit" }
+                        : { top: "-53px", left: "-14px" }
+                    }
+                    effect="blur"
+                  />{" "}
+                  {content.section[3].description.partOne}
+                </p>
+              </div>
+              <div className="col-lg-3 col-12">
+                <div className="hero-img-p">
+                  <LazyLoadImage
+                    src={heroImgSobhi}
+                    alt=""
+                    style={
+                      language === "Arabic"
+                        ? { transform: "scalex(1)", position: "inherit" }
+                        : {}
+                    }
+                    effect="blur"
+                  />
+                  <h6>{content.section[3].title.titleOne}</h6>
+                  <p style={{ marginBottom: "0.7rem" }}>
+                    {content.section[3].title.titleTwo}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+          <div className="container">
+            <div className="row" dir={language === "Arabic" ? "rtl" : "ltr"}>
+              <div
+                className="col-lg-9 col-12"
+                style={{ marginLeft: "5rem", flex: "0 0 65%" }}
+              >
+                <p
+                  style={
+                    language === "Arabic"
+                      ? { marginTop: "1rem" }
+                      : { marginTop: "3rem" }
+                  }
+                >
+                  <LazyLoadImage
+                    src={hero5Icon}
+                    alt=""
+                    style={
+                      language === "Arabic"
+                        ? { transform: "scalex(-1)", position: "inherit" }
+                        : { top: "-53px", left: "-14px" }
+                    }
+                    effect="blur"
+                  />{" "}
+                  {content.section[3].description.partTwo}
+                </p>
+              </div>
+              <div className="col-lg-3 col-12">
+                <div className="hero-img-p">
+                  <LazyLoadImage
+                    src={heroImgOsama}
+                    alt=""
+                    width="118"
+                    height="118"
+                    style={
+                      language === "Arabic"
+                        ? { transform: "scalex(1)", position: "inherit" }
+                        : {}
+                    }
+                    effect="blur"
+                  />
+                  <h6>{content.section[3].title.titleThree}</h6>
+                  <p style={{ marginBottom: "0.7rem" }}>
+                    {content.section[3].title.titleFour}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Slider>
       </section>
       {/* <!-- end section-4 --> */}
 

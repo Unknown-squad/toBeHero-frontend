@@ -61,11 +61,14 @@
       },
       {
         "description": {
-          "partOne": "\"I have been using To Be Hero for all my children for their favorite hobbies and they magnificently improved since i started using the platform. It is easy to find a suitable mentor to satisfy your child's needs.\""
+          "partOne": "\"I have been using To Be Hero for all my children for their favorite hobbies and they magnificently improved since i started using the platform. It is easy to find a suitable mentor to satisfy your child's needs.\"",
+          "partTwo": "\"I signed up for all my kids and now I can tell they've found something they love.\""
         },
         "title": {
           "titleOne": "Mohamed",
-          "titleTwo": "Egypt"
+          "titleTwo": "Egypt",
+          "titleThree": "Osama",
+          "titleFour": "Egypt"
         }
       },
       {
@@ -145,11 +148,14 @@
       },
       {
         "description": {
-          "partOne": "\"لقد كنت أستخدم To Be Hero لجميع أطفالي من أجل هواياتهم المفضلة وقد تحسنت بشكل رائع منذ أن بدأت في استخدام المنصة. من السهل العثور على معلم مناسب لتلبيه احتياجات طفلك.\""
+          "partOne": "\"لقد كنت أستخدم To Be Hero لجميع أطفالي من أجل هواياتهم المفضلة وقد تحسنت بشكل رائع منذ أن بدأت في استخدام المنصة. من السهل العثور على معلم مناسب لتلبيه احتياجات طفلك.\"",
+          "partTwo": "\"لقد اشتركت لجميع اطفالي واستطيع الان ان اقول انهم وجدوا ما يحبونه.\""
         },
         "title": {
           "titleOne": "محمد",
-          "titleTwo": "مصر"
+          "titleTwo": "مصر",
+          "titleThree": "اسامة",
+          "titleFour": "مصر"
         }
       },
       {
