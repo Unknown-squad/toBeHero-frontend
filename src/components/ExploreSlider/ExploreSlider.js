@@ -6,9 +6,8 @@ import sliderItemDrawing from "../../images/slider-item-drawing.svg";
 import sliderItemQuran from "../../images/slider-item-quran.svg";
 import sliderItemMath from "../../images/slider-item-math.svg";
 import Slider from "react-slick";
-import "./ExploreSlider.scss";
 import { useHistory } from "react-router";
-
+import "./ExploreSlider.scss";
 const ExploreSlider = (props) => {
   let history = useHistory();
   const dispatch = useDispatch();
@@ -42,7 +41,10 @@ const ExploreSlider = (props) => {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block" }}
+        style={{
+          ...style,
+          display: "block",
+        }}
         onClick={onClick}
       />
     );

@@ -10,6 +10,7 @@ import ErrorMessage from "../../../components/ErrorMessage";
 import Meta from "../../../components/Meta";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import AOS from "../../../components/AOS";
 const HeroLoginScreen = ({ location, history }) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -28,6 +29,7 @@ const HeroLoginScreen = ({ location, history }) => {
     e.preventDefault();
     dispatch(heroLoginActions(userName, password));
   };
+  AOS.init({});
   return (
     <>
       <Meta title="ToBeHero | Hero Login"></Meta>
@@ -35,7 +37,7 @@ const HeroLoginScreen = ({ location, history }) => {
       <div className="container-sign">
         <section className="hr-section-9">
           <div className="container">
-            <h1>Welcome back Hero</h1>
+            <h1 data-aos="fade-down">Welcome back Hero</h1>
             <div className="row">
               <div className="col-md-6 col-12 pr-3 mb-3">
                 <div className="hero-signIn"></div>
@@ -43,7 +45,7 @@ const HeroLoginScreen = ({ location, history }) => {
               <div className="col-md-6 col-12 ">
                 <div className="form-container flex-column just-cont">
                   <div className="sign-in-form">
-                    <div className="form-inputs">
+                    <div className="form-inputs" data-aos="zoom-out">
                       {loading && <Loader></Loader>}
                       {error ? <ErrorMessage>{error}</ErrorMessage> : ""}
                       <form onSubmit={submitHandler}>

@@ -318,25 +318,3 @@
   }
 }
 /*end hr-section-6*/
-
-@import "~slick-carousel/slick/slick.css";
-@import "~slick-carousel/slick/slick-theme.css";
-
-.slick-prev:before {
-  font-size: 40px;
-  position: absolute;
-  left: 3rem;
-  top: -1rem;
-}
-.slick-next:before {
-  font-size: 40px;
-  position: absolute;
-  //   right: 0rem;
-  top: -1rem;
-  right: 2rem;
-}
-
-.slick-prev:before,
-.slick-next:before {
-  color: #5f59f7;
-}

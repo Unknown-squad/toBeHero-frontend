@@ -21,7 +21,7 @@ import { default as locales } from "./locales.json";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Slider from "react-slick";
-
+import "./sliderLanding.scss";
 const LandingScreen = () => {
   let languageStoredInLocalStorage = localStorage.getItem("language");
   const [language, setLanguage] = useState(
@@ -78,7 +78,10 @@ const LandingScreen = () => {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block" }}
+        style={{
+          ...style,
+          display: "block",
+        }}
         onClick={onClick}
       />
     );
@@ -89,7 +92,7 @@ const LandingScreen = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     lazyLoad: true,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2000,
     pauseOnHover: true,
     nextArrow: <SampleNextArrow />,
@@ -103,9 +106,7 @@ const LandingScreen = () => {
           infinite: true,
           dots: true,
           lazyLoad: true,
-          autoplay: true,
-          nextArrow: <SampleNextArrow />,
-          prevArrow: <SamplePrevArrow />,
+          autoplay: false,
         },
       },
       {
@@ -116,9 +117,7 @@ const LandingScreen = () => {
           initialSlide: 1,
           lazyLoad: true,
           dots: true,
-          autoplay: true,
-          nextArrow: <SampleNextArrow />,
-          prevArrow: <SamplePrevArrow />,
+          autoplay: false,
         },
       },
       {
@@ -128,9 +127,7 @@ const LandingScreen = () => {
           slidesToScroll: 1,
           lazyLoad: true,
           dots: true,
-          autoplay: true,
-          nextArrow: <SampleNextArrow />,
-          prevArrow: <SamplePrevArrow />,
+          autoplay: false,
         },
       },
     ],

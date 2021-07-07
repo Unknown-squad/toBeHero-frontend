@@ -8,7 +8,9 @@ import "../RegisterScreen.scss";
 import Meta from "../../../components/Meta";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import AOS from "../../../components/AOS";
 const MentorRegisterScreen = ({ location, history }) => {
+  AOS.init({});
   return (
     <>
       <Meta title="ToBeHero | Mentor Signup"></Meta>
@@ -18,7 +20,9 @@ const MentorRegisterScreen = ({ location, history }) => {
           <div className="container">
             <div className="row">
               <div className="col-lg-5 col-md-5 col-12 pr-3 mb-3">
-                <h1>Join now and Help your child to achieve dreams</h1>
+                <h1 data-aos="fade-down">
+                  Join now and Help your child to achieve dreams
+                </h1>
                 <LazyLoadImage src={hero1} alt="hero-1" effect="blur" />
               </div>
               <div className="col-lg-offset-1 col-lg-6 col-md-7 col-12 ">
@@ -35,7 +39,7 @@ const MentorRegisterScreen = ({ location, history }) => {
                   </li>
                 </ul>
                 <div className="form-register-container flex-column just-cont">
-                  <div className="register-form">
+                  <div className="register-form" data-aos="fade-right">
                     <MentorRegisterForm
                       location={location}
                       history={history}
