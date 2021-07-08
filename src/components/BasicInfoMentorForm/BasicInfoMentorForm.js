@@ -9,6 +9,9 @@ import { updateMentorBasicInfoActions } from "../../actions/updateMentorBasicInf
 import Loader from "../Loader";
 import ErrorMessage from "../ErrorMessage";
 import SuccessMessage from "../SuccessMessage";
+import "./style.scss";
+import ReactTagInput from "@pathofdev/react-tag-input";
+import "@pathofdev/react-tag-input/build/index.css";
 const BasicInfoMentorForm = ({ history }) => {
   // let history = useHistory();
   const [gender, setGender] = useState("");
@@ -18,7 +21,7 @@ const BasicInfoMentorForm = ({ history }) => {
   const [countryCode, setCountryCode] = useState("");
   const [phone, setPhone] = useState("");
   const [birthDate, setBirthDate] = useState("");
-  const [languages, setLanguages] = useState([]);
+  let [languages, setLanguages] = useState([]);
   const [description, setDescription] = useState("");
   const [occupation, setOccupation] = useState([]);
   const [certificates, setCertificates] = useState([]);
@@ -57,17 +60,18 @@ const BasicInfoMentorForm = ({ history }) => {
         setGender(mentor.gender);
         setCountryCode(mentor.countryCode);
         setPhone(mentor.phone);
-        setLanguages(mentor.languages[0]);
+        setLanguages(mentor.languages);
         setBirthDate(new Date(mentor.birthDate).toLocaleDateString());
         setDescription(mentor.description);
-        setOccupation(mentor.occupation[0]);
-        setCertificates(mentor.certificates[0]);
+        setOccupation(mentor.occupation);
+        setCertificates(mentor.certificates);
         setPicture(mentor.picture);
       }
     }
     setAlert(false);
   }, [dispatch, successUpdate, history, mentor]);
 
+  console.log(languages);
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(
@@ -90,6 +94,10 @@ const BasicInfoMentorForm = ({ history }) => {
       setAlert(true);
     }, 1100);
   };
+
+  // const handleChange = (value) => {
+  //   setLanguages(value);
+  // };
 
   return (
     <>
@@ -150,7 +158,6 @@ const BasicInfoMentorForm = ({ history }) => {
                   name="password"
                   value={password}
                   placeholder="Enter your password"
-                  required
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
@@ -208,24 +215,30 @@ const BasicInfoMentorForm = ({ history }) => {
               <div className="input-field">
                 <label htmlFor="Languages-mentor">Languages*</label>
                 <br />
-
-                <input
-                  type="text"
-                  id="Languages-mentor"
-                  name="Languages-mentor"
-                  className="Languages-mentor"
-                  placeholder="Enter your Languages"
-                  onChange={(e) => setLanguages(e.target.value)}
+                {/* <em>press enter to add new tag</em>
+                <TagsInput
+                  name="language"
+                  placeHolder="Enter your languages"
                   value={languages}
-                  required
+                  onChange={setLanguages}
+                /> */}
+                <ReactTagInput
+                  tags={languages}
+                  placeholder="Type and press enter"
+                  maxTags={10}
+                  editable={true}
+                  readOnly={false}
+                  removeOnBackspace={true}
+                  onChange={(newTags) => setLanguages(newTags)}
                 />
               </div>
+
               <div className="input-field pt-1">
                 <label htmlFor="Occupation">
                   Occupation<sup>at least one</sup>
                 </label>
                 <br />
-                <input
+                {/* <input
                   type="text"
                   id="Occupation"
                   name="Occupation"
@@ -234,12 +247,28 @@ const BasicInfoMentorForm = ({ history }) => {
                   required
                   value={occupation}
                   onChange={(e) => setOccupation(e.target.value)}
+                /> */}
+                {/* <TagsInput
+                  name="occupation"
+                  placeHolder="Enter your occupation"
+                  value={occupation}
+                  onChange={setOccupation}
+                />
+                <em>press enter to add new tag</em> */}
+                <ReactTagInput
+                  tags={occupation}
+                  placeholder="Type and press enter"
+                  maxTags={10}
+                  editable={true}
+                  readOnly={false}
+                  removeOnBackspace={true}
+                  onChange={(newTags) => setOccupation(newTags)}
                 />
               </div>
               <div className="input-field">
                 <label htmlFor="Certificates">Certificates</label>
                 <br />
-                <input
+                {/* <input
                   type="text"
                   id="Certificates"
                   name="Certificates"
@@ -247,7 +276,7 @@ const BasicInfoMentorForm = ({ history }) => {
                   placeholder=""
                   value={certificates}
                   onChange={(e) => setCertificates(e.target.value)}
-                />
+                /> */}
                 {/* <input
               type="text"
               id="Certificates"
@@ -256,10 +285,26 @@ const BasicInfoMentorForm = ({ history }) => {
               placeholder=""
               value="Lorem ipsum dolor sit amet"
             /> */}
+                {/* <TagsInput
+                  name="certifiates"
+                  placeHolder="Enter your certifiates"
+                  value={certificates}
+                  onChange={setCertificates}
+                />
+                <em>press enter to add new tag</em> */}
+                <ReactTagInput
+                  tags={certificates}
+                  placeholder="Type and press enter"
+                  maxTags={10}
+                  editable={true}
+                  readOnly={false}
+                  removeOnBackspace={true}
+                  onChange={(newTags) => setCertificates(newTags)}
+                />
               </div>
-              <div className="input-field">
+              {/* <div className="input-field">
                 <button className="btn file-input__label">add new</button>
-              </div>
+              </div> */}
 
               <div className="upload-picture">
                 <div className="img-back">

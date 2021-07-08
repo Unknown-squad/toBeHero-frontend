@@ -7,7 +7,8 @@ import Loader from "../Loader";
 import SuccessMessage from "../SuccessMessage";
 import { useRouteMatch } from "react-router";
 import { useHistory } from "react-router";
-
+import ReactTagInput from "@pathofdev/react-tag-input";
+import "@pathofdev/react-tag-input/build/index.css";
 const CreateCourseMentor = () => {
   let history = useHistory();
   const [title, setTitle] = useState("");
@@ -217,7 +218,7 @@ const CreateCourseMentor = () => {
                   <br />
 
                   <div className="service-remove">
-                    <input
+                    {/* <input
                       type="text"
                       id="service-includes-input"
                       name="service-includes-input"
@@ -226,9 +227,18 @@ const CreateCourseMentor = () => {
                       required
                       value={topicsList}
                       onChange={(e) => setTopicsList(e.target.value)}
+                    /> */}
+                    <ReactTagInput
+                      tags={topicsList}
+                      placeholder="Type and press enter"
+                      maxTags={12}
+                      editable={true}
+                      readOnly={false}
+                      removeOnBackspace={true}
+                      onChange={(newTags) => setTopicsList(newTags)}
                     />
-                    {/* <button className="btn btn-remove">remove</button> */}
                   </div>
+                  {/* <button className="btn btn-remove">remove</button> */}
                   {/* <div className="service-remove">
                 <input
                   type="text"

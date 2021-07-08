@@ -11,13 +11,15 @@ import Loader from "../../../../components/Loader";
 import "./ContinueMentorRegister.scss";
 import { mentorRegisterActions } from "../../../../actions/mentorRegisterActions";
 import Meta from "../../../../components/Meta";
+import ReactTagInput from "@pathofdev/react-tag-input";
+import "@pathofdev/react-tag-input/build/index.css";
 
 const ContinueMentorRegister = ({ history, location }) => {
   const [birthDate, setBirthDate] = useState("");
-  const [languages, setLanguages] = useState(["english"]);
-  const [description, setDescription] = useState("gggg");
-  const [occupation, setOccupation] = useState(["hhhhhhh"]);
-  const [certificates, setCertificates] = useState(["nnnnnnnn"]);
+  const [languages, setLanguages] = useState([]);
+  const [description, setDescription] = useState("");
+  const [occupation, setOccupation] = useState([]);
+  const [certificates, setCertificates] = useState([]);
   const [picture, setPicture] = useState(null);
 
   const dispatch = useDispatch();
@@ -112,8 +114,16 @@ const ContinueMentorRegister = ({ history, location }) => {
                                 Languages*
                               </label>
                               <br />
-
-                              <input
+                              <ReactTagInput
+                                tags={languages}
+                                placeholder="Type and press enter"
+                                maxTags={10}
+                                editable={true}
+                                readOnly={false}
+                                removeOnBackspace={true}
+                                onChange={(newTags) => setLanguages(newTags)}
+                              />
+                              {/* <input
                                 type="text"
                                 id="Languages-mentor"
                                 name="Languages-mentor"
@@ -122,7 +132,7 @@ const ContinueMentorRegister = ({ history, location }) => {
                                 placeholder="Enter your email"
                                 required
                                 onChange={(e) => setLanguages(e.target.value)}
-                              ></input>
+                              ></input> */}
                             </div>
                             <div className="input-field">
                               <label htmlFor="Description">Description*</label>
@@ -142,7 +152,7 @@ const ContinueMentorRegister = ({ history, location }) => {
                             <div className="input-field">
                               <label htmlFor="Occupation">Occupation*</label>
                               <br />
-                              <input
+                              {/* <input
                                 type="text"
                                 id="Occupation"
                                 name="Occupation"
@@ -151,12 +161,21 @@ const ContinueMentorRegister = ({ history, location }) => {
                                 placeholder="Enter at least one"
                                 required
                                 onChange={(e) => setOccupation(e.target.value)}
-                              ></input>
+                              ></input> */}
+                              <ReactTagInput
+                                tags={occupation}
+                                placeholder="Type and press enter"
+                                maxTags={10}
+                                editable={true}
+                                readOnly={false}
+                                removeOnBackspace={true}
+                                onChange={(newTags) => setOccupation(newTags)}
+                              />
                             </div>
                             <div className="input-field">
                               <label htmlFor="Certificates">Certificates</label>
                               <br />
-                              <input
+                              {/* <input
                                 type="text"
                                 id="Certificates"
                                 name="Certificates"
@@ -166,14 +185,23 @@ const ContinueMentorRegister = ({ history, location }) => {
                                 onChange={(e) =>
                                   setCertificates(e.target.value)
                                 }
-                              ></input>
+                              ></input> */}
+                              <ReactTagInput
+                                tags={certificates}
+                                placeholder="Type and press enter"
+                                maxTags={10}
+                                editable={true}
+                                readOnly={false}
+                                removeOnBackspace={true}
+                                onChange={(newTags) => setCertificates(newTags)}
+                              />
                             </div>
-                            <div className="input-field">
+                            {/* <div className="input-field">
                               <button className="btn file-input__label">
                                 <img src={plusIcon} alt="" />
                                 <span>add new</span>
                               </button>
-                            </div>
+                            </div> */}
                           </div>
                           <div className="col-lg-2 col-12">
                             <label

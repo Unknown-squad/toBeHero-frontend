@@ -8,6 +8,9 @@ import Loader from "../Loader";
 import SuccessMessage from "../SuccessMessage";
 import { useRouteMatch } from "react-router";
 import { useHistory } from "react-router";
+import ReactTagInput from "@pathofdev/react-tag-input";
+import "@pathofdev/react-tag-input/build/index.css";
+
 const EditCourseMentor = () => {
   const match = useRouteMatch("/mentor/dashboard/course/edit/:id");
   const courseId = match.params.id;
@@ -58,7 +61,7 @@ const EditCourseMentor = () => {
         setPrice(data.price);
         setPicture(data.picture);
         setDescription(data.description);
-        setTopicsList(data.topicsList[0]);
+        setTopicsList(data.topicsList);
         setMediaUrls(data.mediaURLS);
       }
     }
@@ -259,15 +262,14 @@ const EditCourseMentor = () => {
                   <br />
 
                   <div className="service-remove">
-                    <input
-                      type="text"
-                      id="service-includes-input"
-                      name="service-includes-input"
-                      className="service-includes-input"
-                      placeholder=""
-                      required
-                      value={topicsList}
-                      onChange={(e) => setTopicsList(e.target.value)}
+                    <ReactTagInput
+                      tags={topicsList}
+                      placeholder="Type and press enter"
+                      maxTags={12}
+                      editable={true}
+                      readOnly={false}
+                      removeOnBackspace={true}
+                      onChange={(newTags) => setTopicsList(newTags)}
                     />
                     {/* <button className="btn btn-remove">remove</button> */}
                   </div>
