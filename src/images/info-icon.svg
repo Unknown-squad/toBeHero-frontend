@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="18.965" height="18.965" viewBox="0 0 18.965 18.965">
-  <g id="Icon_feather-info" data-name="Icon feather-info" transform="translate(-2 -2)">
-    <path id="Path_94" data-name="Path 94" d="M19.965,11.482A8.482,8.482,0,1,1,11.482,3,8.482,8.482,0,0,1,19.965,11.482Z" transform="translate(0 0)" fill="none" stroke="#5f59f7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-    <path id="Path_95" data-name="Path 95" d="M18,21.393V18" transform="translate(-6.518 -6.518)" fill="none" stroke="#5f59f7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-    <path id="Path_96" data-name="Path 96" d="M18,12h0" transform="translate(-6.518 -3.911)" fill="none" stroke="#5f59f7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="18.965" height="18.965" viewBox="0 0 18.965 18.965"><g id="Icon_feather-info" data-name="Icon feather-info" transform="translate(-2 -2)"><path id="Path_94" fill="none" stroke="#5f59f7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.965,11.482A8.482,8.482,0,1,1,11.482,3,8.482,8.482,0,0,1,19.965,11.482Z" data-name="Path 94" transform="translate(0 0)"/><path id="Path_95" fill="none" stroke="#5f59f7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18,21.393V18" data-name="Path 95" transform="translate(-6.518 -6.518)"/><path id="Path_96" fill="none" stroke="#5f59f7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18,12h0" data-name="Path 96" transform="translate(-6.518 -3.911)"/></g></svg>

@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="11.5" height="11.5" viewBox="0 0 11.5 11.5">
-  <g id="Icon_feather-plus" data-name="Icon feather-plus" transform="translate(-7 -7)">
-    <path id="Path_252" data-name="Path 252" d="M18,7.5V18" transform="translate(-5.25 0)" fill="none" stroke="#515151" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-    <path id="Path_253" data-name="Path 253" d="M7.5,18H18" transform="translate(0 -5.25)" fill="none" stroke="#515151" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="11.5" height="11.5" viewBox="0 0 11.5 11.5"><g id="Icon_feather-plus" data-name="Icon feather-plus" transform="translate(-7 -7)"><path id="Path_252" fill="none" stroke="#515151" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M18,7.5V18" data-name="Path 252" transform="translate(-5.25 0)"/><path id="Path_253" fill="none" stroke="#515151" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M7.5,18H18" data-name="Path 253" transform="translate(0 -5.25)"/></g></svg>

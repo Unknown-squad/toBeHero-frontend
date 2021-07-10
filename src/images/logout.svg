@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="57.086" height="52.672" viewBox="0 0 57.086 52.672">
-  <g id="Component_20_1" data-name="Component 20 – 1" transform="translate(2.527 2.512)">
-    <path id="Path_652" data-name="Path 652" d="M2395.219-1811.225s.818-8.559-6.178-9.2-16.2.445-19.495,5.564c-4.6,7.14-3.333,30.239,2.249,36.3s13.428,7.478,20.423,2.958,6.536-10.946,6.536-10.946" transform="translate(-2366.74 1820.596)" fill="none" stroke="#343090" stroke-linecap="round" stroke-width="5"/>
-    <path id="Path_653" data-name="Path 653" d="M2434.3-1766.582s33.809.8,35.005,0-16.453-9.922-15.954-10.37,17.948,3.59,17.948,8.575-9.173,11.367-11.966,10.769" transform="translate(-2418.738 1791.102)" fill="none" stroke="#343090" stroke-linecap="round" stroke-width="4"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="57.086" height="52.672" viewBox="0 0 57.086 52.672"><g id="Component_20_1" data-name="Component 20 – 1" transform="translate(2.527 2.512)"><path id="Path_652" fill="none" stroke="#343090" stroke-linecap="round" stroke-width="5" d="M2395.219-1811.225s.818-8.559-6.178-9.2-16.2.445-19.495,5.564c-4.6,7.14-3.333,30.239,2.249,36.3s13.428,7.478,20.423,2.958,6.536-10.946,6.536-10.946" data-name="Path 652" transform="translate(-2366.74 1820.596)"/><path id="Path_653" fill="none" stroke="#343090" stroke-linecap="round" stroke-width="4" d="M2434.3-1766.582s33.809.8,35.005,0-16.453-9.922-15.954-10.37,17.948,3.59,17.948,8.575-9.173,11.367-11.966,10.769" data-name="Path 653" transform="translate(-2418.738 1791.102)"/></g></svg>

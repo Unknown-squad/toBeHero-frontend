@@ -1,14 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="76.548" height="76.548" viewBox="0 0 76.548 76.548">
-  <defs>
-    <filter id="Icon_awesome-plus-circle" x="0" y="0" width="76.548" height="76.548" filterUnits="userSpaceOnUse">
-      <feOffset dy="1" input="SourceAlpha"/>
-      <feGaussianBlur stdDeviation="2" result="blur"/>
-      <feFlood flood-color="#343090"/>
-      <feComposite operator="in" in2="blur"/>
-      <feComposite in="SourceGraphic"/>
-    </filter>
-  </defs>
-  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Icon_awesome-plus-circle)">
-    <path id="Icon_awesome-plus-circle-2" data-name="Icon awesome-plus-circle" d="M32.837.563A32.274,32.274,0,1,0,65.111,32.837,32.269,32.269,0,0,0,32.837.563Zm18.74,35.918a1.566,1.566,0,0,1-1.562,1.562H38.042V50.015a1.566,1.566,0,0,1-1.562,1.562H29.193a1.566,1.566,0,0,1-1.562-1.562V38.042H15.659A1.566,1.566,0,0,1,14.1,36.481V29.193a1.566,1.566,0,0,1,1.562-1.562H27.631V15.658A1.566,1.566,0,0,1,29.193,14.1h7.288a1.566,1.566,0,0,1,1.562,1.562V27.631H50.015a1.566,1.566,0,0,1,1.562,1.562Z" transform="translate(5.44 4.44)" fill="#fff"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="76.548" height="76.548" viewBox="0 0 76.548 76.548"><defs><filter id="Icon_awesome-plus-circle" width="76.548" height="76.548" x="0" y="0" filterUnits="userSpaceOnUse"><feOffset dy="1" input="SourceAlpha"/><feGaussianBlur result="blur" stdDeviation="2"/><feFlood flood-color="#343090"/><feComposite in2="blur" operator="in"/><feComposite in="SourceGraphic"/></filter></defs><g filter="url(#Icon_awesome-plus-circle)" transform="matrix(1, 0, 0, 1, 0, 0)"><path id="Icon_awesome-plus-circle-2" fill="#fff" d="M32.837.563A32.274,32.274,0,1,0,65.111,32.837,32.269,32.269,0,0,0,32.837.563Zm18.74,35.918a1.566,1.566,0,0,1-1.562,1.562H38.042V50.015a1.566,1.566,0,0,1-1.562,1.562H29.193a1.566,1.566,0,0,1-1.562-1.562V38.042H15.659A1.566,1.566,0,0,1,14.1,36.481V29.193a1.566,1.566,0,0,1,1.562-1.562H27.631V15.658A1.566,1.566,0,0,1,29.193,14.1h7.288a1.566,1.566,0,0,1,1.562,1.562V27.631H50.015a1.566,1.566,0,0,1,1.562,1.562Z" data-name="Icon awesome-plus-circle" transform="translate(5.44 4.44)"/></g></svg>

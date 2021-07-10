@@ -1,5 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="27.048" height="65.344" viewBox="0 0 27.048 65.344">
-  <path id="Path_21" data-name="Path 21" d="M960,648.962s-10.635-.777-12.657-2.8" transform="translate(-934.022 -644.749)" fill="none" stroke="#8c61ff" stroke-linecap="round" stroke-width="2"/>
-  <path id="Path_22" data-name="Path 22" d="M960,692.428s-11.154.337-13.85,4.717" transform="translate(-936.022 -633.177)" fill="none" stroke="#8c61ff" stroke-linecap="round" stroke-width="2"/>
-  <path id="Path_23" data-name="Path 23" d="M953.075,674s-10.294-.441-11.979-3.81" transform="translate(-939.754 -639.249)" fill="none" stroke="#8c61ff" stroke-linecap="round" stroke-width="2"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="27.048" height="65.344" viewBox="0 0 27.048 65.344"><path id="Path_21" fill="none" stroke="#8c61ff" stroke-linecap="round" stroke-width="2" d="M960,648.962s-10.635-.777-12.657-2.8" data-name="Path 21" transform="translate(-934.022 -644.749)"/><path id="Path_22" fill="none" stroke="#8c61ff" stroke-linecap="round" stroke-width="2" d="M960,692.428s-11.154.337-13.85,4.717" data-name="Path 22" transform="translate(-936.022 -633.177)"/><path id="Path_23" fill="none" stroke="#8c61ff" stroke-linecap="round" stroke-width="2" d="M953.075,674s-10.294-.441-11.979-3.81" data-name="Path 23" transform="translate(-939.754 -639.249)"/></svg>
