@@ -36,9 +36,7 @@ const BalanceMentor = () => {
       )}
 
       <div className="create-new">
-        <Link to="">
-          <button className="btn btn-purple-400">withdraw</button>
-        </Link>
+        <button className="btn btn-purple-400">withdraw</button>
       </div>
     </>
   );

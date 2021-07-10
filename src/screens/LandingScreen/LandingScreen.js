@@ -430,7 +430,7 @@ const LandingScreen = () => {
       {/* //   <!-- end section-5 --> */}
       {/* //   <!-- start section-6 --> */}
       <section className="hr-section-6">
-        <div className="container">
+        <div className="container" data-aos="fade-up">
           <h2>{content.section[4].title.titleTwo}</h2>
           <p>{content.section[4].description.partOne}</p>
           <p>{content.section[4].description.partTwo}</p>

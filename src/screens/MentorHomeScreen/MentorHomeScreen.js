@@ -10,6 +10,7 @@ import MentorStatusAvailability from "../../components/MentorStatusAvailability"
 import MentorHomeServiceList from "../../components/MentorHomeServiceList";
 import { useDispatch, useSelector } from "react-redux";
 import { listServices } from "../../actions/serviceListActions";
+import Headroom from "react-headroom";
 import Meta from "../../components/Meta";
 
 const MentorHomeScreen = () => {
@@ -18,8 +19,9 @@ const MentorHomeScreen = () => {
   return (
     <>
       <Meta title="Mentor | Home"></Meta>
-
-      <MentorHomeHeader></MentorHomeHeader>
+      <Headroom style={{ zIndex: "999999" }}>
+        <MentorHomeHeader></MentorHomeHeader>
+      </Headroom>
 
       <section className="hr-section-20">
         <div className="container">

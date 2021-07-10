@@ -22,7 +22,7 @@ const CourseCard = ({ course }) => {
           <Link to={`/explore/course/${_id}`} className="Link">
             <div className="course-img">
               <LazyLoadImage
-                src={`${picture}`}
+                src={`${process.env.REACT_APP_DOMAIN_MEDIA}${picture}`}
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = courseFiller;
@@ -43,7 +43,7 @@ const CourseCard = ({ course }) => {
               <Link to={`/explore/profile/${mentorId._id}`} className="Link">
                 <div className="mentor-img">
                   <LazyLoadImage
-                    src={`${mentorId.picture}`}
+                    src={`${process.env.REACT_APP_DOMAIN_MEDIA}${mentorId.picture}`}
                     onError={(e) => {
                       e.target.onerror = null;
                       e.target.src =

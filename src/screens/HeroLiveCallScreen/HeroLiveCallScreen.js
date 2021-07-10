@@ -7,10 +7,11 @@ import { getSubscriptionsForChildHomeActions } from "../../actions/getSubscripti
 import iconLoading from "../../images/icon-loading.svg";
 import Peer from "simple-peer";
 import io from "socket.io-client";
+import { useRouteMatch } from "react-router";
+const socket = io.connect(`${process.env.REACT_APP_SOCKET_SERVER_DOMAIN}`);
 
-const socket = io.connect("http://localhost:5000");
-
-const HeroLiveCallScreen = ({ match }) => {
+const HeroLiveCallScreen = () => {
+  let match = useRouteMatch();
   const [me, setMe] = useState("");
   const [stream, setStream] = useState();
   const [receivingCall, setReceivingCall] = useState(false);
@@ -109,6 +110,7 @@ const HeroLiveCallScreen = ({ match }) => {
 
   const leaveCall = () => {
     setCallEnded(true);
+    socket.emit("call-ended", subscriptionId, appointmentId);
     connectionRef.current.destroy();
   };
 

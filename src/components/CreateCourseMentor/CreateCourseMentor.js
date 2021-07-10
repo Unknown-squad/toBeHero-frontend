@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { mentorAddNewCourseDashboardActions } from "../../actions/mentorAddNewCourseDashboardActions";
-import { updateMentorEditCourseDashboardActions } from "../../actions/updateMentorEditCourseDashboardActions";
 import ErrorMessage from "../ErrorMessage";
 import Loader from "../Loader";
 import SuccessMessage from "../SuccessMessage";
@@ -28,28 +27,30 @@ const CreateCourseMentor = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log(mentorCourseAddedInfo);
-    if (success) {
-      history.push("/mentor/dashboard/courses");
-    }
-  }, [dispatch, success, history]);
+  // useEffect(() => {
+  //   // if (mentorCourseAddedInfo) {
+  //   //   history.push("/mentor/dashboard/courses");
+  //   // }
+  // }, [history]);
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(
-      mentorAddNewCourseDashboardActions({
-        title,
-        price,
-        description,
-        topicsList,
-        genre,
-      })
-    );
-
+    const dataArray = new FormData();
+    dataArray.append("title", title);
+    dataArray.append("price", price);
+    dataArray.append("description", description);
+    dataArray.append("topicsList", topicsList);
+    dataArray.append("genre", genre);
+    for (let i = 0; i < mediaUrls.length; i++) {
+      dataArray.append("mediaUrls", mediaUrls[i]);
+    }
+    console.log(mediaUrls);
+    dataArray.append("picture", picture);
+    dispatch(mentorAddNewCourseDashboardActions(dataArray));
     setTimeout(() => {
       setAlert(true);
     }, 1100);
   };
+  console.log(mediaUrls);
 
   // const uploadFileHandler = async (e) => {
   //   const file = e.target.files[0];
@@ -85,12 +86,14 @@ const CreateCourseMentor = () => {
   //     setUploading(false);
   //   }
   // };
+  // if (success) {
+  //   history.push("/mentor/dashboard/courses");
+  // }
   return (
     <>
+      {error && <ErrorMessage>{error}</ErrorMessage>}
       {loading ? (
         <Loader></Loader>
-      ) : error ? (
-        <ErrorMessage>{error}</ErrorMessage>
       ) : (
         <form
           noValidate
@@ -162,16 +165,23 @@ const CreateCourseMentor = () => {
             <div className="col-lg-3 pl-0 col-12">
               <div className="main-picture">
                 <div className="title-main-picture">
-                  <label htmlFor="upload-img-title">Main picture</label>
+                  <label
+                    htmlFor="img"
+                    className="btn"
+                    style={{ color: "black" }}
+                  >
+                    Main picture
+                  </label>
                 </div>
                 <div className="input-field">
-                  <label
+                  {/*  */}
+                  {/* <label
                     htmlFor="upload-img-input"
                     className="btn btn-purple-400"
-                  >
+                    >
                     upload
-                  </label>
-                  <input
+                    </label>
+                    <input
                     type="file"
                     id="upload-img-input"
                     name="upload"
@@ -180,8 +190,8 @@ const CreateCourseMentor = () => {
                     className="upload-img-input"
                     placeholder=""
                     required
-                  />
-                  <input
+                    />
+                    <input
                     type="text"
                     id="upload-img-title"
                     name="upload"
@@ -190,7 +200,16 @@ const CreateCourseMentor = () => {
                     required
                     value={picture}
                     onChange={(e) => setPicture(e.target.value)}
+                  /> */}
+                  {/*  */}
+                  <input
+                    id="img"
+                    name="img"
+                    type="file"
+                    onChange={(e) => setPicture(e.target.files[0])}
                   />
+                  <p>upload your picture</p>
+                  {/*  */}
                 </div>
               </div>
             </div>
@@ -241,12 +260,12 @@ const CreateCourseMentor = () => {
                   {/* <button className="btn btn-remove">remove</button> */}
                   {/* <div className="service-remove">
                 <input
-                  type="text"
-                  id="service-includes-input"
-                  name="service-includes-input"
-                  className="service-includes-input"
-                  placeholder=""
-                  required
+                type="text"
+                id="service-includes-input"
+                name="service-includes-input"
+                className="service-includes-input"
+                placeholder=""
+                required
                 />
                 <button className="btn btn-purple-400">remove</button>
               </div> */}
@@ -258,9 +277,9 @@ const CreateCourseMentor = () => {
                   className="service-includes-input"
                   placeholder=""
                   required
-                />
-                <button className="btn btn-purple-400">remove</button>
-              </div> */}
+                  />
+                  <button className="btn btn-purple-400">remove</button>
+                </div> */}
                   {/* <div className="service-add">
                 <button className="btn btn-add">add</button>
               </div> */}
@@ -270,14 +289,29 @@ const CreateCourseMentor = () => {
             <div className="col-lg-5 col-12 pl-0 pb-3">
               <div className="main-picture">
                 <div className="title-other-media">
-                  <label htmlFor="upload-title-other-media">Other Media</label>
+                  <label
+                    htmlFor="mediaurls"
+                    className="btn"
+                    style={{ color: "black" }}
+                  >
+                    Other Media
+                  </label>
                 </div>
                 <div className="input-field">
-                  <label
+                  <input
+                    id="mediaurls"
+                    name="mediaurls"
+                    type="file"
+                    multiple
+                    onChange={(e) => setMediaUrls(e.target.files)}
+                  />
+                  <p>upload your pictures</p>
+                </div>
+                {/* <label
                     htmlFor="upload-img-other-media"
                     className="btn btn-purple-400"
                   >
-                    upload
+                  upload
                   </label>
                   <input
                     type="file"
@@ -286,8 +320,8 @@ const CreateCourseMentor = () => {
                     className="upload-img-input"
                     placeholder=""
                     required
-                  />
-                  <input
+                    />
+                    <input
                     type="text"
                     id="upload-title-other-media"
                     name="upload"
@@ -296,8 +330,7 @@ const CreateCourseMentor = () => {
                     required
                     value={mediaUrls}
                     onChange={(e) => setMediaUrls(e.target.value)}
-                  />
-                </div>
+                  /> */}
               </div>
             </div>
           </div>
@@ -314,7 +347,7 @@ const CreateCourseMentor = () => {
               type="submit"
               style={{ marginTop: "1rem" }}
             >
-              Save edits
+              Create course
             </button>
           </div>
         </form>

@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 
 const MentorHomeServiceCards = ({ service }) => {
   const [show, setShow] = useState(false);
-  let data = [];
-  let dataa = [];
-  let input;
-  data.forEach((el) => {
-    if (Date.now() > Date.parse(el) + 86400000) {
-      dataa.push(el);
-    }
-  });
-  if (dataa.length === 0) {
-    input = `-`;
-  }
+  // let data = [];
+  // let dataa = [];
+  // let input;
+  // data.forEach((el) => {
+  //   if (Date.now() > Date.parse(el) + 86400000) {
+  //     dataa.push(el);
+  //   }
+  // });
+  // if (dataa.length === 0) {
+  //   input = `-`;
+  // }
   return (
     <div className="available-course">
       <div className="part-student">
@@ -23,7 +23,7 @@ const MentorHomeServiceCards = ({ service }) => {
         </h4>
         <p>student: {service && service.childId && service.childId.fullName}</p>
         <p>
-          guardian:
+          guardian:{" "}
           {service && service.guardianId && service.guardianId.fullName}
         </p>
       </div>
@@ -34,7 +34,7 @@ const MentorHomeServiceCards = ({ service }) => {
             <React.Fragment key={i}>
               {Date.now() > Date.parse(date.date) ? null : (
                 <p>
-                  {new Date(date.date).toLocaleDateString()} -
+                  {new Date(date.date).toLocaleDateString()} -{" "}
                   {new Date(date.date).toLocaleTimeString([], {
                     timeStyle: "short",
                   })}

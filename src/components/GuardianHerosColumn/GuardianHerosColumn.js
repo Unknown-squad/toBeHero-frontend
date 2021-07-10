@@ -33,7 +33,9 @@ const GuardianHerosColumn = () => {
                 activeClassName="active"
               >
                 <LazyLoadImage
-                  src={child.picture}
+                  src={`${process.env.REACT_APP_DOMAIN_MEDIA}${child.picture}`}
+                  width="40"
+                  height="40"
                   alt=""
                   onError={(e) => {
                     e.target.onerror = null;
@@ -46,7 +48,7 @@ const GuardianHerosColumn = () => {
               </NavLink>
             </li>
           ))}
-
+        {/* {console.log(process.env.REACT_APP_DOMAIN_MEDIA)} */}
         <li>
           <Link to="/guardian/home/addchild">
             <LazyLoadImage

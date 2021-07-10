@@ -37,6 +37,7 @@ import { addNewReviewReducer } from "./reducers/addNewReviewReducers";
 import { getCourseDataForCheckoutReducer } from "./reducers/getCourseDataForCheckoutReducers";
 import { getSubscriptionsForChildHomeReducer } from "./reducers/getSubscriptionsForChildHomeReducers";
 import { completeCourseForMentorReducer } from "./reducers/completeCourseForMentorReducers";
+import { updatePictureForMentorReducer } from "./reducers/updatePictureForMentorReducers";
 
 const rootReducer = combineReducers({
   courseList: courseListReducer,
@@ -75,6 +76,7 @@ const rootReducer = combineReducers({
   getCourseDataForCheckout: getCourseDataForCheckoutReducer,
   getSubscriptionsForChildHome: getSubscriptionsForChildHomeReducer,
   completeCourseForMentor: completeCourseForMentorReducer,
+  updatePictureForMentor: updatePictureForMentorReducer,
 });
 
 const guardianInfoFromStorage = localStorage.getItem("guardianInfo")

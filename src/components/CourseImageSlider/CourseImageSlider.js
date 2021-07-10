@@ -9,7 +9,7 @@ import circleArrowRight from "../../images/circle-arrow-right.svg";
 import Slider from "react-slick";
 import "./style.scss";
 const CourseImageSlider = ({ details }) => {
-  let baseUrl = "http://localhost:5000";
+  let baseUrl = `${process.env.REACT_APP_DOMAIN_MEDIA}`;
   let gg = [];
   details.mediaURLS.map((images) => gg.push(images));
   // console.log(gg);

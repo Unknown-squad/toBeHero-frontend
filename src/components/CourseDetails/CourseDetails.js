@@ -22,7 +22,7 @@ const CourseDetails = ({ details }) => {
         <div className="mentor-service-info">
           <div className="mentor-img">
             <img
-              src={details.picture}
+              src={`${process.env.REACT_APP_DOMAIN_MEDIA}${details.mentorId.picture}`}
               alt=""
               onError={(e) => {
                 e.target.onerror = null;

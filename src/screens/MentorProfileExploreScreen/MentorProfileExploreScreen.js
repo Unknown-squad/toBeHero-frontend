@@ -81,11 +81,9 @@ const MentorProfileExploreScreen = ({ match }) => {
                 <div className="col-lg-2 col-md-6 col-12 p-profile">
                   <div className="upload-img-profile">
                     <img
-                      src={
-                        data.picture === undefined
-                          ? "https://img.icons8.com/ultraviolet/40/000000/user.png"
-                          : data.picture
-                      }
+                      src={`${process.env.REACT_APP_DOMAIN_MEDIA}${data.picture}`}
+                      width="100"
+                      height="100"
                       alt=""
                       onError={(e) => {
                         e.target.onerror = null;
@@ -93,6 +91,7 @@ const MentorProfileExploreScreen = ({ match }) => {
                           "https://img.icons8.com/ultraviolet/40/000000/user.png";
                       }}
                     />
+
                     <p>{data.fullName}</p>
                   </div>
                 </div>

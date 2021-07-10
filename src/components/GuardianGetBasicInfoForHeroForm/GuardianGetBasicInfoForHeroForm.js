@@ -12,6 +12,7 @@ import { UPDATE_BASIC_INFO_FOR_CHILD_RESET } from "../../constants/updateBasicIn
 import { updateBasicInfoForChildActions } from "../../actions/updateBasicInfoForChildActions";
 import axios from "axios";
 import { useRouteMatch } from "react-router";
+import { guardianGetChildrenActions } from "../../actions/guardianGetChildrenActions";
 
 const GuardianGetBasicInfoForHeroForm = ({ match }) => {
   // const match = useRouteMatch("/guardian/home/child/:childId");
@@ -22,7 +23,7 @@ const GuardianGetBasicInfoForHeroForm = ({ match }) => {
   const [userName, setUserName] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [password, setPassword] = useState("");
-  const [picture, setPicture] = useState("");
+  const [picture, setPicture] = useState(null);
   const [alert, setAlert] = useState(false);
   const [uploading, setUploading] = useState(false);
 
@@ -87,20 +88,26 @@ const GuardianGetBasicInfoForHeroForm = ({ match }) => {
   // };
   const handleSubmit = (e) => {
     e.preventDefault();
+    const dataArray = new FormData();
+    dataArray.append("fullName", fullName);
+    dataArray.append("userName", userName);
+    dataArray.append("password", password);
+    dataArray.append("birthDate", birthDate);
+    dataArray.append("file", picture);
     dispatch(
       updateBasicInfoForChildActions({
         childId: childId,
-        fullName,
-        userName,
-        password,
-        birthDate,
+        dataArray,
       })
     );
+
     setTimeout(() => {
       setAlert(true);
     }, 1100);
   };
-
+  if (success) {
+    dispatch(guardianGetChildrenActions());
+  }
   return (
     <>
       {loadingUpdate && <Loader></Loader>}
@@ -193,17 +200,29 @@ const GuardianGetBasicInfoForHeroForm = ({ match }) => {
                       id="img-file"
                       onChange={uploadFileHandler}
                     /> */}
-                    <img className="img-up" src={uploadPicture} alt="" />
-                    <img className="icon-up" src={addPicture} alt="" />
+                    {/* <img className="img-up" src={uploadPicture} alt="" />
+                    <img className="icon-up" src={addPicture} alt="" /> */}
+                    <label
+                      htmlFor="img"
+                      className="btn"
+                      style={{ color: "black" }}
+                    ></label>
+                    <input
+                      id="img"
+                      name="img"
+                      type="file"
+                      onChange={(e) => setPicture(e.target.files[0])}
+                    />
+                    <p>upload your picture</p>
+                    {uploading && <Loader />}
                   </div>
-                  <div className="img-content">
+                  {/* <div className="img-content">
                     <Link to="">
                       <i className="fas fa-camera"></i>
                       upload new picture
                     </Link>
-                    {/* {uploading && <Loader />} */}
                     <button className="btn btn-purple-400">save</button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

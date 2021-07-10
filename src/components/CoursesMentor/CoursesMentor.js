@@ -31,7 +31,7 @@ const CoursesMentor = () => {
                 <div className="mentor-course-card-content">
                   <div className="mentor-course-img">
                     <LazyLoadImage
-                      src={course.picture}
+                      src={`${process.env.REACT_APP_DOMAIN_MEDIA}${course.picture}`}
                       alt=""
                       onError={(e) => {
                         e.target.onerror = null;

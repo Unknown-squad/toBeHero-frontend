@@ -104,10 +104,7 @@ const GuardianChildSubscriptionCourseScreen = () => {
                       data.appointments.map((appointment) => (
                         <div
                           className={`appointment-control-item ${
-                            new Date().toLocaleDateString() ===
-                            new Date(appointment.date).toLocaleDateString()
-                              ? "live-active"
-                              : ""
+                            appointment.active ? "live-active" : ""
                           }`}
                           key={appointment._id}
                         >
@@ -136,8 +133,7 @@ const GuardianChildSubscriptionCourseScreen = () => {
                           <div className="appointment-sub-item appointment-title">
                             <p>{appointment.title}</p>
                           </div>
-                          {new Date().toLocaleDateString() ===
-                          new Date(appointment.date).toLocaleDateString() ? (
+                          {appointment.active ? (
                             <div className="appointment-sub-item appointment-button active">
                               <div className="guardian-live-btn ">
                                 <button>
