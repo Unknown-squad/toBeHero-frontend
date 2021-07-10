@@ -11,6 +11,7 @@ import someOneChild from "../../images/someone-child.svg";
 import GuardianHerosColumn from "../../components/GuardianHerosColumn";
 import GuardianGetBasicInfoForHeroForm from "../../components/GuardianGetBasicInfoForHeroForm";
 import EnrolledCoursesForChild from "../../components/EnrolledCoursesForChild";
+import Headroom from "react-headroom";
 import Meta from "../../components/Meta";
 
 const GuardianHomeScreen = ({ match }) => {
@@ -19,7 +20,9 @@ const GuardianHomeScreen = ({ match }) => {
   return (
     <>
       <Meta title="Guardian | Home"></Meta>
-      <GuardianHomeHeader></GuardianHomeHeader>
+      <Headroom style={{ zIndex: "999999" }}>
+        <GuardianHomeHeader></GuardianHomeHeader>
+      </Headroom>
 
       <section className="hr-section-23">
         <div className="container">

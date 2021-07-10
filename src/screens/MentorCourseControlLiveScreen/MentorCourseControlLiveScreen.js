@@ -9,10 +9,16 @@ import iconLoading from "../../images/icon-loading.svg";
 import "./MentorCourseControlLiveScreen.scss";
 import Peer from "simple-peer";
 import io from "socket.io-client";
+import { useHistory } from "react-router";
+import { useRouteMatch } from "react-router";
+const socket = io.connect(`${process.env.REACT_APP_SOCKET_SERVER_DOMAIN}`);
 
-const socket = io.connect("http://localhost:5000");
+const MentorCourseControlLiveScreen = () => {
+  let history = useHistory();
+  const match = useRouteMatch(
+    "/mentor/live/:subscriptionId/:appointmentId/:appointmentTitle"
+  );
 
-const MentorCourseControlLiveScreen = ({ match, history }) => {
   const [show, setShow] = useState(false);
   const [me, setMe] = useState("");
   const [stream, setStream] = useState();
@@ -64,7 +70,7 @@ const MentorCourseControlLiveScreen = ({ match, history }) => {
     });
 
     console.log(subscriptionId);
-    socket.emit(`mentor-in`, subscriptionId);
+    socket.emit(`mentor-in`, subscriptionId, appointmentId);
 
     socket.on(`subscription${subscriptionId}`, (heroId) => {
       setIdToCall(heroId);
@@ -123,6 +129,7 @@ const MentorCourseControlLiveScreen = ({ match, history }) => {
 
   const leaveCall = () => {
     setCallEnded(true);
+    socket.emit("call-ended", subscriptionId, appointmentId);
     connectionRef.current.destroy();
   };
 

@@ -84,7 +84,9 @@ const LoginForm = ({ location, history, user }) => {
         <br />
       </div>
       <div className="form-note just-cont-cntr text-center">
-        <Link to="/confirm">forgot your password?</Link>
+        <Link to="/confirm" className="Link">
+          forgot your password?
+        </Link>
       </div>
       <div className="form-btns flex-column just-cont-cntr alin-itms-cntr">
         <input
@@ -95,7 +97,10 @@ const LoginForm = ({ location, history, user }) => {
         ></input>
         <p>
           or{" "}
-          <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
+          <Link
+            to={redirect ? `/register?redirect=${redirect}` : "/register"}
+            className="Link"
+          >
             join us now
           </Link>
         </p>

@@ -1,0 +1,14 @@
+{
+  "English": {
+    "linkOne": "Explore",
+    "linkTwo": "Login",
+    "linkThree": "Hero",
+    "dir": "ltr"
+  },
+  "Arabic": {
+    "linkOne": "استكشــاف",
+    "linkTwo": "تسجيـل الدخـول",
+    "linkThree": "البطــــل",
+    "dir": "rtl"
+  }
+}

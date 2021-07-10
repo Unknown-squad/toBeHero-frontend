@@ -6,8 +6,10 @@ const HeroPrivateRoute = ({ component: Component, redirectRoute, ...rest }) => {
       {...rest}
       render={(props) =>
         localStorage.getItem("heroInfo") ? (
+          <Component {...rest} />
+        ) : (
           <Redirect to={redirectRoute} />
-        ) : null
+        )
       }
     />
   );

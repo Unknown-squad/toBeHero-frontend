@@ -10,8 +10,10 @@ const GuardianPrivateRoute = ({
       {...rest}
       render={(props) =>
         localStorage.getItem("guardianInfo") ? (
+          <Component {...rest} />
+        ) : (
           <Redirect to={redirectRoute} />
-        ) : null
+        )
       }
     />
   );

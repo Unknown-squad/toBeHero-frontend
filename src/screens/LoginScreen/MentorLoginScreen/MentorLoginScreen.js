@@ -8,7 +8,9 @@ import LoginForm from "../../../components/LoginForm";
 import Meta from "../../../components/Meta";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import AOS from "../../../components/AOS";
 const MentorLoginScreen = ({ location, history }) => {
+  AOS.init({});
   return (
     <>
       <Meta title="ToBeHero | Mentor Login"></Meta>
@@ -19,7 +21,7 @@ const MentorLoginScreen = ({ location, history }) => {
           <div className="container">
             <div className="row">
               <div className="col-lg-4 col-md-5 col-12 mb-3">
-                <h1>Welcome back</h1>
+                <h1 data-aos="fade-down">Welcome back</h1>
                 <LazyLoadImage src={hero1} alt="hero-1" effect="blur" />
               </div>
               <div className="col-lg-offset-1 col-lg-7 col-md-7 col-12">
@@ -41,7 +43,7 @@ const MentorLoginScreen = ({ location, history }) => {
                   </li>
                 </ul>
                 <div className="form-container flex-column just-cont">
-                  <div className="sign-in-form">
+                  <div className="sign-in-form" data-aos="fade-down">
                     <div className="form-inputs">
                       <LoginForm
                         user="mentor"

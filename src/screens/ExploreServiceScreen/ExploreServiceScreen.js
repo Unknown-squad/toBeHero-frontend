@@ -16,6 +16,8 @@ import { getReviewsForExploreServiceActions } from "../../actions/getReviewsForE
 import MentorHomeHeader from "../../components/MentorHomeHeader";
 import GuardianHomeHeader from "../../components/GuardianHomeHeader";
 import Meta from "../../components/Meta";
+import courseFiller from "../../images/course-filler.svg";
+import { render } from "@testing-library/react";
 
 const ExploreServiceScreen = ({ match, location, history }) => {
   const [limitTo, setLimitTo] = useState({ itemsToShow: 4, expanded: false });
@@ -58,9 +60,23 @@ const ExploreServiceScreen = ({ match, location, history }) => {
           expanded: false,
         });
   };
+  document.getElementsByTagName("META")[4].content = `${data.items[0].title}`;
+  document.getElementsByTagName("META")[5].content =
+    "https://prepml.s3.amazonaws.com/media/public/images/undraw_Online_learning_re_qw08.original.png";
+  document.getElementsByTagName(
+    "META"
+  )[7].content = `${data.items[0].description}`;
+  document.getElementsByTagName(
+    "META"
+  )[8].content = `${`https://www.tobehero.codes/explore/course/${data.items[0]._id}`}`;
+
+  document.getElementsByTagName("META")[9].content = "image/png";
+  document.getElementsByTagName("META")[10].content = "Course Image";
+
   return (
     <>
       <Meta title="ToBeHero | Explore Service"></Meta>
+
       {mentorInfo ? (
         <MentorHomeHeader></MentorHomeHeader>
       ) : guardianInfo ? (

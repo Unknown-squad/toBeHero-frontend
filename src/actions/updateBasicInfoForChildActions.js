@@ -6,23 +6,22 @@ import {
 } from "../constants/updateBasicInfoForChildConstants";
 
 export const updateBasicInfoForChildActions =
-  ({ childId, fullName, userName, password, birthDate }) =>
+  ({ childId, dataArray }) =>
   async (dispatch) => {
     try {
       dispatch({ type: UPDATE_BASIC_INFO_FOR_CHILD_REQUEST });
-      const { data } = await axios.put(
-        `${process.env.REACT_APP_API_URL}/child/${childId}`,
-        {
-          method: "child.basicInfo.put",
-          params: {
-            fullName,
-            userName,
-            password,
-            birthDate,
-          },
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
         },
-        { withCredentials: true }
-      );
+      };
+      const { data } = await axios({
+        ...config,
+        method: "PUT",
+        url: `${process.env.REACT_APP_API_URL}/child/${childId}`,
+        data: dataArray,
+        withCredentials: true,
+      });
 
       dispatch({
         type: UPDATE_BASIC_INFO_FOR_CHILD_SUCCESS,

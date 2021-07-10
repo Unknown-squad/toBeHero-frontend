@@ -38,14 +38,16 @@ const GuardianAddNewChildForm = () => {
   }, [dispatch, data]);
   const handleSubmit = (e) => {
     e.preventDefault();
+    const dataArray = new FormData();
+    dataArray.append("fullName", fullName);
+    dataArray.append("userName", userName);
+    dataArray.append("birthDate", birthDate);
+    dataArray.append("password", password);
+    dataArray.append("file", picture);
     Promise.all([
       dispatch(
         heroRegisterActions({
-          fullName,
-          userName,
-          birthDate,
-          password,
-          picture,
+          dataArray,
         })
       ),
       dispatch(guardianGetChildrenActions()),
@@ -130,6 +132,20 @@ const GuardianAddNewChildForm = () => {
             </div>
             <div className="upload-picture">
               <div className="img-back">
+                <label
+                  htmlFor="img"
+                  className="btn"
+                  style={{ color: "black" }}
+                ></label>
+                <input
+                  id="img"
+                  name="img"
+                  type="file"
+                  onChange={(e) => setPicture(e.target.files[0])}
+                />
+                <p>upload your picture</p>
+              </div>
+              {/* <div className="img-back">
                 <img className="img-up" src={uploadPicture} alt="" />
                 <img className="icon-up" src={addPicture} alt="" />
                 <label
@@ -150,7 +166,7 @@ const GuardianAddNewChildForm = () => {
                   upload new picture
                 </Link>
                 <button className="btn btn-purple-400">save</button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

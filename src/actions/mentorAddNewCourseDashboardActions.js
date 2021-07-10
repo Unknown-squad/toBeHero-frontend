@@ -6,30 +6,22 @@ import {
 } from "../constants/mentorAddNewCourseDashboardConstants";
 
 export const mentorAddNewCourseDashboardActions =
-  ({ title, price, description, topicsList, genre }) =>
-  async (dispatch) => {
+  (dataArray) => async (dispatch) => {
     try {
       dispatch({ type: MENTOR_ADD_NEW_COURSE_REQUEST });
       const config = {
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "multipart/form-data",
         },
       };
-      const { data } = await axios.post(
-        `${process.env.REACT_APP_API_URL}/mentor/dashboard/new-course`,
-        {
-          method: "course.post",
-          params: {
-            title,
-            price,
-            description,
-            topicsList,
-            genre,
-          },
-        },
-        { withCredentials: true },
-        config
-      );
+      const { data } = await axios({
+        ...config,
+        method: "POST",
+        url: `${process.env.REACT_APP_API_URL}/mentor/dashboard/new-course`,
+        data: dataArray,
+        withCredentials: true,
+      });
+
       dispatch({ type: MENTOR_ADD_NEW_COURSE_SUCCESS, payload: data });
     } catch (error) {
       let err = "";

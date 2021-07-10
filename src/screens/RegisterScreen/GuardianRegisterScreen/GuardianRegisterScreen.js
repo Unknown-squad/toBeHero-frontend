@@ -8,7 +8,9 @@ import LoginRegHeader from "../../../components/LoginRegHeader";
 import Meta from "../../../components/Meta";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import AOS from "../../../components/AOS";
 const GuardianRegisterScreen = ({ location, history, match }) => {
+  AOS.init({});
   return (
     <>
       <Meta title="ToBeHero | Guardian Signup"></Meta>
@@ -19,7 +21,9 @@ const GuardianRegisterScreen = ({ location, history, match }) => {
           <div className="container">
             <div className="row">
               <div className="col-lg-5 col-md-5 col-12 pr-3 mb-3">
-                <h1>Join now and Help your child to achieve dreams</h1>
+                <h1 data-aos="fade-down">
+                  Join now and Help your child to achieve dreams
+                </h1>
                 <LazyLoadImage src={hero1} alt="hero-1" effect="blur" />
               </div>
 
@@ -37,7 +41,7 @@ const GuardianRegisterScreen = ({ location, history, match }) => {
                   </li>
                 </ul>
                 <div className="form-register-container flex-column just-cont">
-                  <div className="register-form">
+                  <div className="register-form" data-aos="fade-left">
                     <GuardianRegisterForm
                       match={match}
                       location={location}

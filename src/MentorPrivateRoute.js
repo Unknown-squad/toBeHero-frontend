@@ -10,8 +10,10 @@ const MentorPrivateRoute = ({
       {...rest}
       render={(props) =>
         localStorage.getItem("mentorInfo") ? (
+          <Component {...rest} />
+        ) : (
           <Redirect to={redirectRoute} />
-        ) : null
+        )
       }
     />
   );

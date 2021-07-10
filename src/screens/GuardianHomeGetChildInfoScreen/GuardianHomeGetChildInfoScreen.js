@@ -6,9 +6,12 @@ import GuardianHerosColumn from "../../components/GuardianHerosColumn";
 import { Route } from "react-router-dom";
 import EnrolledCoursesForChild from "../../components/EnrolledCoursesForChild";
 import Meta from "../../components/Meta";
+import { useRouteMatch } from "react-router";
 
-const GuardianHomeGetChildInfoScreen = ({ match }) => {
+const GuardianHomeGetChildInfoScreen = () => {
+  const match = useRouteMatch("/guardian/home/child/:childId");
   //   const childId = match.params.id;
+
   return (
     <>
       <Meta title="Guardian | Child Info"></Meta>

@@ -3,8 +3,9 @@ import arrowBack from "../../images/arrow-back.svg";
 import notfound from "../../images/notfound.svg";
 import Footer from "../../components/Footer";
 import Meta from "../../components/Meta";
-
+import AOS from "../../components/AOS";
 const NotFound = () => {
+  AOS.init({});
   return (
     <>
       <Meta title="404 Page Not Found"></Meta>
@@ -27,7 +28,10 @@ const NotFound = () => {
             </nav>
           </div>
         </header>
-        <main style={{ display: "grid", placeItems: "center", height: "50%" }}>
+        <main
+          style={{ display: "grid", placeItems: "center", height: "50%" }}
+          data-aos="zoom-in"
+        >
           <h2 style={{ textAlign: "center", color: "#220099" }}>
             Oops! some thing you are looking for is NOT FOUND
           </h2>

@@ -19,7 +19,6 @@ export const updateMentorBasicInfoActions =
     occupation,
     certificates,
     description,
-    picture,
   }) =>
   async (dispatch) => {
     try {
@@ -45,7 +44,6 @@ export const updateMentorBasicInfoActions =
             occupation,
             certificates,
             description,
-            picture,
           },
         },
         { withCredentials: true },

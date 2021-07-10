@@ -3,8 +3,8 @@
 /* start page  Explore-mentor-profile*/
 .hr-section-15 {
   background-color: #f3f4f7;
-  margin: 2.5rem 0;
-  padding: 1rem 0;
+  margin-top: 2.5rem;
+  padding: 0.5rem 0rem 1rem 0rem;
   .container-profile {
     max-width: 88rem;
   }
@@ -92,14 +92,16 @@
   h4 {
     font-size: 16px;
     color: $text-color;
-    margin-bottom: 1rem;
     padding-left: 1rem;
   }
   .course-card {
     border: solid 1px #343090;
+    height: 350px;
+    max-width: 300px;
     border-radius: 13px;
     padding: 1rem 1rem;
     margin-bottom: 2rem;
+    margin: 0 auto;
   }
   /* card */
   /* card image */
@@ -202,6 +204,7 @@
       box-shadow: 0px 0px 7px $purple-300;
     }
   }
+  margin-bottom: 2rem;
 }
 /*end hr-section-16*/
 /*start hr-section-17*/

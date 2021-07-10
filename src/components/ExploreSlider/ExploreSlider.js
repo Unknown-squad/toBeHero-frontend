@@ -6,13 +6,14 @@ import sliderItemDrawing from "../../images/slider-item-drawing.svg";
 import sliderItemQuran from "../../images/slider-item-quran.svg";
 import sliderItemMath from "../../images/slider-item-math.svg";
 import Slider from "react-slick";
+import { useHistory } from "react-router";
 import "./ExploreSlider.scss";
-
-const ExploreSlider = ({ history }) => {
+const ExploreSlider = (props) => {
+  let history = useHistory();
   const dispatch = useDispatch();
   const [sort, setSort] = useState("");
   const [filter, setFilter] = useState("");
-
+  console.log(history);
   useEffect(() => {
     history.push({
       pathname: "/explore",
@@ -40,7 +41,10 @@ const ExploreSlider = ({ history }) => {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block" }}
+        style={{
+          ...style,
+          display: "block",
+        }}
         onClick={onClick}
       />
     );

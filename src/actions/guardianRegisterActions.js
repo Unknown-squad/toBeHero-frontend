@@ -7,7 +7,8 @@ import {
 } from "../constants/guardianRegisterConstants";
 
 export const guardianRegisterActions =
-  (fullName, email, password, countryCode, phone) => async (dispatch) => {
+  (fullName, email, password, countryCode, phone, history) =>
+  async (dispatch) => {
     try {
       dispatch({ type: GUARDIAN_REGISTER_REQUEST });
       const config = {
@@ -25,19 +26,14 @@ export const guardianRegisterActions =
             password,
             phone,
             countryCode,
-            isVerify: true,
           },
         },
         { withCredentials: true },
         config
       );
       dispatch({ type: GUARDIAN_REGISTER_SUCCESS, payload: data });
-
-      dispatch({
-        type: GUARDIAN_LOGIN_SUCCESS,
-        payload: data,
-      });
-      localStorage.setItem("guardianInfo", JSON.stringify(data));
+      // localStorage.setItem("guardianInfo", JSON.stringify(data));
+      // history.push("/guardian/email-confirm");
     } catch (error) {
       let err = "";
       if (error.response) {

@@ -190,6 +190,7 @@ const MentorRegisterForm = ({ location, history }) => {
             to={
               redirect ? `/login/mentor?redirect=${redirect}` : "/login/mentor"
             }
+            className="Link"
           >
             already registered?
           </Link>

@@ -1,5 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { GUARDIAN_LOGIN_SUCCESS } from "../../constants/guardianLoginConstants";
+import { MENTOR_LOGIN_SUCCESS } from "../../constants/mentorLoginConstants";
 import ErrorMessage from "../ErrorMessage";
 import HeroHeader from "../HeroHeader";
 import Loader from "../Loader";
@@ -10,6 +13,7 @@ const ConfirmEmailForm = ({ history, user }) => {
   const [stateLoading, setStateLoading] = useState(false);
   const [code, setCode] = useState("");
   const [alert, setAlert] = useState("");
+  const dispatch = useDispatch();
 
   const confirmEmail = async (token) => {
     setStateLoading(true);
@@ -33,12 +37,16 @@ const ConfirmEmailForm = ({ history, user }) => {
       setStateLoading(false);
 
       if (user === "mentor") {
+        localStorage.setItem("mentorInfo", JSON.stringify(data));
+        dispatch({
+          type: MENTOR_LOGIN_SUCCESS,
+          payload: data,
+        });
+        history.push("/mentor/home");
         if (Response.status === 200) {
           setTimeout(() => {
             setAlert(data.message);
           }, 0);
-          history.push("/mentor/home");
-          localStorage.removeItem("mentorDraft");
         } else if (Response.status === 401) {
           return;
         } else if (Response.status === 400) {
@@ -46,12 +54,16 @@ const ConfirmEmailForm = ({ history, user }) => {
           return;
         }
       } else if (user === "guardian") {
+        localStorage.setItem("guardianInfo", JSON.stringify(data));
+        dispatch({
+          type: GUARDIAN_LOGIN_SUCCESS,
+          payload: data,
+        });
+        history.push("/guardian/home");
         if (Response.status === 200) {
           setTimeout(() => {
             setAlert(data.message);
           }, 0);
-          history.replace("/guardian/home");
-          localStorage.removeItem("guardianDraft");
         } else if (Response.status === 401) {
           return;
         } else if (Response.status === 400) {
@@ -84,11 +96,13 @@ const ConfirmEmailForm = ({ history, user }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     confirmEmail(code);
-    if (user === "mentor") {
-      history.replace(`/home`);
-    } else if (user === "guardian") {
-      history.replace(`/home`);
-    }
+    localStorage.removeItem("guardianDraft");
+    localStorage.removeItem("mentorDraft");
+    // if (user === "mentor") {
+    //   history.replace(`/mentor/home`);
+    // } else if (user === "guardian") {
+    //   history.replace(`/guardian/home`);
+    // }
   };
   return (
     <>

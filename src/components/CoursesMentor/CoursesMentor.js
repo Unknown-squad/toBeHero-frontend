@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import courseImg from "../../images/course-img-placeholder.svg";
+import courseFiller from "../../images/course-filler.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { getMentorCoursesDashboardActions } from "../../actions/mentorCoursesDashboardActions";
 import Loader from "../Loader";
 import ErrorMessage from "../ErrorMessage";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+
 const CoursesMentor = () => {
   const mentorCoursesDashboard = useSelector(
     (state) => state.mentorCoursesDashboard
@@ -27,7 +30,15 @@ const CoursesMentor = () => {
               <div className="mentor-course-card">
                 <div className="mentor-course-card-content">
                   <div className="mentor-course-img">
-                    <img src={course.picture} alt="" />
+                    <LazyLoadImage
+                      src={`${process.env.REACT_APP_DOMAIN_MEDIA}${course.picture}`}
+                      alt=""
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = courseFiller;
+                      }}
+                      effect="blur"
+                    />
                   </div>
                   <div className="mentor-course-info">
                     <h2>{course.title}</h2>

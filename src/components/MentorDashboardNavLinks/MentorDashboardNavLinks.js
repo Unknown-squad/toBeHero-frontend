@@ -23,6 +23,7 @@ const MentorDashboardNavLinks = () => {
           borderRadius: "10px",
           padding: "2px",
         }}
+        className="Link"
       >
         <li>Basic info</li>
       </NavLink>
@@ -34,6 +35,7 @@ const MentorDashboardNavLinks = () => {
           borderRadius: "10px",
           padding: "2px",
         }}
+        className="Link"
       >
         <li>Courses</li>
       </NavLink>
@@ -45,6 +47,7 @@ const MentorDashboardNavLinks = () => {
           borderRadius: "10px",
           padding: "2px",
         }}
+        className="Link"
       >
         <li>Balance</li>
       </NavLink>
@@ -55,6 +58,7 @@ const MentorDashboardNavLinks = () => {
           borderRadius: "10px",
           padding: "2px",
         }}
+        className="Link"
       >
         <li>Analytics</li>
       </NavLink>

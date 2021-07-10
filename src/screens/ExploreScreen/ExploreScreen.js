@@ -14,7 +14,6 @@ import ErrorMessage from "../../components/ErrorMessage";
 import MentorHomeHeader from "../../components/MentorHomeHeader";
 import GuardianHomeHeader from "../../components/GuardianHomeHeader";
 import Meta from "../../components/Meta";
-
 const ExploreScreen = ({ location, history }) => {
   const genre = new URLSearchParams(location.search).get("genre") || "";
   const sortby = new URLSearchParams(location.search).get("sortby") || "";

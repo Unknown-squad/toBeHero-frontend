@@ -13,7 +13,11 @@ import ErrorMessage from "../../components/ErrorMessage";
 import { ADD_NEW_REVIEW_RESET } from "../../constants/addNewReviewConstants";
 import SuccessMessage from "../../components/SuccessMessage";
 import Meta from "../../components/Meta";
-const GuardianChildSubscriptionCourseScreen = ({ match }) => {
+import { useRouteMatch } from "react-router";
+const GuardianChildSubscriptionCourseScreen = () => {
+  const match = useRouteMatch(
+    "/guardian/home/child/:childId/course-subscription/:courseId"
+  );
   const childId = match.params.childId;
   const courseId = match.params.courseId;
   const [show, setShow] = useState(false);
@@ -100,10 +104,7 @@ const GuardianChildSubscriptionCourseScreen = ({ match }) => {
                       data.appointments.map((appointment) => (
                         <div
                           className={`appointment-control-item ${
-                            new Date().toLocaleDateString() ===
-                            new Date(appointment.date).toLocaleDateString()
-                              ? "live-active"
-                              : ""
+                            appointment.active ? "live-active" : ""
                           }`}
                           key={appointment._id}
                         >
@@ -132,8 +133,7 @@ const GuardianChildSubscriptionCourseScreen = ({ match }) => {
                           <div className="appointment-sub-item appointment-title">
                             <p>{appointment.title}</p>
                           </div>
-                          {new Date().toLocaleDateString() ===
-                          new Date(appointment.date).toLocaleDateString() ? (
+                          {appointment.active ? (
                             <div className="appointment-sub-item appointment-button active">
                               <div className="guardian-live-btn ">
                                 <button>

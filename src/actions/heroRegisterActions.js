@@ -6,28 +6,23 @@ import {
 } from "../constants/heroRegisterConstants";
 
 export const heroRegisterActions =
-  ({ fullName, userName, password, birthDate, picture }) =>
+  ({ dataArray }) =>
   async (dispatch) => {
     try {
       dispatch({ type: HERO_REGISTER_REQUEST });
       const config = {
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "multipart/form-data",
         },
       };
 
-      const { data } = await axios.post(
-        `${process.env.REACT_APP_API_URL}/guardian/new-child`,
-        {
-          fullName,
-          userName,
-          password,
-          birthDate,
-          picture,
-        },
-        { withCredentials: true },
-        config
-      );
+      const { data } = await axios({
+        ...config,
+        method: "POST",
+        url: `${process.env.REACT_APP_API_URL}/guardian/new-child`,
+        data: dataArray,
+        withCredentials: true,
+      });
 
       dispatch({ type: HERO_REGISTER_SUCCESS, payload: data });
       // localStorage.setItem("heroInfo", JSON.stringify(data));

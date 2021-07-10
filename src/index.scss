@@ -732,3 +732,16 @@ $text-color: #414141;
     margin-bottom: 10px;
   }
 }
+
+.Link {
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+    color: #343090;
+  }
+}
