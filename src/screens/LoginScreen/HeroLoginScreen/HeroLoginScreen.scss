@@ -4,6 +4,7 @@
 .hr-section-9 {
   background-color: #f3f4f7;
   padding: 30px 60px;
+  min-height: calc(100vh - 69px);
 
   h1 {
     color: $purple-500;

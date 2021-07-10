@@ -14,7 +14,7 @@ const MentorLoginScreen = ({ location, history }) => {
   return (
     <>
       <Meta title="ToBeHero | Mentor Login"></Meta>
-      <LoginRegHeader></LoginRegHeader>
+      <LoginRegHeader status="login"></LoginRegHeader>
       {/* <!-- start sextion-7 --> */}
       <div className="container-sign">
         <section className="hr-section-7">

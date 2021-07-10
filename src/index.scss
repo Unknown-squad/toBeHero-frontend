@@ -132,7 +132,8 @@ input[type="tel"] {
   width: 25%;
 }
 .container-sign {
-  height: calc(100vh - 65px);
+  // min-height: calc(100vh - 65px);
+  // height: calc(100vh - 65px);
   display: flex;
   flex-direction: column;
 }
@@ -556,9 +557,6 @@ $text-color: #414141;
   .hr-section-7 .form-container,
   .hr-section-8 .form-register-container {
     padding: 3rem 1.75rem;
-  }
-  .hr-section-7 {
-    padding-bottom: 55rem;
   }
   .hr-section-9 .form-container {
     max-width: 100%;

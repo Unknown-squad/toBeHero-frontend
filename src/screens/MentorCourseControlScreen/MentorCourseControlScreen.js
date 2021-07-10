@@ -252,6 +252,10 @@ const MentorCourseControlScreen = () => {
                     <div className="add-new-appointment-button">
                       <button
                         type="submit"
+                        style={{
+                          border: "none",
+                          backgroundColor: "rgb(210 96 96)",
+                        }}
                         className="add-new-button"
                         onClick={onClickFinishCourse}
                       >
