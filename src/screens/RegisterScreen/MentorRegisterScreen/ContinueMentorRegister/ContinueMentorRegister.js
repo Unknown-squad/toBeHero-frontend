@@ -168,26 +168,34 @@ const ContinueMentorRegister = ({ history, location }) => {
                                 }
                               ></input>
                             </div>
-                            <div className="input-field">
-                              <button className="btn file-input__label">
-                                <img src={plusIcon} alt="" />
-                                <span>add new</span>
-                              </button>
-                            </div>
                           </div>
                           <div className="col-lg-2 col-12">
                             <label
                               htmlFor="img"
                               className="btn"
-                              style={{ color: "black" }}
-                            ></label>
+                              style={{
+                                color: "#fff",
+                                backgroundColor: "#8c61ff",
+                                padding: "5px 20px",
+                                borderRadius: "12px",
+                              }}
+                            >
+                              Upload Image
+                            </label>
                             <input
+                              style={{
+                                marginTop: "1rem",
+                                border: "none",
+                                cursor: "pointer",
+                                borderRadius: "0",
+                                background: "none",
+                                padding: "0",
+                              }}
                               id="img"
                               name="img"
                               type="file"
                               onChange={(e) => setPicture(e.target.files[0])}
                             />
-                            <p>upload your picture</p>
                           </div>
                         </div>
                         <div className="form-note just-cont-cntr">

@@ -4,6 +4,8 @@
 /* start hr-section-10*/
 .hr-section-10 {
   background-color: #f3f4f7;
+  min-height: calc(100vh - 122px);
+  padding-top: 20px;
   h3 {
     text-align: center;
     font-size: 18px;
@@ -133,3 +135,12 @@
 .ant-picker-input {
   padding: 0;
 }
+
+// .image-uploader {
+//   width: 0.1px;
+//   height: 0.1px;
+//   opacity: 0;
+//   overflow: hidden;
+//   position: absolute;
+//   z-index: -1;
+// }

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useToggleNavbar from "../../hooks";
 import "./LoginRegHeader.scss";
-const LoginRegHeader = () => {
+const LoginRegHeader = ({ status }) => {
   const [showMobileMenu, onClick] = useToggleNavbar();
   return (
     <header>
@@ -25,9 +25,15 @@ const LoginRegHeader = () => {
                   <Link to="/explore">explore</Link>
                 </li>
                 <li>
-                  <Link to="/login" className="bg-purple-400">
-                    login
-                  </Link>
+                  {status === "login" ? (
+                    <Link to="/register" className="bg-purple-400">
+                      register
+                    </Link>
+                  ) : (
+                    <Link to="/login" className="bg-purple-400">
+                      login
+                    </Link>
+                  )}
                 </li>
                 <li>
                   <Link to="/login/hero" className="hero bg-purple-400">
@@ -41,9 +47,15 @@ const LoginRegHeader = () => {
                   <Link to="/explore">explore</Link>
                 </li>
                 <li>
-                  <Link to="/login" className="bg-purple-400">
-                    login
-                  </Link>
+                  {status === "login" ? (
+                    <Link to="/register" className="bg-purple-400">
+                      register
+                    </Link>
+                  ) : (
+                    <Link to="/login" className="bg-purple-400">
+                      login
+                    </Link>
+                  )}
                 </li>
                 <li>
                   <Link to="/login/hero" className="hero bg-purple-400">

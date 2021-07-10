@@ -12,7 +12,7 @@ const GuardianLoginScreen = ({ location, history }) => {
   return (
     <>
       <Meta title="ToBeHero | Guardian Login"></Meta>
-      <LoginRegHeader></LoginRegHeader>
+      <LoginRegHeader status="login"></LoginRegHeader>
       {/* <!-- start sextion-7 --> */}
       <div className="container-sign">
         <section className="hr-section-7">
