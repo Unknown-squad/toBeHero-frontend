@@ -1,12 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
-  <circle id="Ellipse_119" data-name="Ellipse 119" cx="17.5" cy="17.5" r="17.5" transform="translate(2 3)" fill="none"/>
-  <ellipse id="Ellipse_120" data-name="Ellipse 120" cx="4" cy="3.5" rx="4" ry="3.5" transform="translate(8 2)" fill="#858585"/>
-  <circle id="Ellipse_121" data-name="Ellipse 121" cx="3.5" cy="3.5" r="3.5" transform="translate(20)" fill="#858585"/>
-  <circle id="Ellipse_122" data-name="Ellipse 122" cx="3.5" cy="3.5" r="3.5" transform="translate(30 6)" fill="#858585"/>
-  <circle id="Ellipse_123" data-name="Ellipse 123" cx="3.5" cy="3.5" r="3.5" transform="translate(33 17)" fill="#858585"/>
-  <circle id="Ellipse_124" data-name="Ellipse 124" cx="4" cy="4" r="4" transform="translate(29 27)" fill="#858585"/>
-  <circle id="Ellipse_125" data-name="Ellipse 125" cx="3.5" cy="3.5" r="3.5" transform="translate(20 33)" fill="#858585"/>
-  <ellipse id="Ellipse_126" data-name="Ellipse 126" cx="3.5" cy="4" rx="3.5" ry="4" transform="translate(9 31)" fill="#858585"/>
-  <circle id="Ellipse_127" data-name="Ellipse 127" cx="3.5" cy="3.5" r="3.5" transform="translate(0 24)" fill="#858585"/>
-  <circle id="Ellipse_128" data-name="Ellipse 128" cx="3.5" cy="3.5" r="3.5" transform="translate(0 12)" fill="#858585"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><circle id="Ellipse_119" cx="17.5" cy="17.5" r="17.5" fill="none" data-name="Ellipse 119" transform="translate(2 3)"/><ellipse id="Ellipse_120" cx="4" cy="3.5" fill="#858585" data-name="Ellipse 120" rx="4" ry="3.5" transform="translate(8 2)"/><circle id="Ellipse_121" cx="3.5" cy="3.5" r="3.5" fill="#858585" data-name="Ellipse 121" transform="translate(20)"/><circle id="Ellipse_122" cx="3.5" cy="3.5" r="3.5" fill="#858585" data-name="Ellipse 122" transform="translate(30 6)"/><circle id="Ellipse_123" cx="3.5" cy="3.5" r="3.5" fill="#858585" data-name="Ellipse 123" transform="translate(33 17)"/><circle id="Ellipse_124" cx="4" cy="4" r="4" fill="#858585" data-name="Ellipse 124" transform="translate(29 27)"/><circle id="Ellipse_125" cx="3.5" cy="3.5" r="3.5" fill="#858585" data-name="Ellipse 125" transform="translate(20 33)"/><ellipse id="Ellipse_126" cx="3.5" cy="4" fill="#858585" data-name="Ellipse 126" rx="3.5" ry="4" transform="translate(9 31)"/><circle id="Ellipse_127" cx="3.5" cy="3.5" r="3.5" fill="#858585" data-name="Ellipse 127" transform="translate(0 24)"/><circle id="Ellipse_128" cx="3.5" cy="3.5" r="3.5" fill="#858585" data-name="Ellipse 128" transform="translate(0 12)"/></svg>
