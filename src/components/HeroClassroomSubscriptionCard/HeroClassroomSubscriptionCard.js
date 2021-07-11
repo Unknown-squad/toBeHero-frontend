@@ -11,12 +11,12 @@ const HeroClassroomSubscriptionCard = ({ course, subscriptionId }) => {
   const [active, setActive] = useState(false);
 
   useEffect(() => {
-    console.log(subscriptionId);
+    // console.log(subscriptionId);
 
     socket.on(`child-in${subscriptionId}`, (data) => {
       setActive(true);
     });
-  }, []);
+  }, [subscriptionId]);
 
   return (
     <div className="hero-card">

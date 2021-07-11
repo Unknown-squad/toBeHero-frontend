@@ -8,9 +8,11 @@ import iconLoading from "../../images/icon-loading.svg";
 import Peer from "simple-peer";
 import io from "socket.io-client";
 import { useRouteMatch } from "react-router";
+import { useHistory } from "react-router";
 const socket = io.connect(`${process.env.REACT_APP_SOCKET_SERVER_DOMAIN}`);
 
 const HeroLiveCallScreen = () => {
+  let history = useHistory();
   let match = useRouteMatch();
   const [me, setMe] = useState("");
   const [stream, setStream] = useState();
@@ -43,6 +45,12 @@ const HeroLiveCallScreen = () => {
 
     // =========================
 
+    history.listen((navData) => {
+      if (navData.pathname === "/hero/home") {
+        history.go(0);
+      }
+    });
+
     navigator.mediaDevices
       .getUserMedia({ video: true, audio: true })
       .then((stream) => {
@@ -63,7 +71,7 @@ const HeroLiveCallScreen = () => {
       setCaller(data.from);
       setCallerSignal(data.signal);
     });
-  }, [dispatch, data]);
+  }, [dispatch, data, history, subscriptionId]);
 
   // ==== video call functions ====
   const callUser = (id) => {

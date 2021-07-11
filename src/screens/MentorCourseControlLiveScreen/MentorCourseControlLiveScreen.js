@@ -58,18 +58,11 @@ const MentorCourseControlLiveScreen = () => {
       dispatch(mentorGetControlCourseDetailsActions(subscriptionId));
     }
 
-    navigator.mediaDevices
-      .getUserMedia({ video: true, audio: true })
-      .then((stream) => {
-        setStream(stream);
-        myVideo.current.srcObject = stream;
-      });
-
     socket.on("me", (id) => {
       setMe(id);
     });
 
-    console.log(subscriptionId);
+    // console.log(subscriptionId);
     socket.emit(`mentor-in`, subscriptionId, appointmentId);
 
     socket.on(`subscription${subscriptionId}`, (heroId) => {
@@ -86,6 +79,13 @@ const MentorCourseControlLiveScreen = () => {
   // ==== video call functions ====
 
   const callUser = (id) => {
+    navigator.mediaDevices
+      .getUserMedia({ video: true, audio: true })
+      .then((stream) => {
+        setStream(stream);
+        myVideo.current.srcObject = stream;
+      });
+
     const peer = new Peer({
       initiator: true,
       trickle: false,
@@ -219,25 +219,6 @@ const MentorCourseControlLiveScreen = () => {
                       ) : null}
                     </div>
                   </div>
-                  <div className="myId">
-                    {/* <TextField
-            id="filled-basic"
-            label="ID to call"
-            variant="filled"
-            value={idToCall}
-            onChange={(e) => setIdToCall(e.target.value)}
-          /> */}
-                    <div className="call-button">
-                      {callAccepted && !callEnded ? (
-                        <button onClick={leaveCall}>End Call</button>
-                      ) : (
-                        <button onClick={() => callUser(idToCall)}>
-                          start live now
-                        </button>
-                      )}
-                      {idToCall}
-                    </div>
-                  </div>
                   <div>
                     {receivingCall && !callAccepted ? (
                       <div className="caller">
@@ -273,9 +254,33 @@ const MentorCourseControlLiveScreen = () => {
                   </form>
                 </div>
                 <div className="start-cancel-session">
-                  <button className="btn btn-purple-400 btn-start">
-                    Start Live session <span></span>
-                  </button>
+                  <div className="myId">
+                    {/* <TextField
+            id="filled-basic"
+            label="ID to call"
+            variant="filled"
+            value={idToCall}
+            onChange={(e) => setIdToCall(e.target.value)}
+          /> */}
+                    <div className="call-button">
+                      {callAccepted && !callEnded ? (
+                        <button
+                          className="btn btn-purple-400 btn-start"
+                          onClick={leaveCall}
+                        >
+                          End Call
+                        </button>
+                      ) : (
+                        <button
+                          className="btn btn-purple-400 btn-start"
+                          onClick={() => callUser(idToCall)}
+                        >
+                          start live now <span></span>
+                        </button>
+                      )}
+                      {idToCall}
+                    </div>
+                  </div>
 
                   <button
                     className="btn btn-cancel"
