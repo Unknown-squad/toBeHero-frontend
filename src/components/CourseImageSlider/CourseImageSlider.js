@@ -19,11 +19,11 @@ const CourseImageSlider = ({ details }) => {
         <img
           src={`${baseUrl}${i + 1 ? gg[i] : i}`}
           alt=""
-          onError={(e) => {
-            e.target.onerror = null;
-            e.target.src =
-              "https://img.icons8.com/ultraviolet/40/000000/user.png";
-          }}
+          // onError={(e) => {
+          //   e.target.onerror = null;
+          //   e.target.src =
+          //     "https://img.icons8.com/ultraviolet/40/000000/user.png";
+          // }}
         />
       );
     },

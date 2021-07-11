@@ -129,10 +129,10 @@ const CreateCourseMentor = () => {
                     value={genre}
                     onChange={(e) => setGenre(e.target.value)}
                   >
-                    <option defaultValue disabled>
+                    {/* <option defaultValue="pick the topic">
                       pick the topic
-                    </option>
-                    <option value="Programming">Programming</option>
+                    </option> */}
+                    <option defaultValue="Programming">Programming</option>
                     <option value="Art">Art</option>
                     <option value="Music">Music</option>
                     <option value="Drawing">Drawing</option>

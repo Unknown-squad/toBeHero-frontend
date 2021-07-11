@@ -10,8 +10,10 @@ import { Link } from "react-router-dom";
 
 import addSomeOne from "../../images/add-someone.svg";
 import { getCourseDataForCheckoutActions } from "../../actions/getCourseDataForCheckoutActions";
+import { useRouteMatch } from "react-router";
 import Meta from "../../components/Meta";
-const GuardianCheckoutScreen = ({ match }) => {
+const GuardianCheckoutScreen = () => {
+  let match = useRouteMatch();
   const [childId, setChildId] = useState("");
   const courseId = match.params.courseId;
 
@@ -57,13 +59,16 @@ const GuardianCheckoutScreen = ({ match }) => {
                               onChange={(e) => setChildId(e.target.value)}
                             />
                             <img
-                              src={child.picture}
+                              src={`${process.env.REACT_APP_DOMAIN_MEDIA}${child.picture}`}
                               alt=""
+                              width="50"
+                              height="50"
                               onError={(e) => {
                                 e.target.onerror = null;
                                 e.target.src =
                                   "https://img.icons8.com/ultraviolet/40/000000/user.png";
                               }}
+                              style={{ borderRadius: "50%" }}
                             />
                             {child.fullName}
                           </label>
@@ -82,7 +87,7 @@ const GuardianCheckoutScreen = ({ match }) => {
               </form>
 
               <h6>Credit Card Info</h6>
-              <div className="name-card">
+              <div className="name-card" id="checkoutForm">
                 <StripeContainer
                   childId={childId}
                   courseId={courseId}
@@ -90,7 +95,7 @@ const GuardianCheckoutScreen = ({ match }) => {
                 ></StripeContainer>
               </div>
 
-              <div className="input-field">
+              {/* <div className="input-field">
                 <label htmlFor="save-card">
                   <input
                     className="styled-checkbox"
@@ -100,7 +105,7 @@ const GuardianCheckoutScreen = ({ match }) => {
                   />
                   save card data for future transactions
                 </label>
-              </div>
+              </div> */}
             </div>
             <div className="checkout">
               <div className="price">

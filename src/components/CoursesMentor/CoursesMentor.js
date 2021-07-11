@@ -23,7 +23,10 @@ const CoursesMentor = () => {
         {loading ? (
           <Loader></Loader>
         ) : error ? (
-          <ErrorMessage>{error}</ErrorMessage>
+          <>
+            <ErrorMessage>{error}</ErrorMessage>
+            <br></br>
+          </>
         ) : (
           data.items.map((course) => (
             <div className="col-lg-4 col-12" key={course._id}>

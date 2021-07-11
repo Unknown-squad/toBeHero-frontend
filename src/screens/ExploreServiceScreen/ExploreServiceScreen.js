@@ -115,8 +115,17 @@ const ExploreServiceScreen = ({ match, location, history }) => {
               {loadingReviews ? (
                 <Loader></Loader>
               ) : errorReviews ? (
-                <ErrorMessage>{errorReviews}</ErrorMessage>
+                <ErrorMessage
+                  style={{
+                    color: "#004085",
+                    backgroundColor: "#cce5ff",
+                    borderColor: "#b8daff",
+                  }}
+                >
+                  {errorReviews}
+                </ErrorMessage>
               ) : (
+                dataReviews.items.length > 0 &&
                 dataReviews.items
                   .slice(0, limitTo.itemsToShow)
                   // .slice(0, limitTo)
@@ -125,22 +134,26 @@ const ExploreServiceScreen = ({ match, location, history }) => {
                   ))
               )}
             </div>
-            <div className="view-more">
-              <p
-                style={{
-                  color: "#8c61ff",
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                }}
-                onClick={showMore}
-              >
-                {limitTo.expanded ? (
-                  <span>Show less</span>
-                ) : (
-                  <span>Show more</span>
-                )}
-              </p>
-            </div>
+            {dataReviews &&
+            dataReviews.items &&
+            dataReviews.items.length > 0 ? (
+              <div className="view-more">
+                <p
+                  style={{
+                    color: "#8c61ff",
+                    textDecoration: "underline",
+                    cursor: "pointer",
+                  }}
+                  onClick={showMore}
+                >
+                  {limitTo.expanded ? (
+                    <span>Show less</span>
+                  ) : (
+                    <span>Show more</span>
+                  )}
+                </p>
+              </div>
+            ) : null}
           </div>
         </div>
       </section>

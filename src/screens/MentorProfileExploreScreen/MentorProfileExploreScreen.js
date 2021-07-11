@@ -218,30 +218,42 @@ const MentorProfileExploreScreen = ({ match }) => {
         <div className="container">
           <h4>Reviews</h4>
           <div className="row">
-            {data && data.topReviewsId && data.topReviewsId.length > 0
-              ? data.topReviewsId
-                  .slice(0, limitTo)
-                  .map((review) => (
-                    <Reviews
-                      review={review}
-                      path="mentorProfile"
-                      key={review._id}
-                    ></Reviews>
-                  ))
-              : "No Reviews yet"}
+            {data && data.topReviewsId && data.topReviewsId.length > 0 ? (
+              data.topReviewsId
+                .slice(0, limitTo)
+                .map((review) => (
+                  <Reviews
+                    review={review}
+                    path="mentorProfile"
+                    key={review._id}
+                  ></Reviews>
+                ))
+            ) : (
+              <ErrorMessage
+                style={{
+                  color: "#004085",
+                  backgroundColor: "#cce5ff",
+                  borderColor: "#b8daff",
+                }}
+              >
+                No reviews yet
+              </ErrorMessage>
+            )}
           </div>
-          <div className="view-more">
-            <p
-              style={{
-                color: "#8c61ff",
-                textDecoration: "underline",
-                cursor: "pointer",
-              }}
-              onClick={onLoadMore}
-            >
-              View more reviews
-            </p>
-          </div>
+          {data && data.topReviewsId && data.topReviewsId.length > 0 ? (
+            <div className="view-more">
+              <p
+                style={{
+                  color: "#8c61ff",
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                }}
+                onClick={onLoadMore}
+              >
+                View more reviews
+              </p>
+            </div>
+          ) : null}
         </div>
       </section>
 

@@ -29,7 +29,7 @@ const BalanceMentor = () => {
           <div className="dashboard-balance-box">
             <p>Current Balance</p>
             <div className="price">
-              {formatter.format(data.items[0].balance)} EGP
+              {formatter.format(data.items[0].balance / 100)} EGP
             </div>
           </div>
         </>
