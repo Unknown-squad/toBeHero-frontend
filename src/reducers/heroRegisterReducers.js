@@ -10,11 +10,11 @@ export const heroRegisterReducer = (state = {}, action) => {
     case HERO_REGISTER_REQUEST:
       return { loading: true };
     case HERO_REGISTER_SUCCESS:
-      return { loading: false, data: action.payload };
+      return { loading: false, success: true, data: action.payload };
     case HERO_REGISTER_FAIL:
       return { loading: false, error: action.payload };
     case HERO_REGISTER_RESET_ERROR:
-      return { ...state, error: "" };
+      return {};
     default:
       return state;
   }

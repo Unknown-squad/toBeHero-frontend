@@ -51,7 +51,15 @@ const ExploreScreen = ({ location, history }) => {
           {loading ? (
             <Loader></Loader>
           ) : error ? (
-            <ErrorMessage>{error}</ErrorMessage>
+            <ErrorMessage
+              style={{
+                color: "#004085",
+                backgroundColor: "#cce5ff",
+                borderColor: "#b8daff",
+              }}
+            >
+              {error}
+            </ErrorMessage>
           ) : (
             <>
               <div className="row">

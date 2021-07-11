@@ -34,8 +34,8 @@ const GuardianHerosColumn = () => {
               >
                 <LazyLoadImage
                   src={`${process.env.REACT_APP_DOMAIN_MEDIA}${child.picture}`}
-                  width="40"
-                  height="40"
+                  width="76"
+                  height="76"
                   alt=""
                   onError={(e) => {
                     e.target.onerror = null;

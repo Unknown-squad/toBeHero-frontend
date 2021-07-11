@@ -141,13 +141,13 @@ const GuardianSettingsForm = () => {
                 />
               </div>
               <div className="input-field">
-                <label htmlFor="re-password">re-Password</label>
+                <label htmlFor="re-password">Confirm Password</label>
                 <br />
                 <input
                   type="password"
                   id="re-password"
                   name="password"
-                  placeholder="Enter your password"
+                  placeholder="Confirm your password"
                   required
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}

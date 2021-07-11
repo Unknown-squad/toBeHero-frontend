@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import GuardianHomeHeader from "../../components/GuardianHomeHeader";
 import Footer from "../../components/Footer";
 import GuardianHerosColumn from "../../components/GuardianHerosColumn";
@@ -7,7 +7,13 @@ import GuardianAddNewChildForm from "../../components/GuardianAddNewChildForm";
 
 import "./GuardianHomeAddNewChildScreen.scss";
 import Meta from "../../components/Meta";
+import { useDispatch } from "react-redux";
+import { HERO_REGISTER_RESET_ERROR } from "../../constants/heroRegisterConstants";
 const GuardianHomeAddNewChildScreen = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({ type: HERO_REGISTER_RESET_ERROR });
+  }, [dispatch]);
   return (
     <>
       <Meta title="Guardian | Add New Child"></Meta>
@@ -20,7 +26,9 @@ const GuardianHomeAddNewChildScreen = () => {
             <div className="basic-info-child">
               <Route
                 path="/guardian/home/addchild"
-                component={GuardianAddNewChildForm}
+                component={() => (
+                  <GuardianAddNewChildForm></GuardianAddNewChildForm>
+                )}
               ></Route>
             </div>
           </div>

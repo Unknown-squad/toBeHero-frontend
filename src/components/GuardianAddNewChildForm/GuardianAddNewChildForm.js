@@ -11,8 +11,9 @@ import { guardianGetChildrenActions } from "../../actions/guardianGetChildrenAct
 import Loader from "../Loader";
 import ErrorMessage from "../ErrorMessage";
 import SuccessMessage from "../SuccessMessage";
-
+import { useHistory } from "react-router";
 const GuardianAddNewChildForm = () => {
+  let history = useHistory();
   const [fullName, setFullName] = useState("");
   const [userName, setUserName] = useState("");
   const [birthDate, setBirthDate] = useState("");
@@ -23,19 +24,19 @@ const GuardianAddNewChildForm = () => {
     setPicture(URL.createObjectURL(e.target.files[0]));
   };
   const heroRegister = useSelector((state) => state.heroRegister);
-  const { loading, error, data } = heroRegister;
+  const { loading, error, success, data } = heroRegister;
   const dispatch = useDispatch();
   useEffect(() => {
-    if (data) {
+    if (success) {
       setFullName("");
       setUserName("");
       setBirthDate("");
       setPassword("");
       //   setPicture('')
-      dispatch({ type: HERO_REGISTER_RESET_ERROR });
+      // dispatch({ type: HERO_REGISTER_RESET_ERROR });
     }
     dispatch(guardianGetChildrenActions());
-  }, [dispatch, data]);
+  }, [dispatch, success, history]);
   const handleSubmit = (e) => {
     e.preventDefault();
     const dataArray = new FormData();
@@ -50,8 +51,9 @@ const GuardianAddNewChildForm = () => {
           dataArray,
         })
       ),
-      dispatch(guardianGetChildrenActions()),
+      // dispatch(guardianGetChildrenActions()),
     ]);
+    // history.push("/guardian/home");
   };
 
   return (
@@ -60,7 +62,7 @@ const GuardianAddNewChildForm = () => {
         <Loader></Loader>
       ) : error ? (
         <ErrorMessage>{error}</ErrorMessage>
-      ) : data && !error ? (
+      ) : success && !error ? (
         <SuccessMessage>Child data added successfully.</SuccessMessage>
       ) : null}
       <form className="basic-info-form add-new-form" onSubmit={handleSubmit}>
@@ -82,7 +84,7 @@ const GuardianAddNewChildForm = () => {
               />
             </div>
             <div className="input-field">
-              <label htmlFor="email">Child userbname</label>
+              <label htmlFor="email">Child username</label>
               <br />
 
               <input
