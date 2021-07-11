@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getSubscriptionsForChildHomeActions } from "../../actions/getSubscriptionsForChildHomeActions";
 
 import ErrorMessage from "../ErrorMessage";
+import HeroClassroomSubscriptionCard from "../HeroClassroomSubscriptionCard";
 import Loader from "../Loader";
-import HeroClassroomSubscriptionCar from "../HeroClassroomSubscriptionCard";
 const HeroClassroom = ({ match }) => {
   const getSubscriptionsForChildHome = useSelector(
     (state) => state.getSubscriptionsForChildHome
