@@ -225,11 +225,11 @@ const MentorCourseControlScreen = () => {
                                   appointment.cancel ? { display: "none" } : {}
                                 }
                               >
-                                <Link
-                                  to={`/mentor/live/${subscriptionId}/${appointment._id}/${appointment.title}`}
-                                >
-                                  <button>go live</button>
-                                </Link>
+                           
+                                  <button  onClick={() =>
+                                  (document.location.href = `/mentor/live/${subscriptionId}/${appointment._id}/${appointment.title}`)
+                                }>go live</button>
+                          
                               </div>
                             </div>
                           ) : Date.now() > Date.parse(appointment.date) ? (

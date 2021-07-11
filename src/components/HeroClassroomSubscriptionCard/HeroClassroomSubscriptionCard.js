@@ -4,10 +4,12 @@ import cardHero from "../../images/card-hero.png";
 import uploadPicture from "../../images/upload-picture.svg";
 import { Link } from "react-router-dom";
 import SuccessMessage from "../SuccessMessage";
+import { useHistory } from "react-router";
 
 const socket = io.connect(`${process.env.REACT_APP_SOCKET_SERVER_DOMAIN}`);
 
 const HeroClassroomSubscriptionCard = ({ course, subscriptionId }) => {
+  let history = useHistory();
   const [active, setActive] = useState(false);
 
   useEffect(() => {
@@ -77,15 +79,19 @@ const HeroClassroomSubscriptionCard = ({ course, subscriptionId }) => {
                           </div>
 
                           <div className="appointment-sub-item appointment-button active">
-                            <Link
+                            {/* <Link
                               to={`/hero/live/${course._id}/${appointment._id}/${appointment.title}`}
-                            >
-                              <div className="guardian-live-btn active">
-                                <button>
-                                  Join live <span></span>
-                                </button>
-                              </div>
-                            </Link>
+                            > */}
+                            <div className="guardian-live-btn active">
+                              <button
+                                onClick={() =>
+                                  (document.location.href = `/hero/live/${course._id}/${appointment._id}/${appointment.title}`)
+                                }
+                              >
+                                Join live <span></span>
+                              </button>
+                            </div>
+                            {/* </Link> */}
                           </div>
                         </div>
                       </>

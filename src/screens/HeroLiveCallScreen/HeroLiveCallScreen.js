@@ -42,7 +42,8 @@ const HeroLiveCallScreen = () => {
     if (!data.items[0].mentorId.fullName) {
       dispatch(getSubscriptionsForChildHomeActions());
     }
-
+    // window.location.reload();
+    // history.go(0);
     // =========================
 
     history.listen((navData) => {
@@ -60,6 +61,7 @@ const HeroLiveCallScreen = () => {
 
     socket.on("me", (id) => {
       setMe(id);
+      console.log(id, "+");
     });
 
     socket.emit(`hero-send-id`, subscriptionId);
