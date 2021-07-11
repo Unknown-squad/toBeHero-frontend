@@ -81,7 +81,12 @@ const MentorCourseControlLiveScreen = () => {
       setCaller(data.from);
       setCallerSignal(data.signal);
     });
-  }, [dispatch, subscriptionId, data, appointmentId]);
+    history.listen((navData) => {
+      if (navData.pathname === "/mentor/home") {
+        history.go(0);
+      }
+    });
+  }, [dispatch, subscriptionId, data, appointmentId, history]);
 
   // ==== video call functions ====
 
