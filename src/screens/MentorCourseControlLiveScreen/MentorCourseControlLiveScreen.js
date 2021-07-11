@@ -58,11 +58,18 @@ const MentorCourseControlLiveScreen = () => {
       dispatch(mentorGetControlCourseDetailsActions(subscriptionId));
     }
 
+    navigator.mediaDevices
+      .getUserMedia({ video: true, audio: true })
+      .then((stream) => {
+        setStream(stream);
+        myVideo.current.srcObject = stream;
+      });
+
     socket.on("me", (id) => {
       setMe(id);
     });
 
-    // console.log(subscriptionId);
+    console.log(subscriptionId);
     socket.emit(`mentor-in`, subscriptionId, appointmentId);
 
     socket.on(`subscription${subscriptionId}`, (heroId) => {
@@ -79,13 +86,6 @@ const MentorCourseControlLiveScreen = () => {
   // ==== video call functions ====
 
   const callUser = (id) => {
-    navigator.mediaDevices
-      .getUserMedia({ video: true, audio: true })
-      .then((stream) => {
-        setStream(stream);
-        myVideo.current.srcObject = stream;
-      });
-
     const peer = new Peer({
       initiator: true,
       trickle: false,
@@ -187,46 +187,48 @@ const MentorCourseControlLiveScreen = () => {
           <div className="row">
             <div className="col-xl-9 col-lg-8 col-12">
               <div className="mentor-control-live">
-                <div className="container">
-                  <div className="video-container">
-                    <div
-                      className="video"
-                      style={{ fontSize: "24px", color: "white" }}
-                    >
-                      <h4>Mentor</h4>
-                      {stream && (
-                        <video
-                          playsInline
-                          muted
-                          ref={myVideo}
-                          autoPlay
-                          style={{ width: "300px" }}
-                        />
-                      )}
-                    </div>
-                    <div
-                      className="video"
-                      style={{ fontSize: "24px", color: "white" }}
-                    >
-                      <h4>Hero</h4>
-                      {callAccepted && !callEnded ? (
-                        <video
-                          playsInline
-                          ref={userVideo}
-                          autoPlay
-                          style={{ width: "300px" }}
-                        />
-                      ) : null}
-                    </div>
+                <div className="video-container" id="videoContainer">
+                  <div
+                    className="video"
+                    id="videoMentor"
+                    style={{ fontSize: "24px", color: "white" }}
+                  >
+                    <h4>Mentor</h4>
+                    {stream && (
+                      <video
+                        width="500"
+                        height="300"
+                        playsInline
+                        muted
+                        ref={myVideo}
+                        autoPlay
+                        // style={{ width: "300px" }}
+                      />
+                    )}
                   </div>
-                  <div>
-                    {receivingCall && !callAccepted ? (
-                      <div className="caller">
-                        <h1>Mentor is calling...</h1>
-                        <button onClick={answerCall}>Answer</button>
-                      </div>
+                  <div
+                    className="video"
+                    id="videoHero"
+                    style={{ fontSize: "24px", color: "white" }}
+                  >
+                    <h4>Hero</h4>
+                    {callAccepted && !callEnded ? (
+                      <video
+                        playsInline
+                        ref={userVideo}
+                        autoPlay
+                        style={{ width: "300px" }}
+                      />
                     ) : null}
                   </div>
+                </div>
+                <div>
+                  {receivingCall && !callAccepted ? (
+                    <div className="caller">
+                      <h1>Mentor is calling...</h1>
+                      <button onClick={answerCall}>Answer</button>
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </div>
