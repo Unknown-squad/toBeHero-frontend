@@ -64,7 +64,7 @@ const CoursesMentor = () => {
           ))
         )}
       </div>
-      <div className="create-new">
+      <div className="create-new" style={{marginTop: '1rem'}}>
         <Link to="course/create">
           <button className="btn btn-purple-400">
             Create new <i className="fas fa-plus"></i>
