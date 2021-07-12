@@ -143,61 +143,48 @@ const HeroLiveCallScreen = () => {
           </div>
           <div className="row">
             <div className="col-xl-9 col-lg-8 col-12">
-              <div className="mentor-control-live">
-                <div className="container">
-                  <div className="video-container">
-                    <div
-                      className="video"
-                      style={{ fontSize: "24px", color: "white" }}
-                    >
-                      <h4>Hero</h4>
-                      {stream && (
-                        <video
-                          playsInline
-                          muted
-                          ref={myVideo}
-                          autoPlay
-                          style={{ width: "300px" }}
-                        />
-                      )}
-                    </div>
-                    <div
-                      className="video"
-                      style={{ fontSize: "24px", color: "white" }}
-                    >
-                      <h4>Mentor</h4>
-                      {callAccepted && !callEnded ? (
-                        <video
-                          playsInline
-                          ref={userVideo}
-                          autoPlay
-                          style={{ width: "300px" }}
-                        />
-                      ) : null}
-                    </div>
+              <div className="mentor-control-live" id="mentorControlLive">
+                <div className="video-container" id="HerovideoContainer">
+                  <div className="video" id="HerovideoHero">
+                    {stream && (
+                      <video playsInline muted ref={myVideo} autoPlay />
+                    )}
                   </div>
-                  <div className="myId">
-                    <div className="call-button">
-                      {callAccepted && !callEnded ? (
-                        <button onClick={leaveCall}>End Call</button>
-                      ) : null}
-                      {idToCall}
-                    </div>
-                  </div>
-                  <div>
-                    {receivingCall && !callAccepted ? (
-                      <div className="caller">
-                        <h1>Mentor is calling...</h1>
-                        <button
-                          variant="contained"
-                          color="primary"
-                          onClick={answerCall}
-                        >
-                          Answer
-                        </button>
-                      </div>
+                  <div className="video" id="HerovideoMentor">
+                    {callAccepted && !callEnded ? (
+                      <video playsInline ref={userVideo} autoPlay />
                     ) : null}
                   </div>
+                </div>
+                <div className="myId">
+                  <div className="call-button">
+                    {callAccepted && !callEnded ? (
+                      <button
+                        className="btn btn-start"
+                        style={{
+                          backgroundColor: "#bb4444",
+                          borderRadius: "10px",
+                        }}
+                        onClick={leaveCall}
+                      >
+                        End Call
+                      </button>
+                    ) : null}
+                    {idToCall}
+                  </div>
+                </div>
+                <div>
+                  {receivingCall && !callAccepted ? (
+                    <div className="caller">
+                      <h1>Mentor is calling...</h1>
+                      <button
+                        className="btn btn-purple-400 btn-start"
+                        onClick={answerCall}
+                      >
+                        Answer
+                      </button>
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </div>
@@ -218,9 +205,9 @@ const HeroLiveCallScreen = () => {
                   </form>
                 </div>
                 <div className="start-cancel-session">
-                  <button className="btn btn-purple-400 btn-start">
+                  {/* <button className="btn btn-purple-400 btn-start">
                     Join now<span></span>
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>

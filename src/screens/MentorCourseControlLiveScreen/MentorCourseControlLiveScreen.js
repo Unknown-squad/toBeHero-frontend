@@ -191,18 +191,11 @@ const MentorCourseControlLiveScreen = () => {
           </div>
           <div className="row">
             <div className="col-xl-9 col-lg-8 col-12">
-              <div className="mentor-control-live">
+              <div className="mentor-control-live" id="mentorControlLive">
                 <div className="video-container" id="videoContainer">
-                  <div
-                    className="video"
-                    id="videoMentor"
-                    style={{ fontSize: "24px", color: "white" }}
-                  >
-                    <h4>Mentor</h4>
+                  <div className="video" id="videoMentor">
                     {stream && (
                       <video
-                        width="500"
-                        height="300"
                         playsInline
                         muted
                         ref={myVideo}
@@ -216,14 +209,8 @@ const MentorCourseControlLiveScreen = () => {
                     id="videoHero"
                     style={{ fontSize: "24px", color: "white" }}
                   >
-                    <h4>Hero</h4>
                     {callAccepted && !callEnded ? (
-                      <video
-                        playsInline
-                        ref={userVideo}
-                        autoPlay
-                        style={{ width: "300px" }}
-                      />
+                      <video playsInline ref={userVideo} autoPlay />
                     ) : null}
                   </div>
                 </div>
@@ -285,7 +272,7 @@ const MentorCourseControlLiveScreen = () => {
                           start live now <span></span>
                         </button>
                       )}
-                      {idToCall}
+                      {/* {idToCall} */}
                     </div>
                   </div>
 

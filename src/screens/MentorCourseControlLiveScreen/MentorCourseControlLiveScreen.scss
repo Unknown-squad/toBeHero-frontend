@@ -295,24 +295,38 @@
 }
 /*end page Mentor course control*/
 
-#videoContainer {
-  border: 1px solid red;
-  width: 100%;
-  height: 100%;
-}
-#videoMentor {
-  height: 100%;
-  width: 100%;
-  video {
-    margin: 30;
-    width: 80%;
-    max-height: 700px;
-  }
+#mentorControlLive {
+  max-height: 700px;
 }
 
 #videoContainer {
+  // border: 1px solid rgb(17, 0, 255);
+  width: 100%;
+  height: 100%;
+}
+#videoHero {
+  // border: 1px solid rgb(32, 136, 0);
+  height: 100%;
+  border-radius: 15px;
   video {
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+  }
+}
+
+#videoMentor {
+  width: 35%;
+  position: relative;
+  video {
+    width: 100%;
+    position: absolute;
+    border-radius: 15px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #mentorControlLive {
+    max-height: 400px;
   }
 }

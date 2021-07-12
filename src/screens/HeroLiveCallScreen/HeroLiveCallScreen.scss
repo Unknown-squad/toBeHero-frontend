@@ -295,3 +295,39 @@
   /*end mentor course control live */
 }
 /*end page Mentor course control*/
+
+#mentorControlLive {
+  max-height: 700px;
+}
+
+#HerovideoContainer {
+  // border: 1px solid rgb(17, 0, 255);
+  width: 100%;
+  height: 100%;
+}
+#HerovideoMentor {
+  // border: 1px solid rgb(32, 136, 0);
+  height: 100%;
+  border-radius: 15px;
+  video {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+  }
+}
+
+#HerovideoHero {
+  width: 35%;
+  position: relative;
+  video {
+    width: 100%;
+    position: absolute;
+    border-radius: 15px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #mentorControlLive {
+    max-height: 400px;
+  }
+}
