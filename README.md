@@ -47,17 +47,8 @@ our project contains more than 20 screens, Here is a list of some screens:
   <img alt="" src="./images-readme/unknown.png" width="" height="">
 </p>
 
-<p align="center" style="display:grid; grid-template-columns: repeat(4, 1fr); justify-content:center; align-items:center; gap:10px;" >
-  <img alt="" src="./images-readme/unknown2.png" width="" height="">
-  <img alt="" src="./images-readme/unknown3.png" width="" height="">
-  <img alt="" src="./images-readme/unknown4.png" width="" height="">
-  <img alt="" src="./images-readme/unknown5.png" width="" height="">
-  <img alt="" src="./images-readme/unknown6.png" width="" height="">
-  <img alt="" src="./images-readme/unknown7.png" width="" height="">
-  <img alt="" src="./images-readme/unknown8.png" width="" height="">
-  <img alt="" src="./images-readme/unknown9.png" width="" height="">
-  <img alt="" src="./images-readme/unknown10.png" width="" height="">
-  <img alt="" src="./images-readme/unknown11.png" width="" height="">
+<p align="center">
+  <img alt="" src="./images-readme/unknown2.png" width="25%" height=""><img alt="" src="./images-readme/unknown3.png" width="25%" height=""><img alt="" src="./images-readme/unknown4.png" width="25%" height=""><img alt="" src="./images-readme/unknown5.png" width="25%" height=""><img alt="" src="./images-readme/unknown6.png" width="25%" height=""><img alt="" src="./images-readme/unknown7.png" width="25%" height=""><img alt="" src="./images-readme/unknown8.png" width="25%" height=""><img alt="" src="./images-readme/unknown9.png" width="25%" height=""><img alt="" src="./images-readme/unknown10.png" width="25%" height=""><img alt="" src="./images-readme/unknown11.png" width="25%" height="">
   </p>
 
 <p id="Features">
