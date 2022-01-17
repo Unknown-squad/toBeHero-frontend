@@ -8,15 +8,12 @@
 <a href="https://tobehero.codes/">
 <img alt="Website" src="https://img.shields.io/website-down-down-red-red/http/shields.io.svg">
 </a>
-
 <a href="https://github.com/Unknown-squad/toBeHero-frontend/blob/develop/LICENSE">
 <img alt="manifest version" src="https://img.shields.io/badge/License-Apache_2.0-blue.svg">
 </a>
-
 <a href="https://github.com/Unknown-squad/toBeHero-frontend/graphs/contributors">
 <img alt="manifest version" src="https://img.shields.io/badge/contributors-4-brightgreen">
 </a>
-
 <a href="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat">
 <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat">
 </a>
@@ -54,6 +51,12 @@ our project contains more than 20 screens, Here is a list of some screens:
 <p id="Features">
 
 ## 💥 Features
+
+- 📱 Mobile friendly
+- 📸 Uploading photos
+- 📺 Video call
+- 🔐 Authentication and Authorization
+- 💲Payment system with Stripe
 
 </p>
 
