@@ -2,6 +2,9 @@
   "name": "tobehero",
   "version": "0.1.0",
   "private": true,
+   "engines": {
+    "node": "14.16.1"
+  },
   "dependencies": {
     "@pathofdev/react-tag-input": "^1.0.7",
     "@stripe/react-stripe-js": "^1.4.1",
